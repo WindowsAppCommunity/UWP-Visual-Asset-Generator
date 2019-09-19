@@ -11,7 +11,8 @@
     xmlns:uc="using:UWP_Visual_Asset_Generator.UserControls"
     xmlns:interactivity="using:Microsoft.Xaml.Interactivity"  
     xmlns:behaviors="using:Microsoft.Toolkit.Uwp.UI.Animations.Behaviors"
-    Loaded="Page_Loaded">
+    Loaded="Page_Loaded"
+    Background="{ThemeResource SystemControlAcrylicWindowBrush}">
 
 
     <Page.Resources>
@@ -80,7 +81,7 @@
                 </DataTemplate>
             </NavigationView.HeaderTemplate>
 
-            <Frame x:Name="ContentFrame" Background="{ThemeResource SystemControlAcrylicWindowBrush}">
+            <Frame x:Name="ContentFrame" >
 
                 <Grid>
                     <Grid.RowDefinitions>
@@ -89,10 +90,20 @@
                     </Grid.RowDefinitions>
 
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="400"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
 
+                    <Grid Grid.Row="0"
+                          Grid.ColumnSpan="2">
+                        <TextBlock Text="{x:Bind mainViewModel.Settings.AppName, Mode=OneWay}"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Left"
+                                   Style="{ThemeResource CaptionTextBlockStyle}"
+                                   Margin="8,0"
+                                   FontStyle="Italic"/>
+                    </Grid>
+                    
                     <uc:SidebarUserControl Grid.Row="1"
                                            Grid.Column="0"/>
 
