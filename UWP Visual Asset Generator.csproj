@@ -123,11 +123,20 @@
     <Compile Include="MVVM\BindableBase.cs" />
     <Compile Include="MVVM\ValleyBaseViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserControls\AssetBrowserUserControl.xaml.cs">
+      <DependentUpon>AssetBrowserUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\AssetEditUserControl.xaml.cs">
+      <DependentUpon>AssetEditUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\FeedbackUserControl.xaml.cs">
       <DependentUpon>FeedbackUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\GettingStartedUserControl.xaml.cs">
       <DependentUpon>GettingStartedUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\SidebarUserControl.xaml.cs">
+      <DependentUpon>SidebarUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\WelcomeUserControl.xaml.cs">
       <DependentUpon>WelcomeUserControl.xaml</DependentUpon>
@@ -220,6 +229,14 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="UserControls\AssetBrowserUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\AssetEditUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControls\FeedbackUserControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -227,6 +244,10 @@
     <Page Include="UserControls\GettingStartedUserControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\SidebarUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\WelcomeUserControl.xaml">
       <Generator>MSBuild:Compile</Generator>

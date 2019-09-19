@@ -22,6 +22,7 @@ namespace UWP_Visual_Asset_Generator.ViewModels
         
         private bool _showFeedbackControl = false;
         private bool _showGettingStartedControl = false;
+        private bool _showEditCurrentImage = false;
 
         private const string WinStoreProductID = "9MZ6QRQTDKF2";
 
@@ -54,6 +55,18 @@ namespace UWP_Visual_Asset_Generator.ViewModels
             {
                 _showGettingStartedControl = value;
                 NotifyPropertyChanged("ShowGettingStartedControl");
+            }
+        }
+        public bool ShowEditCurrentImage
+        {
+            get
+            {
+                return _showEditCurrentImage;
+            }
+            set
+            {
+                _showEditCurrentImage = value;
+                NotifyPropertyChanged("ShowEditCurrentImage");
             }
         }
 

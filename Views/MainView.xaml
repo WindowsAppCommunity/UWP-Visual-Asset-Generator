@@ -83,7 +83,25 @@
             <Frame x:Name="ContentFrame" Background="{ThemeResource SystemControlAcrylicWindowBrush}">
 
                 <Grid>
-                    
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="32"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <uc:SidebarUserControl Grid.Row="1"
+                                           Grid.Column="0"/>
+
+                    <uc:AssetBrowserUserControl Grid.Row="1"
+                                                Grid.Column="1"/>
+
+                    <uc:AssetBrowserUserControl Grid.Row="1"
+                                                Grid.Column="1"
+                                                Visibility="{x:Bind mainViewModel.ShowEditCurrentImage, Mode=OneWay}"/>
                 </Grid>
 
             </Frame>
@@ -92,7 +110,7 @@
                 <ItemsControl>
                     <NavigationViewItem Content="{x:Bind mainViewModel.Settings.AppVersion, Mode=OneWay}" 
                                         Icon="World"
-                                        Visibility="Collapsed"/>
+                                        Visibility="Visible"/>
                     <NavigationViewItem Content="Welcome" 
                                         Icon="Home"
                                         x:Name="hmi_ShowWelcomeUSerControl"
