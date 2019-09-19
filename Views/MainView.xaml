@@ -32,7 +32,7 @@
 
     <Grid>
       
-        <Grid>
+        <Grid Tag="Main Content Area">
             <Grid.RowDefinitions>
                 <RowDefinition Height="32"/>
                 <RowDefinition Height="*"/>
@@ -60,9 +60,9 @@
             <uc:AssetBrowserUserControl Grid.Row="1"
                                         Grid.Column="1"/>
 
-            <uc:AssetBrowserUserControl Grid.Row="1"
-                                        Grid.Column="1"
-                                        Visibility="{x:Bind mainViewModel.ShowEditCurrentImage, Mode=OneWay}"/>
+            <uc:AssetEditUserControl Grid.Row="1"
+                                     Grid.Column="1"
+                                     Visibility="{x:Bind mainViewModel.ShowEditCurrentImage, Mode=OneWay}"/>
             <CommandBar Grid.Row="2"
                         Grid.ColumnSpan="2">
                 <AppBarButton Label="Welcome" 
@@ -131,8 +131,7 @@
             </animations:Implicit.HideAnimations>
         </uc:FeedbackUserControl>
 
-        <controls:Loading  
-                          IsLoading="{x:Bind mainViewModel.Thinking, Mode=OneWay}"
+        <controls:Loading IsLoading="{x:Bind mainViewModel.Thinking, Mode=OneWay}"
                           Background="{ThemeResource SystemControlBackgroundAccentBrush}" 
                           Opacity="0.8" 
                           Margin="0">
@@ -145,10 +144,10 @@
                                           VerticalAlignment="Center"
                                           HorizontalAlignment="Center"
                                           Grid.Row="0"
-                       Margin="12" >
+                                          Margin="12" >
                     <Image Source="/Assets/SmallTile.scale-200.png" 
-                       Height="100" 
-                       x:Name="LoadingLogo"/>
+                           Height="100" 
+                           x:Name="LoadingLogo"/>
                 </controls:DropShadowPanel>
 
                 <controls:DropShadowPanel BlurRadius="8"
@@ -161,9 +160,9 @@
                                           Margin="8">
 
                     <TextBlock Text="{x:Bind mainViewModel.ThinkingText, Mode=OneWay}" 
-                           Style="{StaticResource SubtitleTextBlockStyle}" 
-                           x:Name="tbLoadingText" TextAlignment="Center"
-                           VerticalAlignment="Center" MinWidth="180"/>
+                               Style="{StaticResource SubtitleTextBlockStyle}" 
+                               x:Name="tbLoadingText" TextAlignment="Center"
+                               VerticalAlignment="Center" MinWidth="180"/>
                 </controls:DropShadowPanel>
             </StackPanel>
         </controls:Loading>

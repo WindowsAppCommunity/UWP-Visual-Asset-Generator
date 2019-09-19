@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using UWP_Visual_Asset_Generator.ViewModels;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -19,9 +20,12 @@ namespace UWP_Visual_Asset_Generator.UserControls
 {
     public sealed partial class SidebarUserControl : UserControl
     {
+        public MainViewModel mainViewModel { get; set; }
+
         public SidebarUserControl()
         {
             this.InitializeComponent();
+            mainViewModel = App.mainViewModel;
         }
     }
 }
