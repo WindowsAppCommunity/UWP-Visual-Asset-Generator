@@ -1,0 +1,188 @@
+﻿<Page
+    x:Class="UWP_Visual_Asset_Generator.Views.MainView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:UWP_Visual_Asset_Generator.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:animations="using:Microsoft.Toolkit.Uwp.UI.Animations"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:uc="using:UWP_Visual_Asset_Generator.UserControls"
+    xmlns:interactivity="using:Microsoft.Xaml.Interactivity"  
+    xmlns:behaviors="using:Microsoft.Toolkit.Uwp.UI.Animations.Behaviors"
+    Loaded="Page_Loaded">
+
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <DataTemplate x:Key="hmi_Text" x:DataType="NavigationViewItem">
+                <Grid HorizontalAlignment="Stretch" Height="32" Padding="0" Margin="-12,0,0,0" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="48" />
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Grid.Column="0" 
+                           Margin="0,0,4,0"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"
+                           TextAlignment="Center"
+                           FontFamily="Segoe UI Emoji"
+                           Text="{Binding Icon, Mode=OneWay}" />
+                    <TextBlock Grid.Column="1" 
+                           Margin="4,0,4,0"
+                           VerticalAlignment="Center" 
+                           Text="{Binding Title, Mode=OneWay}" />
+                </Grid>
+            </DataTemplate>
+
+            <Storyboard x:Name="animationOpacityPulse" >
+                <DoubleAnimation Storyboard.TargetName="LoadingLogo"
+                                             Storyboard.TargetProperty="Opacity"
+                                             From="1"
+                                             To="0.5" 
+                                             Duration="0:0:1"
+                                             AutoReverse="True" 
+                                             RepeatBehavior="Forever"
+                                             >
+
+                </DoubleAnimation>
+            </Storyboard>
+
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <Grid>
+        <NavigationView
+            IsSettingsVisible="False" 
+            IsPaneOpen="False"
+            MenuItemTemplate="{StaticResource hmi_Text}"  
+            AlwaysShowHeader="False" 
+            CompactModeThresholdWidth="0"
+            ExpandedModeThresholdWidth="2500">
+
+            <NavigationView.HeaderTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Style="{StaticResource TitleTextBlockStyle}"
+                           FontSize="28"
+                           VerticalAlignment="Center"
+                           Margin="12,0"
+                           Text=""/>
+
+                    </Grid>
+                </DataTemplate>
+            </NavigationView.HeaderTemplate>
+
+            <Frame x:Name="ContentFrame" Background="{ThemeResource SystemControlAcrylicWindowBrush}">
+
+                <Grid>
+                    
+                </Grid>
+
+            </Frame>
+
+            <NavigationView.PaneFooter>
+                <ItemsControl>
+                    <NavigationViewItem Content="{x:Bind mainViewModel.Settings.AppVersion, Mode=OneWay}" 
+                                        Icon="World"
+                                        Visibility="Collapsed"/>
+                    <NavigationViewItem Content="Welcome" 
+                                        Icon="Home"
+                                        x:Name="hmi_ShowWelcomeUSerControl"
+                                        Tapped="Hmi_ShowWelcomeUSerControl_Tapped"/>
+                    <NavigationViewItem Content="Help and Getting Started" 
+                                        Icon="Help"
+                                        x:Name="hmi_ShowGettingStartedControl"
+                                        Tapped="Hmi_ShowGettingStartedControl_Tapped"
+                                        Visibility="Collapsed"/>
+                    <NavigationViewItem Content="Feedback and Review"  x:Name="hmi_Feedback" Icon="Emoji2" Tapped="btn_Feedback_Tapped"/>
+                    <NavigationViewItem Content="Settings" Icon="Setting" x:Name="hmi_Settings" Tapped="abb_Settings_Tapped"/>
+                </ItemsControl>
+            </NavigationView.PaneFooter>
+        </NavigationView>
+
+        <uc:GettingStartedUserControl Visibility="{x:Bind mainViewModel.ShowGettingStartedControl, Mode=OneWay}">
+            <animations:Implicit.ShowAnimations>
+                <animations:OpacityAnimation Duration="0:0:0.5" From="0.0" To="1.0"/>
+            </animations:Implicit.ShowAnimations>
+
+            <animations:Implicit.HideAnimations>
+                <animations:OpacityAnimation Duration="0:0:0.5" From="1.0" To="0.0"/>
+            </animations:Implicit.HideAnimations>
+        </uc:GettingStartedUserControl>
+
+        <uc:WelcomeUserControl Visibility="{x:Bind mainViewModel.Settings.ShowWelcomePage, Mode=OneWay}">
+            <animations:Implicit.ShowAnimations>
+                <animations:OpacityAnimation Duration="0:0:0.5" From="0.0" To="1.0"/>
+            </animations:Implicit.ShowAnimations>
+
+            <animations:Implicit.HideAnimations>
+                <animations:OpacityAnimation Duration="0:0:0.5" From="1.0" To="0.0"/>
+            </animations:Implicit.HideAnimations>
+        </uc:WelcomeUserControl>
+
+        <uc:WelcomeUserControl Visibility="{x:Bind mainViewModel.Settings.ShowUpdatePage, Mode=OneWay}">
+            <animations:Implicit.ShowAnimations>
+                <animations:OpacityAnimation Duration="0:0:0.5" From="0.0" To="1.0"/>
+            </animations:Implicit.ShowAnimations>
+
+            <animations:Implicit.HideAnimations>
+                <animations:OpacityAnimation Duration="0:0:0.5" From="1.0" To="0.0"/>
+            </animations:Implicit.HideAnimations>
+        </uc:WelcomeUserControl>
+
+        <uc:FeedbackUserControl x:Name="feedbackControl" Visibility="{x:Bind mainViewModel.ShowFeedbackControl, Mode=OneWay}">
+            <animations:Implicit.ShowAnimations>
+                <animations:OpacityAnimation Duration="0:0:0.5" From="0.0" To="1.0"/>
+            </animations:Implicit.ShowAnimations>
+
+            <animations:Implicit.HideAnimations>
+                <animations:OpacityAnimation Duration="0:0:0.5" From="1.0" To="0.0"/>
+            </animations:Implicit.HideAnimations>
+        </uc:FeedbackUserControl>
+
+        <controls:Loading  
+                          IsLoading="{x:Bind mainViewModel.Thinking, Mode=OneWay}"
+                          Background="{ThemeResource SystemControlBackgroundAccentBrush}" 
+                          Opacity="0.8" 
+                          Margin="0">
+            <StackPanel Padding="12">
+                <controls:DropShadowPanel BlurRadius="8"
+                                          ShadowOpacity="0.7"
+                                          OffsetX="2"
+                                          OffsetY="2"
+                                          Color="{ThemeResource SystemColorButtonFaceColor}"
+                                          VerticalAlignment="Center"
+                                          HorizontalAlignment="Center"
+                                          Grid.Row="0"
+                       Margin="12" >
+                    <Image Source="/Assets/SmallTile.scale-200.png" 
+                       Height="100" 
+                       x:Name="LoadingLogo"/>
+                </controls:DropShadowPanel>
+
+                <controls:DropShadowPanel BlurRadius="8"
+                                          ShadowOpacity="0.7"
+                                          OffsetX="2"
+                                          OffsetY="2"
+                                          Color="{ThemeResource SystemColorButtonFaceColor}"
+                                          VerticalAlignment="Center"
+                                          Grid.Row="0"
+                                          Margin="8">
+
+                    <TextBlock Text="{x:Bind mainViewModel.ThinkingText, Mode=OneWay}" 
+                           Style="{StaticResource SubtitleTextBlockStyle}" 
+                           x:Name="tbLoadingText" TextAlignment="Center"
+                           VerticalAlignment="Center" MinWidth="180"/>
+                </controls:DropShadowPanel>
+            </StackPanel>
+        </controls:Loading>
+    </Grid>
+</Page>

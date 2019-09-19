@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <DeviceId>30F105C9-681E-420b-A277-7C086EAD8A4E</DeviceId>
+    <UseEmulator>true</UseEmulator>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AppxShowAllApps>False</AppxShowAllApps>
+    <Source>C:\Users\rlmar\source\repos\UWP Visual Asset Generator\Images\Logo\V1\Logo.png</Source>
+    <SmallTileSource>C:\Users\rlmar\source\repos\UWP Visual Asset Generator\Images\Logo\V1\Logo.png</SmallTileSource>
+    <MediumTileSource>C:\Users\rlmar\source\repos\UWP Visual Asset Generator\Images\Logo\V1\Logo.png</MediumTileSource>
+    <WideTileSource>C:\Users\rlmar\source\repos\UWP Visual Asset Generator\Images\Logo\V1\Logo.png</WideTileSource>
+    <LargeTileSource>C:\Users\rlmar\source\repos\UWP Visual Asset Generator\Images\Logo\V1\Logo.png</LargeTileSource>
+    <AppIconSource>C:\Users\rlmar\source\repos\UWP Visual Asset Generator\Images\Logo\V1\Logo.png</AppIconSource>
+    <SplashScreenSource>C:\Users\rlmar\source\repos\UWP Visual Asset Generator\Images\Logo\V1\Logo.png</SplashScreenSource>
+    <PackageLogoSource>C:\Users\rlmar\source\repos\UWP Visual Asset Generator\Images\Logo\V1\Logo.png</PackageLogoSource>
+  </PropertyGroup>
+</Project>
