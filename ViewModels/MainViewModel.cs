@@ -26,6 +26,7 @@ namespace UWP_Visual_Asset_Generator.ViewModels
         private bool _showFeedbackControl = false;
         private bool _showGettingStartedControl = false;
         private bool _showEditCurrentImage = false;
+        private bool _previewWithAccentColour = false;
 
         private StorageFile _originalLogoFile;
         private ImageSource _originalLogoImageSource;
@@ -42,6 +43,27 @@ namespace UWP_Visual_Asset_Generator.ViewModels
         }
 
         #region public properties
+
+        public bool SaveEnabled
+        {
+            get
+            {
+                return (OutputFolder != null);
+            }
+        }
+
+        public bool PreviewWithAccentColour
+        {
+            get
+            {
+                return _previewWithAccentColour;
+            }
+            set
+            {
+                _previewWithAccentColour = value;
+                NotifyPropertyChanged("PreviewWithAccentColour");
+            }
+        }     
 
         public bool ShowFeedbackControl
         {
@@ -66,6 +88,7 @@ namespace UWP_Visual_Asset_Generator.ViewModels
             {
                 _outputFolder = value;
                 NotifyPropertyChanged("OutputFolder");
+                NotifyPropertyChanged("SaveEnabled");
             }
         }
 

@@ -65,6 +65,10 @@
                                      Visibility="{x:Bind mainViewModel.ShowEditCurrentImage, Mode=OneWay}"/>
             <CommandBar Grid.Row="2"
                         Grid.ColumnSpan="2">
+                <AppBarToggleButton Label="View Assets with Accent colour" 
+                              Icon="SolidStar"
+                              x:Name="hmi_ToggleAccentColour"
+                              Tapped="Hmi_ToggleAccentColour_Tapped"/>
                 <AppBarButton Label="Welcome" 
                               Icon="Home"
                               x:Name="hmi_ShowWelcomeUSerControl"

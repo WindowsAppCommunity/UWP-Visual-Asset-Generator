@@ -94,5 +94,15 @@ namespace UWP_Visual_Asset_Generator.Views
             mainViewModel.Settings.ShowWelcomePage = true;
             mainViewModel.Settings.ShowUpdatePage = true;
         }
+
+        private void Hmi_ToggleAccentColour_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            var s = sender as AppBarToggleButton;
+
+            if (s != null)
+            {
+                mainViewModel.PreviewWithAccentColour = Convert.ToBoolean(s.IsChecked);
+            }
+        }
     }
 }

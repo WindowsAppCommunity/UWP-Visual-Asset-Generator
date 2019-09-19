@@ -21,7 +21,7 @@
         
         <StackPanel HorizontalAlignment="Stretch">
             
-            <TextBlock Text="Original: (Tap or drop)"
+            <TextBlock Text="Original:"
                        Margin="4"/>
             
             <tkcon:ImageEx x:Name="image_Original"                         
@@ -33,6 +33,7 @@
                            AllowDrop="True"
                            Drop="Image_Original_Drop"
                            DragOver="Image_Original_DragOver"
+                           ToolTipService.ToolTip="Drop a PNG image here, or click to browse"
                            />
         </StackPanel>
 
@@ -93,6 +94,7 @@
                        HorizontalAlignment="Left"
                        TextAlignment="Left"
                        Margin="4"
+                      ToolTipService.ToolTip="Set the output folder"
                        />
 
             <Button Style="{StaticResource RoundedAcrylicWindowRevealButtonStyle}"
@@ -104,7 +106,9 @@
                     Width="60"
                     Height="60"
                     x:Name="btn_Save"
-                    Click="Btn_Save_Click"/>
+                    Click="Btn_Save_Click"
+                    ToolTipService.ToolTip="Save all assets to the output folder"
+                    IsEnabled="{x:Bind mainViewModel.SaveEnabled, Mode=OneWay}"/>
         </Grid>
 
     </Grid>

@@ -39,12 +39,17 @@
                             <RowDefinition Height="auto"/>
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
-                        
+
+                        <Grid Grid.RowSpan="2"
+                              Background="{ThemeResource SystemAccentColor}"
+                              x:Name="grdBackgroundAccentPreview"
+                              x:Load="{x:Bind mainViewModel.PreviewWithAccentColour, Mode=OneWay}"
+                              />
+
                         <TextBlock Text="{x:Bind Title, Mode=OneWay}"
                                    VerticalAlignment="Top"
                                    HorizontalAlignment="Center"
-                                   Margin="4"/>
-
+                                   Margin="4"/>                        
 
                         <tkcon:ImageEx    
                             Grid.Row="1"
