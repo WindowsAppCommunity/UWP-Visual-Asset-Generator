@@ -8,7 +8,8 @@
     mc:Ignorable="d"
     d:DesignHeight="800"
     d:DesignWidth="400"
-    xmlns:tkcon="using:Microsoft.Toolkit.Uwp.UI.Controls">
+    xmlns:tkcon="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:viewmodels="using:UWP_Visual_Asset_Generator.ViewModels">
 
     <Grid Background="{ThemeResource SystemControlAccentAcrylicWindowAccentMediumHighBrush}"
           Padding="8">
@@ -29,14 +30,43 @@
                            Stretch="Uniform"
                            PlaceholderStretch="Uniform"
                            PlaceholderSource="/Assets/SmallTile.scale-400.png"
-                           BorderBrush="Silver"
-                           BorderThickness="1.5"
                            AllowDrop="True"
                            Drop="Image_Original_Drop"
                            DragOver="Image_Original_DragOver"
                            />
         </StackPanel>
 
+        <ListView ItemsSource="{x:Bind mainViewModel.AssetTypes.Items, Mode=OneWay}"
+                  SelectedItem="{x:Bind mainViewModel.AssetTypes.Current, Mode=TwoWay}"
+                  IsMultiSelectCheckBoxEnabled="false"   
+                  SelectionMode="Single"
+                  HorizontalAlignment="Stretch"
+                  VerticalAlignment="Stretch" 
+                  Grid.Row="1">
+
+            <ListView.ItemContainerTransitions>
+                <TransitionCollection>
+                    <AddDeleteThemeTransition/>
+                </TransitionCollection>
+            </ListView.ItemContainerTransitions>
+
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
+                    <Setter Property="Padding" Value="4"></Setter>
+                    <Setter Property="Margin" Value="4"></Setter>
+                </Style>
+            </ListView.ItemContainerStyle>
+
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="viewmodels:AssetTypeViewModel" >
+                    <Grid BorderBrush="Gray">
+                        <TextBlock Text="{x:Bind Title, Mode=OneWay}"/>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto"/>

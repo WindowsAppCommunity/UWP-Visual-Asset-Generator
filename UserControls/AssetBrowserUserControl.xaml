@@ -5,11 +5,56 @@
     xmlns:local="using:UWP_Visual_Asset_Generator.UserControls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModels="using:UWP_Visual_Asset_Generator.ViewModels"
+    xmlns:tkcon="using:Microsoft.Toolkit.Uwp.UI.Controls"
     mc:Ignorable="d"
     d:DesignHeight="300"
     d:DesignWidth="400">
 
     <Grid Background="{ThemeResource SystemControlAcrylicWindowBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
 
+        <TextBlock Text="{x:Bind mainViewModel.AssetTypes.Current.Title, Mode=OneWay}"
+                   Margin="8,12"
+                   Style="{ThemeResource SubtitleTextBlockStyle}"/>
+
+        <GridView Grid.Row="1" 
+                  ItemsSource="{x:Bind mainViewModel.AssetTypes.Current.Assets.Items, Mode=OneWay}"
+                  SelectedItem="{x:Bind mainViewModel.AssetTypes.Current.Assets.Current, Mode=TwoWay}">
+            <GridView.ItemTemplate>
+                <DataTemplate x:DataType="viewModels:AssetViewModel">
+                    <Grid Margin="8"
+                          Padding="12"
+                          BorderBrush="Gray"
+                          BorderThickness="1.5"
+                          CornerRadius="2"
+                          Width="250"
+                          Height="250">
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        
+                        <TextBlock Text="{x:Bind Title, Mode=OneWay}"
+                                   VerticalAlignment="Top"
+                                   HorizontalAlignment="Center"
+                                   Margin="4"/>
+
+
+                        <tkcon:ImageEx    
+                            Grid.Row="1"
+                           Stretch="Uniform"
+                           PlaceholderStretch="Uniform"
+                           PlaceholderSource="/Assets/SmallTile.scale-400.png"
+                           />
+                    </Grid>
+                </DataTemplate>
+            </GridView.ItemTemplate>
+        </GridView>
     </Grid>
 </UserControl>

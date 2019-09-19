@@ -31,6 +31,8 @@ namespace UWP_Visual_Asset_Generator.ViewModels
         private ImageSource _originalLogoImageSource;
         private StorageFolder _outputFolder;
 
+        private AssetTypeListViewModel _assetTypes;
+
         private const string WinStoreProductID = "9MZ6QRQTDKF2";
 
         public MainViewModel()
@@ -127,6 +129,24 @@ namespace UWP_Visual_Asset_Generator.ViewModels
             {
                 _settings = value;
                 NotifyPropertyChanged("Settings");
+            }
+        }
+
+        public AssetTypeListViewModel AssetTypes
+        {
+            get
+            {
+                if (_assetTypes == null)
+                {
+                    _assetTypes = new AssetTypeListViewModel();
+                    _assetTypes.Load();
+                }
+                return _assetTypes;
+            }
+            set
+            {
+                _assetTypes = value;
+                NotifyPropertyChanged("AssetTypes");
             }
         }
 
