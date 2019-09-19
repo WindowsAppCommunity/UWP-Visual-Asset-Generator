@@ -6,6 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:Windows10version1809="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract, 7)"
     mc:Ignorable="d">
 
     <Grid>
@@ -26,7 +27,7 @@
             </Grid.RowDefinitions>
 
             <StackPanel Grid.Row="1" x:Name="contentgoeshere" Background="{ThemeResource SystemControlAcrylicElementBrush}" 
-                        BorderThickness="4" BorderBrush="Silver">
+                        BorderThickness="1" CornerRadius="4" BorderBrush="Silver">
 
                 <Grid Padding="8">
 
@@ -71,7 +72,7 @@
                     <TextBlock Text="- ."  TextWrapping="WrapWholeWords"/>
                 </StackPanel>
 
-                <Button x:Name="btn_Continue" HorizontalAlignment="Stretch" Margin="0,8,0,0" HorizontalContentAlignment="Stretch"
+                <Button x:Name="btn_Continue" HorizontalAlignment="Stretch" BorderThickness="1" Windows10version1809:CornerRadius="0,0,2,2" Margin="0,8,0,0" HorizontalContentAlignment="Stretch"
                     Background="{ThemeResource SystemControlAccentAcrylicElementAccentMediumHighBrush}" 
                         Style="{ThemeResource ButtonRevealStyle}"
                         Click="Btn_Continue_Click"
