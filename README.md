@@ -7,7 +7,7 @@ Immediate goals (2019) are to have the app progress through these stages of capa
 - Create ALL the assets instead of just one.
 - Allow basic margin manipulation as a group for all assets.
 - Allow basic margin manipulation on individual assets.
-- Visual guides showing the recommended and applied margins for each asset ([Asset guidelines](https://docs.microsoft.com/en-us/windows/uwp/design/style/app-icons-and-logos)
+- Visual guides showing the recommended and applied margins for each asset ([Asset guidelines](https://docs.microsoft.com/en-us/windows/uwp/design/style/app-icons-and-logos))
 
 
 ## This project is to be free (as in free beer) and open source without ads.
