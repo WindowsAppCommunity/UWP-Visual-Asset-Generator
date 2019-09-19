@@ -141,6 +141,8 @@
     <Compile Include="UserControls\WelcomeUserControl.xaml.cs">
       <DependentUpon>WelcomeUserControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\AssetTypeListViewModel.cs" />
+    <Compile Include="ViewModels\AssetTypeViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\SettingsViewModel.cs" />
     <Compile Include="Views\MainView.xaml.cs">

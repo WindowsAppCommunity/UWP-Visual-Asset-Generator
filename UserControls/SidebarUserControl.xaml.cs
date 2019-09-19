@@ -64,5 +64,15 @@ namespace UWP_Visual_Asset_Generator.UserControls
             e.DragUIOverride.IsContentVisible = true; // Sets if the dragged content is visible
             e.DragUIOverride.IsGlyphVisible = true; // Sets if the glyph is visibile
         }
+
+        private void Btn_OutputFolder_Click(object sender, RoutedEventArgs e)
+        {
+            mainViewModel.SetOutputFolderAsync();
+        }
+
+        private void Btn_Save_Click(object sender, RoutedEventArgs e)
+        {
+            mainViewModel.SaveAllAsync();
+        }
     }
 }

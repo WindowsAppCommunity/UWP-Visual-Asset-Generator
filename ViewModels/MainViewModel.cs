@@ -29,6 +29,7 @@ namespace UWP_Visual_Asset_Generator.ViewModels
 
         private StorageFile _originalLogoFile;
         private ImageSource _originalLogoImageSource;
+        private StorageFolder _outputFolder;
 
         private const string WinStoreProductID = "9MZ6QRQTDKF2";
 
@@ -50,6 +51,19 @@ namespace UWP_Visual_Asset_Generator.ViewModels
             {
                 _showFeedbackControl = value;
                 NotifyPropertyChanged("ShowFeedbackControl");
+            }
+        }
+
+        public StorageFolder OutputFolder
+        {
+            get
+            {
+                return _outputFolder; 
+            }
+            set
+            {
+                _outputFolder = value;
+                NotifyPropertyChanged("OutputFolder");
             }
         }
 
@@ -157,6 +171,44 @@ namespace UWP_Visual_Asset_Generator.ViewModels
                 }
                 result = true;
             }
+
+            return result;
+        }
+
+        /// <summary>
+        /// Sets the output folder to save generated files to.
+        /// </summary>
+        /// <returns>
+        /// Returns a bool if successful
+        /// </returns>
+        public async Task<bool> SetOutputFolderAsync()
+        {
+            var result = false;
+
+            var picker = new FolderPicker();
+            picker.SuggestedStartLocation = PickerLocationId.PicturesLibrary;
+            picker.FileTypeFilter.Add("*");
+
+            var folder = await picker.PickSingleFolderAsync();
+            if (folder != null)
+            {
+                OutputFolder = folder;
+                result = true;
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// Saves all the assets to the selected folder.
+        /// </summary>
+        /// <returns>
+        /// Returns a bool if successful
+        /// </returns>
+        public async Task<bool> SaveAllAsync()
+        {
+            var result = false;
+
 
             return result;
         }

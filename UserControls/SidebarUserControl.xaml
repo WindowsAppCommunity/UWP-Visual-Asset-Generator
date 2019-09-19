@@ -15,6 +15,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
         
         <StackPanel HorizontalAlignment="Stretch">
@@ -35,6 +36,46 @@
                            DragOver="Image_Original_DragOver"
                            />
         </StackPanel>
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>            
+            
+            <Button Style="{StaticResource RoundedAcrylicWindowRevealButtonStyle}"
+                    Content=""
+                    FontFamily="Segoe MDL2 Assets"
+                    FontSize="24"
+                    Grid.Column="0"
+                    Margin="4"
+                    Width="60"
+                    Height="60"
+                    x:Name="btn_OutputFolder"
+                    Click="Btn_OutputFolder_Click"/>
+
+            <TextBlock Text="{x:Bind mainViewModel.OutputFolder.Path, Mode=OneWay}"
+                       Grid.Column="1"
+                       Style="{ThemeResource CaptionTextBlockStyle}"
+                       VerticalAlignment="Center"
+                       TextWrapping="Wrap"
+                       HorizontalAlignment="Left"
+                       TextAlignment="Left"
+                       Margin="4"
+                       />
+
+            <Button Style="{StaticResource RoundedAcrylicWindowRevealButtonStyle}"
+                    Content=""
+                    FontFamily="Segoe MDL2 Assets"
+                    FontSize="24"
+                    Grid.Column="2"
+                    Margin="4"
+                    Width="60"
+                    Height="60"
+                    x:Name="btn_Save"
+                    Click="Btn_Save_Click"/>
+        </Grid>
 
     </Grid>
 </UserControl>
