@@ -230,6 +230,9 @@
     <PackageReference Include="Microsoft.Toolkit.Uwp.UI.Controls">
       <Version>5.1.1</Version>
     </PackageReference>
+    <PackageReference Include="WriteableBitmapEx">
+      <Version>1.6.2</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <Page Include="UserControls\AssetBrowserUserControl.xaml">

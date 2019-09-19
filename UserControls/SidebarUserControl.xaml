@@ -6,10 +6,35 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    d:DesignHeight="300"
-    d:DesignWidth="400">
+    d:DesignHeight="800"
+    d:DesignWidth="400"
+    xmlns:tkcon="using:Microsoft.Toolkit.Uwp.UI.Controls">
 
-    <Grid Background="{ThemeResource SystemControlAccentAcrylicWindowAccentMediumHighBrush}">
+    <Grid Background="{ThemeResource SystemControlAccentAcrylicWindowAccentMediumHighBrush}"
+          Padding="8">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <StackPanel HorizontalAlignment="Stretch">
+            
+            <TextBlock Text="Original: (Tap or drop)"
+                       Margin="4"/>
+            
+            <tkcon:ImageEx x:Name="image_Original"                         
+                           Tapped="Image_Original_Tapped"
+                           Source="{x:Bind mainViewModel.OriginalLogoImageSource, Mode=OneWay}"
+                           Stretch="Uniform"
+                           PlaceholderStretch="Uniform"
+                           PlaceholderSource="/Assets/SmallTile.scale-400.png"
+                           BorderBrush="Silver"
+                           BorderThickness="1.5"
+                           AllowDrop="True"
+                           Drop="Image_Original_Drop"
+                           DragOver="Image_Original_DragOver"
+                           />
+        </StackPanel>
 
     </Grid>
 </UserControl>

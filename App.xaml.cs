@@ -51,8 +51,9 @@ namespace UWP_Visual_Asset_Generator
             this.InitializeComponent();
             this.Suspending += OnSuspending;
 
+            #if !DEBUG
             AppCenter.Start(AppCenterAppKey, typeof(Analytics), typeof(Crashes));
-
+            #endif
             _mainViewModel = new MainViewModel();
         }
 
