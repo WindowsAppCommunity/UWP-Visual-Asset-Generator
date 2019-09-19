@@ -16,127 +16,81 @@
 
 
     <Page.Resources>
-        <ResourceDictionary>
-            <DataTemplate x:Key="hmi_Text" x:DataType="NavigationViewItem">
-                <Grid HorizontalAlignment="Stretch" Height="32" Padding="0" Margin="-12,0,0,0" >
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="48" />
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
+        <Storyboard x:Name="animationOpacityPulse" >
+            <DoubleAnimation Storyboard.TargetName="LoadingLogo"
+                             Storyboard.TargetProperty="Opacity"
+                             From="1"
+                             To="0.5" 
+                             Duration="0:0:1"
+                             AutoReverse="True" 
+                             RepeatBehavior="Forever"
+                             >
 
-                    <TextBlock Grid.Column="0" 
-                           Margin="0,0,4,0"
-                           VerticalAlignment="Center"
-                           HorizontalAlignment="Center"
-                           TextAlignment="Center"
-                           FontFamily="Segoe UI Emoji"
-                           Text="{Binding Icon, Mode=OneWay}" />
-                    <TextBlock Grid.Column="1" 
-                           Margin="4,0,4,0"
-                           VerticalAlignment="Center" 
-                           Text="{Binding Title, Mode=OneWay}" />
-                </Grid>
-            </DataTemplate>
-
-            <Storyboard x:Name="animationOpacityPulse" >
-                <DoubleAnimation Storyboard.TargetName="LoadingLogo"
-                                             Storyboard.TargetProperty="Opacity"
-                                             From="1"
-                                             To="0.5" 
-                                             Duration="0:0:1"
-                                             AutoReverse="True" 
-                                             RepeatBehavior="Forever"
-                                             >
-
-                </DoubleAnimation>
-            </Storyboard>
-
-        </ResourceDictionary>
+            </DoubleAnimation>
+        </Storyboard>
     </Page.Resources>
 
     <Grid>
-        <NavigationView
-            IsSettingsVisible="False" 
-            IsPaneOpen="False"
-            MenuItemTemplate="{StaticResource hmi_Text}"  
-            AlwaysShowHeader="False" 
-            CompactModeThresholdWidth="0"
-            ExpandedModeThresholdWidth="2500">
+      
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="32"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
 
-            <NavigationView.HeaderTemplate>
-                <DataTemplate>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
 
-                        <TextBlock Style="{StaticResource TitleTextBlockStyle}"
-                           FontSize="28"
+            <Grid Grid.Row="0"
+                  Grid.ColumnSpan="2">
+                <TextBlock Text="{x:Bind mainViewModel.Settings.AppName, Mode=OneWay}"
                            VerticalAlignment="Center"
-                           Margin="12,0"
-                           Text=""/>
+                           HorizontalAlignment="Left"
+                           Style="{ThemeResource CaptionTextBlockStyle}"
+                           Margin="8,0"
+                           FontStyle="Italic"/>
+            </Grid>
+            
+            <uc:SidebarUserControl Grid.Row="1"
+                                   Grid.Column="0"/>
 
-                    </Grid>
-                </DataTemplate>
-            </NavigationView.HeaderTemplate>
+            <uc:AssetBrowserUserControl Grid.Row="1"
+                                        Grid.Column="1"/>
 
-            <Frame x:Name="ContentFrame" >
+            <uc:AssetBrowserUserControl Grid.Row="1"
+                                        Grid.Column="1"
+                                        Visibility="{x:Bind mainViewModel.ShowEditCurrentImage, Mode=OneWay}"/>
+            <CommandBar Grid.Row="2"
+                        Grid.ColumnSpan="2">
+                <AppBarButton Label="Welcome" 
+                              Icon="Home"
+                              x:Name="hmi_ShowWelcomeUSerControl"
+                              Tapped="Hmi_ShowWelcomeUSerControl_Tapped"/>
+                <AppBarButton Label="Help and Getting Started" 
+                              Icon="Help"
+                              x:Name="hmi_ShowGettingStartedControl"
+                              Tapped="Hmi_ShowGettingStartedControl_Tapped"
+                              Visibility="Collapsed"/>
+                <AppBarButton Label="Feedback and Review"  
+                              x:Name="hmi_Feedback" 
+                              Icon="Emoji2" 
+                              Tapped="btn_Feedback_Tapped"/>
+                <AppBarButton Label="Settings" 
+                              Icon="Setting" 
+                              x:Name="hmi_Settings" 
+                              Tapped="abb_Settings_Tapped"/>
+                <CommandBar.SecondaryCommands>
+                    <AppBarButton Label="{x:Bind mainViewModel.Settings.AppVersion, Mode=OneWay}" 
+                                  Icon="World"/>
+                </CommandBar.SecondaryCommands>
 
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="32"/>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
+            </CommandBar>
+        </Grid>
 
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="400"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-
-                    <Grid Grid.Row="0"
-                          Grid.ColumnSpan="2">
-                        <TextBlock Text="{x:Bind mainViewModel.Settings.AppName, Mode=OneWay}"
-                                   VerticalAlignment="Center"
-                                   HorizontalAlignment="Left"
-                                   Style="{ThemeResource CaptionTextBlockStyle}"
-                                   Margin="8,0"
-                                   FontStyle="Italic"/>
-                    </Grid>
-                    
-                    <uc:SidebarUserControl Grid.Row="1"
-                                           Grid.Column="0"/>
-
-                    <uc:AssetBrowserUserControl Grid.Row="1"
-                                                Grid.Column="1"/>
-
-                    <uc:AssetBrowserUserControl Grid.Row="1"
-                                                Grid.Column="1"
-                                                Visibility="{x:Bind mainViewModel.ShowEditCurrentImage, Mode=OneWay}"/>
-                </Grid>
-
-            </Frame>
-
-            <NavigationView.PaneFooter>
-                <ItemsControl>
-                    <NavigationViewItem Content="{x:Bind mainViewModel.Settings.AppVersion, Mode=OneWay}" 
-                                        Icon="World"
-                                        Visibility="Visible"/>
-                    <NavigationViewItem Content="Welcome" 
-                                        Icon="Home"
-                                        x:Name="hmi_ShowWelcomeUSerControl"
-                                        Tapped="Hmi_ShowWelcomeUSerControl_Tapped"/>
-                    <NavigationViewItem Content="Help and Getting Started" 
-                                        Icon="Help"
-                                        x:Name="hmi_ShowGettingStartedControl"
-                                        Tapped="Hmi_ShowGettingStartedControl_Tapped"
-                                        Visibility="Collapsed"/>
-                    <NavigationViewItem Content="Feedback and Review"  x:Name="hmi_Feedback" Icon="Emoji2" Tapped="btn_Feedback_Tapped"/>
-                    <NavigationViewItem Content="Settings" Icon="Setting" x:Name="hmi_Settings" Tapped="abb_Settings_Tapped"/>
-                </ItemsControl>
-            </NavigationView.PaneFooter>
-        </NavigationView>
-
+     
         <uc:GettingStartedUserControl Visibility="{x:Bind mainViewModel.ShowGettingStartedControl, Mode=OneWay}">
             <animations:Implicit.ShowAnimations>
                 <animations:OpacityAnimation Duration="0:0:0.5" From="0.0" To="1.0"/>
