@@ -27,7 +27,8 @@
         <GridView Grid.Row="1" 
                   ItemsSource="{x:Bind mainViewModel.AssetTypes.Current.Assets.Items, Mode=OneWay}"
                   SelectedItem="{x:Bind mainViewModel.AssetTypes.Current.Assets.Current, Mode=TwoWay}"
-                  animations:ReorderGridAnimation.Duration="300">
+                  animations:ReorderGridAnimation.Duration="300"
+                  SelectionMode="Extended">
             <GridView.ItemTemplate>
                 <DataTemplate x:DataType="viewModels:AssetViewModel">
                     <Grid Margin="8"
