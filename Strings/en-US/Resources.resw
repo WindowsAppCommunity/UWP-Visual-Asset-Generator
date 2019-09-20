@@ -117,6 +117,18 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AddImage.Text" xml:space="preserve">
+    <value>Add image</value>
+  </data>
+  <data name="Btn_Save_Click.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Save all assets to the output folder</value>
+  </data>
+  <data name="DropPNG.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Drop a PNG image here, or click to browse</value>
+  </data>
+  <data name="SetOutputFolder.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Set the output folder</value>
+  </data>
   <data name="YourLogo.Text" xml:space="preserve">
     <value>Your Logo</value>
   </data>

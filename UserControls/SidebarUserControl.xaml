@@ -56,7 +56,7 @@
                                    FontWeight="SemiBold"
                                    Margin="0,0,0,12"
                                    HorizontalAlignment="Center"/>
-                        <TextBlock Text="Add image"
+                        <TextBlock Text="Add image" x:Uid="AddImage"
                                    Style="{ThemeResource FluentTitleTextStyle}"/>
                     </StackPanel>
                     
@@ -67,11 +67,12 @@
                                    Source="{x:Bind mainViewModel.OriginalLogoImageSource, Mode=OneWay}"
                                    Stretch="Uniform"
                                    AllowDrop="True"
+                                   x:Uid="DropPNG"
                                    PlaceholderStretch="Uniform"
                                    PlaceholderSource="/Assets/SmallTile.scale-400.png"
                                    Drop="Image_Original_Drop"
                                    DragOver="Image_Original_DragOver"
-                                   ToolTipService.ToolTip="Drop a PNG image here, or click to browse" />
+                                   ToolTipService.ToolTip="Drop a PNG image here, or click to browse"/>
                 </Grid>
             </tkcon:DropShadowPanel>
         </StackPanel>
@@ -128,7 +129,9 @@
                     Width="60"
                     Height="60"
                     x:Name="btn_OutputFolder"
-                    Click="Btn_OutputFolder_Click"/>
+                    Click="Btn_OutputFolder_Click"                      
+                    x:Uid="SetOutputFolder"
+                    ToolTipService.ToolTip="Set the output folder"/>
 
             <TextBlock Text="{x:Bind mainViewModel.OutputFolder.Path, Mode=OneWay}"
                        Grid.Column="1"
@@ -137,9 +140,7 @@
                        TextWrapping="Wrap"
                        HorizontalAlignment="Left"
                        TextAlignment="Left"
-                       Margin="4"
-                      ToolTipService.ToolTip="Set the output folder"
-                       />
+                       Margin="4"/>
 
             <Button Style="{StaticResource RoundedAcrylicWindowRevealButtonStyle}"
                     Content=""
@@ -151,6 +152,7 @@
                     Height="60"
                     x:Name="btn_Save"
                     Click="Btn_Save_Click"
+                    x:Uid="Btn_Save_Click"
                     ToolTipService.ToolTip="Save all assets to the output folder"
                     IsEnabled="{x:Bind mainViewModel.SaveEnabled, Mode=OneWay}"/>
         </Grid>
