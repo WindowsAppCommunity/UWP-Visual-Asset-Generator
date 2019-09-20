@@ -58,6 +58,7 @@
                                        Stretch="Uniform"
                                        PlaceholderStretch="Uniform"
                                        PlaceholderSource="/Assets/SmallTile.scale-400.png"
+                                       Source="{x:Bind Logo, Mode=OneWay}" 
                                        />
                         
                         <TextBlock VerticalAlignment="Bottom"
@@ -97,6 +98,7 @@
                         <TextBlock Text=""
                                    FontFamily="Segoe MDL2 Assets"
                                    Foreground="Green"
+                                   Grid.Row="1"
                                    Visibility="{x:Bind SavedSuccessfully, Mode=OneWay}"
                                    VerticalAlignment="Bottom"
                                    HorizontalAlignment="Right"

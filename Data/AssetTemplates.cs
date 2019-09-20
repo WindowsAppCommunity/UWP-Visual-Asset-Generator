@@ -153,8 +153,8 @@ namespace UWP_Visual_Asset_Generator.Data
     public class WideTileScale125 : AssetTemplate
     {
         public override string FileName { get => "Wide310x150Logo.scale-125.png"; }
-        public override int ImageHeight { get => 388; }
-        public override int ImageWidth { get => 188; }
+        public override int ImageHeight { get => 188; }
+        public override int ImageWidth { get => 388; }
         public override int PreferredLeftPadding { get => 0; }
         public override int PreferredTopPadding { get => 0; }
         public override int PreferredRightPadding { get => 0; }
