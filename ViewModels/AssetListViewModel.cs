@@ -120,5 +120,13 @@ namespace UWP_Visual_Asset_Generator.ViewModels
                 Items.Add(new AssetViewModel(new PackageLogoScale400()));
             }
         }
+
+        public async Task SaveAllAssetsToFileAsync()
+        {
+            foreach (var element in Items)
+            {
+                await element.SaveAssetToFileAsync();
+            }
+        }
     }
 }

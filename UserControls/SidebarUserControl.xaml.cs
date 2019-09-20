@@ -72,7 +72,7 @@ namespace UWP_Visual_Asset_Generator.UserControls
 
         private void Btn_Save_Click(object sender, RoutedEventArgs e)
         {
-            mainViewModel.SaveAllAsync();
+            mainViewModel.AssetTypes.SaveAllAsync();
         }
     }
 }

@@ -71,33 +71,34 @@ namespace UWP_Visual_Asset_Generator.ViewModels
             }
         }
 
-        public async Task CommitChanges()
-        {           
-            Thinking = true;
-            ThinkingText = "Starting changes";
-            await Task.Delay(App.ThinkingLongPauseInMs);
-
-            //Copy as new files
-            if (App.mainViewModel.OutputFolder != null)
+        public async Task SaveAllAsync()
+        {
+            if (await ShowDialog("Save All Assets","This will overwrite any existing files in ourput folder","Yes","No"))
             {
-                foreach (var element in Items)
+                App.mainViewModel.Thinking = true;
+                App.mainViewModel.ThinkingText = "Saving Assets";
+                await Task.Delay(App.ThinkingLongPauseInMs);
+
+                //Copy as new files
+                if (App.mainViewModel.OutputFolder != null)
                 {
-                    //ThinkingText = "Copying to " + element.NewFileName + element.File.FileType;
-                    //await Task.Delay(App.ThinkingShortPauseInMs);
-                    //await element.CopyTo(App.mainViewModel.OutputFolder);
+                    foreach (var element in Items)
+                    {
+                        await element.Assets.SaveAllAssetsToFileAsync();
+                    }
                 }
-            }
-            else
-            {
-                await ShowDialog("No output folder selected", "To save to a new location, an 'Output Location' needs to be set.");
-            }
+                else
+                {
+                    await ShowDialog("No output folder selected", "To save to a new location, an 'Output Location' needs to be set.");
+                }
 
-            Thinking = true;
-            ThinkingText = "Complete";
-            await Task.Delay(App.ThinkingLongPauseInMs);
+                App.mainViewModel.Thinking = true;
+                App.mainViewModel.ThinkingText = "Complete";
+                await Task.Delay(App.ThinkingLongPauseInMs);
 
-            Thinking = false;
-            ThinkingText = string.Empty;
+                App.mainViewModel.Thinking = false;
+                App.mainViewModel.ThinkingText = string.Empty;
+            }
         }        
     }
 }

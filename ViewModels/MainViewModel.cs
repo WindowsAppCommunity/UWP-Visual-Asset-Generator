@@ -242,19 +242,7 @@ namespace UWP_Visual_Asset_Generator.ViewModels
             return result;
         }
 
-        /// <summary>
-        /// Saves all the assets to the selected folder.
-        /// </summary>
-        /// <returns>
-        /// Returns a bool if successful
-        /// </returns>
-        public async Task<bool> SaveAllAsync()
-        {
-            var result = false;
-
-
-            return result;
-        }
+    
 
         async public void ReviewThisApp()
         {

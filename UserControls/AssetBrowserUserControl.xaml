@@ -54,16 +54,13 @@
                                    HorizontalAlignment="Center"
                                    Margin="4"/>                        
 
-                        <tkcon:ImageEx    
-                            Grid.Row="1"
-                           Stretch="Uniform"
-                           PlaceholderStretch="Uniform"
-                           PlaceholderSource="/Assets/SmallTile.scale-400.png"
-                           />
-
-
-                        <TextBlock 
-                                   VerticalAlignment="Bottom"
+                        <tkcon:ImageEx Grid.Row="1"
+                                       Stretch="Uniform"
+                                       PlaceholderStretch="Uniform"
+                                       PlaceholderSource="/Assets/SmallTile.scale-400.png"
+                                       />
+                        
+                        <TextBlock VerticalAlignment="Bottom"
                                    Grid.Row="1"
                                    HorizontalAlignment="Center"
                                    Margin="4">
@@ -73,6 +70,53 @@
                                 <Run Text="{x:Bind ImageHeight, Mode=OneWay}"/>
 
                         </TextBlock>
+
+                        <tkcon:Loading IsLoading="{x:Bind Thinking, Mode=OneWay}"
+                                       Background="{ThemeResource SystemControlBackgroundAccentBrush}" 
+                                       Opacity="0.8" 
+                                       Grid.RowSpan="3"
+                                       Margin="0">
+                            <StackPanel Padding="12">
+                                <tkcon:DropShadowPanel BlurRadius="8"
+                                                       ShadowOpacity="0.7"
+                                                       OffsetX="2"
+                                                       OffsetY="2"
+                                                       Color="{ThemeResource SystemColorButtonFaceColor}"
+                                                       VerticalAlignment="Center"
+                                                       HorizontalAlignment="Center"
+                                                       Grid.Row="0"
+                                                       Margin="12" >
+                                    <Image Source="/Assets/SmallTile.scale-100.png" 
+                                           Height="100" 
+                                           x:Name="LoadingLogo"/>
+                                </tkcon:DropShadowPanel>
+
+                                <tkcon:DropShadowPanel BlurRadius="8"
+                                                       ShadowOpacity="0.7"
+                                                       OffsetX="2"
+                                                       OffsetY="2"
+                                                       Color="{ThemeResource SystemColorButtonFaceColor}"
+                                                       VerticalAlignment="Center"
+                                                       Grid.Row="0"
+                                                       Margin="8">
+
+                                    <TextBlock Text="{x:Bind ThinkingText, Mode=OneWay}" 
+                                               Style="{StaticResource SubtitleTextBlockStyle}" 
+                                               x:Name="tbLoadingText" 
+                                               TextAlignment="Center"
+                                               VerticalAlignment="Center" 
+                                               MinWidth="180"/>
+                                </tkcon:DropShadowPanel>
+                            </StackPanel>
+                        </tkcon:Loading>
+
+                        <TextBlock Text=""
+                                   FontFamily="Segoe MDL2 Assets"
+                                   Foreground="Green"
+                                   Visibility="{x:Bind SavedSuccessfully, Mode=OneWay}"
+                                   VerticalAlignment="Bottom"
+                                   HorizontalAlignment="Right"
+                                   Margin="4"/>
                     </Grid>
                 </DataTemplate>
             </GridView.ItemTemplate>

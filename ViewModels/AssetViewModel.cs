@@ -11,6 +11,7 @@ namespace UWP_Visual_Asset_Generator.ViewModels
     public class AssetViewModel : ValleyBaseViewModel
     {
         private AssetTemplate _template;
+        private bool _savedSuccessfully = false;
 
         public MainViewModel mainViewModel { get; set; }
 
@@ -18,6 +19,7 @@ namespace UWP_Visual_Asset_Generator.ViewModels
         {
             _template = template;
             mainViewModel = App.mainViewModel;
+            _savedSuccessfully = false;
         }
 
         public string FileName
@@ -25,6 +27,19 @@ namespace UWP_Visual_Asset_Generator.ViewModels
             get
             {
                 return _template.FileName;
+            }
+        }
+
+        public bool SavedSuccessfully
+        {
+            get
+            {
+                return _savedSuccessfully;
+            }
+            set
+            {
+                _savedSuccessfully = value;
+                NotifyPropertyChanged("SavedSuccessfully");
             }
         }
 
@@ -42,6 +57,32 @@ namespace UWP_Visual_Asset_Generator.ViewModels
             {
                 return _template.ImageHeight;
             }
+        }
+
+        public async Task<bool> SaveAssetToFileAsync()
+        {
+            var result = false;
+
+            Thinking = true;
+            ThinkingText = "Saving";
+            await Task.Delay(App.ThinkingShortPauseInMs);
+            try
+            {
+                if (mainViewModel.OutputFolder != null)
+                {
+                    await mainViewModel.OutputFolder.CreateFileAsync(FileName, Windows.Storage.CreationCollisionOption.ReplaceExisting);
+                    result = true;
+                    SavedSuccessfully = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                //
+            }
+
+            Thinking = false;
+            ThinkingText = string.Empty;
+            return result;
         }
     }
 }
