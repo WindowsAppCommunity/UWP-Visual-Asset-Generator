@@ -121,6 +121,14 @@ namespace UWP_Visual_Asset_Generator.ViewModels
             }
         }
 
+        public void ApplyLogo()
+        {
+            foreach (var element in Items)
+            {
+                element.ApplyLogo();
+            }
+        }
+
         public async Task SaveAllAssetsToFileAsync()
         {
             foreach (var element in Items)

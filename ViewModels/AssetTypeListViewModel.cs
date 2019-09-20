@@ -63,11 +63,14 @@ namespace UWP_Visual_Asset_Generator.ViewModels
             Current = Items[0];
         }
 
-        public void Undo()
+        public async Task ApplyLogo()
         {
-            foreach (var element in Items)
+            if (App.mainViewModel.originalWriteableBitmap != null)
             {
-                //element.Undo();
+                foreach (var element in Items)
+                {
+                    element.Assets.ApplyLogo();
+                }
             }
         }
 

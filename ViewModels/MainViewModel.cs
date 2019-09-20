@@ -11,6 +11,7 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.Storage;
+using Windows.Storage.FileProperties;
 using Windows.Storage.Pickers;
 using Windows.UI.Popups;
 using Windows.UI.Xaml.Controls;
@@ -31,6 +32,7 @@ namespace UWP_Visual_Asset_Generator.ViewModels
         private StorageFile _originalLogoFile;
         private ImageSource _originalLogoImageSource;
         private StorageFolder _outputFolder;
+        public WriteableBitmap originalWriteableBitmap;
 
         private AssetTypeListViewModel _assetTypes;
 
@@ -212,6 +214,10 @@ namespace UWP_Visual_Asset_Generator.ViewModels
                     await b.SetSourceAsync(randomAccessStream);
                     OriginalLogoImageSource = b;
                 }
+                LogoAsWriteableBitmap();
+
+                AssetTypes.ApplyLogo();
+
                 result = true;
             }
 
@@ -242,7 +248,12 @@ namespace UWP_Visual_Asset_Generator.ViewModels
             return result;
         }
 
-    
+        public async Task LogoAsWriteableBitmap()
+        {
+            ImageProperties properties = await OriginalLogoFile.Properties.GetImagePropertiesAsync();
+            originalWriteableBitmap = new WriteableBitmap((int)properties.Width, (int)properties.Height);
+            originalWriteableBitmap.SetSource((await OriginalLogoFile.OpenReadAsync()).AsStream().AsRandomAccessStream());
+        }
 
         async public void ReviewThisApp()
         {

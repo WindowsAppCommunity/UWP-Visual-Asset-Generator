@@ -7,6 +7,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Threading.Tasks;
 using UWP_Visual_Asset_Generator.Data;
+using Windows.Foundation;
 using Windows.Graphics.Imaging;
 using Windows.Storage;
 using Windows.Storage.Streams;
@@ -39,6 +40,7 @@ namespace UWP_Visual_Asset_Generator.ViewModels
                 {
                     _logo = new WriteableBitmap(ImageWidth, ImageHeight);
                     _logo.Clear(Colors.Red);
+                    ApplyLogo();
                 }
                 return _logo;
             }
@@ -86,6 +88,24 @@ namespace UWP_Visual_Asset_Generator.ViewModels
             get
             {
                 return _template.ImageWidth;
+            }
+        }
+
+        public void EraseImage()
+        {
+            Logo.Clear(Colors.Blue);
+        }
+
+        public void ApplyLogo()
+        {
+            EraseImage();
+            if (mainViewModel.originalWriteableBitmap != null)
+            {
+                var resizedOriginal = mainViewModel.originalWriteableBitmap.Clone();
+                resizedOriginal.Resize(ImageWidth - 24, ImageHeight - 24, WriteableBitmapExtensions.Interpolation.Bilinear);
+
+                Logo.Blit(new Rect(new Point(0, 0), new Point(resizedOriginal.PixelWidth, resizedOriginal.PixelHeight)), resizedOriginal, new Rect(new Point(0, 0), new Point(resizedOriginal.PixelWidth, resizedOriginal.PixelHeight)));
+                NotifyPropertyChanged("Logo");
             }
         }
 
