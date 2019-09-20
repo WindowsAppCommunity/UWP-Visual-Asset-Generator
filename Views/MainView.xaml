@@ -12,7 +12,7 @@
     xmlns:interactivity="using:Microsoft.Xaml.Interactivity"  
     xmlns:behaviors="using:Microsoft.Toolkit.Uwp.UI.Animations.Behaviors"
     Loaded="Page_Loaded"
-    Background="{ThemeResource SystemControlAcrylicWindowBrush}">
+    Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}">
 
 
     <Page.Resources>
@@ -36,7 +36,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="32"/>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="auto"/>
+                <!--<RowDefinition Height="auto"/>-->
             </Grid.RowDefinitions>
 
             <Grid.ColumnDefinitions>
@@ -44,6 +44,7 @@
                 <ColumnDefinition Width="3*"/>
             </Grid.ColumnDefinitions>
 
+            <!-- Titlebar -->
             <Grid Grid.Row="0"
                   Grid.ColumnSpan="2">
                 <TextBlock Text="{x:Bind mainViewModel.Settings.AppName, Mode=OneWay}"
@@ -53,45 +54,69 @@
                            Margin="8,0"
                            FontStyle="Italic"/>
             </Grid>
+            <!-- End of Titlebar-->
             
+            <!-- Sidebar -->
             <uc:SidebarUserControl Grid.Row="1"
                                    Grid.Column="0"/>
 
-            <uc:AssetBrowserUserControl Grid.Row="1"
-                                        Grid.Column="1"/>
+            <!-- Assetsbrowser -->
+            <controls:DropShadowPanel Grid.Row="1"
+                                      Grid.Column="1"
+                                      Canvas.ZIndex="100"
+                                      HorizontalAlignment="Stretch"
+                                      HorizontalContentAlignment="Stretch"
+                                      Margin="0,-32,0,0">
+                <uc:AssetBrowserUserControl />
 
+            </controls:DropShadowPanel>
+
+            <!-- Assets editor-->
             <uc:AssetEditUserControl Grid.Row="1"
                                      Grid.Column="1"
                                      Visibility="{x:Bind mainViewModel.ShowEditCurrentImage, Mode=OneWay}"/>
-            <CommandBar Grid.Row="2"
-                        Grid.ColumnSpan="2">
-                <AppBarToggleButton Label="View Assets with Accent colour" 
+            <!-- Commandbar-->
+            <controls:DropShadowPanel Grid.Row="1"
+                                      Grid.Column="1"
+                                      Canvas.ZIndex="200"
+                                      HorizontalAlignment="Right"
+                                      VerticalAlignment="Bottom"
+                                      BlurRadius="10"
+                                      ShadowOpacity="0.3"
+                                      Color="Black"
+                                      OffsetX="4"
+                                      OffsetY="4"
+                                      Margin="24">
+                <CommandBar>
+                    <AppBarToggleButton Label="View Assets with Accent colour" 
                               Icon="SolidStar"
                               x:Name="hmi_ToggleAccentColour"
                               Tapped="Hmi_ToggleAccentColour_Tapped"/>
-                <AppBarButton Label="Welcome" 
+                    <AppBarButton Label="Welcome" 
                               Icon="Home"
                               x:Name="hmi_ShowWelcomeUSerControl"
                               Tapped="Hmi_ShowWelcomeUSerControl_Tapped"/>
-                <AppBarButton Label="Help and Getting Started" 
+                    <AppBarButton Label="Help and Getting Started" 
                               Icon="Help"
                               x:Name="hmi_ShowGettingStartedControl"
                               Tapped="Hmi_ShowGettingStartedControl_Tapped"
                               Visibility="Collapsed"/>
-                <AppBarButton Label="Feedback and Review"  
+                    <AppBarButton Label="Feedback and Review"  
                               x:Name="hmi_Feedback" 
                               Icon="Emoji2" 
                               Tapped="btn_Feedback_Tapped"/>
-                <AppBarButton Label="Settings" 
+                    <AppBarButton Label="Settings" 
                               Icon="Setting" 
                               x:Name="hmi_Settings" 
                               Tapped="abb_Settings_Tapped"/>
-                <CommandBar.SecondaryCommands>
-                    <AppBarButton Label="{x:Bind mainViewModel.Settings.AppVersion, Mode=OneWay}" 
+                    <CommandBar.SecondaryCommands>
+                        <AppBarButton Label="{x:Bind mainViewModel.Settings.AppVersion, Mode=OneWay}" 
                                   Icon="World"/>
-                </CommandBar.SecondaryCommands>
+                    </CommandBar.SecondaryCommands>
 
-            </CommandBar>
+                </CommandBar>
+            </controls:DropShadowPanel>
+
         </Grid>
 
      

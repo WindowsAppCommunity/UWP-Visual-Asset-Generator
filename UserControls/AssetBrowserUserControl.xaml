@@ -13,7 +13,8 @@
     d:DesignHeight="300"
     d:DesignWidth="400">
 
-    <Grid Background="{ThemeResource SystemControlAcrylicWindowBrush}">
+    <Grid Background="{ThemeResource SystemControlAcrylicWindowBrush}"
+          Padding="12,32,0,0">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
@@ -22,7 +23,7 @@
 
         <TextBlock Text="{x:Bind mainViewModel.AssetTypes.Current.Title, Mode=OneWay}"
                    Margin="8,12"
-                   Style="{ThemeResource SubtitleTextBlockStyle}"/>
+                   Style="{ThemeResource FluentSubheaderTextStyle}"/>
 
         <GridView Grid.Row="1" 
                   ItemsSource="{x:Bind mainViewModel.AssetTypes.Current.Assets.Items, Mode=OneWay}"

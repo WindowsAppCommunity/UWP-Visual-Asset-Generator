@@ -11,7 +11,7 @@
     xmlns:tkcon="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:viewmodels="using:UWP_Visual_Asset_Generator.ViewModels">
 
-    <Grid Background="{ThemeResource SystemControlAcrylicWindowBrush}"
+    <Grid Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}"
           Padding="12,0,12,12">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
