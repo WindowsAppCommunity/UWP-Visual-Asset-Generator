@@ -257,6 +257,57 @@ namespace UWP_Visual_Asset_Generator.Data
 
     #region AppIcon
 
+    public class AppIconAltformLightUnplated16 : AssetTemplate
+    {
+        public override string FileName { get => "Square44x44Logo.altform-lightunplated_targetsize-16.png"; }
+        public override int ImageHeight { get => 16; }
+        public override int ImageWidth { get => 16; }
+        public override int PreferredLeftPadding { get => 0; }
+        public override int PreferredTopPadding { get => 0; }
+        public override int PreferredRightPadding { get => 0; }
+        public override int PreferredBottomPadding { get => 0; }
+    }
+    public class AppIconAltformLightUnplated24 : AssetTemplate
+    {
+        public override string FileName { get => "Square44x44Logo.altform-lightunplated_targetsize-24.png"; }
+        public override int ImageHeight { get => 24; }
+        public override int ImageWidth { get => 24; }
+        public override int PreferredLeftPadding { get => 0; }
+        public override int PreferredTopPadding { get => 0; }
+        public override int PreferredRightPadding { get => 0; }
+        public override int PreferredBottomPadding { get => 0; }
+    }
+    public class AppIconAltformLightUnplated256 : AssetTemplate
+    {
+        public override string FileName { get => "Square44x44Logo.altform-lightunplated_targetsize-256.png"; }
+        public override int ImageHeight { get => 256; }
+        public override int ImageWidth { get => 256; }
+        public override int PreferredLeftPadding { get => 0; }
+        public override int PreferredTopPadding { get => 0; }
+        public override int PreferredRightPadding { get => 0; }
+        public override int PreferredBottomPadding { get => 0; }
+    }
+    public class AppIconAltformLightUnplated32 : AssetTemplate
+    {
+        public override string FileName { get => "Square44x44Logo.altform-lightunplated_targetsize-32.png"; }
+        public override int ImageHeight { get => 32; }
+        public override int ImageWidth { get => 32; }
+        public override int PreferredLeftPadding { get => 0; }
+        public override int PreferredTopPadding { get => 0; }
+        public override int PreferredRightPadding { get => 0; }
+        public override int PreferredBottomPadding { get => 0; }
+    }
+    public class AppIconAltformLightUnplated48 : AssetTemplate
+    {
+        public override string FileName { get => "Square44x44Logo.altform-lightunplated_targetsize-48.png"; }
+        public override int ImageHeight { get => 48; }
+        public override int ImageWidth { get => 48; }
+        public override int PreferredLeftPadding { get => 0; }
+        public override int PreferredTopPadding { get => 0; }
+        public override int PreferredRightPadding { get => 0; }
+        public override int PreferredBottomPadding { get => 0; }
+    }
+
     public class AppIconScale100 : AssetTemplate
     {
         public override string FileName { get => "Square44x44Logo.scale-100.png"; }
@@ -306,6 +357,72 @@ namespace UWP_Visual_Asset_Generator.Data
         public override string FileName { get => "Square44x44Logo.scale-400.png"; }
         public override int ImageHeight { get => 600; }
         public override int ImageWidth { get => 600; }
+        public override int PreferredLeftPadding { get => 0; }
+        public override int PreferredTopPadding { get => 0; }
+        public override int PreferredRightPadding { get => 0; }
+        public override int PreferredBottomPadding { get => 0; }
+    }
+
+    public class AppIconTargetSize16 : AssetTemplate
+    {
+        public override string FileName { get => "Square44x44Logo.targetsize-16.png"; }
+        public override int ImageHeight { get => 16; }
+        public override int ImageWidth { get => 16; }
+        public override int PreferredLeftPadding { get => 0; }
+        public override int PreferredTopPadding { get => 0; }
+        public override int PreferredRightPadding { get => 0; }
+        public override int PreferredBottomPadding { get => 0; }
+    }
+
+    public class AppIconTargetSize24 : AssetTemplate
+    {
+        public override string FileName { get => "Square44x44Logo.targetsize-24.png"; }
+        public override int ImageHeight { get => 24; }
+        public override int ImageWidth { get => 24; }
+        public override int PreferredLeftPadding { get => 0; }
+        public override int PreferredTopPadding { get => 0; }
+        public override int PreferredRightPadding { get => 0; }
+        public override int PreferredBottomPadding { get => 0; }
+    }
+
+    public class AppIconTargetSize24Unplated : AssetTemplate
+    {
+        public override string FileName { get => "Square44x44Logo.targetsize-24_altform-unplated.png"; }
+        public override int ImageHeight { get => 24; }
+        public override int ImageWidth { get => 24; }
+        public override int PreferredLeftPadding { get => 0; }
+        public override int PreferredTopPadding { get => 0; }
+        public override int PreferredRightPadding { get => 0; }
+        public override int PreferredBottomPadding { get => 0; }
+    }
+
+    public class AppIconTargetSize256 : AssetTemplate
+    {
+        public override string FileName { get => "Square44x44Logo.targetsize-256.png"; }
+        public override int ImageHeight { get => 256; }
+        public override int ImageWidth { get => 256; }
+        public override int PreferredLeftPadding { get => 0; }
+        public override int PreferredTopPadding { get => 0; }
+        public override int PreferredRightPadding { get => 0; }
+        public override int PreferredBottomPadding { get => 0; }
+    }
+
+    public class AppIconTargetSize32 : AssetTemplate
+    {
+        public override string FileName { get => "Square44x44Logo.targetsize-32.png"; }
+        public override int ImageHeight { get => 32; }
+        public override int ImageWidth { get => 32; }
+        public override int PreferredLeftPadding { get => 0; }
+        public override int PreferredTopPadding { get => 0; }
+        public override int PreferredRightPadding { get => 0; }
+        public override int PreferredBottomPadding { get => 0; }
+    }
+
+    public class AppIconTargetSize48 : AssetTemplate
+    {
+        public override string FileName { get => "Square44x44Logo.targetsize-48.png"; }
+        public override int ImageHeight { get => 48; }
+        public override int ImageWidth { get => 48; }
         public override int PreferredLeftPadding { get => 0; }
         public override int PreferredTopPadding { get => 0; }
         public override int PreferredRightPadding { get => 0; }

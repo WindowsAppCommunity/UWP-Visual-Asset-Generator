@@ -65,7 +65,7 @@ namespace UWP_Visual_Asset_Generator.ViewModels
 
             Thinking = true;
             ThinkingText = "Saving";
-            await Task.Delay(App.ThinkingShortPauseInMs);
+            await Task.Delay(App.ThinkingTiyPauseInMs);
             try
             {
                 if (mainViewModel.OutputFolder != null)
@@ -73,6 +73,8 @@ namespace UWP_Visual_Asset_Generator.ViewModels
                     await mainViewModel.OutputFolder.CreateFileAsync(FileName, Windows.Storage.CreationCollisionOption.ReplaceExisting);
                     result = true;
                     SavedSuccessfully = true;
+                    ThinkingText = "Saved";
+                    await Task.Delay(App.ThinkingTiyPauseInMs);
                 }
             }
             catch (Exception ex)

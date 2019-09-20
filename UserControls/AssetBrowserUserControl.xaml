@@ -76,37 +76,21 @@
                                        Opacity="0.8" 
                                        Grid.RowSpan="3"
                                        Margin="0">
-                            <StackPanel Padding="12">
-                                <tkcon:DropShadowPanel BlurRadius="8"
-                                                       ShadowOpacity="0.7"
-                                                       OffsetX="2"
-                                                       OffsetY="2"
-                                                       Color="{ThemeResource SystemColorButtonFaceColor}"
-                                                       VerticalAlignment="Center"
-                                                       HorizontalAlignment="Center"
-                                                       Grid.Row="0"
-                                                       Margin="12" >
-                                    <Image Source="/Assets/SmallTile.scale-100.png" 
-                                           Height="100" 
-                                           x:Name="LoadingLogo"/>
-                                </tkcon:DropShadowPanel>
+                            <StackPanel Padding="12" 
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Center">
+                                
+                                <Image Source="/Assets/SmallTile.scale-100.png" 
+                                       VerticalAlignment="Center"
+                                       Height="100" 
+                                       Margin="8"/>
 
-                                <tkcon:DropShadowPanel BlurRadius="8"
-                                                       ShadowOpacity="0.7"
-                                                       OffsetX="2"
-                                                       OffsetY="2"
-                                                       Color="{ThemeResource SystemColorButtonFaceColor}"
-                                                       VerticalAlignment="Center"
-                                                       Grid.Row="0"
-                                                       Margin="8">
-
-                                    <TextBlock Text="{x:Bind ThinkingText, Mode=OneWay}" 
-                                               Style="{StaticResource SubtitleTextBlockStyle}" 
-                                               x:Name="tbLoadingText" 
-                                               TextAlignment="Center"
-                                               VerticalAlignment="Center" 
-                                               MinWidth="180"/>
-                                </tkcon:DropShadowPanel>
+                                <TextBlock Text="{x:Bind ThinkingText, Mode=OneWay}" 
+                                           Style="{StaticResource SubtitleTextBlockStyle}" 
+                                           TextAlignment="Center"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center" />
+                             
                             </StackPanel>
                         </tkcon:Loading>
 

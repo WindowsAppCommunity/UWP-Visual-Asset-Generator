@@ -36,6 +36,7 @@ namespace UWP_Visual_Asset_Generator
         private static MainViewModel _mainViewModel;
         public static Frame rootFrame;
 
+        public static TimeSpan ThinkingTiyPauseInMs = new TimeSpan(0, 0, 0, 0, 100); //10% of a second
         public static TimeSpan ThinkingShortPauseInMs = new TimeSpan(0,0,0,0,500); //Half a second
         public static TimeSpan ThinkingMediumPauseInMs = new TimeSpan(0, 0, 0, 0, 1000); //One second
         public static TimeSpan ThinkingLongPauseInMs = new TimeSpan(0, 0, 0, 0, 2000); //Two seconds
