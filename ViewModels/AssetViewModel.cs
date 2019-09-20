@@ -4,30 +4,43 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UWP_Visual_Asset_Generator.Data;
 
 namespace UWP_Visual_Asset_Generator.ViewModels
 {
     public class AssetViewModel : ValleyBaseViewModel
     {
-        private string _title;
+        private AssetTemplate _template;
+
         public MainViewModel mainViewModel { get; set; }
 
-        public AssetViewModel(string title)
+        public AssetViewModel(AssetTemplate template)
         {
-            Title = title;
+            _template = template;
             mainViewModel = App.mainViewModel;
         }
 
-        public string Title
+        public string FileName
         {
             get
             {
-                return _title;
+                return _template.FileName;
             }
-            set
+        }
+
+        public int ImageHeight
+        {
+            get
             {
-                _title = value;
-                NotifyPropertyChanged("Title");
+                return _template.ImageHeight;
+            }
+        }
+
+        public int ImageWidth
+        {
+            get
+            {
+                return _template.ImageHeight;
             }
         }
     }

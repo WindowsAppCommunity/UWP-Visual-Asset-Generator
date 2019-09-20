@@ -49,7 +49,7 @@
                               x:Load="{x:Bind mainViewModel.PreviewWithAccentColour, Mode=OneWay}"
                               />
 
-                        <TextBlock Text="{x:Bind Title, Mode=OneWay}"
+                        <TextBlock Text="{x:Bind FileName, Mode=OneWay}"
                                    VerticalAlignment="Top"
                                    HorizontalAlignment="Center"
                                    Margin="4"/>                        
@@ -60,6 +60,19 @@
                            PlaceholderStretch="Uniform"
                            PlaceholderSource="/Assets/SmallTile.scale-400.png"
                            />
+
+
+                        <TextBlock 
+                                   VerticalAlignment="Bottom"
+                                   Grid.Row="1"
+                                   HorizontalAlignment="Center"
+                                   Margin="4">
+                            
+                                <Run Text="{x:Bind ImageWidth, Mode=OneWay}"/>
+                                <Run Text=" x "/>
+                                <Run Text="{x:Bind ImageHeight, Mode=OneWay}"/>
+
+                        </TextBlock>
                     </Grid>
                 </DataTemplate>
             </GridView.ItemTemplate>

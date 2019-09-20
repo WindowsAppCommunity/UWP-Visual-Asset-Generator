@@ -52,14 +52,14 @@ namespace UWP_Visual_Asset_Generator.ViewModels
 
         public void Load()
         {
-            Items.Add(new AssetTypeViewModel("Small Tile"));
-            Items.Add(new AssetTypeViewModel("Medium Tile"));
-            Items.Add(new AssetTypeViewModel("Wide Tile"));
-            Items.Add(new AssetTypeViewModel("Large Tile"));
-            Items.Add(new AssetTypeViewModel("App Icon"));
-            Items.Add(new AssetTypeViewModel("Splash Screen"));
-            Items.Add(new AssetTypeViewModel("Badge Logo"));
-            Items.Add(new AssetTypeViewModel("Package Logo"));
+            Items.Add(new AssetTypeViewModel(AssetTypeViewModel.SmallTileName));
+            Items.Add(new AssetTypeViewModel(AssetTypeViewModel.MediumTileName));
+            Items.Add(new AssetTypeViewModel(AssetTypeViewModel.WideTileName));
+            Items.Add(new AssetTypeViewModel(AssetTypeViewModel.LargeTileName));
+            Items.Add(new AssetTypeViewModel(AssetTypeViewModel.AppIconName));
+            Items.Add(new AssetTypeViewModel(AssetTypeViewModel.SplashScreenName));
+            Items.Add(new AssetTypeViewModel(AssetTypeViewModel.BadgeLogoName));
+            Items.Add(new AssetTypeViewModel(AssetTypeViewModel.PackageLogoTileName));
             Current = Items[0];
         }
 

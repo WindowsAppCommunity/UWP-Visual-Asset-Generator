@@ -12,6 +12,14 @@ namespace UWP_Visual_Asset_Generator.ViewModels
         private string _title;
         private AssetListViewModel _assets;
 
+        public static string SmallTileName = "Small Tile";
+        public static string MediumTileName = "Medium Tile";
+        public static string WideTileName = "Wide Tile";
+        public static string LargeTileName = "Large Tile";
+        public static string AppIconName = "App Icon";
+        public static string SplashScreenName = "Splash Screen";
+        public static string BadgeLogoName = "Badge Logo";
+        public static string PackageLogoTileName = "Package Logo";
         public AssetTypeViewModel(string title)
         {
             Title = title;
