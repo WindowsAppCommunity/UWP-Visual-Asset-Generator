@@ -11,6 +11,7 @@
     xmlns:uc="using:UWP_Visual_Asset_Generator.UserControls"
     xmlns:interactivity="using:Microsoft.Xaml.Interactivity"  
     xmlns:behaviors="using:Microsoft.Toolkit.Uwp.UI.Animations.Behaviors"
+    xmlns:Windows10version1809="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract, 7)"
     Loaded="Page_Loaded"
     Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}">
 
@@ -101,35 +102,69 @@
                                       OffsetX="4"
                                       OffsetY="4"
                                       Margin="24">
-                <CommandBar>
-                    <AppBarToggleButton Label="View Assets with Accent colour" 
-                              Icon="SolidStar"
-                              x:Name="hmi_ToggleAccentColour"
-                              Tapped="Hmi_ToggleAccentColour_Tapped"/>
-                    <AppBarButton Label="Welcome" 
-                              Icon="Home"
-                              x:Name="hmi_ShowWelcomeUSerControl"
-                              Tapped="Hmi_ShowWelcomeUSerControl_Tapped"/>
-                    <AppBarButton Label="Help and Getting Started" 
+                <CommandBar DefaultLabelPosition="Right"
+                            Windows10version1809:CornerRadius="2"
+                            Style="{ThemeResource CommandBarRevealStyle}">
+                    <CommandBar.PrimaryCommands>
+                        <!-- Primary Command -->
+                        <AppBarButton Icon="Save"
+                                      Label="Save assets"
+                                      ToolTipService.ToolTip="Save Assets"
+                                      Background="{ThemeResource SystemControlBackgroundAccentBrush}"
+                                      Foreground="{ThemeResource SystemControlForegroundChromeWhiteBrush}"
+                                      Windows10version1809:CornerRadius="2,0,0,2" />
+
+                        <!-- Secondary Commands -->
+                        <!-- Hide the label of these items and show what they do in the tooltip -->
+                        <AppBarToggleButton Label="View Assets with Accent colour" 
+                                              Icon="SolidStar"
+                                            LabelPosition="Collapsed"
+                                            ToolTipService.ToolTip="View Assets with Accent colour"
+                                              x:Name="hmi_ToggleAccentColour"
+                                              Tapped="Hmi_ToggleAccentColour_Tapped" />
+
+                    </CommandBar.PrimaryCommands>
+                    <!-- Overflow Commands -->
+                    <CommandBar.SecondaryCommands>
+                        <!-- App info -->
+                        <Windows10version1809:AppBarElementContainer>
+                            <TextBlock Text="App info" 
+                                       Style="{ThemeResource FluentBaseTextStyle}"
+                                       Margin="12,6"/>
+                        </Windows10version1809:AppBarElementContainer>
+                        <Windows10version1809:AppBarSeparator />
+                        <AppBarButton Label="Help and Getting Started" 
                               Icon="Help"
                               x:Name="hmi_ShowGettingStartedControl"
                               Tapped="Hmi_ShowGettingStartedControl_Tapped"
                               Visibility="Collapsed"/>
-                    <AppBarButton Label="Feedback and Review"  
+                        <AppBarButton Label="Feedback and Review"  
                               x:Name="hmi_Feedback" 
                               Icon="Emoji2" 
                               Tapped="btn_Feedback_Tapped"/>
-                    <AppBarButton Label="Settings" 
+                        <AppBarButton Label="Settings" 
                               Icon="Setting" 
                               x:Name="hmi_Settings" 
                               Tapped="abb_Settings_Tapped"/>
-                    <CommandBar.SecondaryCommands>
+                        
+                        <!-- Debug stuff -->
+                        <Windows10version1809:AppBarElementContainer>
+                            <TextBlock Text="DEBUG" 
+                                       Style="{ThemeResource FluentBaseTextStyle}"
+                                       Margin="12,6"/>
+                        </Windows10version1809:AppBarElementContainer>
+                        <AppBarSeparator />
+                        <AppBarButton Label="Welcome" 
+                              Icon="Home"
+                              x:Name="hmi_ShowWelcomeUSerControl"
+                              Tapped="Hmi_ShowWelcomeUSerControl_Tapped"/>
                         <AppBarButton Label="{x:Bind mainViewModel.Settings.AppVersion, Mode=OneWay}" 
-                                  Icon="World"/>
+                                      Icon="World"/>
                     </CommandBar.SecondaryCommands>
 
                 </CommandBar>
             </controls:DropShadowPanel>
+            <!-- End of CommandBar -->
 
         </Grid>
 
