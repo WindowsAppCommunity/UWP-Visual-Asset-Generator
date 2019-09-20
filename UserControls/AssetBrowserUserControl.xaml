@@ -36,10 +36,10 @@
                           BorderBrush="Gray"
                           BorderThickness="1"
                           Width="250"
-                          Height="250">
+                          Height="300">
 
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="auto"/>
+                            <RowDefinition MinHeight="50"/>
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
 
@@ -49,10 +49,26 @@
                               x:Load="{x:Bind mainViewModel.PreviewWithAccentColour, Mode=OneWay}"
                               />
 
-                        <TextBlock Text="{x:Bind FileName, Mode=OneWay}"
+                        <StackPanel>
+                            <TextBlock Text="{x:Bind FileName, Mode=OneWay}"
                                    VerticalAlignment="Top"
+                                   TextWrapping="Wrap"
                                    HorizontalAlignment="Center"
-                                   Margin="4"/>                        
+                                   Margin="4"/>
+
+                            <TextBlock VerticalAlignment="Bottom"
+                                   Grid.Row="1"
+                                   HorizontalAlignment="Center"
+                                   Margin="0">
+                            
+                                <Run Text="("/>
+                                <Run Text="{x:Bind ImageWidth, Mode=OneWay}"/>
+                                <Run Text="*"/>
+                                <Run Text="{x:Bind ImageHeight, Mode=OneWay}"/>
+                                <Run Text=")"/>
+
+                            </TextBlock>
+                        </StackPanel>
 
                         <tkcon:ImageEx Grid.Row="1"
                                        Stretch="Uniform"
@@ -60,17 +76,6 @@
                                        PlaceholderSource="/Assets/SmallTile.scale-400.png"
                                        Source="{x:Bind Logo, Mode=OneWay}" 
                                        />
-                        
-                        <TextBlock VerticalAlignment="Bottom"
-                                   Grid.Row="1"
-                                   HorizontalAlignment="Center"
-                                   Margin="4">
-                            
-                                <Run Text="{x:Bind ImageWidth, Mode=OneWay}"/>
-                                <Run Text=" x "/>
-                                <Run Text="{x:Bind ImageHeight, Mode=OneWay}"/>
-
-                        </TextBlock>
 
                         <tkcon:Loading IsLoading="{x:Bind Thinking, Mode=OneWay}"
                                        Background="{ThemeResource SystemControlBackgroundAccentBrush}" 

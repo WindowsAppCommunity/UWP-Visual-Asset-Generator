@@ -93,11 +93,24 @@ namespace UWP_Visual_Asset_Generator.ViewModels
             }
             if (_parent.Title.Equals(AssetTypeViewModel.AppIconName))
             {
+                Items.Add(new AssetViewModel(new AppIconAltformLightUnplated16()));
+                Items.Add(new AssetViewModel(new AppIconAltformLightUnplated24()));
+                Items.Add(new AssetViewModel(new AppIconAltformLightUnplated256()));
+                Items.Add(new AssetViewModel(new AppIconAltformLightUnplated32()));
+                Items.Add(new AssetViewModel(new AppIconAltformLightUnplated48()));
+
                 Items.Add(new AssetViewModel(new AppIconScale100()));
                 Items.Add(new AssetViewModel(new AppIconScale125()));
                 Items.Add(new AssetViewModel(new AppIconScale150()));
                 Items.Add(new AssetViewModel(new AppIconScale200()));
                 Items.Add(new AssetViewModel(new AppIconScale400()));
+
+                Items.Add(new AssetViewModel(new AppIconTargetSize16()));
+                Items.Add(new AssetViewModel(new AppIconTargetSize24()));
+                Items.Add(new AssetViewModel(new AppIconTargetSize24Unplated()));
+                Items.Add(new AssetViewModel(new AppIconTargetSize256()));
+                Items.Add(new AssetViewModel(new AppIconTargetSize32()));
+                Items.Add(new AssetViewModel(new AppIconTargetSize48()));
             }
             if (_parent.Title.Equals(AssetTypeViewModel.SplashScreenName))
             {

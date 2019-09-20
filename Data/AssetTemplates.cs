@@ -267,6 +267,7 @@ namespace UWP_Visual_Asset_Generator.Data
         public override int PreferredRightPadding { get => 0; }
         public override int PreferredBottomPadding { get => 0; }
     }
+
     public class AppIconAltformLightUnplated24 : AssetTemplate
     {
         public override string FileName { get => "Square44x44Logo.altform-lightunplated_targetsize-24.png"; }
@@ -277,6 +278,7 @@ namespace UWP_Visual_Asset_Generator.Data
         public override int PreferredRightPadding { get => 0; }
         public override int PreferredBottomPadding { get => 0; }
     }
+
     public class AppIconAltformLightUnplated256 : AssetTemplate
     {
         public override string FileName { get => "Square44x44Logo.altform-lightunplated_targetsize-256.png"; }
@@ -287,6 +289,7 @@ namespace UWP_Visual_Asset_Generator.Data
         public override int PreferredRightPadding { get => 0; }
         public override int PreferredBottomPadding { get => 0; }
     }
+
     public class AppIconAltformLightUnplated32 : AssetTemplate
     {
         public override string FileName { get => "Square44x44Logo.altform-lightunplated_targetsize-32.png"; }
@@ -297,6 +300,7 @@ namespace UWP_Visual_Asset_Generator.Data
         public override int PreferredRightPadding { get => 0; }
         public override int PreferredBottomPadding { get => 0; }
     }
+
     public class AppIconAltformLightUnplated48 : AssetTemplate
     {
         public override string FileName { get => "Square44x44Logo.altform-lightunplated_targetsize-48.png"; }
