@@ -11,32 +11,74 @@
     xmlns:tkcon="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:viewmodels="using:UWP_Visual_Asset_Generator.ViewModels">
 
-    <Grid Background="{ThemeResource SystemControlAccentAcrylicWindowAccentMediumHighBrush}"
-          Padding="8">
+    <Grid Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}"
+          Padding="12,0,12,12">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
         
-        <StackPanel HorizontalAlignment="Stretch">
-            
-            <TextBlock Text="Original:"
-                       Margin="4"/>
-            
-            <tkcon:ImageEx x:Name="image_Original"                         
-                           Tapped="Image_Original_Tapped"
-                           Source="{x:Bind mainViewModel.OriginalLogoImageSource, Mode=OneWay}"
-                           Stretch="Uniform"
-                           PlaceholderStretch="Uniform"
-                           PlaceholderSource="/Assets/SmallTile.scale-400.png"
-                           AllowDrop="True"
-                           Drop="Image_Original_Drop"
-                           DragOver="Image_Original_DragOver"
-                           ToolTipService.ToolTip="Drop a PNG image here, or click to browse"
-                           />
-        </StackPanel>
+        <!-- Logo -->
+        <StackPanel HorizontalAlignment="Stretch"
+                    BorderBrush="{ThemeResource SystemControlBackgroundBaseLowBrush}"
+                    BorderThickness="0,0,0,1">
 
+            <TextBlock Text="Your logo" x:Uid="Yourlogo"
+                       Style="{ThemeResource FluentSubheaderTextStyle}"
+                       TextWrapping="Wrap"
+                       HorizontalAlignment="Center"
+                       Margin="0,12,0,0"/>
+            
+            <!-- Original (Main) Asset -->
+            <tkcon:DropShadowPanel Canvas.ZIndex="10"
+                                   BlurRadius="10"
+                                   ShadowOpacity="0.3"
+                                   OffsetX="4"
+                                   OffsetY="4"
+                                   Color="Black"
+                                   Margin="24"
+                                   MinHeight="48"
+                                   MaxHeight="240"
+                                   MinWidth="48"
+                                   MaxWidth="240"
+                                   HorizontalContentAlignment="Stretch"
+                                   HorizontalAlignment="Center">
+                <Grid Background="LightGray">
+                    <!-- #TODO UI Message (Add image) -->
+                    <StackPanel Orientation="Vertical"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Visibility="Collapsed">
+                        <TextBlock Text="&#xE109;"
+                                   FontFamily="Segoe MDL2 Assets"
+                                   FontSize="72"
+                                   FontWeight="SemiBold"
+                                   Margin="0,0,0,12"
+                                   HorizontalAlignment="Center"/>
+                        <TextBlock Text="Add image" x:Uid="AddImage"
+                                   Style="{ThemeResource FluentTitleTextStyle}"/>
+                    </StackPanel>
+                    
+                    <!-- Main asset-->
+                    <tkcon:ImageEx x:Name="image_Original"    
+                                   Canvas.ZIndex="60"
+                                   Tapped="Image_Original_Tapped"
+                                   Source="{x:Bind mainViewModel.OriginalLogoImageSource, Mode=OneWay}"
+                                   Stretch="Uniform"
+                                   AllowDrop="True"
+                                   x:Uid="DropPNG"
+                                   PlaceholderStretch="Uniform"
+                                   PlaceholderSource="/Assets/SmallTile.scale-400.png"
+                                   Drop="Image_Original_Drop"
+                                   DragOver="Image_Original_DragOver"
+                                   ToolTipService.ToolTip="Drop a PNG image here, or click to browse"/>
+                </Grid>
+            </tkcon:DropShadowPanel>
+        </StackPanel>
+        <!-- End of logo -->
+        
+        <!-- Asset Style List -->
         <ListView ItemsSource="{x:Bind mainViewModel.AssetTypes.Items, Mode=OneWay}"
                   SelectedItem="{x:Bind mainViewModel.AssetTypes.Current, Mode=TwoWay}"
                   IsMultiSelectCheckBoxEnabled="false"   
@@ -67,7 +109,10 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+        <!-- End of Asset Style list -->
         
+        
+        <!-- Buttons -->
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto"/>
@@ -84,7 +129,9 @@
                     Width="60"
                     Height="60"
                     x:Name="btn_OutputFolder"
-                    Click="Btn_OutputFolder_Click"/>
+                    Click="Btn_OutputFolder_Click"                      
+                    x:Uid="SetOutputFolder"
+                    ToolTipService.ToolTip="Set the output folder"/>
 
             <TextBlock Text="{x:Bind mainViewModel.OutputFolder.Path, Mode=OneWay}"
                        Grid.Column="1"
@@ -93,9 +140,7 @@
                        TextWrapping="Wrap"
                        HorizontalAlignment="Left"
                        TextAlignment="Left"
-                       Margin="4"
-                      ToolTipService.ToolTip="Set the output folder"
-                       />
+                       Margin="4"/>
 
             <Button Style="{StaticResource RoundedAcrylicWindowRevealButtonStyle}"
                     Content=""
@@ -107,9 +152,11 @@
                     Height="60"
                     x:Name="btn_Save"
                     Click="Btn_Save_Click"
+                    x:Uid="Btn_Save_Click"
                     ToolTipService.ToolTip="Save all assets to the output folder"
                     IsEnabled="{x:Bind mainViewModel.SaveEnabled, Mode=OneWay}"/>
         </Grid>
-
+        <!-- End of Buttons -->
+        
     </Grid>
 </UserControl>
