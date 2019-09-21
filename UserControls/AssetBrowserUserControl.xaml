@@ -32,32 +32,39 @@
                   SelectionMode="Extended">
             <GridView.ItemTemplate>
                 <DataTemplate x:DataType="viewModels:AssetViewModel">
-                    <Grid Margin="8"
+
+                    <tkcon:DropShadowPanel 
+                                   Canvas.ZIndex="10"
+                                   BlurRadius="10"
+                                   ShadowOpacity="0.4"
+                                   OffsetX="14"
+                                   OffsetY="14"
+                                   Color="{ThemeResource SystemAccentColorDark1}"
+                                   Margin="24">
+
+                        <Grid Margin="8"
                           Padding="12"
                           BorderBrush="Gray"
-                          BorderThickness="1"
+                          BorderThickness="0"
                           Width="250"
-                          Height="300">
+                          Height="300"
+                                  Background="{ThemeResource SystemControlAcrylicWindowBrush}">
+                            <Grid.RowDefinitions>
+                                <RowDefinition MinHeight="50"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
 
-                        <Grid.RowDefinitions>
-                            <RowDefinition MinHeight="50"/>
-                            <RowDefinition Height="*"/>
-                        </Grid.RowDefinitions>
-
-                        <Grid Grid.RowSpan="2"
-                              Background="{ThemeResource SystemAccentColor}"
-                              x:Name="grdBackgroundAccentPreview"
-                              x:Load="{x:Bind mainViewModel.PreviewWithAccentColour, Mode=OneWay}"
-                              />
-
-                        <StackPanel>
-                            <TextBlock Text="{x:Bind FileName, Mode=OneWay}"
+                            <StackPanel>
+                                <TextBlock Text="{x:Bind FileName, Mode=OneWay}"
                                    VerticalAlignment="Top"
                                    TextWrapping="Wrap"
                                    HorizontalAlignment="Center"
+                                           TextAlignment="Center"
                                    Margin="4"/>
 
-                            <TextBlock VerticalAlignment="Bottom"
+                                <TextBlock VerticalAlignment="Bottom"
                                    Grid.Row="1"
                                    HorizontalAlignment="Center"
                                    Margin="0">
@@ -68,40 +75,54 @@
                                 <Run Text="{x:Bind ImageHeight, Mode=OneWay}"/>
                                 <Run Text=")"/>
 
-                            </TextBlock>
-                        </StackPanel>
+                                </TextBlock>
+                            </StackPanel>
 
-                        <tkcon:ImageEx Grid.Row="1"
+                            <StackPanel Grid.Row="2" 
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center">
+                            <Grid 
+                              Background="{ThemeResource SystemAccentColor}"
+                              x:Name="grdBackgroundAccentPreview"
+                              x:Load="{x:Bind mainViewModel.PreviewWithAccentColour, Mode=OneWay}"
+                              />
+                            
+                            <tkcon:ImageEx Grid.Row="1"
                                        Stretch="Uniform"
                                        PlaceholderStretch="Uniform"
                                        PlaceholderSource="/Assets/SmallTile.scale-400.png"
                                        Source="{x:Bind Logo, Mode=OneWay}" 
+                                       MaxWidth="{x:Bind Logo.PixelWidth,Mode=OneWay}"
+                                       MaxHeight="{x:Bind Logo.PixelHeight,Mode=OneWay}" 
+                                           BorderBrush="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+                                           BorderThickness="0.5"
                                        />
-
-                        <tkcon:Loading IsLoading="{x:Bind Thinking, Mode=OneWay}"
+                            </StackPanel>
+                            
+                            <tkcon:Loading IsLoading="{x:Bind Thinking, Mode=OneWay}"
                                        Background="{ThemeResource SystemControlBackgroundAccentBrush}" 
                                        Opacity="0.8" 
-                                       Grid.RowSpan="3"
+                                       Grid.RowSpan="4"
                                        Margin="0">
-                            <StackPanel Padding="12" 
+                                <StackPanel Padding="12" 
                                         VerticalAlignment="Center"
                                         HorizontalAlignment="Center">
-                                
-                                <Image Source="/Assets/SmallTile.scale-100.png" 
+
+                                    <Image Source="/Assets/SmallTile.scale-100.png" 
                                        VerticalAlignment="Center"
                                        Height="100" 
                                        Margin="8"/>
 
-                                <TextBlock Text="{x:Bind ThinkingText, Mode=OneWay}" 
+                                    <TextBlock Text="{x:Bind ThinkingText, Mode=OneWay}" 
                                            Style="{StaticResource SubtitleTextBlockStyle}" 
                                            TextAlignment="Center"
                                            HorizontalAlignment="Center"
                                            VerticalAlignment="Center" />
-                             
-                            </StackPanel>
-                        </tkcon:Loading>
 
-                        <TextBlock Text=""
+                                </StackPanel>
+                            </tkcon:Loading>
+
+                            <TextBlock Text=""
                                    FontFamily="Segoe MDL2 Assets"
                                    Foreground="Green"
                                    Grid.Row="1"
@@ -109,8 +130,9 @@
                                    VerticalAlignment="Bottom"
                                    HorizontalAlignment="Right"
                                    Margin="4"/>
-                    </Grid>
-                </DataTemplate>
+                        </Grid>
+                    </tkcon:DropShadowPanel>                    
+                </DataTemplate>                    
             </GridView.ItemTemplate>
         </GridView>
     </Grid>

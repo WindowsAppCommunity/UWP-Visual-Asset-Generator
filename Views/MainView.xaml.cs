@@ -104,5 +104,10 @@ namespace UWP_Visual_Asset_Generator.Views
                 mainViewModel.PreviewWithAccentColour = Convert.ToBoolean(s.IsChecked);
             }
         }
+
+        private void Btn_Save_Click(object sender, RoutedEventArgs e)
+        {
+            mainViewModel.AssetTypes.SaveAllAsync();
+        }
     }
 }

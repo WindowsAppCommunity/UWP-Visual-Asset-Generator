@@ -36,7 +36,7 @@
                                    ShadowOpacity="0.3"
                                    OffsetX="4"
                                    OffsetY="4"
-                                   Color="Black"
+                                   Color="{ThemeResource SystemAccentColorDark1}"
                                    Margin="24"
                                    MinHeight="48"
                                    MaxHeight="240"
@@ -44,7 +44,7 @@
                                    MaxWidth="240"
                                    HorizontalContentAlignment="Stretch"
                                    HorizontalAlignment="Center">
-                <Grid Background="LightGray">
+                <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
                     <!-- #TODO UI Message (Add image) -->
                     <StackPanel Orientation="Vertical"
                                 HorizontalAlignment="Center"
@@ -133,7 +133,7 @@
                     x:Uid="SetOutputFolder"
                     ToolTipService.ToolTip="Set the output folder"/>
 
-            <TextBlock Text="{x:Bind mainViewModel.OutputFolder.Path, Mode=OneWay}"
+            <TextBlock Text="{x:Bind mainViewModel.OutputFolder.Path, Mode=OneWay}"                       
                        Grid.Column="1"
                        Style="{ThemeResource CaptionTextBlockStyle}"
                        VerticalAlignment="Center"
@@ -150,6 +150,7 @@
                     Margin="4"
                     Width="60"
                     Height="60"
+                    x:Load="False"
                     x:Name="btn_Save"
                     Click="Btn_Save_Click"
                     x:Uid="Btn_Save_Click"

@@ -166,7 +166,7 @@ namespace UWP_Visual_Asset_Generator.ViewModels
 
         public void EraseImage()
         {
-            Logo.Clear();
+            Logo.Clear(Colors.Transparent);
         }
 
         public void ApplyLogo()
@@ -180,6 +180,7 @@ namespace UWP_Visual_Asset_Generator.ViewModels
                 // Figure out the ratio
                 double ratioX = (double)newLogoInsertWidth / (double)mainViewModel.originalWriteableBitmap.PixelWidth;
                 double ratioY = (double)newLogoInsertHeight / (double)mainViewModel.originalWriteableBitmap.PixelHeight;
+
                 // use whichever multiplier is smaller
                 double ratio = ratioX < ratioY ? ratioX : ratioY;
 
@@ -260,7 +261,7 @@ namespace UWP_Visual_Asset_Generator.ViewModels
                 Stream pixelStream = Logo.PixelBuffer.AsStream();
                 byte[] pixels = new byte[pixelStream.Length];
                 await pixelStream.ReadAsync(pixels, 0, pixels.Length);
-                encoder.SetPixelData(BitmapPixelFormat.Bgra8, BitmapAlphaMode.Ignore, (uint)Logo.PixelWidth, (uint)Logo.PixelHeight,
+                encoder.SetPixelData(BitmapPixelFormat.Bgra8, BitmapAlphaMode.Premultiplied, (uint)Logo.PixelWidth, (uint)Logo.PixelHeight,
                     96.0,
                     96.0,
                     pixels);
