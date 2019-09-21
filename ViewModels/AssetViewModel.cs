@@ -166,7 +166,7 @@ namespace UWP_Visual_Asset_Generator.ViewModels
 
         public void EraseImage()
         {
-            Logo.Clear(Colors.Blue);
+            Logo.Clear();
         }
 
         public void ApplyLogo()
@@ -174,11 +174,22 @@ namespace UWP_Visual_Asset_Generator.ViewModels
             EraseImage();
             if (mainViewModel.originalWriteableBitmap != null)
             {
-                //var resizedOriginal = mainViewModel.originalWriteableBitmap.Clone();
+                int newLogoInsertWidth = ImageWidth - LeftPadding - RightPadding;
+                int newLogoInsertHeight = ImageHeight - TopPadding - BottomPadding;
 
+                // Figure out the ratio
+                double ratioX = (double)newLogoInsertWidth / (double)mainViewModel.originalWriteableBitmap.PixelWidth;
+                double ratioY = (double)newLogoInsertHeight / (double)mainViewModel.originalWriteableBitmap.PixelHeight;
+                // use whichever multiplier is smaller
+                double ratio = ratioX < ratioY ? ratioX : ratioY;
+
+                // now we can get the new height and width
+                int newHeight = Convert.ToInt32(mainViewModel.originalWriteableBitmap.PixelHeight * ratio);
+                int newWidth = Convert.ToInt32(mainViewModel.originalWriteableBitmap.PixelWidth * ratio);
+                
                 var resizedOriginal = mainViewModel.originalWriteableBitmap.Resize(
-                    ImageWidth - LeftPadding - RightPadding, 
-                    ImageHeight - TopPadding - BottomPadding, 
+                    newWidth,
+                    newHeight, 
                     WriteableBitmapExtensions.Interpolation.Bilinear);
 
                 Logo.Blit(
