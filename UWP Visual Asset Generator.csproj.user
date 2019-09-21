@@ -5,7 +5,7 @@
     <UseEmulator>true</UseEmulator>
   </PropertyGroup>
   <PropertyGroup>
-    <AppxShowAllApps>False</AppxShowAllApps>
+    <AppxShowAllApps>True</AppxShowAllApps>
     <Source>C:\Users\rlmar\source\repos\UWP Visual Asset Generator\Images\Logo\V1\Logo.png</Source>
     <SmallTileSource>C:\Users\rlmar\source\repos\UWP Visual Asset Generator\Images\Logo\V1\Logo.png</SmallTileSource>
     <MediumTileSource>C:\Users\rlmar\source\repos\UWP Visual Asset Generator\Images\Logo\V1\Logo.png</MediumTileSource>

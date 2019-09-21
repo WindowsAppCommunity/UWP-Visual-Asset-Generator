@@ -8,7 +8,7 @@
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>UWP_Visual_Asset_Generator</RootNamespace>
-    <AssemblyName>UWP Visual Asset Generator</AssemblyName>
+    <AssemblyName>Visual Asset Generator</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.18362.0</TargetPlatformVersion>
@@ -17,7 +17,7 @@
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WindowsXamlEnableOverview>true</WindowsXamlEnableOverview>
-    <PackageCertificateThumbprint>54A40DE81C61BD87FE34D0B18BAE38926F2D7292</PackageCertificateThumbprint>
+    <PackageCertificateThumbprint>4BEFACD1045BAEA6FFE7C4D00AC7F93C2A2DE4CB</PackageCertificateThumbprint>
     <AppxPackageSigningEnabled>True</AppxPackageSigningEnabled>
     <PackageCertificateKeyFile />
   </PropertyGroup>
