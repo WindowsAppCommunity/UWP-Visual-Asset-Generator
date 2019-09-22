@@ -30,20 +30,16 @@
                   SelectedItem="{x:Bind mainViewModel.AssetTypes.Current.Assets.Current, Mode=TwoWay}"
                   animations:ReorderGridAnimation.Duration="300"
                   SelectionMode="Extended">
+            <GridView.ItemContainerStyle>
+                <Style TargetType="FrameworkElement">
+                    <Setter Property="Margin" Value="0, 0, 20, 20"/>
+                </Style>
+            </GridView.ItemContainerStyle>
             <GridView.ItemTemplate>
                 <DataTemplate x:DataType="viewModels:AssetViewModel">
-
-                    <tkcon:DropShadowPanel 
-                                   Canvas.ZIndex="10"
-                                   BlurRadius="10"
-                                   ShadowOpacity="0.4"
-                                   OffsetX="14"
-                                   OffsetY="14"
-                                   Color="{ThemeResource SystemAccentColorDark1}"
-                                   Margin="24">
-
-                        <Grid Margin="8"
-                          Padding="12"
+                    <Grid Margin="0"
+                          Padding="0"
+                          CornerRadius="1"
                           BorderBrush="Gray"
                           BorderThickness="0"
                           Width="250"
@@ -131,7 +127,6 @@
                                    HorizontalAlignment="Right"
                                    Margin="4"/>
                         </Grid>
-                    </tkcon:DropShadowPanel>                    
                 </DataTemplate>                    
             </GridView.ItemTemplate>
         </GridView>
