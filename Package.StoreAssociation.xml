@@ -362,6 +362,8 @@
     <MainPackageIdentityName>48402ValleySoftware.UWPVisualAssetGenerator</MainPackageIdentityName>
     <ReservedNames>
       <ReservedName>UWP Visual Asset Generator</ReservedName>
+      <ReservedName>Visual Asset Generator</ReservedName>
+      <ReservedName>Visual Asset Generator - Beta</ReservedName>
     </ReservedNames>
   </ProductReservedInfo>
   <AccountPackageIdentityNames>
