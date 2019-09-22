@@ -120,6 +120,9 @@
   <data name="AddImage.Text" xml:space="preserve">
     <value>Add image</value>
   </data>
+  <data name="AppInfo.Text" xml:space="preserve">
+    <value>App info</value>
+  </data>
   <data name="AppUpdated.Text" xml:space="preserve">
     <value>App Updated</value>
   </data>
@@ -129,8 +132,11 @@
   <data name="BtnContinue.Text" xml:space="preserve">
     <value>Continue</value>
   </data>
-  <data name="Btn_Save_Click.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Save all assets to the output folder</value>
+  <data name="btn_Feedback.Label" xml:space="preserve">
+    <value>Feedback and Review</value>
+  </data>
+  <data name="Debug.Text" xml:space="preserve">
+    <value>DEBUG</value>
   </data>
   <data name="DropPNG.ToolTipService.ToolTip" xml:space="preserve">
     <value>Drop a PNG image here, or click to browse</value>
@@ -159,11 +165,32 @@
   <data name="Review.Text" xml:space="preserve">
     <value>Review</value>
   </data>
+  <data name="Save.Label" xml:space="preserve">
+    <value>Save assets</value>
+  </data>
+  <data name="Save.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Save Assets</value>
+  </data>
   <data name="SetOutputFolder.ToolTipService.ToolTip" xml:space="preserve">
     <value>Set the output folder</value>
   </data>
+  <data name="Settings.Label" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="ShowGettingStartedControl.Label" xml:space="preserve">
+    <value>Help and Getting Started</value>
+  </data>
+  <data name="ToggleAccentColour.Label" xml:space="preserve">
+    <value>View Assets with Accent colour</value>
+  </data>
+  <data name="ToggleAccentColour.ToolTipService.ToolTip" xml:space="preserve">
+    <value>View Assets with Accent colour</value>
+  </data>
   <data name="Welcome.Text" xml:space="preserve">
     <value>Welcome to</value>
+  </data>
+  <data name="WelcomeBtn.Label" xml:space="preserve">
+    <value>Welcome</value>
   </data>
   <data name="WeLoveFeedback.Text" xml:space="preserve">
     <value>We love your feedback and reviews...</value>

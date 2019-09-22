@@ -108,6 +108,7 @@
                     <CommandBar.PrimaryCommands>
                         <!-- Primary Command -->
                         <AppBarButton Icon="Save"
+                                      x:Uid="Save"
                                       Label="Save assets"
                                       ToolTipService.ToolTip="Save Assets"
                                       x:Name="btn_Save"
@@ -121,6 +122,7 @@
                         <AppBarToggleButton Label="View Assets with Accent colour" 
                                               Icon="SolidStar"
                                             LabelPosition="Collapsed"
+                                            x:Uid="ToggleAccentColour"
                                             ToolTipService.ToolTip="View Assets with Accent colour"
                                               x:Name="hmi_ToggleAccentColour"
                                               Tapped="Hmi_ToggleAccentColour_Tapped" />
@@ -131,20 +133,24 @@
                         <!-- App info -->
                         <Windows10version1809:AppBarElementContainer>
                             <TextBlock Text="App info" 
+                                       x:Uid="AppInfo"
                                        Style="{ThemeResource FluentBaseTextStyle}"
                                        Margin="12,6"/>
                         </Windows10version1809:AppBarElementContainer>
                         <Windows10version1809:AppBarSeparator />
                         <AppBarButton Label="Help and Getting Started" 
+                              x:Uid="ShowGettingStartedControl"
                               Icon="Help"
                               x:Name="hmi_ShowGettingStartedControl"
                               Tapped="Hmi_ShowGettingStartedControl_Tapped"
                               Visibility="Collapsed"/>
                         <AppBarButton Label="Feedback and Review"  
                               x:Name="hmi_Feedback" 
+                              x:Uid="btn_Feedback"
                               Icon="Emoji2" 
                               Tapped="btn_Feedback_Tapped"/>
-                        <AppBarButton Label="Settings" 
+                        <AppBarButton Label="Settings"
+                              x:Uid="Settings"
                               Icon="Setting" 
                               x:Name="hmi_Settings" 
                               Tapped="abb_Settings_Tapped"/>
@@ -152,12 +158,14 @@
                         <!-- Debug stuff -->
                         <Windows10version1809:AppBarElementContainer>
                             <TextBlock Text="DEBUG" 
+                                       x:Uid="Debug"
                                        Style="{ThemeResource FluentBaseTextStyle}"
                                        Margin="12,6"/>
                         </Windows10version1809:AppBarElementContainer>
                         <AppBarSeparator />
                         <AppBarButton Label="Welcome" 
                               Icon="Home"
+                              x:Uid="WelcomeBtn"
                               x:Name="hmi_ShowWelcomeUSerControl"
                               Tapped="Hmi_ShowWelcomeUSerControl_Tapped"/>
                         <AppBarButton Label="{x:Bind mainViewModel.Settings.AppVersion, Mode=OneWay}" 
