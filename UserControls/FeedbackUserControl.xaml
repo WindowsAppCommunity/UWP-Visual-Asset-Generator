@@ -49,7 +49,7 @@
                         <TextBlock Text="Feedback and Review" TextWrapping="WrapWholeWords" 
                                FontWeight="Bold" Margin="0,0,0,4" Style="{ThemeResource SubtitleTextBlockStyle}"/>
 
-                        <TextBlock Text="We love your feedback and reviews..."  TextWrapping="WrapWholeWords" 
+                        <TextBlock Text="We love your feedback and reviews..." x:Uid="WeLoveFeedback" TextWrapping="WrapWholeWords" 
                            VerticalAlignment="Center"  />
                     </StackPanel>
                 </Grid>
@@ -87,8 +87,8 @@
                                            Margin="12,12,12,12"/>
 
                                 <StackPanel Grid.Column="1" VerticalAlignment="Center">
-                                    <TextBlock Text="Review" Style="{ThemeResource BodyTextBlockStyle}" FontWeight="Bold"/>
-                                    <TextBlock Text="Love this app?  Leave us a review!"
+                                    <TextBlock Text="Review" x:Uid="Review" Style="{ThemeResource BodyTextBlockStyle}" FontWeight="Bold"/>
+                                    <TextBlock Text="Love this app?  Leave us a review!" x:Uid="LoveThisApp"
                                                 TextWrapping="WrapWholeWords" Style="{ThemeResource CaptionTextBlockStyle}"/>
                                 </StackPanel>
                             </Grid>
@@ -121,8 +121,8 @@
                                            Margin="12,12,12,12"/>
 
                                 <StackPanel Grid.Column="1" VerticalAlignment="Center">
-                                    <TextBlock Text="Feedback" Style="{ThemeResource BodyTextBlockStyle}" FontWeight="Bold" />
-                                    <TextBlock Text="Issue, Suggestion or Request?  Leave us some feedback." 
+                                    <TextBlock Text="Feedback" x:Uid="Feedback" Style="{ThemeResource BodyTextBlockStyle}" FontWeight="Bold" />
+                                    <TextBlock Text="Issue, Suggestion or Request?  Leave us some feedback." x:Uid="LeaveFeedback"
                                                 TextWrapping="WrapWholeWords" Style="{ThemeResource CaptionTextBlockStyle}" />
                                 </StackPanel>
 
@@ -138,7 +138,7 @@
                             Style="{StaticResource ButtonRevealStyle}">
                     <ContentControl HorizontalContentAlignment="Stretch" Padding="0" Margin="0">
                         <Grid Background="{ThemeResource SystemControlAccentAcrylicElementAccentMediumHighBrush}" Padding="12">
-                            <TextBlock Text="Back" HorizontalAlignment="Center" 
+                            <TextBlock Text="Back" x:Uid="BtnBack" HorizontalAlignment="Center" 
                                Style="{ThemeResource SubtitleTextBlockStyle}"/>
                         </Grid>
                     </ContentControl>

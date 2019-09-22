@@ -46,7 +46,7 @@
                     </controls:DropShadowPanel>
 
                     <StackPanel Grid.Column="1" VerticalAlignment="Center">
-                        <TextBlock Text="Welcome to" TextWrapping="WrapWholeWords" 
+                        <TextBlock Text="Welcome to" x:Uid="Welcome" TextWrapping="WrapWholeWords" 
                                    FontWeight="Bold" Margin="0,0,0,4" />
 
                         <TextBlock Text="{x:Bind mainViewModel.Settings.AppName, Mode=OneWay}" Style="{ThemeResource SubheaderTextBlockStyle}"
@@ -57,20 +57,20 @@
 
                 <StackPanel Visibility="{Binding Settings.ShowWelcomePage, Mode=OneWay}" Padding="8">
 
-                    <TextBlock Text="Key Features:" TextWrapping="WrapWholeWords" 
+                    <TextBlock Text="Key Features:" x:Uid="KeyFeatures" TextWrapping="WrapWholeWords" 
                                FontWeight="Bold" Margin="0,0,0,8"  />
 
-                    <TextBlock Text="- BETA - App to create store logo (visual assets) for apps." TextWrapping="WrapWholeWords" />
-                    <TextBlock Text="- Currently UWP only.." TextWrapping="WrapWholeWords" />
+                    <TextBlock x:Uid="KeyFeature1" Text="- BETA - App to create store logo (visual assets) for apps." TextWrapping="WrapWholeWords" />
+                    <TextBlock x:Uid="KeyFeature2" Text="- Currently UWP only.." TextWrapping="WrapWholeWords" />
                                         
                 </StackPanel>
 
                 <StackPanel Visibility="{Binding Settings.ShowUpdatePage, Mode=OneWay}" Padding="8">
 
-                    <TextBlock Text="App Updated" FontWeight="Bold" />
+                    <TextBlock x:Uid="AppUpdated" Text="App Updated" FontWeight="Bold" />
                     <TextBlock Text="{Binding Settings.AppVersion, Mode=OneWay}" Margin="0,0,0,8"/>
                     
-                    <TextBlock Text="- First (closed) beta."  TextWrapping="WrapWholeWords"/>
+                    <TextBlock x:Uid="FirstBeta" Text="- First (closed) beta."  TextWrapping="WrapWholeWords"/>
                 </StackPanel>
 
                 <Button x:Name="btn_Continue" HorizontalAlignment="Stretch" BorderThickness="1" Windows10version1809:CornerRadius="0,0,2,2" Margin="0,8,0,0" HorizontalContentAlignment="Stretch"
@@ -80,7 +80,7 @@
                         Padding="0">
                     <ContentControl HorizontalContentAlignment="Stretch" Padding="0" Margin="0">
                         <Grid  Padding="12">
-                            <TextBlock Text="Continue" HorizontalAlignment="Center" 
+                            <TextBlock Text="Continue" x:Uid="BtnContinue" HorizontalAlignment="Center" 
                                     Style="{ThemeResource SubtitleTextBlockStyle}"/>
                         </Grid>
                     </ContentControl>

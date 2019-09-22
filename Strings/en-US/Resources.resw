@@ -120,14 +120,53 @@
   <data name="AddImage.Text" xml:space="preserve">
     <value>Add image</value>
   </data>
+  <data name="AppUpdated.Text" xml:space="preserve">
+    <value>App Updated</value>
+  </data>
+  <data name="BtnBack.Text" xml:space="preserve">
+    <value>Back</value>
+  </data>
+  <data name="BtnContinue.Text" xml:space="preserve">
+    <value>Continue</value>
+  </data>
   <data name="Btn_Save_Click.ToolTipService.ToolTip" xml:space="preserve">
     <value>Save all assets to the output folder</value>
   </data>
   <data name="DropPNG.ToolTipService.ToolTip" xml:space="preserve">
     <value>Drop a PNG image here, or click to browse</value>
   </data>
+  <data name="Feedback.Text" xml:space="preserve">
+    <value>Feedback</value>
+  </data>
+  <data name="FirstBeta.Text" xml:space="preserve">
+    <value>- First (closed) beta.</value>
+  </data>
+  <data name="KeyFeature1.Text" xml:space="preserve">
+    <value>- BETA - App to create store logo (visual assets) for apps.</value>
+  </data>
+  <data name="KeyFeature2.Text" xml:space="preserve">
+    <value>- Currently UWP only..</value>
+  </data>
+  <data name="KeyFeatures.Text" xml:space="preserve">
+    <value>Key Features:</value>
+  </data>
+  <data name="LeaveFeedback.Text" xml:space="preserve">
+    <value>Issue, Suggestion or Request?  Leave us some feedback.</value>
+  </data>
+  <data name="LoveThisApp.Text" xml:space="preserve">
+    <value>Love this app?  Leave us a review!</value>
+  </data>
+  <data name="Review.Text" xml:space="preserve">
+    <value>Review</value>
+  </data>
   <data name="SetOutputFolder.ToolTipService.ToolTip" xml:space="preserve">
     <value>Set the output folder</value>
+  </data>
+  <data name="Welcome.Text" xml:space="preserve">
+    <value>Welcome to</value>
+  </data>
+  <data name="WeLoveFeedback.Text" xml:space="preserve">
+    <value>We love your feedback and reviews...</value>
   </data>
   <data name="YourLogo.Text" xml:space="preserve">
     <value>Your Logo</value>
