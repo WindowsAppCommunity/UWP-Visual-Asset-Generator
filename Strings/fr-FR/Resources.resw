@@ -12,4 +12,85 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+    <data name="AddImage.Text" xml:space="preserve">
+    <value>Ajouter une image</value>
+  </data>
+  <data name="AppInfo.Text" xml:space="preserve">
+    <value>Informations sur l'application</value>
+  </data>
+  <data name="AppUpdated.Text" xml:space="preserve">
+    <value>Application mise à jour</value>
+  </data>
+  <data name="BtnBack.Text" xml:space="preserve">
+    <value>Retour</value>
+  </data>
+  <data name="BtnContinue.Text" xml:space="preserve">
+    <value>Continuez</value>
+  </data>
+  <data name="btn_Feedback.Label" xml:space="preserve">
+    <value>Commentaires et révisions</value>
+  </data>
+  <data name="Debug.Text" xml:space="preserve">
+    <value>DEBUG</value>
+  </data>
+  <data name="DropPNG.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Déposer une image PNG ici ou cliquer pour naviguer</value>
+  </data>
+  <data name="Feedback.Text" xml:space="preserve">
+    <value>Commentaires</value>
+  </data>
+  <data name="FirstBeta.Text" xml:space="preserve">
+    <value>- Première bêta (fermée).</value>
+  </data>
+  <data name="KeyFeature1.Text" xml:space="preserve">
+    <value>- BETA - App pour créer un logo (actifs visuels) pour les applications du Store.</value>
+  </data>
+  <data name="KeyFeature2.Text" xml:space="preserve">
+    <value>- Actuellement UWP seulement ...</value>
+  </data>
+  <data name="KeyFeatures.Text" xml:space="preserve">
+    <value>Principales caractéristiques:</value>
+  </data>
+  <data name="LeaveFeedback.Text" xml:space="preserve">
+    <value>Problème, Suggestion ou Demande? Laissez-nous des commentaires.</value>
+  </data>
+  <data name="LoveThisApp.Text" xml:space="preserve">
+    <value>Vous aimez cette application? Laissez-nous un avis!</value>
+  </data>
+  <data name="Review.Text" xml:space="preserve">
+    <value>Révision</value>
+  </data>
+  <data name="Save.Label" xml:space="preserve">
+    <value>Enregistrer des actifs</value>
+  </data>
+  <data name="Save.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Enregistrer les actifs</value>
+  </data>
+  <data name="SetOutputFolder.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Définir le dossier de sortie</value>
+  </data>
+  <data name="Settings.Label" xml:space="preserve">
+    <value>Paramètres</value>
+  </data>
+  <data name="ShowGettingStartedControl.Label" xml:space="preserve">
+    <value>Aide et Prise en main</value>
+  </data>
+  <data name="ToggleAccentColour.Label" xml:space="preserve">
+    <value>Afficher les actifs avec une couleur d'accent</value>
+  </data>
+  <data name="ToggleAccentColour.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Afficher les actifs avec une couleur d'accent</value>
+  </data>
+  <data name="Welcome.Text" xml:space="preserve">
+    <value>Bienvenue à</value>
+  </data>
+  <data name="WelcomeBtn.Label" xml:space="preserve">
+    <value>Bienvenue</value>
+  </data>
+  <data name="WeLoveFeedback.Text" xml:space="preserve">
+    <value>Nous aimons vos commentaires et vos corrections ...</value>
+  </data>
+  <data name="YourLogo.Text" xml:space="preserve">
+    <value>Votre logo</value>
+  </data>
 </root>
