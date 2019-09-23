@@ -13,7 +13,7 @@
     d:DesignHeight="300"
     d:DesignWidth="400">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    <Grid Background="{ThemeResource SystemChromeMediumColor}"
           Padding="12,32,0,0">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
