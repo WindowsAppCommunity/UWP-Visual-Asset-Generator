@@ -162,6 +162,9 @@
   <data name="LoveThisApp.Text" xml:space="preserve">
     <value>Love this app?  Leave us a review!</value>
   </data>
+  <data name="OutputFolder.PlaceholderText" xml:space="preserve">
+    <value>Output Folder</value>
+  </data>
   <data name="Review.Text" xml:space="preserve">
     <value>Review</value>
   </data>

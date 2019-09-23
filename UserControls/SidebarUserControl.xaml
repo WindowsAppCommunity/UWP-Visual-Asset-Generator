@@ -9,7 +9,8 @@
     d:DesignHeight="800"
     d:DesignWidth="400"
     xmlns:tkcon="using:Microsoft.Toolkit.Uwp.UI.Controls"
-    xmlns:viewmodels="using:UWP_Visual_Asset_Generator.ViewModels">
+    xmlns:viewmodels="using:UWP_Visual_Asset_Generator.ViewModels"
+    xmlns:Windows10version1809="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract, 7)">
 
     <Grid Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}"
           Padding="12,0,12,12">
@@ -118,44 +119,28 @@
                 <ColumnDefinition Width="auto"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="auto"/>
-            </Grid.ColumnDefinitions>            
-            
-            <Button Style="{StaticResource RoundedAcrylicWindowRevealButtonStyle}"
-                    Content=""
-                    FontFamily="Segoe MDL2 Assets"
-                    FontSize="24"
-                    Grid.Column="0"
-                    Margin="4"
-                    Width="60"
-                    Height="60"
-                    x:Name="btn_OutputFolder"
-                    Click="Btn_OutputFolder_Click"                      
+            </Grid.ColumnDefinitions>
+
+            <TextBox PlaceholderText="Output Folder" 
+                     Windows10version1809:CornerRadius="2,0,0,2" 
+                     BorderThickness="1,1,1,1" 
+                     Text="{x:Bind mainViewModel.OutputFolder.Path, Mode=OneWay}" 
+                     IsEnabled="False"
+                     Margin="0,18,0,18" 
+                     x:Uid="OutputFolder"
+                     Grid.ColumnSpan="2"/>
+            <Button Content="" 
+                    FontFamily="Segoe MDL2 Assets" 
+                    BorderThickness="1,1,1,1" 
+                    Windows10version1809:CornerRadius="0,2,2,0"                     
+                    Grid.Column="2" 
+                    Margin="0,18,0,18" 
+                    Height="33"
+                    HorizontalAlignment="Right" 
+                    Click="Btn_OutputFolder_Click" 
                     x:Uid="SetOutputFolder"
-                    ToolTipService.ToolTip="Set the output folder"/>
-
-            <TextBlock Text="{x:Bind mainViewModel.OutputFolder.Path, Mode=OneWay}"                       
-                       Grid.Column="1"
-                       Style="{ThemeResource CaptionTextBlockStyle}"
-                       VerticalAlignment="Center"
-                       TextWrapping="Wrap"
-                       HorizontalAlignment="Left"
-                       TextAlignment="Left"
-                       Margin="4"/>
-
-            <Button Style="{StaticResource RoundedAcrylicWindowRevealButtonStyle}"
-                    Content=""
-                    FontFamily="Segoe MDL2 Assets"
-                    FontSize="24"
-                    Grid.Column="2"
-                    Margin="4"
-                    Width="60"
-                    Height="60"
-                    x:Load="False"
-                    x:Name="btn_Save"
-                    Click="Btn_Save_Click"
-                    x:Uid="Btn_Save_Click"
-                    ToolTipService.ToolTip="Save all assets to the output folder"
-                    IsEnabled="{x:Bind mainViewModel.SaveEnabled, Mode=OneWay}"/>
+                    BorderBrush="{ThemeResource TextBoxButtonBorderThemeBrush}"
+                    Background="{ThemeResource SystemAccentColor}"/>
         </Grid>
         <!-- End of Buttons -->
         
