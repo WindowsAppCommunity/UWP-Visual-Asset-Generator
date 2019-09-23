@@ -8,115 +8,115 @@
       <group id="UWP VISUAL ASSET GENERATOR/STRINGS/EN-US/RESOURCES.RESW" datatype="resx">
         <trans-unit id="AddImage.Text" translate="yes" xml:space="preserve">
           <source>Add image</source>
-          <target state="new">Ajouter une image</target>
+          <target state="final">Ajouter une image</target>
         </trans-unit>
         <trans-unit id="AppInfo.Text" translate="yes" xml:space="preserve">
           <source>App info</source>
-          <target state="new">Informations sur l'application</target>
+          <target state="final">Informations sur l'application</target>
         </trans-unit>
         <trans-unit id="AppUpdated.Text" translate="yes" xml:space="preserve">
           <source>App Updated</source>
-          <target state="new">Application mise à jour</target>
+          <target state="final">Application mise à jour</target>
         </trans-unit>
         <trans-unit id="BtnBack.Text" translate="yes" xml:space="preserve">
           <source>Back</source>
-          <target state="new">Back</target>
+          <target state="final">Back</target>
         </trans-unit>
         <trans-unit id="BtnContinue.Text" translate="yes" xml:space="preserve">
           <source>Continue</source>
-          <target state="new">Continue</target>
+          <target state="final">Continue</target>
         </trans-unit>
         <trans-unit id="btn_Feedback.Label" translate="yes" xml:space="preserve">
           <source>Feedback and Review</source>
-          <target state="new">Feedback and Review</target>
+          <target state="final">Feedback and Review</target>
         </trans-unit>
         <trans-unit id="Debug.Text" translate="yes" xml:space="preserve">
           <source>DEBUG</source>
-          <target state="new">DEBUG</target>
+          <target state="final">DEBUG</target>
         </trans-unit>
         <trans-unit id="DropPNG.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
           <source>Drop a PNG image here, or click to browse</source>
-          <target state="new">Drop a PNG image here, or click to browse</target>
+          <target state="final">Drop a PNG image here, or click to browse</target>
         </trans-unit>
         <trans-unit id="Feedback.Text" translate="yes" xml:space="preserve">
           <source>Feedback</source>
-          <target state="new">Commentaires</target>
+          <target state="final">Commentaires</target>
         </trans-unit>
         <trans-unit id="FirstBeta.Text" translate="yes" xml:space="preserve">
           <source>- First (closed) beta.</source>
-          <target state="new">- Première bêta (fermée).</target>
+          <target state="final">- Première bêta (fermée).</target>
         </trans-unit>
         <trans-unit id="KeyFeature1.Text" translate="yes" xml:space="preserve">
           <source>- BETA - App to create store logo (visual assets) for apps.</source>
-          <target state="new">- BETA - App pour créer un logo (actifs visuels) pour les applications du Store.</target>
+          <target state="final">- BETA - App pour créer un logo (actifs visuels) pour les applications du Store.</target>
         </trans-unit>
         <trans-unit id="KeyFeature2.Text" translate="yes" xml:space="preserve">
           <source>- Currently UWP only...</source>
-          <target state="new">- Currently UWP only...</target>
+          <target state="final">- Currently UWP only...</target>
         </trans-unit>
         <trans-unit id="KeyFeatures.Text" translate="yes" xml:space="preserve">
           <source>Key Features:</source>
-          <target state="new">Principales caractéristiques:</target>
+          <target state="final">Principales caractéristiques:</target>
         </trans-unit>
         <trans-unit id="LeaveFeedback.Text" translate="yes" xml:space="preserve">
           <source>Issue, Suggestion or Request?  Leave us some feedback.</source>
-          <target state="new">Problème, Suggestion ou Demande? Laissez-nous des commentaires.</target>
+          <target state="final">Problème, Suggestion ou Demande? Laissez-nous des commentaires.</target>
         </trans-unit>
         <trans-unit id="LoveThisApp.Text" translate="yes" xml:space="preserve">
           <source>Love this app?  Leave us a review!</source>
-          <target state="new">Vous aimez cette application? Laissez-nous un avis!</target>
+          <target state="final">Vous aimez cette application? Laissez-nous un avis!</target>
         </trans-unit>
         <trans-unit id="Review.Text" translate="yes" xml:space="preserve">
           <source>Review</source>
-          <target state="new">Révision</target>
+          <target state="final">Révision</target>
         </trans-unit>
         <trans-unit id="Save.Label" translate="yes" xml:space="preserve">
           <source>Save assets</source>
-          <target state="new">Enregistrer des actifs</target>
+          <target state="final">Enregistrer des actifs</target>
         </trans-unit>
         <trans-unit id="Save.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
           <source>Save Assets</source>
-          <target state="new">Enregistrer des actifs</target>
+          <target state="final">Enregistrer des actifs</target>
         </trans-unit>
         <trans-unit id="SetOutputFolder.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
           <source>Set the output folder</source>
-          <target state="new">Définir le dossier de sortie</target>
+          <target state="final">Définir le dossier de sortie</target>
         </trans-unit>
         <trans-unit id="Settings.Label" translate="yes" xml:space="preserve">
           <source>Settings</source>
-          <target state="new">Paramètres</target>
+          <target state="final">Paramètres</target>
         </trans-unit>
         <trans-unit id="ShowGettingStartedControl.Label" translate="yes" xml:space="preserve">
           <source>Help and Getting Started</source>
-          <target state="new">Aide et Prise en main</target>
+          <target state="final">Aide et Prise en main</target>
         </trans-unit>
         <trans-unit id="ToggleAccentColour.Label" translate="yes" xml:space="preserve">
           <source>View Assets with Accent colour</source>
-          <target state="new">Afficher les actifs avec une couleur d'accent</target>
+          <target state="final">Afficher les actifs avec une couleur d'accent</target>
         </trans-unit>
         <trans-unit id="ToggleAccentColour.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
           <source>View Assets with Accent colour</source>
-          <target state="new">Afficher les actifs avec une couleur d'accent</target>
+          <target state="final">Afficher les actifs avec une couleur d'accent</target>
         </trans-unit>
         <trans-unit id="Welcome.Text" translate="yes" xml:space="preserve">
           <source>Welcome to</source>
-          <target state="new">Bienvenue à</target>
+          <target state="final">Bienvenue à</target>
         </trans-unit>
         <trans-unit id="WelcomeBtn.Label" translate="yes" xml:space="preserve">
           <source>Welcome</source>
-          <target state="new">Bienvenue</target>
+          <target state="final">Bienvenue</target>
         </trans-unit>
         <trans-unit id="WeLoveFeedback.Text" translate="yes" xml:space="preserve">
           <source>We love your feedback and reviews...</source>
-          <target state="new">Nous aimons vos commentaires et vos corrections ...</target>
+          <target state="final">Nous aimons vos commentaires et vos corrections ...</target>
         </trans-unit>
         <trans-unit id="YourLogo.Text" translate="yes" xml:space="preserve">
           <source>Your Logo</source>
-          <target state="new">Votre logo</target>
+          <target state="final">Votre logo</target>
         </trans-unit>
         <trans-unit id="OutputFolder.PlaceholderText" translate="yes" xml:space="preserve">
           <source>Output Folder</source>
-          <target state="new">Output Folder</target>
+          <target state="final">Output Folder</target>
         </trans-unit>
       </group>
     </body>
