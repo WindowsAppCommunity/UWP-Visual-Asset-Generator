@@ -1,4 +1,13 @@
-# UWP-Visual-Asset-Generator
+<p align="center">
+  <img alt="uwpvag logo" src="./Assets/Square44x44Logo.altform-unplated_targetsize-256.png" width="100px" />
+  <h1 align="center">UWP-Visual-Asset-Generator</h1>
+</p>
+
+[![Store link](https://img.shields.io/badge/Microsoft%20Store-Download-orange.svg?style=flat-square)](https://www.microsoft.com/store/productId/9MZ6QRQTDKF2)
+[![Release](https://img.shields.io/github/release/UWPCommunity/UWP-Visual-Asset-Generator.svg?style=flat-square)](https://github.com/UWPCommunity/UWP-Visual-Asset-Generator/releases)
+[![Contributors](https://img.shields.io/github/contributors/UWPCommunity/UWP-Visual-Asset-Generator?style=flat-square)](https://github.com/UWPCommunity/UWP-Visual-Asset-Generator/graphs/contributors)
+[![Stars](https://img.shields.io/github/stars/UWPCommunity/UWP-Visual-Asset-Generator.svg?style=flat-square)](https://github.com/UWPCommunity/UWP-Visual-Asset-Generator/stargazers)
+
 
 ## This is a project to develop an easy to use visual asset tool for UWP projects.
 
@@ -13,3 +22,10 @@ Immediate goals (2019) are to have the app progress through these stages of capa
 ## This project is to be free (as in free beer) and open source without ads.
 
 The goal is to help the community make sharp, well alligned assets easily for UWP apps.
+
+
+## Currently available languages:
+
+- en-US 
+- fr-FR
+- Soon more ... ([How to participate](https://github.com/UWPCommunity/Quick-Pad/blob/master/translator.md))
