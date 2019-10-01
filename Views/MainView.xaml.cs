@@ -109,5 +109,15 @@ namespace UWP_Visual_Asset_Generator.Views
         {
             mainViewModel.AssetTypes.SaveAllAsync();
         }
+
+        private void hmi_ApplyRecommendedPadding_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            mainViewModel.AssetTypes.UpdateAllPaddingAsync(true);
+        }
+
+        private void hmi_ZeroOutPadding_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            mainViewModel.AssetTypes.UpdateAllPaddingAsync(false);
+        }
     }
 }

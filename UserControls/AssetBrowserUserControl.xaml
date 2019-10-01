@@ -6,6 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewModels="using:UWP_Visual_Asset_Generator.ViewModels"
+    xmlns:muimedia="using:Microsoft.UI.Xaml.Media"
     xmlns:tkcon="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:animations="using:Microsoft.Toolkit.Uwp.UI.Animations"
     xmlns:Windows10version1809="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract, 7)"
@@ -42,91 +43,114 @@
                           CornerRadius="1"
                           BorderBrush="Gray"
                           BorderThickness="0"
-                          Width="250"
-                          Height="300"
-                                  Background="{ThemeResource SystemControlAcrylicWindowBrush}">
-                            <Grid.RowDefinitions>
-                                <RowDefinition MinHeight="50"/>
-                                <RowDefinition Height="*"/>
-                                <RowDefinition Height="auto"/>
-                                <RowDefinition Height="*"/>
-                            </Grid.RowDefinitions>
+                          Width="350"
+                          Height="470"
+                          Background="{ThemeResource SystemControlAcrylicWindowBrush}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto" MinHeight="50"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid Background="{ThemeResource SystemAccentColor}"
+                                  x:Name="grdBackgroundAccentPreview"
+                                  HorizontalAlignment="Stretch"
+                                  VerticalAlignment="Stretch"
+                              Grid.RowSpan="3"
+                                  Visibility="{x:Bind mainViewModel.PreviewWithAccentColour, Mode=OneWay}"
+                                  />
+                        <StackPanel>
+                            <TextBlock Text="{x:Bind FileName, Mode=OneWay}"
+                               VerticalAlignment="Top"
+                               TextWrapping="Wrap"
+                               HorizontalAlignment="Center"
+                                       TextAlignment="Center"
+                               Margin="4"/>
 
-                            <StackPanel>
-                                <TextBlock Text="{x:Bind FileName, Mode=OneWay}"
-                                   VerticalAlignment="Top"
-                                   TextWrapping="Wrap"
-                                   HorizontalAlignment="Center"
-                                           TextAlignment="Center"
-                                   Margin="4"/>
+                            <TextBlock VerticalAlignment="Bottom"
+                               HorizontalAlignment="Center"
+                               Margin="0">
+                        
+                            <Run Text="("/>
+                            <Run Text="{x:Bind ImageWidth, Mode=OneWay}"/>
+                            <Run Text="*"/>
+                            <Run Text="{x:Bind ImageHeight, Mode=OneWay}"/>
+                            <Run Text=")"/>
 
-                                <TextBlock VerticalAlignment="Bottom"
-                                   Grid.Row="1"
-                                   HorizontalAlignment="Center"
-                                   Margin="0">
-                            
-                                <Run Text="("/>
-                                <Run Text="{x:Bind ImageWidth, Mode=OneWay}"/>
-                                <Run Text="*"/>
-                                <Run Text="{x:Bind ImageHeight, Mode=OneWay}"/>
-                                <Run Text=")"/>
+                            </TextBlock>
+                        </StackPanel>
 
-                                </TextBlock>
-                            </StackPanel>
 
-                            <StackPanel Grid.Row="2" 
-                                        HorizontalAlignment="Center"
-                                        VerticalAlignment="Center">
-                            <Grid 
-                              Background="{ThemeResource SystemAccentColor}"
-                              x:Name="grdBackgroundAccentPreview"
-                              x:Load="{x:Bind mainViewModel.PreviewWithAccentColour, Mode=OneWay}"
-                              />
-                            
-                            <tkcon:ImageEx Grid.Row="1"
-                                       Stretch="Uniform"
-                                       PlaceholderStretch="Uniform"
-                                       PlaceholderSource="/Assets/SmallTile.scale-400.png"
-                                       Source="{x:Bind Logo, Mode=OneWay}" 
-                                       MaxWidth="{x:Bind Logo.PixelWidth,Mode=OneWay}"
-                                       MaxHeight="{x:Bind Logo.PixelHeight,Mode=OneWay}" 
-                                           BorderBrush="{ThemeResource ApplicationPageBackgroundThemeBrush}"
-                                           BorderThickness="0.5"
-                                       />
-                            </StackPanel>
-                            
-                            <tkcon:Loading IsLoading="{x:Bind Thinking, Mode=OneWay}"
-                                       Background="{ThemeResource SystemControlBackgroundAccentBrush}" 
-                                       Opacity="0.8" 
-                                       Grid.RowSpan="4"
-                                       Margin="0">
-                                <StackPanel Padding="12" 
-                                        VerticalAlignment="Center"
-                                        HorizontalAlignment="Center">
-
-                                    <Image Source="/Assets/SmallTile.scale-100.png" 
-                                       VerticalAlignment="Center"
-                                       Height="100" 
-                                       Margin="8"/>
-
-                                    <TextBlock Text="{x:Bind ThinkingText, Mode=OneWay}" 
-                                           Style="{StaticResource SubtitleTextBlockStyle}" 
-                                           TextAlignment="Center"
+                        <tkcon:ImageEx Grid.Row="1"
+                                           Background="Transparent" 
+                                       BorderThickness="4"
+                                       BorderBrush="Silver"
+                                           Margin="8"
+                                           Stretch="Uniform"
+                                           PlaceholderStretch="Uniform"
+                                           PlaceholderSource="/Assets/SmallTile.scale-400.png"
                                            HorizontalAlignment="Center"
-                                           VerticalAlignment="Center" />
+                                           VerticalAlignment="Center" 
+                                           MaxWidth="{x:Bind Logo.PixelWidth,Mode=OneWay}"
+                                           MaxHeight="{x:Bind Logo.PixelHeight,Mode=OneWay}" 
+                                           Source="{x:Bind Logo, Mode=OneWay}" 
+                                             
+                                       
+                                           >
+                        </tkcon:ImageEx>
 
-                                </StackPanel>
-                            </tkcon:Loading>
+                        <tkcon:Loading IsLoading="{x:Bind Thinking, Mode=OneWay}"
+                                   Background="{ThemeResource SystemControlBackgroundAccentBrush}" 
+                                   Opacity="0.8" 
+                                   Grid.RowSpan="3"
+                                   Margin="0">
+                            <StackPanel Padding="12" 
+                                    VerticalAlignment="Center"
+                                    HorizontalAlignment="Center">
 
-                            <TextBlock Text=""
-                                   FontFamily="Segoe MDL2 Assets"
-                                   Foreground="Green"
-                                   Grid.Row="1"
-                                   Visibility="{x:Bind SavedSuccessfully, Mode=OneWay}"
-                                   VerticalAlignment="Bottom"
-                                   HorizontalAlignment="Right"
-                                   Margin="4"/>
-                        </Grid>
+                                <Image Source="/Assets/SmallTile.scale-100.png" 
+                                   VerticalAlignment="Center"
+                                   Height="100" 
+                                   Margin="8"/>
+
+                                <TextBlock Text="{x:Bind ThinkingText, Mode=OneWay}" 
+                                       Style="{StaticResource SubtitleTextBlockStyle}" 
+                                       TextAlignment="Center"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center" />
+
+                            </StackPanel>
+                        </tkcon:Loading>
+
+                        <TextBlock Text=""
+                               FontFamily="Segoe MDL2 Assets"
+                               Foreground="Green"
+                                   FontSize="32"
+                               Grid.Row="0"
+                               Visibility="{x:Bind SavedSuccessfully, Mode=OneWay}"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Right"
+                                   Margin="8,0"
+                                   ToolTipService.ToolTip="Saved!"/>
+
+                        <StackPanel Grid.Row="2"
+                                    HorizontalAlignment="Center"
+                                    Margin="4"
+                                    Orientation="Horizontal">
+                            <TextBox Header="Top Padding"
+                                     Text="{x:Bind TopPadding, Mode=TwoWay}"
+                                     MinWidth="120" 
+                                     Margin="4"
+                                     x:Name="text_TopMargin"
+                                     BeforeTextChanging="text_TopMargin_BeforeTextChanging"/>
+                            <TextBox Header="Bottom Padding"
+                                     Text="{x:Bind BottomPadding, Mode=TwoWay}"
+                                     MinWidth="120" 
+                                     Margin="4"
+                                     x:Name="text_BottomMargin"
+                                     BeforeTextChanging="text_BottomMargin_BeforeTextChanging"/>
+
+                        </StackPanel>
+                    </Grid>
                 </DataTemplate>                    
             </GridView.ItemTemplate>
         </GridView>

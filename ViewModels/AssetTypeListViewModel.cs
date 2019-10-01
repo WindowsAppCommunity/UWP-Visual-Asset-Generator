@@ -58,7 +58,7 @@ namespace UWP_Visual_Asset_Generator.ViewModels
             Items.Add(new AssetTypeViewModel(AssetTypeViewModel.LargeTileName));
             Items.Add(new AssetTypeViewModel(AssetTypeViewModel.AppIconName));
             Items.Add(new AssetTypeViewModel(AssetTypeViewModel.SplashScreenName));
-            Items.Add(new AssetTypeViewModel(AssetTypeViewModel.BadgeLogoName));
+            //Items.Add(new AssetTypeViewModel(AssetTypeViewModel.BadgeLogoName));
             Items.Add(new AssetTypeViewModel(AssetTypeViewModel.PackageLogoTileName));
             Current = Items[0];
         }
@@ -70,6 +70,24 @@ namespace UWP_Visual_Asset_Generator.ViewModels
                 foreach (var element in Items)
                 {
                     element.Assets.ApplyLogo();
+                }
+            }
+        }
+
+        public async Task UpdateAllPaddingAsync(bool useReccomendedPadding = false)
+        {
+            foreach (var assetType in Items)
+            {
+                foreach (var asset in assetType.Assets.Items)
+                {
+                    if (useReccomendedPadding)
+                    {
+                        asset.ResetPadding();
+                    }
+                    else
+                    {
+                        asset.ZeroPadding();
+                    }
                 }
             }
         }

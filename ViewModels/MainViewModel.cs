@@ -214,7 +214,7 @@ namespace UWP_Visual_Asset_Generator.ViewModels
                     await b.SetSourceAsync(randomAccessStream);
                     OriginalLogoImageSource = b;
                 }
-                LogoAsWriteableBitmap();
+                await LogoAsWriteableBitmap();
 
                 AssetTypes.ApplyLogo();
 

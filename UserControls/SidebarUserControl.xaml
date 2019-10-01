@@ -26,7 +26,6 @@
                     BorderThickness="0,0,0,1">
 
             <TextBlock Text="Your logo" x:Uid="Yourlogo"
-                       Style="{ThemeResource FluentSubheaderTextStyle}"
                        TextWrapping="Wrap"
                        HorizontalAlignment="Center"
                        Margin="0,12,0,0"/>

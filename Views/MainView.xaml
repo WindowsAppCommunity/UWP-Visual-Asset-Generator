@@ -138,12 +138,6 @@
                                        Margin="12,6"/>
                         </Windows10version1809:AppBarElementContainer>
                         <Windows10version1809:AppBarSeparator />
-                        <AppBarButton Label="Help and Getting Started" 
-                              x:Uid="ShowGettingStartedControl"
-                              Icon="Help"
-                              x:Name="hmi_ShowGettingStartedControl"
-                              Tapped="Hmi_ShowGettingStartedControl_Tapped"
-                              Visibility="Collapsed"/>
                         <AppBarButton Label="Feedback and Review"  
                               x:Name="hmi_Feedback" 
                               x:Uid="btn_Feedback"
@@ -153,15 +147,7 @@
                               x:Uid="Settings"
                               Icon="Setting" 
                               x:Name="hmi_Settings" 
-                              Tapped="abb_Settings_Tapped"/>
-                        
-                        <!-- Debug stuff -->
-                        <Windows10version1809:AppBarElementContainer>
-                            <TextBlock Text="DEBUG" 
-                                       x:Uid="Debug"
-                                       Style="{ThemeResource FluentBaseTextStyle}"
-                                       Margin="12,6"/>
-                        </Windows10version1809:AppBarElementContainer>
+                              Tapped="abb_Settings_Tapped"/> 
                         <AppBarSeparator />
                         <AppBarButton Label="Welcome" 
                               Icon="Home"
@@ -170,6 +156,15 @@
                               Tapped="Hmi_ShowWelcomeUSerControl_Tapped"/>
                         <AppBarButton Label="{x:Bind mainViewModel.Settings.AppVersion, Mode=OneWay}" 
                                       Icon="World"/>
+                        <AppBarSeparator />
+                        <AppBarButton Label="0 out all Pading" 
+                              Icon="Clear"
+                              x:Name="hmi_ZeroOutPadding"
+                              Tapped="hmi_ZeroOutPadding_Tapped"/>
+                        <AppBarButton Label="Apply recommended padding" 
+                              Icon="FontSize"
+                              x:Name="hmi_ApplyRecommendedPadding"
+                              Tapped="hmi_ApplyRecommendedPadding_Tapped"/>
                     </CommandBar.SecondaryCommands>
 
                 </CommandBar>

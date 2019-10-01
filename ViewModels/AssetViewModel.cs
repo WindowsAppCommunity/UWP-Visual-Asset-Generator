@@ -22,9 +22,7 @@ namespace UWP_Visual_Asset_Generator.ViewModels
         private bool _savedSuccessfully = false;
         private WriteableBitmap _logo;
 
-        private int _leftPadding = 0;
         private int _topPadding = 0;
-        private int _rightPadding = 0;
         private int _bottomPadding = 0;
 
         public MainViewModel mainViewModel { get; set; }
@@ -35,18 +33,13 @@ namespace UWP_Visual_Asset_Generator.ViewModels
             ResetPadding();
             mainViewModel = App.mainViewModel;
             _savedSuccessfully = false;
+            SetupInitialLogo();
         }
 
         public WriteableBitmap Logo
         {
             get
-            {
-                if (_logo == null)
-                {
-                    _logo = new WriteableBitmap(ImageWidth, ImageHeight);
-                    _logo.Clear();
-                    ApplyLogo();
-                }
+            {                
                 return _logo;
             }
             set
@@ -95,24 +88,7 @@ namespace UWP_Visual_Asset_Generator.ViewModels
                 return _template.ImageWidth;
             }
         }
-
-        public int LeftPadding
-        {
-            get
-            {
-                return _leftPadding;
-            }
-            set
-            {
-                if (_leftPadding != value)
-                {
-                    _leftPadding = value;
-                    NotifyPropertyChanged("LeftPadding");
-                    ApplyLogo();
-                }
-            }
-        }
-
+        
         public int TopPadding
         {
             get
@@ -129,24 +105,7 @@ namespace UWP_Visual_Asset_Generator.ViewModels
                 }
             }
         }
-
-        public int RightPadding
-        {
-            get
-            {
-                return _rightPadding;
-            }
-            set
-            {
-                if (_rightPadding != value)
-                {
-                    _rightPadding = value;
-                    NotifyPropertyChanged("RightPadding");
-                    ApplyLogo();
-                }
-            }
-        }
-
+        
         public int BottomPadding
         {
             get
@@ -164,17 +123,26 @@ namespace UWP_Visual_Asset_Generator.ViewModels
             }
         }
 
-        public void EraseImage()
+        private void SetupInitialLogo()
         {
-            Logo.Clear(Colors.Transparent);
+                _logo = new WriteableBitmap(ImageWidth, ImageHeight);
+                EraseImage();
+           
+        }
+
+        private void EraseImage()
+        {
+            Logo.Clear();
+            SavedSuccessfully = false;
         }
 
         public void ApplyLogo()
         {
-            EraseImage();
-            if (mainViewModel.originalWriteableBitmap != null)
+            SetupInitialLogo();
+            if (mainViewModel != null &&
+                mainViewModel.originalWriteableBitmap != null)
             {
-                int newLogoInsertWidth = ImageWidth - LeftPadding - RightPadding;
+                int newLogoInsertWidth = ImageWidth;
                 int newLogoInsertHeight = ImageHeight - TopPadding - BottomPadding;
 
                 // Figure out the ratio
@@ -196,20 +164,21 @@ namespace UWP_Visual_Asset_Generator.ViewModels
                 Logo.Blit(
                     new Rect(
                         HalfOf(Logo.PixelWidth) - HalfOf(resizedOriginal.PixelWidth),
-                        HalfOf(Logo.PixelHeight) - HalfOf(resizedOriginal.PixelHeight),
+                        TopPadding,
                         resizedOriginal.PixelWidth,
-                        resizedOriginal.PixelHeight), 
-                    resizedOriginal, 
+                        resizedOriginal.PixelHeight),
+                    resizedOriginal,
                     new Rect(
-                        new Point(0, 0), 
-                        new Point(resizedOriginal.PixelWidth, 
+                        new Point(0, 0),
+                        new Point(resizedOriginal.PixelWidth,
                         resizedOriginal.PixelHeight))
                     );
                 NotifyPropertyChanged("Logo");
+                SavedSuccessfully = false;
             }
         }
 
-        private int HalfOf(int halveMe)
+        public int HalfOf(int halveMe)
         {
             double result = (double)halveMe / (double)2;
             return Convert.ToInt32(result);
@@ -217,10 +186,28 @@ namespace UWP_Visual_Asset_Generator.ViewModels
 
         public void ResetPadding()
         {
-            LeftPadding = _template.PreferredLeftPadding;
-            TopPadding = _template.PreferredTopPadding;
-            RightPadding = _template.PreferredRightPadding;
-            BottomPadding = _template.PreferredBottomPadding;
+            if (_template.PaddingIsRecommended)
+            {
+                _topPadding = HalfOf(HalfOf(_template.ImageHeight));
+                _bottomPadding = _topPadding;
+            }
+            else
+            {
+                _topPadding = 0;
+                _bottomPadding = 0;
+            }
+            NotifyPropertyChanged("TopPadding");
+            NotifyPropertyChanged("BottompPadding");
+            ApplyLogo();
+        }
+
+        public void ZeroPadding()
+        {
+            _topPadding = 0;
+            _bottomPadding = 0;
+            NotifyPropertyChanged("TopPadding");
+            NotifyPropertyChanged("BottompPadding");
+            ApplyLogo();
         }
 
         public async Task<bool> SaveAssetToFileAsync()

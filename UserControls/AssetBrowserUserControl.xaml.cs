@@ -27,5 +27,53 @@ namespace UWP_Visual_Asset_Generator.UserControls
             this.InitializeComponent();
             mainViewModel = App.mainViewModel;
         }
+
+        private void text_TopMargin_BeforeTextChanging(TextBox sender, TextBoxBeforeTextChangingEventArgs args)
+        {
+            int parsedValue;
+            if (!int.TryParse(args.NewText, out parsedValue))
+            {
+                args.Cancel = true;
+            }
+            else
+            {
+                var vm = sender.DataContext as AssetViewModel;
+                if (parsedValue != 0) //Value of 0 gets a pass, as it is the default.
+                {
+                    if (vm != null)
+                    {
+                        if (parsedValue > vm.HalfOf(vm.ImageHeight) ||
+                            parsedValue < 0)
+                        {
+                            args.Cancel = true;
+                        }
+                    }
+                }
+            }
+        }
+
+        private void text_BottomMargin_BeforeTextChanging(TextBox sender, TextBoxBeforeTextChangingEventArgs args)
+        {       
+            int parsedValue;
+            if (!int.TryParse(args.NewText, out parsedValue))
+            {
+                args.Cancel= true;
+            }
+            else
+            {
+                var vm = sender.DataContext as AssetViewModel;
+                if (parsedValue != 0) //Value of 0 gets a pass, as it is the default.
+                {
+                    if (vm != null)
+                    {
+                        if (parsedValue > vm.HalfOf(vm.ImageHeight) ||
+                            parsedValue < 0)
+                        {
+                            args.Cancel = true;
+                        }
+                    }
+                }
+            }
+        }
     }
 }
