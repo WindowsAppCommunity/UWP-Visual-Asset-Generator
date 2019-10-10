@@ -82,7 +82,7 @@
 
                         <tkcon:ImageEx Grid.Row="1"
                                            Background="Transparent" 
-                                       BorderThickness="4"
+                                       BorderThickness="1"
                                        BorderBrush="Silver"
                                            Margin="8"
                                            Stretch="Uniform"
