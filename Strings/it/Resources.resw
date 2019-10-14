@@ -118,87 +118,87 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AddImage.Text" xml:space="preserve">
-    <value>Add image</value>
+    <value>Aggiungi imagine</value>
   </data>
   <data name="AppInfo.Text" xml:space="preserve">
-    <value>App info</value>
+    <value>Informazioni sull'app</value>
   </data>
   <data name="AppUpdated.Text" xml:space="preserve">
-    <value>App Updated</value>
+    <value>App aggiornata</value>
   </data>
   <data name="BtnBack.Text" xml:space="preserve">
-    <value>Back</value>
+    <value>Ritorno</value>
   </data>
   <data name="BtnContinue.Text" xml:space="preserve">
-    <value>Continue</value>
+    <value>Continuare</value>
   </data>
   <data name="btn_Feedback.Label" xml:space="preserve">
-    <value>Feedback and Review</value>
+    <value>Commenti e revisioni</value>
   </data>
   <data name="Debug.Text" xml:space="preserve">
     <value>DEBUG</value>
   </data>
   <data name="DropPNG.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Drop a PNG image here, or click to browse</value>
+    <value>Trascina qui un'immagine PNG o fai clic per navigare</value>
   </data>
   <data name="Feedback.Text" xml:space="preserve">
-    <value>Feedback</value>
+    <value>Commenti</value>
   </data>
   <data name="FirstBeta.Text" xml:space="preserve">
-    <value>- First (closed) beta.</value>
+    <value>- Prima versione beta (chiusa)</value>
   </data>
   <data name="KeyFeature1.Text" xml:space="preserve">
-    <value>- BETA - App to create store logo (visual assets) for apps.</value>
+    <value>- BETA - App per creare il logo dello store (risorse visive) per le app.</value>
   </data>
   <data name="KeyFeature2.Text" xml:space="preserve">
-    <value>- Currently UWP only...</value>
+    <value>- Attualmente solo UWP...</value>
   </data>
   <data name="KeyFeatures.Text" xml:space="preserve">
-    <value>Key Features:</value>
+    <value>Caratteristiche principali:</value>
   </data>
   <data name="LeaveFeedback.Text" xml:space="preserve">
-    <value>Issue, Suggestion or Request?  Leave us some feedback.</value>
+    <value>Problema, suggerimento o richiesta? Lasciaci un feedback.</value>
   </data>
   <data name="LoveThisApp.Text" xml:space="preserve">
-    <value>Love this app?  Leave us a review!</value>
+    <value>Ami quest'app ? Lasciaci un commento</value>
   </data>
   <data name="OutputFolder.PlaceholderText" xml:space="preserve">
-    <value>Output Folder</value>
+    <value>Cartella di output</value>
   </data>
   <data name="Review.Text" xml:space="preserve">
-    <value>Review</value>
+    <value>Revisioni</value>
   </data>
   <data name="Save.Label" xml:space="preserve">
-    <value>Save assets</value>
+    <value>Salva risorse</value>
   </data>
   <data name="Save.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Save Assets</value>
+    <value>Salva Risorse</value>
   </data>
   <data name="SetOutputFolder.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Set the output folder</value>
+    <value>Imposta la cartella di output</value>
   </data>
   <data name="Settings.Label" xml:space="preserve">
-    <value>Settings</value>
+    <value>Parametri</value>
   </data>
   <data name="ShowGettingStartedControl.Label" xml:space="preserve">
-    <value>Help and Getting Started</value>
+    <value>Aiuto e guida introduttiva</value>
   </data>
   <data name="ToggleAccentColour.Label" xml:space="preserve">
-    <value>View Assets with Accent colour</value>
+    <value>Visualizza le risorse con il colore accent</value>
   </data>
   <data name="ToggleAccentColour.ToolTipService.ToolTip" xml:space="preserve">
-    <value>View Assets with Accent colour</value>
+    <value>Visualizza le risorse con il colore accent</value>
   </data>
   <data name="Welcome.Text" xml:space="preserve">
-    <value>Welcome to</value>
+    <value>Benvenuto a</value>
   </data>
   <data name="WelcomeBtn.Label" xml:space="preserve">
-    <value>Welcome</value>
+    <value>Benvenuto</value>
   </data>
   <data name="WeLoveFeedback.Text" xml:space="preserve">
-    <value>We love your feedback and reviews...</value>
+    <value>Adoriamo i tuoi commenti e recensioni ...</value>
   </data>
   <data name="YourLogo.Text" xml:space="preserve">
-    <value>Your Logo</value>
+    <value>Il tuo Logo</value>
   </data>
 </root>
