@@ -60,7 +60,7 @@
         </trans-unit>
         <trans-unit id="LeaveFeedback.Text" translate="yes" xml:space="preserve">
           <source>Issue, Suggestion or Request?  Leave us some feedback.</source>
-          <target state="final">Problème, Suggestion ou Demande? Laissez-nous des commentaires.</target>
+          <target state="final">Problème, suggestion ou demande? Laissez-nous des commentaires.</target>
         </trans-unit>
         <trans-unit id="LoveThisApp.Text" translate="yes" xml:space="preserve">
           <source>Love this app?  Leave us a review!</source>
