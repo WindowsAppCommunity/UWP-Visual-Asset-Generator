@@ -20,15 +20,15 @@
         </trans-unit>
         <trans-unit id="BtnBack.Text" translate="yes" xml:space="preserve">
           <source>Back</source>
-          <target state="final">Back</target>
+          <target state="final">Retour</target>
         </trans-unit>
         <trans-unit id="BtnContinue.Text" translate="yes" xml:space="preserve">
           <source>Continue</source>
-          <target state="final">Continue</target>
+          <target state="final">Continuer</target>
         </trans-unit>
         <trans-unit id="btn_Feedback.Label" translate="yes" xml:space="preserve">
           <source>Feedback and Review</source>
-          <target state="final">Feedback and Review</target>
+          <target state="final">Avis et retours</target>
         </trans-unit>
         <trans-unit id="Debug.Text" translate="yes" xml:space="preserve">
           <source>DEBUG</source>
@@ -36,7 +36,7 @@
         </trans-unit>
         <trans-unit id="DropPNG.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
           <source>Drop a PNG image here, or click to browse</source>
-          <target state="final">Drop a PNG image here, or click to browse</target>
+          <target state="final">Déposez une image PNG ici ou cliquez pour naviguer</target>
         </trans-unit>
         <trans-unit id="Feedback.Text" translate="yes" xml:space="preserve">
           <source>Feedback</source>
@@ -52,7 +52,7 @@
         </trans-unit>
         <trans-unit id="KeyFeature2.Text" translate="yes" xml:space="preserve">
           <source>- Currently UWP only...</source>
-          <target state="final">- Currently UWP only...</target>
+          <target state="final">- Actuellement, UWP seulement...</target>
         </trans-unit>
         <trans-unit id="KeyFeatures.Text" translate="yes" xml:space="preserve">
           <source>Key Features:</source>
@@ -116,7 +116,7 @@
         </trans-unit>
         <trans-unit id="OutputFolder.PlaceholderText" translate="yes" xml:space="preserve">
           <source>Output Folder</source>
-          <target state="final">Output Folder</target>
+          <target state="final">Dossier de sortie</target>
         </trans-unit>
       </group>
     </body>
