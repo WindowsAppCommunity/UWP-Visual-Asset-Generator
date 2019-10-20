@@ -157,7 +157,7 @@
     <value>Principales caractéristiques:</value>
   </data>
   <data name="LeaveFeedback.Text" xml:space="preserve">
-    <value>Problème, Suggestion ou Demande? Laissez-nous des commentaires.</value>
+    <value>Problème, suggestion ou demande? Laissez-nous des commentaires.</value>
   </data>
   <data name="LoveThisApp.Text" xml:space="preserve">
     <value>Vous aimez cette application? Laissez-nous un avis!</value>
