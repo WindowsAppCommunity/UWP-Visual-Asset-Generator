@@ -3,7 +3,7 @@
   <h1 align="center">UWP-Visual-Asset-Generator</h1>
 </p>
 
-[![Store link](https://img.shields.io/badge/Microsoft%20Store-Download-orange.svg?style=flat-square)](https://www.microsoft.com/store/productId/9MZ6QRQTDKF2)
+[![Store link](https://img.shields.io/badge/Microsoft%20Store-Download-orange.svg?style=flat-square)](https://www.microsoft.com/en-us/p/visual-asset-generator-beta/9mz6qrqtdkf2)
 [![Release](https://img.shields.io/github/release/UWPCommunity/UWP-Visual-Asset-Generator.svg?style=flat-square)](https://github.com/UWPCommunity/UWP-Visual-Asset-Generator/releases)
 [![Contributors](https://img.shields.io/github/contributors/UWPCommunity/UWP-Visual-Asset-Generator?style=flat-square)](https://github.com/UWPCommunity/UWP-Visual-Asset-Generator/graphs/contributors)
 [![Stars](https://img.shields.io/github/stars/UWPCommunity/UWP-Visual-Asset-Generator.svg?style=flat-square)](https://github.com/UWPCommunity/UWP-Visual-Asset-Generator/stargazers)
