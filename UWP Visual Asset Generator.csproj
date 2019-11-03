@@ -134,6 +134,9 @@
     <Compile Include="UserControls\AssetBrowserUserControl.xaml.cs">
       <DependentUpon>AssetBrowserUserControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\AssetEditor.xaml.cs">
+      <DependentUpon>AssetEditor.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\AssetEditUserControl.xaml.cs">
       <DependentUpon>AssetEditUserControl.xaml</DependentUpon>
     </Compile>
@@ -266,6 +269,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\AssetBrowserUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\AssetEditor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
