@@ -55,7 +55,7 @@
                                   x:Name="grdBackgroundAccentPreview"
                                   HorizontalAlignment="Stretch"
                                   VerticalAlignment="Stretch"
-                              Grid.RowSpan="3"
+                                  Grid.RowSpan="3"
                                   Visibility="{x:Bind mainViewModel.PreviewWithAccentColour, Mode=OneWay}"
                                   />
                         <StackPanel>
@@ -63,7 +63,7 @@
                                VerticalAlignment="Top"
                                TextWrapping="Wrap"
                                HorizontalAlignment="Center"
-                                       TextAlignment="Center"
+                               TextAlignment="Center"
                                Margin="4"/>
 
                             <TextBlock VerticalAlignment="Bottom"
