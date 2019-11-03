@@ -162,6 +162,9 @@
   <data name="LoveThisApp.Text" xml:space="preserve">
     <value>Love this app?  Leave us a review!</value>
   </data>
+  <data name="Margin.Text" xml:space="preserve">
+    <value>Margin:</value>
+  </data>
   <data name="OutputFolder.PlaceholderText" xml:space="preserve">
     <value>Output Folder</value>
   </data>
@@ -182,6 +185,9 @@
   </data>
   <data name="ShowGettingStartedControl.Label" xml:space="preserve">
     <value>Help and Getting Started</value>
+  </data>
+  <data name="Source.Text" xml:space="preserve">
+    <value>Source:</value>
   </data>
   <data name="ToggleAccentColour.Label" xml:space="preserve">
     <value>View Assets with Accent colour</value>

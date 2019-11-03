@@ -118,6 +118,14 @@
           <source>Output Folder</source>
           <target state="final">Dossier de sortie</target>
         </trans-unit>
+        <trans-unit id="Margin.Text" translate="yes" xml:space="preserve">
+          <source>Margin:</source>
+          <target state="new">Margin:</target>
+        </trans-unit>
+        <trans-unit id="Source.Text" translate="yes" xml:space="preserve">
+          <source>Source:</source>
+          <target state="new">Source:</target>
+        </trans-unit>
       </group>
     </body>
   </file>
