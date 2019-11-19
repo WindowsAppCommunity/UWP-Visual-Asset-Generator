@@ -74,10 +74,6 @@ namespace UWP_Visual_Asset_Generator.Views
         private Compositor _compositor;
         private PointLight _pointLight;
 
-        private void abb_Settings_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            App.rootFrame.Navigate(typeof(SettingsView), null);
-        }
 
         private void btn_Feedback_Tapped(object sender, TappedRoutedEventArgs e)
         {

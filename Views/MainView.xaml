@@ -119,13 +119,7 @@
 
                         <!-- Secondary Commands -->
                         <!-- Hide the label of these items and show what they do in the tooltip -->
-                        <AppBarToggleButton Label="View Assets with Accent colour" 
-                                              Icon="SolidStar"
-                                            LabelPosition="Collapsed"
-                                            x:Uid="ToggleAccentColour"
-                                            ToolTipService.ToolTip="View Assets with Accent colour"
-                                              x:Name="hmi_ToggleAccentColour"
-                                              Tapped="Hmi_ToggleAccentColour_Tapped" />
+
 
                     </CommandBar.PrimaryCommands>
                     <!-- Overflow Commands -->
@@ -143,12 +137,6 @@
                               x:Uid="btn_Feedback"
                               Icon="Emoji2" 
                               Tapped="btn_Feedback_Tapped"/>
-                        <AppBarButton Label="Settings"
-                              x:Uid="Settings"
-                              Icon="Setting" 
-                              x:Name="hmi_Settings" 
-                              Tapped="abb_Settings_Tapped"/> 
-                        <AppBarSeparator />
                         <AppBarButton Label="Welcome" 
                               Icon="Home"
                               x:Uid="WelcomeBtn"
@@ -158,13 +146,19 @@
                                       Icon="World"/>
                         <AppBarSeparator />
                         <AppBarButton Label="0 out all Pading" 
-                              Icon="Clear"
+                              Icon="Cancel"
                               x:Name="hmi_ZeroOutPadding"
                               Tapped="hmi_ZeroOutPadding_Tapped"/>
                         <AppBarButton Label="Apply recommended padding" 
-                              Icon="FontSize"
+                              Icon="Crop"
                               x:Name="hmi_ApplyRecommendedPadding"
                               Tapped="hmi_ApplyRecommendedPadding_Tapped"/>
+                        <AppBarToggleButton Label="View Assets with Accent colour" 
+                                              Icon="Bold"
+                                            x:Uid="ToggleAccentColour"
+                                            ToolTipService.ToolTip="View Assets with Accent colour"
+                                              x:Name="hmi_ToggleAccentColour"
+                                              Tapped="Hmi_ToggleAccentColour_Tapped" />
                     </CommandBar.SecondaryCommands>
 
                 </CommandBar>
@@ -173,18 +167,9 @@
 
         </Grid>
 
-     
-        <uc:GettingStartedUserControl Visibility="{x:Bind mainViewModel.ShowGettingStartedControl, Mode=OneWay}">
-            <animations:Implicit.ShowAnimations>
-                <animations:OpacityAnimation Duration="0:0:0.5" From="0.0" To="1.0"/>
-            </animations:Implicit.ShowAnimations>
 
-            <animations:Implicit.HideAnimations>
-                <animations:OpacityAnimation Duration="0:0:0.5" From="1.0" To="0.0"/>
-            </animations:Implicit.HideAnimations>
-        </uc:GettingStartedUserControl>
-
-        <uc:WelcomeUserControl Visibility="{x:Bind mainViewModel.Settings.ShowWelcomePage, Mode=OneWay}">
+        <uc:WelcomeUserControl x:Name="WelcomeControl" 
+                               x:Load="{x:Bind mainViewModel.Settings.ShowWelcomePage, Mode=OneWay}">
             <animations:Implicit.ShowAnimations>
                 <animations:OpacityAnimation Duration="0:0:0.5" From="0.0" To="1.0"/>
             </animations:Implicit.ShowAnimations>
@@ -194,7 +179,8 @@
             </animations:Implicit.HideAnimations>
         </uc:WelcomeUserControl>
 
-        <uc:WelcomeUserControl Visibility="{x:Bind mainViewModel.Settings.ShowUpdatePage, Mode=OneWay}">
+        <uc:WelcomeUserControl x:Name="UpdateControl" 
+                               x:Load="{x:Bind mainViewModel.Settings.ShowUpdatePage, Mode=OneWay}">
             <animations:Implicit.ShowAnimations>
                 <animations:OpacityAnimation Duration="0:0:0.5" From="0.0" To="1.0"/>
             </animations:Implicit.ShowAnimations>
@@ -204,7 +190,8 @@
             </animations:Implicit.HideAnimations>
         </uc:WelcomeUserControl>
 
-        <uc:FeedbackUserControl x:Name="feedbackControl" Visibility="{x:Bind mainViewModel.ShowFeedbackControl, Mode=OneWay}">
+        <uc:FeedbackUserControl x:Name="feedbackControl" 
+                                x:Load="{x:Bind mainViewModel.ShowFeedbackControl, Mode=OneWay}">
             <animations:Implicit.ShowAnimations>
                 <animations:OpacityAnimation Duration="0:0:0.5" From="0.0" To="1.0"/>
             </animations:Implicit.ShowAnimations>

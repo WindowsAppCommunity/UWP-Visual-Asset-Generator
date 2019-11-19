@@ -143,9 +143,6 @@
     <Compile Include="UserControls\FeedbackUserControl.xaml.cs">
       <DependentUpon>FeedbackUserControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\GettingStartedUserControl.xaml.cs">
-      <DependentUpon>GettingStartedUserControl.xaml</DependentUpon>
-    </Compile>
     <Compile Include="UserControls\SidebarUserControl.xaml.cs">
       <DependentUpon>SidebarUserControl.xaml</DependentUpon>
     </Compile>
@@ -161,9 +158,6 @@
     <Compile Include="Views\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\SettingsView.xaml.cs">
-      <DependentUpon>SettingsView.xaml</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -171,6 +165,7 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Screenshots\2019-11-19.png" />
     <None Include="Package.StoreAssociation.xml" />
     <Content Include="Assets\LargeTile.scale-100.png" />
     <Content Include="Assets\LargeTile.scale-125.png" />
@@ -284,10 +279,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="UserControls\GettingStartedUserControl.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="UserControls\SidebarUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -297,10 +288,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\MainView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\SettingsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

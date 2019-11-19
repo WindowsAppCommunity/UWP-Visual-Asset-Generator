@@ -7,6 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:Windows10version1809="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract, 7)"
+    xmlns:wui="using:Windows.UI.Xaml.Controls"
     mc:Ignorable="d">
 
     <Grid>
@@ -61,7 +62,7 @@
                     </Grid.RowDefinitions>
 
 
-                    <Button Grid.Row="0" Padding="8" BorderThickness="1" Margin="12,4,12,0" Background="Transparent"
+                    <wui:Button Grid.Row="0" Padding="8" BorderThickness="1" Margin="12,4,12,0" Background="Transparent"
                             HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch"
                             x:Name="btn_Review" 
                             Click="Btn_Review_Click"
@@ -93,9 +94,9 @@
                                 </StackPanel>
                             </Grid>
                         </ContentControl>
-                    </Button>
+                    </wui:Button>
 
-                    <Button Grid.Row="1" Padding="8" BorderThickness="1" Margin="12,4,12,4" Background="Transparent"
+                    <wui:Button Grid.Row="1" Padding="8" BorderThickness="1" Margin="12,4,12,4" Background="Transparent"
                             HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch"
                             x:Name="btn_Feedback" 
                             Click="Btn_Feedback_Click"
@@ -128,22 +129,22 @@
 
                             </Grid>
                         </ContentControl>
-                    </Button>
+                    </wui:Button>
                 </Grid>
 
-                <Button x:Name="btn_Back" 
+                <wui:Button x:Name="btn_Back" 
                         Click="Btn_Back_Click"
                         HorizontalAlignment="Stretch" 
                         BorderThickness="1" 
-                        Windows10version1809:CornerRadius="0,0,2,2" 
                         Margin="4,8,4,4" 
                         Background="{ThemeResource SystemControlAccentAcrylicElementAccentMediumHighBrush}" 
                         Style="{StaticResource ButtonRevealStyle}"
                         Padding="18"
-                        FontStyle="{ThemeResource SubtitleTextBlockStyle}"
+                        FontSize="16    "
+                        FontWeight="Bold"
                         HorizontalContentAlignment="Center"
                         Content="Continue">
-                </Button>
+                </wui:Button>
             </StackPanel>
 
         </Grid>

@@ -7,6 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:Windows10version1809="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract, 7)"
+    xmlns:wui="using:Windows.UI.Xaml.Controls"
     mc:Ignorable="d">
 
     <Grid>
@@ -73,10 +74,9 @@
                     <TextBlock x:Uid="FirstBeta" Text="- First (closed) beta."  TextWrapping="WrapWholeWords"/>
                 </StackPanel>
 
-                <Button x:Name="btn_Continue" 
+                <wui:Button x:Name="btn_Continue" 
                         HorizontalAlignment="Stretch" 
                         BorderThickness="1" 
-                        Windows10version1809:CornerRadius="0,0,2,2" 
                         Margin="4,8,4,4" 
                         Background="{ThemeResource SystemControlAccentAcrylicElementAccentMediumHighBrush}" 
                         Style="{ThemeResource ButtonRevealStyle}"
@@ -84,8 +84,9 @@
                         Content="Continue"
                         Padding="18"
                         HorizontalContentAlignment="Center"
-                        FontStyle="{ThemeResource SubtitleTextBlockStyle}">
-                </Button>
+                        FontSize="16"
+                        FontWeight="Bold">
+                </wui:Button>
             </StackPanel>
         </Grid>
     </Grid>
