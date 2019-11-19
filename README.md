@@ -12,11 +12,15 @@
 ## This is a project to develop an easy to use visual asset tool for UWP projects.
 
 Immediate goals (2019) are to have the app progress through these stages of capability:
-- [x]  Accept a base (transparent) image, and then create a single correctly sized and named asset from it.
+- [x] Accept a base (transparent) image, and then create a single correctly sized and named asset from it.
 - [x] Create ALL the assets instead of just one.
 - [ ] Allow basic margin manipulation as a group for all assets.
-- [ ] Allow basic margin manipulation on individual assets.
-- [ ]  Visual guides showing the recommended and applied margins for each asset ([Asset guidelines](https://docs.microsoft.com/en-us/windows/uwp/design/style/app-icons-and-logos))
+- [x] Allow basic margin manipulation on individual assets.
+- [ ] Visual guides showing the recommended and applied margins for each asset ([Asset guidelines](https://docs.microsoft.com/en-us/windows/uwp/design/style/app-icons-and-logos))
+
+
+## Screenshots
+<img alt="uwpvag logo" src="./Screenshots/2019-11-19.png" width="300px" />
 
 
 ## This project is to be free (as in free beer) and open source without ads.
