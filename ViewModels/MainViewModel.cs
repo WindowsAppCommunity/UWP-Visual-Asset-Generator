@@ -42,6 +42,8 @@ namespace UWP_Visual_Asset_Generator.ViewModels
         {
             RegisterCommunicationChannel();
             LogFirstUseMetrics();
+
+            
         }
 
         #region public properties

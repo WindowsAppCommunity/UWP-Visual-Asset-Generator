@@ -42,6 +42,8 @@ namespace UWP_Visual_Asset_Generator
         public static TimeSpan ThinkingLongPauseInMs = new TimeSpan(0, 0, 0, 0, 2000); //Two seconds
 
         private const string AppCenterAppKey = "63c401f8-a93c-4767-85de-53d2cfe74b2e";
+
+        public static Page mainPage { get; set; }
         
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code

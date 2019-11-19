@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using UWP_Visual_Asset_Generator.ViewModels;
 using Windows.ApplicationModel.DataTransfer;
 using Windows.Foundation;
@@ -73,6 +74,26 @@ namespace UWP_Visual_Asset_Generator.UserControls
         private void Btn_Save_Click(object sender, RoutedEventArgs e)
         {
             mainViewModel.AssetTypes.SaveAllAsync();
+        }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var s = sender as ComboBox;
+            if (s != null)
+            {
+                SetThemeAsync(s.SelectedIndex);             
+            }
+
+        }
+
+        public async Task SetThemeAsync(int theme)
+        {
+            switch (theme)
+            {
+                case 0: App.mainPage.RequestedTheme = ElementTheme.Default; ; break;
+                case 1: App.mainPage.RequestedTheme = ElementTheme.Light; ; break;
+                case 2: App.mainPage.RequestedTheme = ElementTheme.Dark; ; break;
+            }
         }
     }
 }

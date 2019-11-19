@@ -18,6 +18,7 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
         
         <!-- Logo -->
@@ -110,10 +111,26 @@
             </ListView.ItemTemplate>
         </ListView>
         <!-- End of Asset Style list -->
-        
-        
-        <!-- Buttons -->
+
+        <!-- Theme Setting -->
         <Grid Grid.Row="2">
+            <ComboBox 
+                      x:Name="themeSelect"
+                      Header="Theme"
+                      Margin="0,8"
+                      Grid.Row="1"
+                      HorizontalAlignment="Stretch"
+                      SelectedIndex="0"
+                      SelectionChanged="ComboBox_SelectionChanged">
+                <ComboBoxItem Content="System Default"/>
+                <ComboBoxItem Content="Light"/>
+                <ComboBoxItem Content="Dark"/>
+            </ComboBox>
+        </Grid>
+        <!-- End of Theme Setting -->
+        
+        <!-- Output Picker -->
+        <Grid Grid.Row="3">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto"/>
                 <ColumnDefinition Width="*"/>
@@ -141,7 +158,7 @@
                     BorderBrush="{ThemeResource TextBoxButtonBorderThemeBrush}"
                     Background="{ThemeResource SystemAccentColor}"/>
         </Grid>
-        <!-- End of Buttons -->
+        <!-- End of Output Picker -->
         
     </Grid>
 </UserControl>

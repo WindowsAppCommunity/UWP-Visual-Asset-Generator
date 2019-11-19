@@ -44,6 +44,8 @@ namespace UWP_Visual_Asset_Generator.Views
 
             animationOpacityPulse.Begin();
             StartShimmerOnLoadingControl();
+
+            App.mainPage = this;
         }
 
         private void StartShimmerOnLoadingControl()

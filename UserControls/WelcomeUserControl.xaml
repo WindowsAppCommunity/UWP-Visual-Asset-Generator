@@ -62,7 +62,7 @@
                                FontWeight="Bold" Margin="0,0,0,8"  />
 
                     <TextBlock x:Uid="KeyFeature1" Text="- BETA - App to create store logo (visual assets) for apps." TextWrapping="WrapWholeWords" />
-                    <TextBlock x:Uid="KeyFeature2" Text="- Currently UWP only.." TextWrapping="WrapWholeWords" />
+                    <TextBlock x:Uid="KeyFeature2" Text="- Currently UWP only." TextWrapping="WrapWholeWords" />
                                         
                 </StackPanel>
 
@@ -71,7 +71,10 @@
                     <TextBlock x:Uid="AppUpdated" Text="App Updated" FontWeight="Bold" />
                     <TextBlock Text="{Binding Settings.AppVersion, Mode=OneWay}" Margin="0,0,0,8"/>
                     
-                    <TextBlock x:Uid="FirstBeta" Text="- First (closed) beta."  TextWrapping="WrapWholeWords"/>
+                    <TextBlock x:Uid="SecondBeta" Text="- Second (closed) beta."  TextWrapping="WrapWholeWords"/>
+                    <TextBlock x:Uid="SecondBeta" Text="- Exporting and updating margins now opertional."  TextWrapping="WrapWholeWords"/>
+                    <TextBlock x:Uid="SecondBeta" Text="- UI updates."  TextWrapping="WrapWholeWords"/>
+                    <TextBlock x:Uid="SecondBeta" Text="- Additional languages supported."  TextWrapping="WrapWholeWords"/>
                 </StackPanel>
 
                 <wui:Button x:Name="btn_Continue" 
