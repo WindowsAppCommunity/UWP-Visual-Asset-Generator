@@ -16,7 +16,7 @@
             <ColumnDefinition Width="*" x:Name="ColumnThree"/>
         </Grid.ColumnDefinitions>
 
-        <Grid Grid.ColumnSpan="3" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Opacity="0.7"/>
+        <Grid Grid.ColumnSpan="3" Background="{ThemeResource SystemControlAcrylicElementBrush}" Opacity="0.8"/>
 
         <Grid Grid.Column="1" Padding="24">
 
@@ -26,7 +26,7 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <StackPanel Grid.Row="1" x:Name="contentgoeshere" Background="{ThemeResource SystemControlAcrylicElementBrush}" 
+            <StackPanel Grid.Row="1" x:Name="contentgoeshere" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" 
                         BorderThickness="1" CornerRadius="4" BorderBrush="Silver">
 
                 <Grid Padding="8">
@@ -133,15 +133,16 @@
 
                 <Button x:Name="btn_Back" 
                         Click="Btn_Back_Click"
-                        HorizontalAlignment="Stretch" BorderThickness="1" Windows10version1809:CornerRadius="0,0,2,2" Margin="0,8,0,0" HorizontalContentAlignment="Stretch"
-                        Background="{ThemeResource SystemControlAccentAcrylicElementAccentMediumHighBrush}" Padding="0"
-                            Style="{StaticResource ButtonRevealStyle}">
-                    <ContentControl HorizontalContentAlignment="Stretch" Padding="0" Margin="0">
-                        <Grid Background="{ThemeResource SystemControlAccentAcrylicElementAccentMediumHighBrush}" Padding="12">
-                            <TextBlock Text="Back" x:Uid="BtnBack" HorizontalAlignment="Center" 
-                               Style="{ThemeResource SubtitleTextBlockStyle}"/>
-                        </Grid>
-                    </ContentControl>
+                        HorizontalAlignment="Stretch" 
+                        BorderThickness="1" 
+                        Windows10version1809:CornerRadius="0,0,2,2" 
+                        Margin="4,8,4,4" 
+                        Background="{ThemeResource SystemControlAccentAcrylicElementAccentMediumHighBrush}" 
+                        Style="{StaticResource ButtonRevealStyle}"
+                        Padding="18"
+                        FontStyle="{ThemeResource SubtitleTextBlockStyle}"
+                        HorizontalContentAlignment="Center"
+                        Content="Continue">
                 </Button>
             </StackPanel>
 

@@ -16,7 +16,7 @@
             <ColumnDefinition Width="*" x:Name="ColumnThree"/>
         </Grid.ColumnDefinitions>
 
-        <Grid Grid.ColumnSpan="3" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Opacity="0.7"/>
+        <Grid Grid.ColumnSpan="3" Background="{ThemeResource SystemControlAcrylicElementBrush}" Opacity="0.8"/>
 
         <Grid Grid.Column="1" Padding="24">
 
@@ -26,7 +26,7 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <StackPanel Grid.Row="1" x:Name="contentgoeshere" Background="{ThemeResource SystemControlAcrylicElementBrush}" 
+            <StackPanel Grid.Row="1" x:Name="contentgoeshere" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" 
                         BorderThickness="1" CornerRadius="4" BorderBrush="Silver">
 
                 <Grid Padding="8">
@@ -73,17 +73,18 @@
                     <TextBlock x:Uid="FirstBeta" Text="- First (closed) beta."  TextWrapping="WrapWholeWords"/>
                 </StackPanel>
 
-                <Button x:Name="btn_Continue" HorizontalAlignment="Stretch" BorderThickness="1" Windows10version1809:CornerRadius="0,0,2,2" Margin="0,8,0,0" HorizontalContentAlignment="Stretch"
-                    Background="{ThemeResource SystemControlAccentAcrylicElementAccentMediumHighBrush}" 
+                <Button x:Name="btn_Continue" 
+                        HorizontalAlignment="Stretch" 
+                        BorderThickness="1" 
+                        Windows10version1809:CornerRadius="0,0,2,2" 
+                        Margin="4,8,4,4" 
+                        Background="{ThemeResource SystemControlAccentAcrylicElementAccentMediumHighBrush}" 
                         Style="{ThemeResource ButtonRevealStyle}"
                         Click="Btn_Continue_Click"
-                        Padding="0">
-                    <ContentControl HorizontalContentAlignment="Stretch" Padding="0" Margin="0">
-                        <Grid  Padding="12">
-                            <TextBlock Text="Continue" x:Uid="BtnContinue" HorizontalAlignment="Center" 
-                                    Style="{ThemeResource SubtitleTextBlockStyle}"/>
-                        </Grid>
-                    </ContentControl>
+                        Content="Continue"
+                        Padding="18"
+                        HorizontalContentAlignment="Center"
+                        FontStyle="{ThemeResource SubtitleTextBlockStyle}">
                 </Button>
             </StackPanel>
         </Grid>
