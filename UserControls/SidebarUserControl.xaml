@@ -70,7 +70,7 @@
                                    AllowDrop="True"
                                    x:Uid="DropPNG"
                                    PlaceholderStretch="Uniform"
-                                   PlaceholderSource="/Assets/SmallTile.scale-400.png"
+                                   PlaceholderSource="/Images/Logo.png"
                                    Drop="Image_Original_Drop"
                                    DragOver="Image_Original_DragOver"
                                    ToolTipService.ToolTip="Drop a PNG image here, or click to browse"/>

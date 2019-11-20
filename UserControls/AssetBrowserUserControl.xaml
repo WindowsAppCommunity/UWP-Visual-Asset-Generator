@@ -87,7 +87,7 @@
                                            Margin="8"
                                            Stretch="Uniform"
                                            PlaceholderStretch="Uniform"
-                                           PlaceholderSource="/Assets/SmallTile.scale-400.png"
+                                           PlaceholderSource="/Images/Logo.png"
                                            HorizontalAlignment="Center"
                                            VerticalAlignment="Center" 
                                            MaxWidth="{x:Bind Logo.PixelWidth,Mode=OneWay}"
@@ -107,7 +107,7 @@
                                     VerticalAlignment="Center"
                                     HorizontalAlignment="Center">
 
-                                <Image Source="/Assets/SmallTile.scale-100.png" 
+                                <Image Source="/Images/Logo.png" 
                                    VerticalAlignment="Center"
                                    Height="100" 
                                    Margin="8"/>

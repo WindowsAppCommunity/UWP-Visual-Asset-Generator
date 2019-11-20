@@ -43,7 +43,8 @@
                                           OffsetX="2"
                                           OffsetY="2"
                                           Color="Gray">
-                        <Image Source="/Assets/SmallTile.scale-200.png" />
+                        <Image Source="/Images/Logo.png"
+                               Width="200"/>
                     </controls:DropShadowPanel>
 
                     <StackPanel Grid.Column="1" VerticalAlignment="Center">
@@ -75,6 +76,7 @@
                     <TextBlock x:Uid="SecondBeta" Text="- Exporting and updating margins now opertional."  TextWrapping="WrapWholeWords"/>
                     <TextBlock x:Uid="SecondBeta" Text="- UI updates."  TextWrapping="WrapWholeWords"/>
                     <TextBlock x:Uid="SecondBeta" Text="- Additional languages supported."  TextWrapping="WrapWholeWords"/>
+                    <TextBlock x:Uid="SecondBeta" Text="- Image assets adjusted to side step VS bug."  TextWrapping="WrapWholeWords"/>
                 </StackPanel>
 
                 <wui:Button x:Name="btn_Continue" 

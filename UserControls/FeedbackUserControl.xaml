@@ -43,7 +43,8 @@
                                           OffsetX="2"
                                           OffsetY="2"
                                           Color="Gray">
-                        <Image Source="/Assets/SmallTile.scale-200.png"/>
+                        <Image Source="/Images/Logo.png"
+                               Width="150"/>
                     </controls:DropShadowPanel>
 
                     <StackPanel Grid.Column="1" VerticalAlignment="Center">
