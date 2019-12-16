@@ -22,10 +22,6 @@
           <source>Back</source>
           <target state="final">Retour</target>
         </trans-unit>
-        <trans-unit id="BtnContinue.Text" translate="yes" xml:space="preserve">
-          <source>Continue</source>
-          <target state="final">Continuer</target>
-        </trans-unit>
         <trans-unit id="btn_Feedback.Label" translate="yes" xml:space="preserve">
           <source>Feedback and Review</source>
           <target state="final">Avis et retours</target>
@@ -125,6 +121,10 @@
         <trans-unit id="Source.Text" translate="yes" xml:space="preserve">
           <source>Source:</source>
           <target state="new">Source:</target>
+        </trans-unit>
+        <trans-unit id="cmdContinue.Text" translate="yes" xml:space="preserve">
+          <source>Continue</source>
+          <target state="new">Continue</target>
         </trans-unit>
       </group>
     </body>

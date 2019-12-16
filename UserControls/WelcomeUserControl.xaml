@@ -83,7 +83,7 @@
                         HorizontalAlignment="Stretch" 
                         BorderThickness="1" 
                         Margin="4,8,4,4" 
-                        x:Uid="BtnContinue"
+                        x:Uid="cmdContinue"
                         Background="{ThemeResource SystemControlAccentAcrylicElementAccentMediumHighBrush}" 
                         Style="{ThemeResource ButtonRevealStyle}"
                         Click="Btn_Continue_Click"
