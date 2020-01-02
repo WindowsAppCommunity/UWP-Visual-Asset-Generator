@@ -1,4 +1,7 @@
 ﻿using MVVM;
+using SixLabors.ImageSharp;
+using SixLabors.ImageSharp.PixelFormats;
+using SixLabors.ImageSharp.Processing;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -136,46 +139,55 @@ namespace UWP_Visual_Asset_Generator.ViewModels
             SavedSuccessfully = false;
         }
 
-        public void ApplyLogo()
+        public async Task<bool> ApplyLogo()
         {
+            var result = false;
+
             SetupInitialLogo();
             if (mainViewModel != null &&
                 mainViewModel.originalWriteableBitmap != null)
             {
-                int newLogoInsertWidth = ImageWidth;
-                int newLogoInsertHeight = ImageHeight - TopPadding - BottomPadding;
+                try
+                {
+                    int newLogoInsertHeight = ImageHeight - TopPadding - BottomPadding;
 
-                // Figure out the ratio
-                double ratioX = (double)newLogoInsertWidth / (double)mainViewModel.originalWriteableBitmap.PixelWidth;
-                double ratioY = (double)newLogoInsertHeight / (double)mainViewModel.originalWriteableBitmap.PixelHeight;
+                    var config = new Configuration();
 
-                // use whichever multiplier is smaller
-                double ratio = ratioX < ratioY ? ratioX : ratioY;
+                    var newLogo = new Image<Rgba32>(config, ImageWidth, ImageHeight, SixLabors.ImageSharp.Color.Transparent);
 
-                // now we can get the new height and width
-                int newHeight = Convert.ToInt32(mainViewModel.originalWriteableBitmap.PixelHeight * ratio);
-                int newWidth = Convert.ToInt32(mainViewModel.originalWriteableBitmap.PixelWidth * ratio);
-                
-                var resizedOriginal = mainViewModel.originalWriteableBitmap.Resize(
-                    newWidth,
-                    newHeight, 
-                    WriteableBitmapExtensions.Interpolation.Bilinear);
+                    var options = new ResizeOptions()
+                    {
+                        Mode = ResizeMode.Max,
+                        Position = AnchorPositionMode.Center,
+                        Size = new SixLabors.Primitives.Size(ImageWidth, newLogoInsertHeight)
+                    };
 
-                Logo.Blit(
-                    new Rect(
-                        HalfOf(Logo.PixelWidth) - HalfOf(resizedOriginal.PixelWidth),
-                        TopPadding,
-                        resizedOriginal.PixelWidth,
-                        resizedOriginal.PixelHeight),
-                    resizedOriginal,
-                    new Rect(
-                        new Point(0, 0),
-                        new Point(resizedOriginal.PixelWidth,
-                        resizedOriginal.PixelHeight))
-                    );
-                NotifyPropertyChanged("Logo");
+                    //var resizedOriginal = Image<Rgba32>.Load( mainViewModel.originalWriteableBitmap.Clone().ToByteArray(), new SixLabors.ImageSharp.Formats.Bmp.BmpDecoder());
+                    var inStream = await mainViewModel.OriginalLogoFile.OpenReadAsync();
+                    var resizedOriginal = Image<Rgba32>.Load(inStream.AsStreamForRead());
+
+                    //resize the image to fit the GIF frame bounds
+                    resizedOriginal.Mutate(r => r.Resize(options));
+
+                    newLogo.Mutate(w => w.DrawImage(resizedOriginal, new SixLabors.Primitives.Point(0, TopPadding), 1));
+                    InMemoryRandomAccessStream myStream = new InMemoryRandomAccessStream();
+                    
+                    SixLabors.ImageSharp.Formats.Png.PngEncoder encoder = new SixLabors.ImageSharp.Formats.Png.PngEncoder();
+                    newLogo.SaveAsPng(myStream.AsStream(), encoder);
+                    myStream.Seek(0);
+                    Logo = await BitmapFactory.FromStream(myStream);
+
+                    NotifyPropertyChanged("Logo");
+                    result = true;
+                }
+                catch (Exception ex)
+                {
+
+                }
                 SavedSuccessfully = false;
             }
+
+            return result;
         }
 
         public int HalfOf(int halveMe)
