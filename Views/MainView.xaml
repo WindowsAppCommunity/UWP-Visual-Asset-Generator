@@ -113,6 +113,7 @@
                                       ToolTipService.ToolTip="Save Assets"
                                       x:Name="btn_Save"
                                       Click="Btn_Save_Click"
+                                      IsEnabled="{x:Bind mainViewModel.SaveEnabled, Mode=OneWay}"
                                       Background="{ThemeResource SystemControlBackgroundAccentBrush}"
                                       Foreground="{ThemeResource SystemControlForegroundChromeWhiteBrush}"
                                       Windows10version1809:CornerRadius="2,0,0,2" />

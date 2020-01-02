@@ -51,8 +51,11 @@
                         <TextBlock Text="Welcome to" x:Uid="Welcome" TextWrapping="WrapWholeWords" 
                                    FontWeight="Bold" Margin="0,0,0,4" />
 
-                        <TextBlock Text="{x:Bind mainViewModel.Settings.AppName, Mode=OneWay}" Style="{ThemeResource SubheaderTextBlockStyle}"
-                               VerticalAlignment="Center" TextWrapping="WrapWholeWords" HorizontalTextAlignment="Left" />
+                        <TextBlock Text="{x:Bind mainViewModel.Settings.AppName, Mode=OneWay}" 
+                                   Style="{ThemeResource SubheaderTextBlockStyle}"
+                                   VerticalAlignment="Center" 
+                                   TextWrapping="WrapWholeWords" 
+                                   HorizontalTextAlignment="Left" />
                     </StackPanel>
 
                 </Grid>
@@ -62,8 +65,10 @@
                     <TextBlock Text="Key Features:" x:Uid="KeyFeatures" TextWrapping="WrapWholeWords" 
                                FontWeight="Bold" Margin="0,0,0,8"  />
 
-                    <TextBlock x:Uid="KeyFeature1" Text="- BETA - App to create store logo (visual assets) for apps." TextWrapping="WrapWholeWords" />
-                    <TextBlock x:Uid="KeyFeature2" Text="- Currently UWP only." TextWrapping="WrapWholeWords" />
+                    <TextBlock x:Uid="KeyFeature1" Text="- BETA - App to create store logo (visual assets) for apps." 
+                               TextWrapping="WrapWholeWords" />
+                    <TextBlock x:Uid="KeyFeature2" Text="- Currently UWP only." 
+                               TextWrapping="WrapWholeWords" />
                                         
                 </StackPanel>
 

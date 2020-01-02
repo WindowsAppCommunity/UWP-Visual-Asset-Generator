@@ -10,13 +10,15 @@
     d:DesignWidth="400"
     xmlns:tkcon="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:viewmodels="using:UWP_Visual_Asset_Generator.ViewModels"
-    xmlns:Windows10version1809="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract, 7)">
+    xmlns:Windows10version1809="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract, 7)"
+    xmlns:generic="using:System.Collections.Generic">
 
     <Grid Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}"
           Padding="12,0,12,12">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
@@ -112,8 +114,21 @@
         </ListView>
         <!-- End of Asset Style list -->
 
-        <!-- Theme Setting -->
         <Grid Grid.Row="2">
+            <ComboBox ItemsSource="{x:Bind mainViewModel.Resamplers, Mode=OneTime}"
+                      SelectedItem="{x:Bind mainViewModel.SelectedResampler, Mode=TwoWay}"
+                      Header="Resampling Mode"
+                      HorizontalAlignment="Stretch">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate >
+                        <TextBlock Text="{Binding Key}"/>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+        </Grid>
+        
+        <!-- Theme Setting -->
+        <Grid Grid.Row="3">
             <ComboBox 
                       x:Name="themeSelect"
                       Header="Theme"
@@ -130,7 +145,7 @@
         <!-- End of Theme Setting -->
         
         <!-- Output Picker -->
-        <Grid Grid.Row="3">
+        <Grid Grid.Row="4">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto"/>
                 <ColumnDefinition Width="*"/>

@@ -2,8 +2,11 @@
 using Microsoft.Services.Store.Engagement;
 using Microsoft.Toolkit.Uwp.Helpers;
 using MVVM;
+using SixLabors.ImageSharp.Processing;
+using SixLabors.ImageSharp.Processing.Processors.Transforms;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -38,15 +41,58 @@ namespace UWP_Visual_Asset_Generator.ViewModels
 
         private const string WinStoreProductID = "9MZ6QRQTDKF2";
 
+
+        private ObservableCollection<KeyValuePair<string, IResampler>> _resamplers = new ObservableCollection<KeyValuePair<string, IResampler>>()
+        { new KeyValuePair<string, IResampler>("Average",KnownResamplers.Box),
+          new KeyValuePair<string, IResampler>("Bicubic", KnownResamplers.Bicubic ),
+          new KeyValuePair<string, IResampler>("Nearest Neighbour", KnownResamplers.NearestNeighbor)
+        };
+        private KeyValuePair<string, IResampler> _selectedResampler;
+
         public MainViewModel()
         {
             RegisterCommunicationChannel();
             LogFirstUseMetrics();
+            _selectedResampler = _resamplers[1];
 
+            SetupOutputFolder();
+        }
+
+        private async Task SetupOutputFolder()
+        {
+
+            OutputFolder = await KnownFolders.PicturesLibrary.CreateFolderAsync("Asset Generator", CreationCollisionOption.OpenIfExists);
             
         }
 
         #region public properties
+
+
+        public ObservableCollection<KeyValuePair<string, IResampler>> Resamplers
+        {
+            get
+            {
+                return _resamplers;
+            }
+        }
+
+        public KeyValuePair<string, IResampler> SelectedResampler
+        {
+            get
+            {
+                return _selectedResampler;
+            }
+            set
+            {
+                if (_selectedResampler.Key != value.Key)
+                {
+                    _selectedResampler = value;
+                    NotifyPropertyChanged("SelectedResampler");
+
+                    AssetTypes.ApplyLogo();
+                }
+            }
+        }
 
         public bool SaveEnabled
         {

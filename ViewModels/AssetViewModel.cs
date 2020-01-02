@@ -28,6 +28,8 @@ namespace UWP_Visual_Asset_Generator.ViewModels
         private int _topPadding = 0;
         private int _bottomPadding = 0;
 
+        private bool _selectedForExport = true;
+
         public MainViewModel mainViewModel { get; set; }
 
         public AssetViewModel(AssetTemplate template)
@@ -37,6 +39,22 @@ namespace UWP_Visual_Asset_Generator.ViewModels
             mainViewModel = App.mainViewModel;
             _savedSuccessfully = false;
             SetupInitialLogo();
+        }
+
+        public bool SelectedForExport
+        {
+            get
+            {
+                return _selectedForExport;
+            }
+            set
+            {
+                if (_selectedForExport != value)
+                {
+                    _selectedForExport = value;
+                    NotifyPropertyChanged("SelectedForExport");
+                }
+            }
         }
 
         public WriteableBitmap Logo
@@ -145,7 +163,8 @@ namespace UWP_Visual_Asset_Generator.ViewModels
 
             SetupInitialLogo();
             if (mainViewModel != null &&
-                mainViewModel.originalWriteableBitmap != null)
+                mainViewModel.originalWriteableBitmap != null &&
+                SelectedForExport)
             {
                 try
                 {
@@ -159,7 +178,8 @@ namespace UWP_Visual_Asset_Generator.ViewModels
                     {
                         Mode = ResizeMode.Max,
                         Position = AnchorPositionMode.Center,
-                        Size = new SixLabors.Primitives.Size(ImageWidth, newLogoInsertHeight)
+                        Size = new SixLabors.Primitives.Size(ImageWidth, newLogoInsertHeight),
+                        Sampler = mainViewModel.SelectedResampler.Value
                     };
 
                     //var resizedOriginal = Image<Rgba32>.Load( mainViewModel.originalWriteableBitmap.Clone().ToByteArray(), new SixLabors.ImageSharp.Formats.Bmp.BmpDecoder());
@@ -168,8 +188,8 @@ namespace UWP_Visual_Asset_Generator.ViewModels
 
                     //resize the image to fit the GIF frame bounds
                     resizedOriginal.Mutate(r => r.Resize(options));
-
-                    newLogo.Mutate(w => w.DrawImage(resizedOriginal, new SixLabors.Primitives.Point(0, TopPadding), 1));
+                    var left = HalfOf(ImageWidth) - HalfOf(resizedOriginal.Width);
+                    newLogo.Mutate(w => w.DrawImage(resizedOriginal, new SixLabors.Primitives.Point(left, TopPadding), 1));
                     InMemoryRandomAccessStream myStream = new InMemoryRandomAccessStream();
                     
                     SixLabors.ImageSharp.Formats.Png.PngEncoder encoder = new SixLabors.ImageSharp.Formats.Png.PngEncoder();
@@ -226,24 +246,27 @@ namespace UWP_Visual_Asset_Generator.ViewModels
         {
             var result = false;
 
-            Thinking = true;
-            ThinkingText = "Saving";
-            await Task.Delay(App.ThinkingTiyPauseInMs);
-            try
+            if (SelectedForExport)
             {
-                if (mainViewModel.OutputFolder != null)
+                Thinking = true;
+                ThinkingText = "Saving";
+                //await Task.Delay(App.ThinkingTiyPauseInMs);
+                try
                 {
-                    var file = await mainViewModel.OutputFolder.CreateFileAsync(FileName, Windows.Storage.CreationCollisionOption.ReplaceExisting);
-                    await EncodeLogoToFile(file);
-                    result = true;
-                    SavedSuccessfully = true;
-                    ThinkingText = "Saved";
-                    await Task.Delay(App.ThinkingTiyPauseInMs);
+                    if (mainViewModel.OutputFolder != null)
+                    {
+                        var file = await mainViewModel.OutputFolder.CreateFileAsync(FileName, Windows.Storage.CreationCollisionOption.ReplaceExisting);
+                        await EncodeLogoToFile(file);
+                        result = true;
+                        SavedSuccessfully = true;
+                        ThinkingText = "Saved";
+                        await Task.Delay(App.ThinkingTiyPauseInMs);
+                    }
                 }
-            }
-            catch (Exception ex)
-            {
-                //
+                catch (Exception ex)
+                {
+                    //
+                }
             }
 
             Thinking = false;

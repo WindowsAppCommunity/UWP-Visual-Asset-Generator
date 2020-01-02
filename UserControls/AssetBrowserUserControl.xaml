@@ -51,6 +51,7 @@
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="auto"/>
                         </Grid.RowDefinitions>
+                        
                         <Grid Background="{ThemeResource SystemAccentColor}"
                                   x:Name="grdBackgroundAccentPreview"
                                   HorizontalAlignment="Stretch"
@@ -58,68 +59,49 @@
                                   Grid.RowSpan="3"
                                   Visibility="{x:Bind mainViewModel.PreviewWithAccentColour, Mode=OneWay}"
                                   />
+                        
                         <StackPanel>
                             <TextBlock Text="{x:Bind FileName, Mode=OneWay}"
-                               VerticalAlignment="Top"
-                               TextWrapping="Wrap"
-                               HorizontalAlignment="Center"
-                               TextAlignment="Center"
-                               Margin="4"/>
+                                       VerticalAlignment="Top"
+                                       TextWrapping="Wrap"
+                                       HorizontalAlignment="Center"
+                                       TextAlignment="Center"
+                                       Margin="4"/>
 
                             <TextBlock VerticalAlignment="Bottom"
-                               HorizontalAlignment="Center"
-                               Margin="0">
+                                       HorizontalAlignment="Center"
+                                       Margin="0">
                         
-                            <Run Text="("/>
-                            <Run Text="{x:Bind ImageWidth, Mode=OneWay}"/>
-                            <Run Text="*"/>
-                            <Run Text="{x:Bind ImageHeight, Mode=OneWay}"/>
-                            <Run Text=")"/>
+                                <Run Text="("/>
+                                <Run Text="{x:Bind ImageWidth, Mode=OneWay}"/>
+                                <Run Text="*"/>
+                                <Run Text="{x:Bind ImageHeight, Mode=OneWay}"/>
+                                <Run Text=")"/>
 
                             </TextBlock>
                         </StackPanel>
 
 
                         <tkcon:ImageEx Grid.Row="1"
-                                           Background="Transparent" 
+                                       Background="Transparent" 
                                        BorderThickness="1"
                                        BorderBrush="Silver"
-                                           Margin="8"
-                                           Stretch="Uniform"
-                                           PlaceholderStretch="Uniform"
-                                           PlaceholderSource="/Images/Logo.png"
-                                           HorizontalAlignment="Center"
-                                           VerticalAlignment="Center" 
-                                           MaxWidth="{x:Bind Logo.PixelWidth,Mode=OneWay}"
-                                           MaxHeight="{x:Bind Logo.PixelHeight,Mode=OneWay}" 
-                                           Source="{x:Bind Logo, Mode=OneWay}" 
-                                             
-                                       
-                                           >
+                                       Margin="8"
+                                       Stretch="Uniform"
+                                       PlaceholderStretch="Uniform"
+                                       PlaceholderSource="/Images/Logo.png"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center" 
+                                       MaxWidth="{x:Bind Logo.PixelWidth,Mode=OneWay}"
+                                       MaxHeight="{x:Bind Logo.PixelHeight,Mode=OneWay}" 
+                                       Source="{x:Bind Logo, Mode=OneWay}" >
                         </tkcon:ImageEx>
 
-                        <tkcon:Loading IsLoading="{x:Bind Thinking, Mode=OneWay}"
-                                   Background="{ThemeResource SystemControlBackgroundAccentBrush}" 
-                                   Opacity="0.8" 
-                                   Grid.RowSpan="3"
-                                   Margin="0">
-                            <StackPanel Padding="12" 
-                                    VerticalAlignment="Center"
-                                    HorizontalAlignment="Center">
-
-                                <Image Source="/Images/Logo.png" 
-                                   VerticalAlignment="Center"
-                                   Height="100" 
-                                   Margin="8"/>
-
-                                <TextBlock Text="{x:Bind ThinkingText, Mode=OneWay}" 
-                                       Style="{StaticResource SubtitleTextBlockStyle}" 
-                                       TextAlignment="Center"
-                                       HorizontalAlignment="Center"
-                                       VerticalAlignment="Center" />
-
-                            </StackPanel>
-                        </tkcon:Loading>
+                        <CheckBox IsChecked="{x:Bind SelectedForExport, Mode=TwoWay}"
+                                  HorizontalAlignment="Left"
+                                  VerticalAlignment="Top"
+                                  Margin="12,8"
+                                  ToolTipService.ToolTip="Include in export"/>
 
                         <TextBlock Text=""
                                FontFamily="Segoe MDL2 Assets"
@@ -150,6 +132,29 @@
                                      BeforeTextChanging="text_BottomMargin_BeforeTextChanging"/>
 
                         </StackPanel>
+
+                        <tkcon:Loading IsLoading="{x:Bind Thinking, Mode=OneWay}"
+                                   Background="{ThemeResource SystemControlBackgroundAccentBrush}" 
+                                   Opacity="0.8" 
+                                   Grid.RowSpan="3"
+                                   Margin="0">
+                            <StackPanel Padding="12" 
+                                    VerticalAlignment="Center"
+                                    HorizontalAlignment="Center">
+
+                                <Image Source="/Images/Logo.png" 
+                                   VerticalAlignment="Center"
+                                   Height="100" 
+                                   Margin="8"/>
+
+                                <TextBlock Text="{x:Bind ThinkingText, Mode=OneWay}" 
+                                       Style="{StaticResource SubtitleTextBlockStyle}" 
+                                       TextAlignment="Center"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center" />
+
+                            </StackPanel>
+                        </tkcon:Loading>
                     </Grid>
                 </DataTemplate>                    
             </GridView.ItemTemplate>
