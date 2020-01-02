@@ -129,11 +129,11 @@
   <data name="BtnBack.Text" xml:space="preserve">
     <value>Back</value>
   </data>
-  <data name="BtnContinue.Text" xml:space="preserve">
-    <value>Continue</value>
-  </data>
   <data name="btn_Feedback.Label" xml:space="preserve">
     <value>Feedback and Review</value>
+  </data>
+  <data name="cmdContinue.Text" xml:space="preserve">
+    <value>Continue</value>
   </data>
   <data name="Debug.Text" xml:space="preserve">
     <value>DEBUG</value>

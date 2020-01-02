@@ -24,9 +24,6 @@
   <data name="BtnBack.Text" xml:space="preserve">
     <value>Retour</value>
   </data>
-  <data name="BtnContinue.Text" xml:space="preserve">
-    <value>Continuer</value>
-  </data>
   <data name="btn_Feedback.Label" xml:space="preserve">
     <value>Avis et retours</value>
   </data>
