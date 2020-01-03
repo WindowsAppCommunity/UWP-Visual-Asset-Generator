@@ -12,7 +12,7 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" x:Name="ColumnOne"/>
-            <ColumnDefinition Width="2*" MinWidth="520" MaxWidth="700" x:Name="ColumnTwo"/>
+            <ColumnDefinition Width="2*" MaxWidth="600" x:Name="ColumnTwo"/>
             <ColumnDefinition Width="*" x:Name="ColumnThree"/>
         </Grid.ColumnDefinitions>
 
@@ -30,6 +30,7 @@
 
             <StackPanel Grid.Row="1" 
                         x:Name="contentgoeshere" 
+                        CornerRadius="4"
                         Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" 
                         BorderThickness="1"
                         BorderBrush="Silver">
