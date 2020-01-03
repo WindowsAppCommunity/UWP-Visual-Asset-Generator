@@ -6,18 +6,19 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
-    xmlns:Windows10version1809="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract, 7)"
     xmlns:wui="using:Windows.UI.Xaml.Controls"
     mc:Ignorable="d">
 
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" x:Name="ColumnOne"/>
-            <ColumnDefinition Width="*" MinWidth="420" MaxWidth="600" x:Name="ColumnTwo"/>
+            <ColumnDefinition Width="2*" MinWidth="520" MaxWidth="700" x:Name="ColumnTwo"/>
             <ColumnDefinition Width="*" x:Name="ColumnThree"/>
         </Grid.ColumnDefinitions>
 
-        <Grid Grid.ColumnSpan="3" Background="{ThemeResource SystemControlAcrylicElementBrush}" Opacity="0.8"/>
+        <Grid Grid.ColumnSpan="3" 
+              Background="{ThemeResource SystemControlAcrylicElementBrush}" 
+              Opacity="0.8"/>
 
         <Grid Grid.Column="1" Padding="24">
 
@@ -27,8 +28,11 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <StackPanel Grid.Row="1" x:Name="contentgoeshere" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" 
-                        BorderThickness="1" CornerRadius="4" BorderBrush="Silver">
+            <StackPanel Grid.Row="1" 
+                        x:Name="contentgoeshere" 
+                        Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" 
+                        BorderThickness="1"
+                        BorderBrush="Silver">
 
                 <Grid Padding="8">
 
@@ -47,9 +51,13 @@
                                Width="200"/>
                     </controls:DropShadowPanel>
 
-                    <StackPanel Grid.Column="1" VerticalAlignment="Center">
-                        <TextBlock Text="Welcome to" x:Uid="Welcome" TextWrapping="WrapWholeWords" 
-                                   FontWeight="Bold" Margin="0,0,0,4" />
+                    <StackPanel Grid.Column="1" 
+                                VerticalAlignment="Center">
+                        <TextBlock Text="Welcome to" 
+                                   x:Uid="Welcome" 
+                                   TextWrapping="WrapWholeWords" 
+                                   FontWeight="Bold" 
+                                   Margin="0,0,0,4" />
 
                         <TextBlock Text="{x:Bind mainViewModel.Settings.AppName, Mode=OneWay}" 
                                    Style="{ThemeResource SubheaderTextBlockStyle}"
@@ -60,36 +68,54 @@
 
                 </Grid>
 
-                <StackPanel Visibility="{Binding Settings.ShowWelcomePage, Mode=OneWay}" Padding="8">
+                <StackPanel Visibility="{Binding Settings.ShowWelcomePage, Mode=OneWay}" 
+                            Padding="8">
 
-                    <TextBlock Text="Key Features:" x:Uid="KeyFeatures" TextWrapping="WrapWholeWords" 
-                               FontWeight="Bold" Margin="0,0,0,8"  />
+                    <TextBlock Text="Key Features:" 
+                               x:Uid="KeyFeatures" 
+                               TextWrapping="WrapWholeWords" 
+                               FontWeight="Bold" 
+                               Margin="0,0,0,8"  />
 
-                    <TextBlock x:Uid="KeyFeature1" Text="- BETA - App to create store logo (visual assets) for apps." 
+                    <TextBlock x:Uid="KeyFeature1" 
+                               Text="- BETA - App to create store logo (visual assets) for apps." 
                                TextWrapping="WrapWholeWords" />
-                    <TextBlock x:Uid="KeyFeature2" Text="- Currently UWP only." 
+                    <TextBlock x:Uid="KeyFeature2" 
+                               Text="- Currently UWP only." 
                                TextWrapping="WrapWholeWords" />
                                         
                 </StackPanel>
 
-                <StackPanel Visibility="{Binding Settings.ShowUpdatePage, Mode=OneWay}" Padding="8">
+                <StackPanel Visibility="{Binding Settings.ShowUpdatePage, Mode=OneWay}" 
+                            Padding="8">
 
-                    <TextBlock x:Uid="AppUpdated" Text="App Updated" FontWeight="Bold" />
-                    <TextBlock Text="{Binding Settings.AppVersion, Mode=OneWay}" Margin="0,0,0,8"/>
+                    <TextBlock x:Uid="AppUpdated" 
+                               Text="App Updated" 
+                               FontWeight="Bold" />
+                    <TextBlock Text="{Binding Settings.AppVersion, Mode=OneWay}" 
+                               Margin="0,0,0,8"/>
                     
-                    <TextBlock x:Uid="SecondBeta" Text="- Second (closed) beta."  TextWrapping="WrapWholeWords"/>
-                    <TextBlock x:Uid="SecondBeta" Text="- Exporting and updating margins now opertional."  TextWrapping="WrapWholeWords"/>
-                    <TextBlock x:Uid="SecondBeta" Text="- UI updates."  TextWrapping="WrapWholeWords"/>
-                    <TextBlock x:Uid="SecondBeta" Text="- Additional languages supported."  TextWrapping="WrapWholeWords"/>
-                    <TextBlock x:Uid="SecondBeta" Text="- Image assets adjusted to side step VS bug."  TextWrapping="WrapWholeWords"/>
+                    <TextBlock x:Uid="SecondBeta" 
+                               Text="- Second (closed) beta."  
+                               TextWrapping="WrapWholeWords"/>
+                    <TextBlock x:Uid="SecondBeta" 
+                               Text="- Exporting and updating margins now opertional."  
+                               TextWrapping="WrapWholeWords"/>
+                    <TextBlock x:Uid="SecondBeta" 
+                               Text="- UI updates."  
+                               TextWrapping="WrapWholeWords"/>
+                    <TextBlock x:Uid="SecondBeta" 
+                               Text="- Additional languages supported."  
+                               TextWrapping="WrapWholeWords"/>
+                    <TextBlock x:Uid="SecondBeta" 
+                               Text="- Image assets adjusted to side step VS bug."  
+                               TextWrapping="WrapWholeWords"/>
                 </StackPanel>
 
                 <wui:Button x:Name="btn_Continue" 
                         HorizontalAlignment="Stretch" 
                         BorderThickness="1" 
                         Margin="4,8,4,4" 
-                        x:Uid="cmdContinue"
-                        Background="{ThemeResource SystemControlAccentAcrylicElementAccentMediumHighBrush}" 
                         Style="{ThemeResource ButtonRevealStyle}"
                         Click="Btn_Continue_Click"
                         Content="Continue"

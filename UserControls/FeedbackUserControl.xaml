@@ -13,7 +13,7 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" x:Name="ColumnOne"/>
-            <ColumnDefinition Width="*" MinWidth="400" MaxWidth="600" x:Name="ColumnTwo"/>
+            <ColumnDefinition Width="2*" MinWidth="450" MaxWidth="600" x:Name="ColumnTwo"/>
             <ColumnDefinition Width="*" x:Name="ColumnThree"/>
         </Grid.ColumnDefinitions>
 
@@ -138,7 +138,6 @@
                         HorizontalAlignment="Stretch" 
                         BorderThickness="1" 
                         Margin="4,8,4,4" 
-                        Background="{ThemeResource SystemControlAccentAcrylicElementAccentMediumHighBrush}" 
                         Style="{StaticResource ButtonRevealStyle}"
                         Padding="18"
                         FontSize="16    "
