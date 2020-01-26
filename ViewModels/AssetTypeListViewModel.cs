@@ -5,6 +5,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.Storage;
 
 namespace UWP_Visual_Asset_Generator.ViewModels
 {
@@ -113,6 +114,8 @@ namespace UWP_Visual_Asset_Generator.ViewModels
                         App.mainViewModel.Thinking = true;
                         App.mainViewModel.ThinkingText = "Complete";
                         await Task.Delay(App.ThinkingMediumPauseInMs);
+                        
+                        await Windows.System.Launcher.LaunchFolderAsync(App.mainViewModel.OutputFolder);
                     }
                     else
                     {

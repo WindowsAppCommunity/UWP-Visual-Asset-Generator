@@ -144,7 +144,7 @@ namespace UWP_Visual_Asset_Generator.ViewModels
                     }
                     catch (Exception ex)
                     {
-
+                        roamingSettings.Values["DisableNotifications"] = result; 
                     }
 
                     return result;
@@ -166,6 +166,36 @@ namespace UWP_Visual_Asset_Generator.ViewModels
                     engagementManager.RegisterNotificationChannelAsync();
                 }
 
+            }
+        }
+
+        public string LastOutputDirectoryToken
+        {
+            get
+            {
+                string result = string.Empty;
+
+                if (roamingSettings == null)
+                {
+                    return result;
+                }
+
+                try
+                {
+                    result = (string)roamingSettings.Values["LastOutputDirectoryToken"];
+                }
+                catch (Exception ex)
+                {
+                    roamingSettings.Values["LastOutputDirectoryToken"] = result;
+                }
+
+                return result;
+            }
+            set
+            {
+                roamingSettings.Values["LastOutputDirectoryToken"] = value;
+
+                NotifyPropertyChanged("LastOutputDirectoryToken");
             }
         }
 

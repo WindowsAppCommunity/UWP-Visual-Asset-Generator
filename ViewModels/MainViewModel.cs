@@ -33,7 +33,9 @@ namespace UWP_Visual_Asset_Generator.ViewModels
         private bool _showEditCurrentImage = false;
         private bool _previewWithAccentColour = false;
         private bool _showBackgroundColorSelector = false;
-        private Color _backgroundColour = Colors.Transparent;
+        private Color _backgroundColour = Color.FromArgb(0, 0, 0, 0);
+
+        public const string mruOutputFolderMetadata = "OutputFolder";
 
         private StorageFile _originalLogoFile;
         private ImageSource _originalLogoImageSource;
@@ -64,8 +66,36 @@ namespace UWP_Visual_Asset_Generator.ViewModels
         private async Task SetupOutputFolder()
         {
 
-            OutputFolder = await KnownFolders.PicturesLibrary.CreateFolderAsync("Asset Generator", CreationCollisionOption.OpenIfExists);
-            
+            IStorageItem item = null;
+
+            var mru = Windows.Storage.AccessCache.StorageApplicationPermissions.MostRecentlyUsedList;
+
+            foreach (Windows.Storage.AccessCache.AccessListEntry entry in mru.Entries)
+            {
+                if (entry.Metadata.Equals(mruOutputFolderMetadata))
+                {
+                    var mruToken = entry.Token;
+                    item = await mru.GetItemAsync(mruToken);
+                    break;
+                }
+            }
+
+            if (item == null)
+            {
+                OutputFolder = await KnownFolders.PicturesLibrary.CreateFolderAsync("Asset Generator", CreationCollisionOption.OpenIfExists);
+            }
+            else
+            {
+                try
+                {
+                    OutputFolder = item as StorageFolder;
+                }
+                catch (Exception ex)
+                {
+                    OutputFolder = await KnownFolders.PicturesLibrary.CreateFolderAsync("Asset Generator", CreationCollisionOption.OpenIfExists);
+                }
+            }
+
         }
 
         #region public properties
@@ -101,7 +131,7 @@ namespace UWP_Visual_Asset_Generator.ViewModels
         {
             get
             {
-                return (OutputFolder != null);
+                return (OutputFolder != null && OriginalLogoFile != null);
             }
         }
 
@@ -314,6 +344,7 @@ namespace UWP_Visual_Asset_Generator.ViewModels
                 result = true;
             }
 
+            NotifyPropertyChanged("SaveEnabled");
             return result;
         }
 
@@ -335,6 +366,13 @@ namespace UWP_Visual_Asset_Generator.ViewModels
             if (folder != null)
             {
                 OutputFolder = folder;
+
+                var mru = Windows.Storage.AccessCache.StorageApplicationPermissions.MostRecentlyUsedList;
+                mru.Clear();
+                string mruToken = mru.Add(OutputFolder, mruOutputFolderMetadata);
+
+                Settings.LastOutputDirectoryToken = mruToken;
+
                 result = true;
             }
 

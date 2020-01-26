@@ -170,20 +170,25 @@ namespace UWP_Visual_Asset_Generator.ViewModels
                 {
                     int newLogoInsertHeight = ImageHeight - TopPadding - BottomPadding;
 
-                    var config = new Configuration();
+                    var config = new Configuration();                    
 
                     var backgroundPixel = new Rgba32();
-                    if (mainViewModel.BackgroundColour != null)
+                    /*
+                    if (mainViewModel.BackgroundColour == null ||
+                        mainViewModel.BackgroundColour.Equals(Colors.Transparent) ||
+                        mainViewModel.BackgroundColour.A == 0)
                     {
+                        backgroundPixel = SixLabors.ImageSharp.Color.Transparent;
+
+                    }
+                    else
+                    {*/
                         backgroundPixel.R = mainViewModel.BackgroundColour.R;
                         backgroundPixel.G = mainViewModel.BackgroundColour.G;
                         backgroundPixel.B = mainViewModel.BackgroundColour.B;
                         backgroundPixel.A = mainViewModel.BackgroundColour.A;
-                    }
-                    else
-                    {
-                        backgroundPixel = SixLabors.ImageSharp.Color.Transparent;
-                    }
+                    
+                    //}
 
                     var newLogo = new Image<Rgba32>(config, ImageWidth, ImageHeight, backgroundPixel);
 

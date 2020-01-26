@@ -52,22 +52,8 @@
                             <RowDefinition Height="auto"/>
                         </Grid.RowDefinitions>
 
-                        <Grid Background="{ThemeResource SystemAccentColor}"
-                                  x:Name="grdBackgroundAccentPreview"
-                                  HorizontalAlignment="Stretch"
-                                  VerticalAlignment="Stretch"
-                                  Grid.RowSpan="3"
-                                  Visibility="{x:Bind mainViewModel.PreviewWithAccentColour, Mode=OneWay}"
-                                  >
-                            <animations:Implicit.ShowAnimations>
-                                <animations:OpacityAnimation Duration="0:0:1" From="0.0" To="1.0"/>
-                            </animations:Implicit.ShowAnimations>
-                            
-                            <animations:Implicit.HideAnimations>
-                                <animations:OpacityAnimation Duration="0:0:1" From="1.0" To="0.0"/>
-                            </animations:Implicit.HideAnimations>
-                        </Grid>
-
+         
+                        
                         <StackPanel>
                             <TextBlock Text="{x:Bind FileName, Mode=OneWay}"
                                        VerticalAlignment="Top"
@@ -90,7 +76,7 @@
                         </StackPanel>
 
 
-                        <tkcon:ImageEx Grid.Row="1"
+                        <tkcon:ImageEx Grid.Row="1" 
                                        BorderThickness="1"
                                        BorderBrush="Silver"
                                        Margin="8"
@@ -98,6 +84,7 @@
                                        PlaceholderStretch="Uniform"
                                        PlaceholderSource="/Images/Logo.png"
                                        HorizontalAlignment="Center"
+                                       Background="Transparent"
                                        VerticalAlignment="Center" 
                                        MaxWidth="{x:Bind Logo.PixelWidth,Mode=OneWay}"
                                        MaxHeight="{x:Bind Logo.PixelHeight,Mode=OneWay}" 
