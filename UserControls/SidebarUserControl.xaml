@@ -163,22 +163,29 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="auto"/>
             </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
 
+            <TextBlock Text="Output path" Padding="0,4,0,4"/>
+            
             <TextBox PlaceholderText="Output Folder" 
                      Windows10version1809:CornerRadius="2,0,0,2" 
                      BorderThickness="1,1,1,1" 
                      Text="{x:Bind mainViewModel.OutputFolder.Path, Mode=OneWay}" 
                      IsEnabled="False"
-                     Margin="0,18,0,18" 
+                     Height="34"
                      x:Uid="OutputFolder"
-                     Grid.ColumnSpan="2"/>
+                     Grid.ColumnSpan="2"
+                     Grid.Row="1"/>
             <Button Content="" 
+                    Grid.Row="1"
                     FontFamily="Segoe MDL2 Assets" 
                     BorderThickness="1,1,1,1" 
                     Windows10version1809:CornerRadius="0,2,2,0"                     
                     Grid.Column="2" 
-                    Margin="0,18,0,18" 
-                    Height="33"
+                    Height="34"
                     HorizontalAlignment="Right" 
                     Click="Btn_OutputFolder_Click" 
                     x:Uid="SetOutputFolder"
