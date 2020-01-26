@@ -11,13 +11,16 @@
     xmlns:tkcon="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:viewmodels="using:UWP_Visual_Asset_Generator.ViewModels"
     xmlns:Windows10version1809="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract, 7)"
-    xmlns:generic="using:System.Collections.Generic">
+    xmlns:generic="using:System.Collections.Generic"
+    xmlns:wui="using:Windows.UI.Xaml.Controls"
+    xmlns:extensions="using:Microsoft.Toolkit.Uwp.UI.Extensions">
 
     <Grid Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}"
           Padding="12,0,12,12">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
@@ -75,7 +78,8 @@
                                    PlaceholderSource="/Images/Logo.png"
                                    Drop="Image_Original_Drop"
                                    DragOver="Image_Original_DragOver"
-                                   ToolTipService.ToolTip="Drop a PNG image here, or click to browse"/>
+                                   ToolTipService.ToolTip="Drop a PNG image here, or click to browse"
+                                   extensions:Mouse.Cursor="Hand"/>
                 </Grid>
             </tkcon:DropShadowPanel>
         </StackPanel>
@@ -114,7 +118,15 @@
         </ListView>
         <!-- End of Asset Style list -->
 
-        <Grid Grid.Row="2">
+        <wui:Button Content="Set background colour"
+                    Grid.Row="2"
+                    HorizontalAlignment="Stretch"
+                    Style="{ThemeResource ButtonRevealStyle}"
+                    Margin="0,8"
+                    x:Name="btnSetBackgroundColour"
+                    Click="btnSetBackgroundColour_Click"/>
+
+        <Grid Grid.Row="3">
             <ComboBox ItemsSource="{x:Bind mainViewModel.Resamplers, Mode=OneTime}"
                       SelectedItem="{x:Bind mainViewModel.SelectedResampler, Mode=TwoWay}"
                       Header="Resampling Mode"
@@ -128,10 +140,10 @@
         </Grid>
         
         <!-- Theme Setting -->
-        <Grid Grid.Row="3">
+        <Grid Grid.Row="4">
             <ComboBox 
                       x:Name="themeSelect"
-                      Header="Theme"
+                      Header="App Theme"
                       Margin="0,8"
                       Grid.Row="1"
                       HorizontalAlignment="Stretch"
@@ -145,7 +157,7 @@
         <!-- End of Theme Setting -->
         
         <!-- Output Picker -->
-        <Grid Grid.Row="4">
+        <Grid Grid.Row="5">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto"/>
                 <ColumnDefinition Width="*"/>

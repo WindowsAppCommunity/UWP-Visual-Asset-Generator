@@ -9,6 +9,7 @@
     xmlns:muimedia="using:Microsoft.UI.Xaml.Media"
     xmlns:tkcon="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:animations="using:Microsoft.Toolkit.Uwp.UI.Animations"
+    xmlns:behaviors="using:Microsoft.Toolkit.Uwp.UI.Animations.Behaviors"
     xmlns:Windows10version1809="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract, 7)"
     mc:Ignorable="d"
     d:DesignHeight="300"
@@ -23,8 +24,7 @@
         </Grid.RowDefinitions>
 
         <TextBlock Text="{x:Bind mainViewModel.AssetTypes.Current.Title, Mode=OneWay}"
-                   Margin="8,12"
-                   Style="{ThemeResource FluentSubheaderTextStyle}"/>
+                   Margin="8,12"/>
 
         <GridView Grid.Row="1" 
                   ItemsSource="{x:Bind mainViewModel.AssetTypes.Current.Assets.Items, Mode=OneWay}"
@@ -51,15 +51,23 @@
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="auto"/>
                         </Grid.RowDefinitions>
-                        
+
                         <Grid Background="{ThemeResource SystemAccentColor}"
                                   x:Name="grdBackgroundAccentPreview"
                                   HorizontalAlignment="Stretch"
                                   VerticalAlignment="Stretch"
                                   Grid.RowSpan="3"
                                   Visibility="{x:Bind mainViewModel.PreviewWithAccentColour, Mode=OneWay}"
-                                  />
-                        
+                                  >
+                            <animations:Implicit.ShowAnimations>
+                                <animations:OpacityAnimation Duration="0:0:1" From="0.0" To="1.0"/>
+                            </animations:Implicit.ShowAnimations>
+                            
+                            <animations:Implicit.HideAnimations>
+                                <animations:OpacityAnimation Duration="0:0:1" From="1.0" To="0.0"/>
+                            </animations:Implicit.HideAnimations>
+                        </Grid>
+
                         <StackPanel>
                             <TextBlock Text="{x:Bind FileName, Mode=OneWay}"
                                        VerticalAlignment="Top"
@@ -83,7 +91,6 @@
 
 
                         <tkcon:ImageEx Grid.Row="1"
-                                       Background="Transparent" 
                                        BorderThickness="1"
                                        BorderBrush="Silver"
                                        Margin="8"

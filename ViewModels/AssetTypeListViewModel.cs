@@ -96,29 +96,46 @@ namespace UWP_Visual_Asset_Generator.ViewModels
         {
             if (await ShowDialog("Save All Assets","This will overwrite any existing files in ourput folder","Yes","No"))
             {
-                App.mainViewModel.Thinking = true;
-                App.mainViewModel.ThinkingText = "Saving Assets";
-                await Task.Delay(App.ThinkingLongPauseInMs);
-
-                //Copy as new files
-                if (App.mainViewModel.OutputFolder != null)
+                try
                 {
-                    foreach (var element in Items)
+                    App.mainViewModel.Thinking = true;
+                    App.mainViewModel.ThinkingText = "Saving Assets";
+                    await Task.Delay(App.ThinkingMediumPauseInMs);
+
+                    //Copy as new files
+                    if (App.mainViewModel.OutputFolder != null)
                     {
-                        await element.Assets.SaveAllAssetsToFileAsync();
+                        foreach (var element in Items)
+                        {
+                            await element.Assets.SaveAllAssetsToFileAsync();
+                        }
+
+                        App.mainViewModel.Thinking = true;
+                        App.mainViewModel.ThinkingText = "Complete";
+                        await Task.Delay(App.ThinkingMediumPauseInMs);
+                    }
+                    else
+                    {
+                        await ShowDialog("No output folder selected", "To save to a new location, an 'Output Location' needs to be set.");
+
+                        App.mainViewModel.Thinking = true;
+                        App.mainViewModel.ThinkingText = "Error";
+                        await Task.Delay(App.ThinkingMediumPauseInMs);
                     }
                 }
-                else
+                catch (Exception eex)
                 {
-                    await ShowDialog("No output folder selected", "To save to a new location, an 'Output Location' needs to be set.");
+                    await ShowDialog("Error creating assets", "An unknown error has occurred.  Sorry.");
+
+                    App.mainViewModel.Thinking = true;
+                    App.mainViewModel.ThinkingText = "Error";
+                    await Task.Delay(App.ThinkingMediumPauseInMs);
                 }
-
-                App.mainViewModel.Thinking = true;
-                App.mainViewModel.ThinkingText = "Complete";
-                await Task.Delay(App.ThinkingLongPauseInMs);
-
-                App.mainViewModel.Thinking = false;
-                App.mainViewModel.ThinkingText = string.Empty;
+                finally
+                {
+                    App.mainViewModel.Thinking = false;
+                    App.mainViewModel.ThinkingText = string.Empty;
+                }
             }
         }        
     }

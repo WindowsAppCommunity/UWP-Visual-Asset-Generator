@@ -10,22 +10,16 @@
     xmlns:wui="using:Windows.UI.Xaml.Controls"
     mc:Ignorable="d">
 
-    <Grid>
+    <Grid Background="{ThemeResource SystemControlAcrylicElementBrush}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" x:Name="ColumnOne"/>
             <ColumnDefinition Width="2*" MinWidth="450" MaxWidth="600" x:Name="ColumnTwo"/>
             <ColumnDefinition Width="*" x:Name="ColumnThree"/>
         </Grid.ColumnDefinitions>
 
-        <Grid Grid.ColumnSpan="3" Background="{ThemeResource SystemControlAcrylicElementBrush}" Opacity="0.8"/>
 
-        <Grid Grid.Column="1" Padding="24">
+        <Grid Grid.Column="1" Padding="24" VerticalAlignment="Center">
 
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
 
             <StackPanel Grid.Row="1" x:Name="contentgoeshere" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" 
                         BorderThickness="1" CornerRadius="4" BorderBrush="Silver">

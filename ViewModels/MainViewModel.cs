@@ -16,6 +16,7 @@ using System.Threading.Tasks;
 using Windows.Storage;
 using Windows.Storage.FileProperties;
 using Windows.Storage.Pickers;
+using Windows.UI;
 using Windows.UI.Popups;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
@@ -31,6 +32,8 @@ namespace UWP_Visual_Asset_Generator.ViewModels
         private bool _showGettingStartedControl = false;
         private bool _showEditCurrentImage = false;
         private bool _previewWithAccentColour = false;
+        private bool _showBackgroundColorSelector = false;
+        private Color _backgroundColour = Colors.Transparent;
 
         private StorageFile _originalLogoFile;
         private ImageSource _originalLogoImageSource;
@@ -99,6 +102,48 @@ namespace UWP_Visual_Asset_Generator.ViewModels
             get
             {
                 return (OutputFolder != null);
+            }
+        }
+
+        public bool ShowBackgroundColorSelector
+        {
+            get
+            {
+                return _showBackgroundColorSelector;
+            }
+            set
+            {
+                _showBackgroundColorSelector = value;
+                NotifyPropertyChanged("ShowBackgroundColorSelector");
+            }
+        }
+
+        public Color BackgroundColour
+        {
+            get
+            {
+                return _backgroundColour;
+            }
+            set
+            {
+                if (_backgroundColour != value)
+                {
+                    _backgroundColour = value;
+                    if (_backgroundColour.A == 0)
+                    {
+                        _backgroundColour.A = 255;
+                    }
+                    NotifyPropertyChanged("BackgroundColour");
+                    NotifyPropertyChanged("BackgroundColourBrush");
+                }
+            }
+        }
+
+        public Brush BackgroundColourBrush
+        {
+            get
+            {
+                return new SolidColorBrush(_backgroundColour);
             }
         }
 

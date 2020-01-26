@@ -151,6 +151,9 @@
     <Compile Include="UserControls\FeedbackUserControl.xaml.cs">
       <DependentUpon>FeedbackUserControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\SetBackgroundColourUserControl.xaml.cs">
+      <DependentUpon>SetBackgroundColourUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\SidebarUserControl.xaml.cs">
       <DependentUpon>SidebarUserControl.xaml</DependentUpon>
     </Compile>
@@ -242,7 +245,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="FluiFramework.UWP">
-      <Version>0.0.29</Version>
+      <Version>0.0.33</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.AppCenter">
       <Version>2.6.4</Version>
@@ -254,7 +257,7 @@
       <Version>2.6.4</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
-      <Version>6.2.8</Version>
+      <Version>6.2.9</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Services.Store.Engagement">
       <Version>10.1901.28001</Version>
@@ -272,7 +275,7 @@
       <Version>1.0.0-beta0007</Version>
     </PackageReference>
     <PackageReference Include="WriteableBitmapEx">
-      <Version>1.6.3</Version>
+      <Version>1.6.5</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
@@ -295,6 +298,10 @@
     <Page Include="UserControls\FeedbackUserControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\SetBackgroundColourUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\SidebarUserControl.xaml">
       <SubType>Designer</SubType>

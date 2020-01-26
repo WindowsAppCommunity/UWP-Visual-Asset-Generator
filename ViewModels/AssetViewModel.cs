@@ -172,7 +172,20 @@ namespace UWP_Visual_Asset_Generator.ViewModels
 
                     var config = new Configuration();
 
-                    var newLogo = new Image<Rgba32>(config, ImageWidth, ImageHeight, SixLabors.ImageSharp.Color.Transparent);
+                    var backgroundPixel = new Rgba32();
+                    if (mainViewModel.BackgroundColour != null)
+                    {
+                        backgroundPixel.R = mainViewModel.BackgroundColour.R;
+                        backgroundPixel.G = mainViewModel.BackgroundColour.G;
+                        backgroundPixel.B = mainViewModel.BackgroundColour.B;
+                        backgroundPixel.A = mainViewModel.BackgroundColour.A;
+                    }
+                    else
+                    {
+                        backgroundPixel = SixLabors.ImageSharp.Color.Transparent;
+                    }
+
+                    var newLogo = new Image<Rgba32>(config, ImageWidth, ImageHeight, backgroundPixel);
 
                     var options = new ResizeOptions()
                     {

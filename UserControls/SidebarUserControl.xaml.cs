@@ -95,5 +95,10 @@ namespace UWP_Visual_Asset_Generator.UserControls
                 case 2: App.mainPage.RequestedTheme = ElementTheme.Dark; ; break;
             }
         }
+
+        private void btnSetBackgroundColour_Click(object sender, RoutedEventArgs e)
+        {
+            mainViewModel.ShowBackgroundColorSelector = true;
+        }
     }
 }
