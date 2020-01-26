@@ -9,7 +9,7 @@
 
   <Identity
     Name="48402ValleySoftware.UWPVisualAssetGenerator"
-    Publisher="CN=1A0D82E7-16BF-413C-8745-F263B3D8453A"
+    Publisher="CN=53EC4384-7F5B-4CF6-8C23-513FFE9D1AB7"
     Version="0.4.5.0" />
 
   <mp:PhoneIdentity PhoneProductId="5e02cf17-25b6-4895-83b2-a19b25bbb564" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>

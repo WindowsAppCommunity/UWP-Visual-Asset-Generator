@@ -195,6 +195,9 @@
   <data name="ToggleAccentColour.ToolTipService.ToolTip" xml:space="preserve">
     <value>View Assets with Accent colour</value>
   </data>
+  <data name="VisualAssetGenerator.Text" xml:space="preserve">
+    <value>Visual Asset Generator</value>
+  </data>
   <data name="Welcome.Text" xml:space="preserve">
     <value>Welcome to</value>
   </data>
