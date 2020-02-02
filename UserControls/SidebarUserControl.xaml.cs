@@ -96,9 +96,10 @@ namespace UWP_Visual_Asset_Generator.UserControls
             }
         }
 
-        private void btnSetBackgroundColour_Click(object sender, RoutedEventArgs e)
+        private async void btnSetBackgroundColour_Click(object sender, RoutedEventArgs e)
         {
-            mainViewModel.ShowBackgroundColorSelector = true;
+            var dialog = new BackgroundColorUserControl();
+            await dialog.ShowAsync();
         }
     }
 }

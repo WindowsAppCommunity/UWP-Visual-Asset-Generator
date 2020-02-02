@@ -148,6 +148,9 @@
     <Compile Include="UserControls\AssetEditUserControl.xaml.cs">
       <DependentUpon>AssetEditUserControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\BackgroundColorUserControl.xaml.cs">
+      <DependentUpon>BackgroundColorUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\FeedbackUserControl.xaml.cs">
       <DependentUpon>FeedbackUserControl.xaml</DependentUpon>
     </Compile>
@@ -295,6 +298,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControls\BackgroundColorUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControls\FeedbackUserControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -317,12 +324,12 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <XliffResource Include="MultilingualResources\UWP Visual Asset Generator.fr-FR.xlf" />
+  </ItemGroup>
+  <ItemGroup>
     <SDKReference Include="Microsoft.Services.Store.Engagement, Version=10.0">
       <Name>Microsoft Engagement Framework</Name>
     </SDKReference>
-  </ItemGroup>
-  <ItemGroup>
-    <XliffResource Include="MultilingualResources\UWP Visual Asset Generator.fr-FR.xlf" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
