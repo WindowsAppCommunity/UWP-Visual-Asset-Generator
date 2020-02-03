@@ -16,7 +16,6 @@
             <ColumnDefinition Width="*" x:Name="ColumnThree"/>
         </Grid.ColumnDefinitions>
 
-        <Grid Grid.Column="1" Padding="24" VerticalAlignment="Center">
 
 
             <StackPanel Grid.Row="1" 
@@ -24,7 +23,9 @@
                         CornerRadius="4"
                         Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" 
                         BorderThickness="1"
-                        BorderBrush="Silver">
+                        Grid.Column="1"
+                        BorderBrush="Silver"
+                        VerticalAlignment="Center">
 
                 <Grid Padding="8">
 
@@ -104,7 +105,12 @@
                                TextWrapping="WrapWholeWords"/>
                 </StackPanel>
 
-                <wui:Button x:Name="btn_Continue" 
+            <wui:HyperlinkButton Content="Privacy Policy" 
+                                     NavigateUri="http://www.valleysoftware.com.au/terms-and-conditions-privacy-policy/"
+                                     HorizontalAlignment="Center"
+                                 Margin="8"/>
+
+            <wui:Button x:Name="btn_Continue" 
                         HorizontalAlignment="Stretch" 
                         BorderThickness="1" 
                         Margin="4,8,4,4" 
@@ -117,6 +123,6 @@
                         FontWeight="Bold">
                 </wui:Button>
             </StackPanel>
-        </Grid>
+        
     </Grid>
 </UserControl>
