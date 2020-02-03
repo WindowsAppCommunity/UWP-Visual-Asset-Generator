@@ -188,21 +188,7 @@
             </animations:Implicit.HideAnimations>
         </uc:WelcomeUserControl>
 
-        <uc:SetBackgroundColourUserControl x:Name="colourPickerCntrol" x:Load="{x:Bind mainViewModel.ShowBackgroundColorSelector, Mode=OneWay}">
-            <animations:Implicit.ShowAnimations>
-                <animations:OpacityAnimation
-                    From="0.0"
-                    To="1.0"
-                    Duration="0:0:0.5" />
-            </animations:Implicit.ShowAnimations>
-
-            <animations:Implicit.HideAnimations>
-                <animations:OpacityAnimation
-                    From="1.0"
-                    To="0.0"
-                    Duration="0:0:0.5" />
-            </animations:Implicit.HideAnimations>
-        </uc:SetBackgroundColourUserControl>
+      
 
         <uc:WelcomeUserControl x:Name="UpdateControl" x:Load="{x:Bind mainViewModel.Settings.ShowUpdatePage, Mode=OneWay}">
             <animations:Implicit.ShowAnimations>

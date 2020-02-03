@@ -71,13 +71,25 @@
                                Margin="0,0,0,8"  />
 
                     <TextBlock x:Uid="KeyFeature1" 
-                               Text="- BETA - App to create store logo (visual assets) for apps." 
+                               Text="- Use a single image to generate all the Visual Assets you need for a UWP/Microsoft Store app." 
                                TextWrapping="WrapWholeWords" />
-                    <TextBlock x:Uid="KeyFeature2" 
-                               Text="- Currently UWP only." 
+                <TextBlock x:Uid="KeyFeature2" 
+                               Text="- Utilise different image resampling methods for improved results." 
                                TextWrapping="WrapWholeWords" />
-                                        
-                </StackPanel>
+                <TextBlock x:Uid="KeyFeature3" 
+                               Text="- Real time previews." 
+                               TextWrapping="WrapWholeWords" />
+                <TextBlock x:Uid="KeyFeature4" 
+                               Text="- Set backgrpund colour or clear for assets." 
+                               TextWrapping="WrapWholeWords" />
+                <TextBlock x:Uid="KeyFeature5" 
+                               Text="- Free and Open Source, no ads or IAP." 
+                               TextWrapping="WrapWholeWords" />
+                <TextBlock x:Uid="KeyFeature6" 
+                               Text="- Part of the UWP Community and #Launch2020 participant." 
+                               TextWrapping="WrapWholeWords" />
+
+            </StackPanel>
 
                 <StackPanel Visibility="{Binding Settings.ShowUpdatePage, Mode=OneWay}" 
                             Padding="8">
@@ -88,22 +100,13 @@
                     <TextBlock Text="{Binding Settings.AppVersion, Mode=OneWay}" 
                                Margin="0,0,0,8"/>
                     
-                    <TextBlock x:Uid="SecondBeta" 
-                               Text="- Second (closed) beta."  
+                    <TextBlock x:Uid="Update1" 
+                               Text="- First Open Beta."  
                                TextWrapping="WrapWholeWords"/>
-                    <TextBlock x:Uid="SecondBeta" 
-                               Text="- Exporting and updating margins now opertional."  
+                    <TextBlock x:Uid="Update2" 
+                               Text="- Fix error where on some screens the Colour Selector couldn't be closed."  
                                TextWrapping="WrapWholeWords"/>
-                    <TextBlock x:Uid="SecondBeta" 
-                               Text="- UI updates."  
-                               TextWrapping="WrapWholeWords"/>
-                    <TextBlock x:Uid="SecondBeta" 
-                               Text="- Additional languages supported."  
-                               TextWrapping="WrapWholeWords"/>
-                    <TextBlock x:Uid="SecondBeta" 
-                               Text="- Image assets adjusted to side step VS bug."  
-                               TextWrapping="WrapWholeWords"/>
-                </StackPanel>
+            </StackPanel>
 
             <wui:HyperlinkButton Content="Privacy Policy" 
                                      NavigateUri="http://www.valleysoftware.com.au/terms-and-conditions-privacy-policy/"
