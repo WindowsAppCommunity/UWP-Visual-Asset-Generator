@@ -2,249 +2,279 @@
     x:Class="UWP_Visual_Asset_Generator.Views.MainView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:UWP_Visual_Asset_Generator.Views"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    xmlns:animations="using:Microsoft.Toolkit.Uwp.UI.Animations"
-    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
-    xmlns:uc="using:UWP_Visual_Asset_Generator.UserControls"
-    xmlns:interactivity="using:Microsoft.Xaml.Interactivity"  
-    xmlns:behaviors="using:Microsoft.Toolkit.Uwp.UI.Animations.Behaviors"
     xmlns:Windows10version1809="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract, 7)"
+    xmlns:animations="using:Microsoft.Toolkit.Uwp.UI.Animations"
+    xmlns:behaviors="using:Microsoft.Toolkit.Uwp.UI.Animations.Behaviors"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
+    xmlns:local="using:UWP_Visual_Asset_Generator.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:uc="using:UWP_Visual_Asset_Generator.UserControls"
+    Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}"
     Loaded="Page_Loaded"
-    Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}">
+    mc:Ignorable="d">
 
 
     <Page.Resources>
-        <Storyboard x:Name="animationOpacityPulse" >
-            <DoubleAnimation Storyboard.TargetName="LoadingLogo"
-                             Storyboard.TargetProperty="Opacity"
-                             From="1"
-                             To="0.5" 
-                             Duration="0:0:1"
-                             AutoReverse="True" 
-                             RepeatBehavior="Forever"
-                             >
-
-            </DoubleAnimation>
+        <Storyboard x:Name="animationOpacityPulse">
+            <DoubleAnimation
+                AutoReverse="True"
+                RepeatBehavior="Forever"
+                Storyboard.TargetName="LoadingLogo"
+                Storyboard.TargetProperty="Opacity"
+                From="1"
+                To="0.5"
+                Duration="0:0:1" />
         </Storyboard>
     </Page.Resources>
 
     <Grid>
-      
+
         <Grid Tag="Main Content Area">
             <Grid.RowDefinitions>
-                <RowDefinition Height="32"/>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="32" />
+                <RowDefinition Height="*" />
                 <!--<RowDefinition Height="auto"/>-->
             </Grid.RowDefinitions>
 
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="360"/>
-                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="300" />
+                <ColumnDefinition Width="3*" />
             </Grid.ColumnDefinitions>
 
-            <!-- Titlebar -->
-            <Grid Grid.Row="0"
-                  Grid.ColumnSpan="2"
-                  Canvas.ZIndex="400">
+            <!--  Titlebar  -->
+            <Grid
+                Grid.Row="0"
+                Grid.ColumnSpan="2"
+                Canvas.ZIndex="400">
                 <StackPanel Orientation="Horizontal">
-                    <!-- App icon (Hidden for now) -->
-                    <Image x:Name="imgAppIcon"
-                           Visibility="Collapsed"
-                           Height="16"
-                           Width="16"
-                           Margin="16,0"
-                           Source="ms-appx:///Assets/Square44x44Logo.altform-unplated_targetsize-256.png" />
-
-                    <TextBlock Text="{x:Bind mainViewModel.Settings.AppName, Mode=OneWay}"
-                               Style="{ThemeResource CaptionTextBlockStyle}"
-                               Margin="12,0"
-                               VerticalAlignment="Center"/>
+                    <!--  App icon (Hidden for now)  -->
+                    <Image
+                        x:Name="imgAppIcon"
+                        Width="16"
+                        Height="16"
+                        Margin="16,0"
+                        Source="ms-appx:///Assets/Square44x44Logo.altform-unplated_targetsize-256.png"
+                        Visibility="Collapsed" />
                 </StackPanel>
             </Grid>
-            <!-- End of Titlebar-->
-            
-            <!-- Sidebar -->
-            <uc:SidebarUserControl Grid.Row="1"
-                                   Grid.Column="0"/>
+            <!--  End of Titlebar  -->
 
-            <!-- Assetsbrowser -->
-            <controls:DropShadowPanel Grid.Row="1"
-                                      Grid.Column="1"
-                                      Canvas.ZIndex="100"
-                                      BlurRadius="10"
-                                      ShadowOpacity="0.3"
-                                      OffsetX="-4"
-                                      OffsetY="4"
-                                      Color="Black"
-                                      HorizontalAlignment="Stretch"
-                                      HorizontalContentAlignment="Stretch"
-                                      Margin="0,-32,0,0">
+            <!--  Sidebar  -->
+            <uc:SidebarUserControl Grid.Row="1" Grid.Column="0" />
+
+            <!--  Assetsbrowser  -->
+            <controls:DropShadowPanel
+                Grid.Row="1"
+                Grid.Column="1"
+                HorizontalAlignment="Stretch"
+                HorizontalContentAlignment="Stretch"
+                BlurRadius="10"
+                Canvas.ZIndex="100"
+                OffsetX="-1"
+                OffsetY="-1"
+                ShadowOpacity="0.2"
+                Color="Black">
                 <uc:AssetBrowserUserControl />
 
             </controls:DropShadowPanel>
 
-            <!-- Assets editor-->
-            <uc:AssetEditUserControl Grid.Row="1"
-                                     Grid.Column="1"
-                                     Visibility="{x:Bind mainViewModel.ShowEditCurrentImage, Mode=OneWay}"/>
-            <!-- Commandbar-->
-            <controls:DropShadowPanel Grid.Row="1"
-                                      Grid.Column="1"
-                                      Canvas.ZIndex="200"
-                                      HorizontalAlignment="Right"
-                                      VerticalAlignment="Bottom"
-                                      BlurRadius="10"
-                                      ShadowOpacity="0.3"
-                                      Color="Black"
-                                      OffsetX="4"
-                                      OffsetY="4"
-                                      Margin="24">
-                <CommandBar DefaultLabelPosition="Right"
-                            Windows10version1809:CornerRadius="2"
-                            Style="{ThemeResource CommandBarRevealStyle}">
+            <!--  Assets editor  -->
+            <uc:AssetEditUserControl
+                Grid.Row="1"
+                Grid.Column="1"
+                Visibility="{x:Bind mainViewModel.ShowEditCurrentImage, Mode=OneWay}" />
+            <!--  Commandbar  -->
+            <controls:DropShadowPanel
+                Grid.Row="1"
+                Grid.Column="1"
+                Margin="24"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Bottom"
+                BlurRadius="10"
+                Canvas.ZIndex="200"
+                OffsetX="4"
+                OffsetY="4"
+                ShadowOpacity="0.3"
+                Color="Black">
+                <CommandBar
+                    Windows10version1809:CornerRadius="2"
+                    DefaultLabelPosition="Right"
+                    Style="{ThemeResource CommandBarRevealStyle}">
                     <CommandBar.PrimaryCommands>
-                        <!-- Primary Command -->
-                        <AppBarButton Icon="Save"
-                                      x:Uid="Save"
-                                      Label="Save assets"
-                                      ToolTipService.ToolTip="Save Assets"
-                                      x:Name="btn_Save"
-                                      Click="Btn_Save_Click"
-                                      IsEnabled="{x:Bind mainViewModel.SaveEnabled, Mode=OneWay}"
-                                      Background="{ThemeResource SystemControlBackgroundAccentBrush}"
-                                      Foreground="{ThemeResource SystemControlForegroundChromeWhiteBrush}"
-                                      Windows10version1809:CornerRadius="2,0,0,2" />
+                        <!--  Primary Command  -->
+                        <AppBarButton
+                            x:Name="btn_Save"
+                            x:Uid="Save"
+                            Windows10version1809:CornerRadius="2,0,0,2"
+                            Background="{ThemeResource SystemControlBackgroundAccentBrush}"
+                            Click="Btn_Save_Click"
+                            Foreground="{ThemeResource SystemControlForegroundChromeWhiteBrush}"
+                            Icon="Save"
+                            IsEnabled="{x:Bind mainViewModel.SaveEnabled, Mode=OneWay}"
+                            Label="Save assets"
+                            ToolTipService.ToolTip="Save Assets" />
 
-                        <!-- Secondary Commands -->
-                        <!-- Hide the label of these items and show what they do in the tooltip -->
+                        <!--  Secondary Commands  -->
+                        <!--  Hide the label of these items and show what they do in the tooltip  -->
 
 
                     </CommandBar.PrimaryCommands>
-                    <!-- Overflow Commands -->
+                    <!--  Overflow Commands  -->
                     <CommandBar.SecondaryCommands>
-                        <!-- App info -->
+                        <!--  App info  -->
                         <Windows10version1809:AppBarElementContainer>
-                            <TextBlock Text="App info" 
-                                       x:Uid="AppInfo"
-                                       Style="{ThemeResource FluentBaseTextStyle}"
-                                       Margin="12,6"/>
+                            <TextBlock
+                                x:Uid="AppInfo"
+                                Margin="12,6"
+                                Style="{ThemeResource FluentBaseTextStyle}"
+                                Text="App info" />
                         </Windows10version1809:AppBarElementContainer>
                         <Windows10version1809:AppBarSeparator />
-                        <AppBarButton Label="Feedback and Review"  
-                              x:Name="hmi_Feedback" 
-                              x:Uid="btn_Feedback"
-                              Icon="Emoji2" 
-                              Tapped="btn_Feedback_Tapped"/>
-                        <AppBarButton Label="Welcome" 
-                              Icon="Home"
-                              x:Uid="WelcomeBtn"
-                              x:Name="hmi_ShowWelcomeUSerControl"
-                              Tapped="Hmi_ShowWelcomeUSerControl_Tapped"/>
-                        <AppBarButton Label="{x:Bind mainViewModel.Settings.AppVersion, Mode=OneWay}" 
-                                      Icon="World"/>
+                        <AppBarButton
+                            x:Name="hmi_Feedback"
+                            x:Uid="btn_Feedback"
+                            Icon="Emoji2"
+                            Label="Feedback and Review"
+                            Tapped="btn_Feedback_Tapped" />
+                        <AppBarButton
+                            x:Name="hmi_ShowWelcomeUSerControl"
+                            x:Uid="WelcomeBtn"
+                            Icon="Home"
+                            Label="Welcome"
+                            Tapped="Hmi_ShowWelcomeUSerControl_Tapped" />
+                        <AppBarButton Icon="World" Label="{x:Bind mainViewModel.Settings.AppVersion, Mode=OneWay}" />
                         <AppBarSeparator />
-                        <AppBarButton Label="0 out all Pading" 
-                              Icon="Cancel"
-                              x:Name="hmi_ZeroOutPadding"
-                              Tapped="hmi_ZeroOutPadding_Tapped"/>
-                        <AppBarButton Label="Apply recommended padding" 
-                              Icon="Crop"
-                              x:Name="hmi_ApplyRecommendedPadding"
-                              Tapped="hmi_ApplyRecommendedPadding_Tapped"/>
-                        <AppBarToggleButton Label="View Assets with Accent colour" 
-                                              Icon="Bold"
-                                            x:Uid="ToggleAccentColour"
-                                            ToolTipService.ToolTip="View Assets with Accent colour"
-                                              x:Name="hmi_ToggleAccentColour"
-                                              Tapped="Hmi_ToggleAccentColour_Tapped" />
+                        <AppBarButton
+                            x:Name="hmi_ZeroOutPadding"
+                            Icon="Cancel"
+                            Label="0 out all Pading"
+                            Tapped="hmi_ZeroOutPadding_Tapped" />
+                        <AppBarButton
+                            x:Name="hmi_ApplyRecommendedPadding"
+                            Icon="Crop"
+                            Label="Apply recommended padding"
+                            Tapped="hmi_ApplyRecommendedPadding_Tapped" />
+                        <AppBarToggleButton
+                            x:Name="hmi_ToggleAccentColour"
+                            x:Uid="ToggleAccentColour"
+                            Icon="Bold"
+                            Label="View Assets with Accent colour"
+                            Tapped="Hmi_ToggleAccentColour_Tapped"
+                            ToolTipService.ToolTip="View Assets with Accent colour" />
                     </CommandBar.SecondaryCommands>
 
                 </CommandBar>
             </controls:DropShadowPanel>
-            <!-- End of CommandBar -->
+            <!--  End of CommandBar  -->
 
         </Grid>
 
 
-        <uc:WelcomeUserControl x:Name="WelcomeControl" 
-                               x:Load="{x:Bind mainViewModel.Settings.ShowWelcomePage, Mode=OneWay}">
+        <uc:WelcomeUserControl x:Name="WelcomeControl" x:Load="{x:Bind mainViewModel.Settings.ShowWelcomePage, Mode=OneWay}">
             <animations:Implicit.ShowAnimations>
-                <animations:OpacityAnimation Duration="0:0:0.5" From="0.0" To="1.0"/>
+                <animations:OpacityAnimation
+                    From="0.0"
+                    To="1.0"
+                    Duration="0:0:0.5" />
             </animations:Implicit.ShowAnimations>
 
             <animations:Implicit.HideAnimations>
-                <animations:OpacityAnimation Duration="0:0:0.5" From="1.0" To="0.0"/>
+                <animations:OpacityAnimation
+                    From="1.0"
+                    To="0.0"
+                    Duration="0:0:0.5" />
             </animations:Implicit.HideAnimations>
         </uc:WelcomeUserControl>
 
-        <uc:SetBackgroundColourUserControl x:Name="colourPickerCntrol" 
-                                x:Load="{x:Bind mainViewModel.ShowBackgroundColorSelector, Mode=OneWay}">
+        <uc:SetBackgroundColourUserControl x:Name="colourPickerCntrol" x:Load="{x:Bind mainViewModel.ShowBackgroundColorSelector, Mode=OneWay}">
             <animations:Implicit.ShowAnimations>
-                <animations:OpacityAnimation Duration="0:0:0.5" From="0.0" To="1.0"/>
+                <animations:OpacityAnimation
+                    From="0.0"
+                    To="1.0"
+                    Duration="0:0:0.5" />
             </animations:Implicit.ShowAnimations>
 
             <animations:Implicit.HideAnimations>
-                <animations:OpacityAnimation Duration="0:0:0.5" From="1.0" To="0.0"/>
+                <animations:OpacityAnimation
+                    From="1.0"
+                    To="0.0"
+                    Duration="0:0:0.5" />
             </animations:Implicit.HideAnimations>
         </uc:SetBackgroundColourUserControl>
-        
-        <uc:WelcomeUserControl x:Name="UpdateControl" 
-                               x:Load="{x:Bind mainViewModel.Settings.ShowUpdatePage, Mode=OneWay}">
+
+        <uc:WelcomeUserControl x:Name="UpdateControl" x:Load="{x:Bind mainViewModel.Settings.ShowUpdatePage, Mode=OneWay}">
             <animations:Implicit.ShowAnimations>
-                <animations:OpacityAnimation Duration="0:0:0.5" From="0.0" To="1.0"/>
+                <animations:OpacityAnimation
+                    From="0.0"
+                    To="1.0"
+                    Duration="0:0:0.5" />
             </animations:Implicit.ShowAnimations>
 
             <animations:Implicit.HideAnimations>
-                <animations:OpacityAnimation Duration="0:0:0.5" From="1.0" To="0.0"/>
+                <animations:OpacityAnimation
+                    From="1.0"
+                    To="0.0"
+                    Duration="0:0:0.5" />
             </animations:Implicit.HideAnimations>
         </uc:WelcomeUserControl>
 
-        <uc:FeedbackUserControl x:Name="feedbackControl" 
-                                x:Load="{x:Bind mainViewModel.ShowFeedbackControl, Mode=OneWay}">
+        <uc:FeedbackUserControl x:Name="feedbackControl" x:Load="{x:Bind mainViewModel.ShowFeedbackControl, Mode=OneWay}">
             <animations:Implicit.ShowAnimations>
-                <animations:OpacityAnimation Duration="0:0:0.5" From="0.0" To="1.0"/>
+                <animations:OpacityAnimation
+                    From="0.0"
+                    To="1.0"
+                    Duration="0:0:0.5" />
             </animations:Implicit.ShowAnimations>
 
             <animations:Implicit.HideAnimations>
-                <animations:OpacityAnimation Duration="0:0:0.5" From="1.0" To="0.0"/>
+                <animations:OpacityAnimation
+                    From="1.0"
+                    To="0.0"
+                    Duration="0:0:0.5" />
             </animations:Implicit.HideAnimations>
         </uc:FeedbackUserControl>
 
-        <controls:Loading IsLoading="{x:Bind mainViewModel.Thinking, Mode=OneWay}"
-                          Background="{ThemeResource SystemControlBackgroundAccentBrush}" 
-                          Opacity="0.8" 
-                          Margin="0">
+        <controls:Loading
+            Margin="0"
+            Background="{ThemeResource SystemControlBackgroundAccentBrush}"
+            IsLoading="{x:Bind mainViewModel.Thinking, Mode=OneWay}"
+            Opacity="0.8">
             <StackPanel Padding="12">
-                <controls:DropShadowPanel BlurRadius="8"
-                                          ShadowOpacity="0.7"
-                                          OffsetX="2"
-                                          OffsetY="2"
-                                          Color="{ThemeResource SystemColorButtonFaceColor}"
-                                          VerticalAlignment="Center"
-                                          HorizontalAlignment="Center"
-                                          Grid.Row="0"
-                                          Margin="12" >
-                    <Image Source="/Assets/SmallTile.scale-200.png" 
-                           Height="100" 
-                           x:Name="LoadingLogo"/>
+                <controls:DropShadowPanel
+                    Grid.Row="0"
+                    Margin="12"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    BlurRadius="8"
+                    OffsetX="2"
+                    OffsetY="2"
+                    ShadowOpacity="0.7"
+                    Color="{ThemeResource SystemColorButtonFaceColor}">
+                    <Image
+                        x:Name="LoadingLogo"
+                        Height="100"
+                        Source="/Assets/SmallTile.scale-200.png" />
                 </controls:DropShadowPanel>
 
-                <controls:DropShadowPanel BlurRadius="8"
-                                          ShadowOpacity="0.7"
-                                          OffsetX="2"
-                                          OffsetY="2"
-                                          Color="{ThemeResource SystemColorButtonFaceColor}"
-                                          VerticalAlignment="Center"
-                                          Grid.Row="0"
-                                          Margin="8">
+                <controls:DropShadowPanel
+                    Grid.Row="0"
+                    Margin="8"
+                    VerticalAlignment="Center"
+                    BlurRadius="8"
+                    OffsetX="2"
+                    OffsetY="2"
+                    ShadowOpacity="0.7"
+                    Color="{ThemeResource SystemColorButtonFaceColor}">
 
-                    <TextBlock Text="{x:Bind mainViewModel.ThinkingText, Mode=OneWay}" 
-                               Style="{StaticResource SubtitleTextBlockStyle}" 
-                               x:Name="tbLoadingText" TextAlignment="Center"
-                               VerticalAlignment="Center" MinWidth="180"/>
+                    <TextBlock
+                        x:Name="tbLoadingText"
+                        MinWidth="180"
+                        VerticalAlignment="Center"
+                        Style="{StaticResource SubtitleTextBlockStyle}"
+                        Text="{x:Bind mainViewModel.ThinkingText, Mode=OneWay}"
+                        TextAlignment="Center" />
                 </controls:DropShadowPanel>
             </StackPanel>
         </controls:Loading>

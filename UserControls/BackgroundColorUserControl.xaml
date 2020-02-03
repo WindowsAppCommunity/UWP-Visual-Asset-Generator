@@ -1,0 +1,46 @@
+﻿<ContentDialog
+    x:Class="UWP_Visual_Asset_Generator.UserControls.BackgroundColorUserControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:UWP_Visual_Asset_Generator.UserControls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:muxc="using:Windows.UI.Xaml.Controls"
+    xmlns:tk="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    mc:Ignorable="d">
+
+    <Grid>
+        <StackPanel
+            x:Name="contentgoeshere">
+            <TextBlock
+                Margin="8"
+                HorizontalAlignment="Center"
+                Text="Select Icon Background Colour" />
+            <ColorPicker
+                IsAlphaSliderVisible="True"
+                IsAlphaTextInputVisible="True"
+                IsColorChannelTextInputVisible="False"
+                Color="{x:Bind mainViewModel.BackgroundColour, Mode=TwoWay}" />
+
+            <tk:ImageEx
+                x:Uid="preview"
+                Width="120"
+                Margin="8"
+                Padding="24"
+                Background="{x:Bind mainViewModel.BackgroundColourBrush, Mode=OneWay}"
+                PlaceholderSource="/Images/Logo.png"
+                PlaceholderStretch="Uniform"
+                Source="{x:Bind mainViewModel.OriginalLogoImageSource, Mode=OneWay}"
+                Stretch="Uniform"
+                ToolTipService.ToolTip="Preveiew" />
+
+            <muxc:Button
+                x:Name="okButton"
+                Margin="8"
+                Padding="4"
+                HorizontalAlignment="Stretch"
+                Click="okButton_Click"
+                Content="Ok" />
+        </StackPanel>
+    </Grid>
+</ContentDialog>

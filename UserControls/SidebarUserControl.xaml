@@ -2,197 +2,208 @@
     x:Class="UWP_Visual_Asset_Generator.UserControls.SidebarUserControl"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:UWP_Visual_Asset_Generator.UserControls"
+    xmlns:Windows10version1809="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract, 7)"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:extensions="using:Microsoft.Toolkit.Uwp.UI.Extensions"
+    xmlns:generic="using:System.Collections.Generic"
+    xmlns:local="using:UWP_Visual_Asset_Generator.UserControls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    d:DesignHeight="800"
-    d:DesignWidth="400"
     xmlns:tkcon="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:viewmodels="using:UWP_Visual_Asset_Generator.ViewModels"
-    xmlns:Windows10version1809="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract, 7)"
-    xmlns:generic="using:System.Collections.Generic"
     xmlns:wui="using:Windows.UI.Xaml.Controls"
-    xmlns:extensions="using:Microsoft.Toolkit.Uwp.UI.Extensions">
+    d:DesignHeight="800"
+    d:DesignWidth="300"
+    mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}"
-          Padding="12,0,12,12">
+    <Grid Padding="12,0,12,12" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}">
         <Grid.RowDefinitions>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
-        
-        <!-- Logo -->
-        <StackPanel HorizontalAlignment="Stretch"
-                    BorderBrush="{ThemeResource SystemControlBackgroundBaseLowBrush}"
-                    BorderThickness="0,0,0,1">
 
-            <TextBlock Text="Your logo" x:Uid="Yourlogo"
-                       TextWrapping="Wrap"
-                       HorizontalAlignment="Center"
-                       Margin="0,12,0,0"/>
-            
-            <!-- Original (Main) Asset -->
-            <tkcon:DropShadowPanel Canvas.ZIndex="10"
-                                   BlurRadius="10"
-                                   ShadowOpacity="0.3"
-                                   OffsetX="4"
-                                   OffsetY="4"
-                                   Color="{ThemeResource SystemAccentColorDark1}"
-                                   Margin="24"
-                                   MinHeight="48"
-                                   MaxHeight="240"
-                                   MinWidth="48"
-                                   MaxWidth="240"
-                                   HorizontalContentAlignment="Stretch"
-                                   HorizontalAlignment="Center">
-                <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-                    <!-- #TODO UI Message (Add image) -->
-                    <StackPanel Orientation="Vertical"
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Center"
-                                Visibility="Collapsed">
-                        <TextBlock Text="&#xE109;"
-                                   FontFamily="Segoe MDL2 Assets"
-                                   FontSize="72"
-                                   FontWeight="SemiBold"
-                                   Margin="0,0,0,12"
-                                   HorizontalAlignment="Center"/>
-                        <TextBlock Text="Add image" x:Uid="AddImage"
-                                   Style="{ThemeResource FluentTitleTextStyle}"/>
+        <!--  Logo  -->
+        <StackPanel
+            HorizontalAlignment="Stretch"
+            BorderBrush="{ThemeResource SystemControlBackgroundBaseLowBrush}"
+            BorderThickness="0,0,0,1">
+
+            <TextBlock
+                x:Uid="VisualAssetGenerator"
+                Margin="0,12,0,0"
+                HorizontalAlignment="Center"
+                Text="Visual Asset Generator"
+                TextWrapping="Wrap" FontSize="18"/>
+
+            <!--  Original (Main) Asset  -->
+            <tkcon:DropShadowPanel
+                MinWidth="48"
+                MinHeight="48"
+                MaxWidth="240"
+                MaxHeight="240"
+                Margin="24"
+                HorizontalAlignment="Center"
+                HorizontalContentAlignment="Stretch"
+                BlurRadius="10"
+                Canvas.ZIndex="10"
+                ShadowOpacity="0.3"
+                Color="{ThemeResource SystemAccentColorDark1}">
+                <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" CornerRadius="2">
+                    <!--  #TODO UI Message (Add image)  -->
+                    <StackPanel
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Orientation="Vertical"
+                        Visibility="Collapsed">
+                        <TextBlock
+                            Margin="0,0,0,12"
+                            HorizontalAlignment="Center"
+                            FontFamily="Segoe MDL2 Assets"
+                            FontSize="72"
+                            FontWeight="SemiBold"
+                            Text="&#xE109;" />
+                        <TextBlock
+                            x:Uid="AddImage"
+                            Style="{ThemeResource FluentTitleTextStyle}"
+                            Text="Add image" />
                     </StackPanel>
-                    
-                    <!-- Main asset-->
-                    <tkcon:ImageEx x:Name="image_Original"    
-                                   Canvas.ZIndex="60"
-                                   Tapped="Image_Original_Tapped"
-                                   Source="{x:Bind mainViewModel.OriginalLogoImageSource, Mode=OneWay}"
-                                   Stretch="Uniform"
-                                   AllowDrop="True"
-                                   x:Uid="DropPNG"
-                                   PlaceholderStretch="Uniform"
-                                   PlaceholderSource="/Images/Logo.png"
-                                   Drop="Image_Original_Drop"
-                                   DragOver="Image_Original_DragOver"
-                                   ToolTipService.ToolTip="Drop a PNG image here, or click to browse"
-                                   extensions:Mouse.Cursor="Hand"/>
+
+                    <!--  Main asset  -->
+                    <tkcon:ImageEx
+                        x:Name="image_Original"
+                        x:Uid="DropPNG"
+                        extensions:Mouse.Cursor="Hand"
+                        AllowDrop="True"
+                        Canvas.ZIndex="60"
+                        DragOver="Image_Original_DragOver"
+                        Drop="Image_Original_Drop"
+                        PlaceholderSource="/Images/Logo.png"
+                        PlaceholderStretch="Uniform"
+                        Source="{x:Bind mainViewModel.OriginalLogoImageSource, Mode=OneWay}"
+                        Stretch="Uniform"
+                        Tapped="Image_Original_Tapped"
+                        ToolTipService.ToolTip="Drop a PNG image here, or click to browse" />
                 </Grid>
             </tkcon:DropShadowPanel>
         </StackPanel>
-        <!-- End of logo -->
-        
-        <!-- Asset Style List -->
-        <ListView ItemsSource="{x:Bind mainViewModel.AssetTypes.Items, Mode=OneWay}"
-                  SelectedItem="{x:Bind mainViewModel.AssetTypes.Current, Mode=TwoWay}"
-                  IsMultiSelectCheckBoxEnabled="false"   
-                  SelectionMode="Single"
-                  HorizontalAlignment="Stretch"
-                  VerticalAlignment="Stretch" 
-                  Grid.Row="1">
+        <!--  End of logo  -->
+
+        <!--  Asset Style List  -->
+        <ListView
+            Grid.Row="1"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            IsMultiSelectCheckBoxEnabled="false"
+            ItemsSource="{x:Bind mainViewModel.AssetTypes.Items, Mode=OneWay}"
+            SelectedItem="{x:Bind mainViewModel.AssetTypes.Current, Mode=TwoWay}"
+            SelectionMode="Single">
 
             <ListView.ItemContainerTransitions>
                 <TransitionCollection>
-                    <AddDeleteThemeTransition/>
+                    <AddDeleteThemeTransition />
                 </TransitionCollection>
             </ListView.ItemContainerTransitions>
 
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">
-                    <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
-                    <Setter Property="Padding" Value="4"></Setter>
-                    <Setter Property="Margin" Value="4"></Setter>
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                    <Setter Property="Padding" Value="4" />
+                    <Setter Property="Margin" Value="4" />
                 </Style>
             </ListView.ItemContainerStyle>
 
             <ListView.ItemTemplate>
-                <DataTemplate x:DataType="viewmodels:AssetTypeViewModel" >
+                <DataTemplate x:DataType="viewmodels:AssetTypeViewModel">
                     <Grid BorderBrush="Gray">
-                        <TextBlock Text="{x:Bind Title, Mode=OneWay}"/>
+                        <TextBlock Text="{x:Bind Title, Mode=OneWay}" />
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <!-- End of Asset Style list -->
+        <!--  End of Asset Style list  -->
 
-        <wui:Button Content="Set background colour"
-                    Grid.Row="2"
-                    HorizontalAlignment="Stretch"
-                    Style="{ThemeResource ButtonRevealStyle}"
-                    Margin="0,8"
-                    x:Name="btnSetBackgroundColour"
-                    Click="btnSetBackgroundColour_Click"/>
+        <wui:Button
+            x:Name="btnSetBackgroundColour"
+            Grid.Row="2"
+            Margin="0,8"
+            HorizontalAlignment="Stretch"
+            Click="btnSetBackgroundColour_Click"
+            Content="Set background colour"
+            Style="{ThemeResource ButtonRevealStyle}" />
 
         <Grid Grid.Row="3">
-            <ComboBox ItemsSource="{x:Bind mainViewModel.Resamplers, Mode=OneTime}"
-                      SelectedItem="{x:Bind mainViewModel.SelectedResampler, Mode=TwoWay}"
-                      Header="Resampling Mode"
-                      HorizontalAlignment="Stretch">
+            <ComboBox
+                HorizontalAlignment="Stretch"
+                Header="Resampling Mode"
+                ItemsSource="{x:Bind mainViewModel.Resamplers, Mode=OneTime}"
+                SelectedItem="{x:Bind mainViewModel.SelectedResampler, Mode=TwoWay}">
                 <ComboBox.ItemTemplate>
-                    <DataTemplate >
-                        <TextBlock Text="{Binding Key}"/>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Key}" />
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
             </ComboBox>
         </Grid>
-        
-        <!-- Theme Setting -->
+
+        <!--  Theme Setting  -->
         <Grid Grid.Row="4">
-            <ComboBox 
-                      x:Name="themeSelect"
-                      Header="App Theme"
-                      Margin="0,8"
-                      Grid.Row="1"
-                      HorizontalAlignment="Stretch"
-                      SelectedIndex="0"
-                      SelectionChanged="ComboBox_SelectionChanged">
-                <ComboBoxItem Content="System Default"/>
-                <ComboBoxItem Content="Light"/>
-                <ComboBoxItem Content="Dark"/>
+            <ComboBox
+                x:Name="themeSelect"
+                Grid.Row="1"
+                Margin="0,8"
+                HorizontalAlignment="Stretch"
+                Header="App Theme"
+                SelectedIndex="0"
+                SelectionChanged="ComboBox_SelectionChanged">
+                <ComboBoxItem Content="System Default" />
+                <ComboBoxItem Content="Light" />
+                <ComboBoxItem Content="Dark" />
             </ComboBox>
         </Grid>
-        <!-- End of Theme Setting -->
-        
-        <!-- Output Picker -->
+        <!--  End of Theme Setting  -->
+
+        <!--  Output Picker  -->
         <Grid Grid.Row="5">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="auto"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="auto" />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
             </Grid.RowDefinitions>
 
-            <TextBlock Text="Output path" Padding="0,4,0,4"/>
-            
-            <TextBox PlaceholderText="Output Folder" 
-                     Windows10version1809:CornerRadius="2,0,0,2" 
-                     BorderThickness="1,1,1,1" 
-                     Text="{x:Bind mainViewModel.OutputFolder.Path, Mode=OneWay}" 
-                     IsEnabled="False"
-                     Height="34"
-                     x:Uid="OutputFolder"
-                     Grid.ColumnSpan="2"
-                     Grid.Row="1"/>
-            <Button Content="" 
-                    Grid.Row="1"
-                    FontFamily="Segoe MDL2 Assets" 
-                    BorderThickness="1,1,1,1" 
-                    Windows10version1809:CornerRadius="0,2,2,0"                     
-                    Grid.Column="2" 
-                    Height="34"
-                    HorizontalAlignment="Right" 
-                    Click="Btn_OutputFolder_Click" 
-                    x:Uid="SetOutputFolder"
-                    BorderBrush="{ThemeResource TextBoxButtonBorderThemeBrush}"
-                    Background="{ThemeResource SystemAccentColor}"/>
+            <TextBlock Padding="0,4,0,4" Text="Output path" />
+
+            <TextBox
+                x:Uid="OutputFolder"
+                Grid.Row="1"
+                Grid.ColumnSpan="2"
+                Height="34"
+                Windows10version1809:CornerRadius="2,0,0,2"
+                BorderThickness="1,1,1,1"
+                IsEnabled="False"
+                PlaceholderText="Output Folder"
+                Text="{x:Bind mainViewModel.OutputFolder.Path, Mode=OneWay}" />
+            <Button
+                x:Uid="SetOutputFolder"
+                Grid.Row="1"
+                Grid.Column="2"
+                Height="34"
+                HorizontalAlignment="Right"
+                Windows10version1809:CornerRadius="0,2,2,0"
+                Background="{ThemeResource SystemAccentColor}"
+                BorderBrush="{ThemeResource TextBoxButtonBorderThemeBrush}"
+                BorderThickness="1,1,1,1"
+                Click="Btn_OutputFolder_Click"
+                Content=""
+                FontFamily="Segoe MDL2 Assets" />
         </Grid>
-        <!-- End of Output Picker -->
-        
+        <!--  End of Output Picker  -->
+
     </Grid>
 </UserControl>
