@@ -10,7 +10,7 @@
   <Identity
     Name="48402ValleySoftware.UWPVisualAssetGenerator"
     Publisher="CN=1A0D82E7-16BF-413C-8745-F263B3D8453A"
-    Version="0.4.6.0" />
+    Version="0.4.7.0" />
 
   <mp:PhoneIdentity PhoneProductId="5e02cf17-25b6-4895-83b2-a19b25bbb564" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
@@ -39,7 +39,7 @@
         BackgroundColor="transparent"
         Description="Visual Asset Generator - Beta">
         <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" Square71x71Logo="Assets\SmallTile.png" Square310x310Logo="Assets\LargeTile.png"/>
-        <uap:SplashScreen Image="Assets\SplashScreen.png" uap5:Optional="true"/>
+        <uap:SplashScreen Image="Assets\SplashScreen.png" uap5:Optional="true" BackgroundColor="black"/>
       </uap:VisualElements>
     </Application>
   </Applications>
