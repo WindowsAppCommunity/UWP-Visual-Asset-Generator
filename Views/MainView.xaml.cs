@@ -17,6 +17,8 @@ using Windows.UI.Xaml.Hosting;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using UWP_Visual_Asset_Generator.UserControls;
+using Microsoft.Toolkit.Uwp.Helpers;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -46,6 +48,12 @@ namespace UWP_Visual_Asset_Generator.Views
             StartShimmerOnLoadingControl();
 
             App.mainPage = this;
+
+            if (SystemInformation.LaunchCount == 3)
+            {
+                var dialog = new AskForReviewUserControl();
+                await dialog.ShowAsync();
+            }
         }
 
         private void StartShimmerOnLoadingControl()
