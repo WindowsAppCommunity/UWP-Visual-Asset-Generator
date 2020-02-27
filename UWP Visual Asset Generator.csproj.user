@@ -6,17 +6,17 @@
   </PropertyGroup>
   <PropertyGroup>
     <AppxShowAllApps>True</AppxShowAllApps>
-    <Source>C:\Users\rlmar\source\repos\UWP Visual Asset Generator\Images\Logo\V1\Logo.png</Source>
-    <SmallTileSource>C:\Users\rlmar\source\repos\UWP Visual Asset Generator\Images\Logo\V1\Logo.png</SmallTileSource>
-    <MediumTileSource>C:\Users\rlmar\source\repos\UWP Visual Asset Generator\Images\Logo\V1\Logo.png</MediumTileSource>
-    <WideTileSource>C:\Users\rlmar\source\repos\UWP Visual Asset Generator\Images\Logo\V1\Logo.png</WideTileSource>
-    <LargeTileSource>C:\Users\rlmar\source\repos\UWP Visual Asset Generator\Images\Logo\V1\Logo.png</LargeTileSource>
-    <AppIconSource>C:\Users\rlmar\source\repos\UWP Visual Asset Generator\Images\Logo\V1\Logo.png</AppIconSource>
-    <SplashScreenSource>C:\Users\rlmar\source\repos\UWP Visual Asset Generator\Images\Logo\V1\Logo.png</SplashScreenSource>
-    <PackageLogoSource>C:\Users\rlmar\source\repos\UWP Visual Asset Generator\Images\Logo\V1\Logo.png</PackageLogoSource>
+    <Source>C:\Users\rlmar\source\repos\UWPCommunity\UWP-Visual-Asset-Generator\Images\Logo Original.png</Source>
+    <SmallTileSource>C:\Users\rlmar\source\repos\UWPCommunity\UWP-Visual-Asset-Generator\Images\Logo Original.png</SmallTileSource>
+    <MediumTileSource>C:\Users\rlmar\source\repos\UWPCommunity\UWP-Visual-Asset-Generator\Images\Logo Original.png</MediumTileSource>
+    <WideTileSource>C:\Users\rlmar\source\repos\UWPCommunity\UWP-Visual-Asset-Generator\Images\Logo Original.png</WideTileSource>
+    <LargeTileSource>C:\Users\rlmar\source\repos\UWPCommunity\UWP-Visual-Asset-Generator\Images\Logo Original.png</LargeTileSource>
+    <AppIconSource>C:\Users\rlmar\source\repos\UWPCommunity\UWP-Visual-Asset-Generator\Images\Logo Original.png</AppIconSource>
+    <SplashScreenSource>C:\Users\rlmar\source\repos\UWPCommunity\UWP-Visual-Asset-Generator\Images\Logo Original.png</SplashScreenSource>
+    <PackageLogoSource>C:\Users\rlmar\source\repos\UWPCommunity\UWP-Visual-Asset-Generator\Images\Logo Original.png</PackageLogoSource>
     <UapAppxPackageBuildMode>CI</UapAppxPackageBuildMode>
-    <AppxBuildConfigurationSelection>x86|x64|arm</AppxBuildConfigurationSelection>
-    <PackageOptionalProjectsInIdeBuilds>False</PackageOptionalProjectsInIdeBuilds>
+    <AppxBuildConfigurationSelection>x86|x64|arm|arm64</AppxBuildConfigurationSelection>
+    <PackageOptionalProjectsInIdeBuilds>True</PackageOptionalProjectsInIdeBuilds>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
     <DeviceId>30f105c9-681e-420b-a277-7c086ead8a4e</DeviceId>
