@@ -16,11 +16,17 @@
                 Margin="8"
                 HorizontalAlignment="Center"
                 Text="Select Icon Background Colour" />
+            <muxc:ToggleSwitch Margin="0,8" 
+                               Header="Use Transparent Background"
+                               OnContent="Yes - Transparent"
+                               OffContent="No - Select a colour below"
+                               IsOn="{x:Bind mainViewModel.UseTransparentBackground, Mode=TwoWay}"/>
             <ColorPicker
                 IsAlphaSliderVisible="True"
                 IsAlphaTextInputVisible="True"
                 IsColorChannelTextInputVisible="False"
-                Color="{x:Bind mainViewModel.BackgroundColour, Mode=TwoWay}" />
+                Color="{x:Bind mainViewModel.BackgroundColour, Mode=TwoWay}" 
+                IsEnabled="{x:Bind mainViewModel.UseColouredBackground, Mode=OneWay}"/>
 
             <tk:ImageEx
                 x:Uid="preview"

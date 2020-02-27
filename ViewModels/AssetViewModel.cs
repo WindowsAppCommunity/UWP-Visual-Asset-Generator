@@ -173,22 +173,18 @@ namespace UWP_Visual_Asset_Generator.ViewModels
                     var config = new Configuration();                    
 
                     var backgroundPixel = new Rgba32();
-                    /*
-                    if (mainViewModel.BackgroundColour == null ||
-                        mainViewModel.BackgroundColour.Equals(Colors.Transparent) ||
-                        mainViewModel.BackgroundColour.A == 0)
+                    
+                    if (mainViewModel.UseTransparentBackground)
                     {
                         backgroundPixel = SixLabors.ImageSharp.Color.Transparent;
-
                     }
                     else
-                    {*/
+                    {
                         backgroundPixel.R = mainViewModel.BackgroundColour.R;
                         backgroundPixel.G = mainViewModel.BackgroundColour.G;
                         backgroundPixel.B = mainViewModel.BackgroundColour.B;
-                        backgroundPixel.A = mainViewModel.BackgroundColour.A;
-                    
-                    //}
+                        backgroundPixel.A = mainViewModel.BackgroundColour.A;                    
+                    }
 
                     var newLogo = new Image<Rgba32>(config, ImageWidth, ImageHeight, backgroundPixel);
 
@@ -200,7 +196,6 @@ namespace UWP_Visual_Asset_Generator.ViewModels
                         Sampler = mainViewModel.SelectedResampler.Value
                     };
 
-                    //var resizedOriginal = Image<Rgba32>.Load( mainViewModel.originalWriteableBitmap.Clone().ToByteArray(), new SixLabors.ImageSharp.Formats.Bmp.BmpDecoder());
                     var inStream = await mainViewModel.OriginalLogoFile.OpenReadAsync();
                     var resizedOriginal = Image<Rgba32>.Load(inStream.AsStreamForRead());
 
@@ -268,7 +263,7 @@ namespace UWP_Visual_Asset_Generator.ViewModels
             {
                 Thinking = true;
                 ThinkingText = "Saving";
-                //await Task.Delay(App.ThinkingTiyPauseInMs);
+
                 try
                 {
                     if (mainViewModel.OutputFolder != null)

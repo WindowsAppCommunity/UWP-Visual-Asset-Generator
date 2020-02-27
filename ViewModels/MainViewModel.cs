@@ -33,6 +33,7 @@ namespace UWP_Visual_Asset_Generator.ViewModels
         private bool _showEditCurrentImage = false;
         private bool _previewWithAccentColour = false;
         private bool _showBackgroundColorSelector = false;
+        private bool _useTransparentBackground = true;
         private Color _backgroundColour = Color.FromArgb(0, 0, 0, 0);
 
         public const string mruOutputFolderMetadata = "OutputFolder";
@@ -143,8 +144,36 @@ namespace UWP_Visual_Asset_Generator.ViewModels
             }
             set
             {
-                _showBackgroundColorSelector = value;
-                NotifyPropertyChanged("ShowBackgroundColorSelector");
+                if (_showBackgroundColorSelector != value)
+                {
+                    _showBackgroundColorSelector = value;
+                    NotifyPropertyChanged("ShowBackgroundColorSelector");
+                }
+            }
+        }
+
+        public bool UseTransparentBackground
+        {
+            get
+            {
+                return _useTransparentBackground;
+            }
+            set
+            {
+                if (_useTransparentBackground != value)
+                {
+                    _useTransparentBackground = value;
+                    NotifyPropertyChanged("UseTransparentBackground");
+                    NotifyPropertyChanged("UseColouredBackground");
+                }
+            }
+        }
+
+        public bool UseColouredBackground
+        {
+            get
+            {
+                return !_useTransparentBackground;
             }
         }
 
@@ -185,8 +214,11 @@ namespace UWP_Visual_Asset_Generator.ViewModels
             }
             set
             {
-                _previewWithAccentColour = value;
-                NotifyPropertyChanged("PreviewWithAccentColour");
+                if (_previewWithAccentColour != value)
+                {
+                    _previewWithAccentColour = value;
+                    NotifyPropertyChanged("PreviewWithAccentColour");
+                }
             }
         }     
 
@@ -198,8 +230,11 @@ namespace UWP_Visual_Asset_Generator.ViewModels
             }
             set
             {
-                _showFeedbackControl = value;
-                NotifyPropertyChanged("ShowFeedbackControl");
+                if (_showFeedbackControl != value)
+                {
+                    _showFeedbackControl = value;
+                    NotifyPropertyChanged("ShowFeedbackControl");
+                }
             }
         }
 
@@ -211,9 +246,12 @@ namespace UWP_Visual_Asset_Generator.ViewModels
             }
             set
             {
-                _outputFolder = value;
-                NotifyPropertyChanged("OutputFolder");
-                NotifyPropertyChanged("SaveEnabled");
+                if (_outputFolder != value)
+                {
+                    _outputFolder = value;
+                    NotifyPropertyChanged("OutputFolder");
+                    NotifyPropertyChanged("SaveEnabled");
+                }
             }
         }
 
@@ -246,8 +284,11 @@ namespace UWP_Visual_Asset_Generator.ViewModels
             }
             set
             {
-                _showGettingStartedControl = value;
-                NotifyPropertyChanged("ShowGettingStartedControl");
+                if (_showGettingStartedControl != value)
+                {
+                    _showGettingStartedControl = value;
+                    NotifyPropertyChanged("ShowGettingStartedControl");
+                }
             }
         }
         public bool ShowEditCurrentImage
@@ -258,8 +299,11 @@ namespace UWP_Visual_Asset_Generator.ViewModels
             }
             set
             {
-                _showEditCurrentImage = value;
-                NotifyPropertyChanged("ShowEditCurrentImage");
+                if (_showEditCurrentImage != value)
+                {
+                    _showEditCurrentImage = value;
+                    NotifyPropertyChanged("ShowEditCurrentImage");
+                }
             }
         }
 

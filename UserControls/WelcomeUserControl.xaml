@@ -104,7 +104,7 @@
                                Text="- First Open Beta."  
                                TextWrapping="WrapWholeWords"/>
                     <TextBlock x:Uid="Update2" 
-                               Text="- Fix error where on some screens the Colour Selector couldn't be closed."  
+                               Text="- Fixed an issue with transparant backgrounds."  
                                TextWrapping="WrapWholeWords"/>
             </StackPanel>
 
