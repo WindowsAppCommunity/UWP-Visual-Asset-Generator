@@ -190,6 +190,9 @@
     <Content Include="Images\LogoSml.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\UWPCommunityGif.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Screenshots\2019-11-19.png" />
     <None Include="Package.StoreAssociation.xml" />
     <Content Include="Assets\LargeTile.scale-100.png" />

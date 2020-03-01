@@ -43,15 +43,15 @@
                         Height="470"
                         Margin="0"
                         Padding="0"
-                        Background="{ThemeResource SystemControlAcrylicWindowBrush}"
+                        
                         BorderBrush="Gray"
                         CornerRadius="4">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="auto" MinHeight="50" />
                             <RowDefinition Height="*" />
                             <RowDefinition Height="auto" />
-                        </Grid.RowDefinitions>
-
+                        </Grid.RowDefinitions>                        
+                        
                         <StackPanel>
                             <TextBlock
                                 Margin="4"
@@ -75,7 +75,6 @@
                             </TextBlock>
                         </StackPanel>
 
-
                         <tkcon:ImageEx
                             Grid.Row="1"
                             MaxWidth="{x:Bind Logo.PixelWidth, Mode=OneWay}"
@@ -83,13 +82,16 @@
                             Margin="8"
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
-                            Background="Transparent"
                             BorderBrush="Silver"
                             BorderThickness="1"
                             PlaceholderSource="/Images/Logo.png"
                             PlaceholderStretch="Uniform"
-                            Source="{x:Bind Logo, Mode=OneWay}"
-                            Stretch="Uniform" />
+                            Source="{x:Bind ReadOnlyLogoForDisplay, Mode=OneWay}"
+                            Stretch="Uniform" >
+                            <tkcon:ImageEx.Background>
+                                <SolidColorBrush Color="{x:Bind mainViewModel.PreviewWithAccentColourBrush, Mode=OneWay}"/>
+                            </tkcon:ImageEx.Background>
+                        </tkcon:ImageEx>
 
                         <CheckBox
                             Margin="12,8"

@@ -24,6 +24,7 @@ namespace UWP_Visual_Asset_Generator.ViewModels
         private AssetTemplate _template;
         private bool _savedSuccessfully = false;
         private WriteableBitmap _logo;
+        private BitmapImage _readOnlyLogoForDisplay;
 
         private int _topPadding = 0;
         private int _bottomPadding = 0;
@@ -69,8 +70,32 @@ namespace UWP_Visual_Asset_Generator.ViewModels
                 {
                     _logo = value;
                     NotifyPropertyChanged("Logo");
+                    _readOnlyLogoForDisplay = null;
+                    NotifyPropertyChanged("ReadOnlyLogoForDisplay");
                 }
             }
+        }
+
+        public BitmapImage ReadOnlyLogoForDisplay
+        {
+            get
+            {
+                if (_readOnlyLogoForDisplay == null &&
+                    Logo != null)
+                {
+                    UpdateReadOnlyDisplayImage();
+                }
+                return _readOnlyLogoForDisplay;
+            }
+        }
+
+        private async Task UpdateReadOnlyDisplayImage()
+        {
+            _readOnlyLogoForDisplay = new BitmapImage();
+            InMemoryRandomAccessStream randstream = new InMemoryRandomAccessStream();
+            await Logo.ToStream(randstream, BitmapEncoder.PngEncoderId);
+            _readOnlyLogoForDisplay.SetSource(randstream);
+            NotifyPropertyChanged("ReadOnlyLogoForDisplay");
         }
 
         public string FileName

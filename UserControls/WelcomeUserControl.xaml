@@ -16,16 +16,19 @@
             <ColumnDefinition Width="*" x:Name="ColumnThree"/>
         </Grid.ColumnDefinitions>
 
-
-
-            <StackPanel Grid.Row="1" 
-                        x:Name="contentgoeshere" 
+        <ScrollViewer Grid.Column="1"
+                      VerticalAlignment="Center"
+                      HorizontalScrollBarVisibility="Disabled"
+                      HorizontalScrollMode="Disabled"
+                      HorizontalContentAlignment="Stretch"
+                      VerticalScrollBarVisibility="Auto"
+                      VerticalScrollMode="Auto">
+            
+            <StackPanel x:Name="contentgoeshere" 
                         CornerRadius="4"
                         Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" 
                         BorderThickness="1"
-                        Grid.Column="1"
-                        BorderBrush="Silver"
-                        VerticalAlignment="Center">
+                        BorderBrush="Silver">
 
                 <Grid Padding="8">
 
@@ -106,26 +109,50 @@
                     <TextBlock x:Uid="Update2" 
                                Text="- Fixed an issue with transparant backgrounds."  
                                TextWrapping="WrapWholeWords"/>
-            </StackPanel>
+                </StackPanel>
 
-            <wui:HyperlinkButton Content="Privacy Policy" 
+                <StackPanel x:Uid="Developers" 
+                            Padding="8">
+
+                    <Image Source="/Images/UWPCommunityGif.gif"
+                           Width="60"
+                           Stretch="Uniform"/>
+                    
+                    <TextBlock Text="Proudly part of Launch 2020"
+                               Margin="0,8,0,0"
+                               HorizontalAlignment="Center"
+                               FontWeight="Bold"/>
+
+                    <wui:HyperlinkButton Content="Click here to find more awesome new apps for Windows!" 
+                                         NavigateUri="https://uwpcommunity.com/"
+                                         HorizontalAlignment="Center"
+                                         Margin="8,0,0,0"/>
+
+                    <TextBlock Text="Developed by Rob (Valley Software), Yair (Quick Pad) and Ikarago (Notepad, FLUI Framework)"
+                               Margin="0,8,0,0"
+                               Style="{ThemeResource CaptionTextBlockStyle}"
+                               FontStyle="Italic"
+                               HorizontalAlignment="Center"/>
+                </StackPanel>
+                    
+                <wui:HyperlinkButton Content="Privacy Policy" 
                                      NavigateUri="http://www.valleysoftware.com.au/terms-and-conditions-privacy-policy/"
                                      HorizontalAlignment="Center"
-                                 Margin="8"/>
+                                     Margin="8"/>
 
-            <wui:Button x:Name="btn_Continue" 
-                        HorizontalAlignment="Stretch" 
-                        BorderThickness="1" 
-                        Margin="4,8,4,4" 
-                        Style="{ThemeResource ButtonRevealStyle}"
-                        Click="Btn_Continue_Click"
-                        Content="Continue"
-                        Padding="18"
-                        HorizontalContentAlignment="Center"
-                        FontSize="16"
-                        FontWeight="Bold">
+                <wui:Button x:Name="btn_Continue" 
+                            HorizontalAlignment="Stretch" 
+                            BorderThickness="1" 
+                            Margin="4,8,4,4" 
+                            Style="{ThemeResource ButtonRevealStyle}"
+                            Click="Btn_Continue_Click"
+                            Content="Continue"
+                            Padding="18"
+                            HorizontalContentAlignment="Center"
+                            FontSize="16"
+                            FontWeight="Bold">
                 </wui:Button>
             </StackPanel>
-        
+        </ScrollViewer>
     </Grid>
 </UserControl>

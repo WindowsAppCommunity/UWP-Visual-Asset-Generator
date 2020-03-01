@@ -18,6 +18,7 @@ using Windows.Storage.FileProperties;
 using Windows.Storage.Pickers;
 using Windows.UI;
 using Windows.UI.Popups;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
@@ -218,9 +219,33 @@ namespace UWP_Visual_Asset_Generator.ViewModels
                 {
                     _previewWithAccentColour = value;
                     NotifyPropertyChanged("PreviewWithAccentColour");
+                    NotifyPropertyChanged("PreviewWithAccentColourBrush");
                 }
             }
-        }     
+        }    
+        
+        public Color PreviewWithAccentColourBrush
+        {
+            get
+            {
+                if (PreviewWithAccentColour)
+                {
+                    try
+                    {
+                        var color = (Color)Application.Current.Resources["SystemAccentColor"];
+                        return color;
+                    }
+                    catch (Exception ex)
+                    {
+                        return Colors.RoyalBlue;
+                    }
+                }
+                else
+                {
+                    return Colors.Transparent;
+                }
+            }
+        }
 
         public bool ShowFeedbackControl
         {

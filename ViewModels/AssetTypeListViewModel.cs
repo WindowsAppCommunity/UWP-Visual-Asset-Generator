@@ -95,7 +95,7 @@ namespace UWP_Visual_Asset_Generator.ViewModels
 
         public async Task SaveAllAsync()
         {
-            if (await ShowDialog("Save All Assets","This will overwrite any existing files in ourput folder","Yes","No"))
+            if (await ShowDialog("Save All Assets","This will overwrite any existing files in output folder","Yes","No"))
             {
                 try
                 {
@@ -128,7 +128,7 @@ namespace UWP_Visual_Asset_Generator.ViewModels
                 }
                 catch (Exception eex)
                 {
-                    await ShowDialog("Error creating assets", "An unknown error has occurred.  Sorry.");
+                    await ShowDialog("Unknown error creating assets. Sorry about that.", "I'm sorry to say so but, sadly, it's true that bang-ups and hang-ups can happen to you.  - Dr Seuss");
 
                     App.mainViewModel.Thinking = true;
                     App.mainViewModel.ThinkingText = "Error";
