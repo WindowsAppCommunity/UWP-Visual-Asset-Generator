@@ -217,17 +217,21 @@ namespace UWP_Visual_Asset_Generator.ViewModels
                     {
                         Mode = ResizeMode.Max,
                         Position = AnchorPositionMode.Center,
-                        Size = new SixLabors.Primitives.Size(ImageWidth, newLogoInsertHeight),
+                        Size = new SixLabors.Primitives.Size(ImageWidth - TwentyPercentOf(ImageWidth), newLogoInsertHeight),
                         Sampler = mainViewModel.SelectedResampler.Value
-                    };
+                    };                    
 
                     var inStream = await mainViewModel.OriginalLogoFile.OpenReadAsync();
                     var resizedOriginal = Image<Rgba32>.Load(inStream.AsStreamForRead());
 
                     //resize the image to fit the GIF frame bounds
                     resizedOriginal.Mutate(r => r.Resize(options));
-                    var left = HalfOf(ImageWidth) - HalfOf(resizedOriginal.Width);
-                    newLogo.Mutate(w => w.DrawImage(resizedOriginal, new SixLabors.Primitives.Point(left, TopPadding), 1));
+
+                    //Get the top left point within the logo bounds
+                    var left = HalfOf(ImageWidth) - HalfOf(resizedOriginal.Width);                    
+                    var top = HalfOf(ImageHeight) - HalfOf(resizedOriginal.Height);
+
+                    newLogo.Mutate(w => w.DrawImage(resizedOriginal, new SixLabors.Primitives.Point(left, top), 1));
                     InMemoryRandomAccessStream myStream = new InMemoryRandomAccessStream();
                     
                     SixLabors.ImageSharp.Formats.Png.PngEncoder encoder = new SixLabors.ImageSharp.Formats.Png.PngEncoder();
@@ -251,6 +255,12 @@ namespace UWP_Visual_Asset_Generator.ViewModels
         public int HalfOf(int halveMe)
         {
             double result = (double)halveMe / (double)2;
+            return Convert.ToInt32(result);
+        }
+
+        private int TwentyPercentOf(int twentyPercentOfMe)
+        {
+            double result = (double)twentyPercentOfMe / (double)5;
             return Convert.ToInt32(result);
         }
 
@@ -288,6 +298,7 @@ namespace UWP_Visual_Asset_Generator.ViewModels
             {
                 Thinking = true;
                 ThinkingText = "Saving";
+                await Task.Delay(App.ThinkingTinyPauseInMs);
 
                 try
                 {
@@ -298,7 +309,7 @@ namespace UWP_Visual_Asset_Generator.ViewModels
                         result = true;
                         SavedSuccessfully = true;
                         ThinkingText = "Saved";
-                        await Task.Delay(App.ThinkingTiyPauseInMs);
+                        await Task.Delay(App.ThinkingTinyPauseInMs);
                     }
                 }
                 catch (Exception ex)
