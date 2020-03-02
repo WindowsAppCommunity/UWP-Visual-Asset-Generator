@@ -8,21 +8,26 @@
 [![Contributors](https://img.shields.io/github/contributors/UWPCommunity/UWP-Visual-Asset-Generator?style=flat-square)](https://github.com/UWPCommunity/UWP-Visual-Asset-Generator/graphs/contributors)
 [![Stars](https://img.shields.io/github/stars/UWPCommunity/UWP-Visual-Asset-Generator.svg?style=flat-square)](https://github.com/UWPCommunity/UWP-Visual-Asset-Generator/stargazers)
 
-
-## This is a project to develop an easy to use visual asset tool for UWP projects.
+## This is a project to develop an easy to use visual asset tool for UWP projects, and eventually Xamarin Android/Forms too.
 
 Immediate goals (2019) are to have the app progress through these stages of capability:
 - [x] Accept a base (transparent) image, and then create a single correctly sized and named asset from it.
 - [x] Create ALL the assets instead of just one.
-- [ ] Allow basic margin manipulation as a group for all assets.
+- [x] Allow basic margin manipulation as a group for all assets.
 - [x] Allow basic margin manipulation on individual assets.
-- [x] Support different sampling modes for resizing.
+- [x] Support different sampling modes for improved resizing quality.
 - [x] Option to save/generate only specific assets.
-- [ ] Visual guides showing the recommended and applied margins for each asset ([Asset guidelines](https://docs.microsoft.com/en-us/windows/uwp/design/style/app-icons-and-logos))
+- [ ] Visual overlays showing the recommended and applied margins for each asset ([Asset guidelines](https://docs.microsoft.com/en-us/windows/uwp/design/style/app-icons-and-logos))
 
+## Current Status (as of Feb 2020)
+
+This app has reached open beta.  Get it from the Microsoft Store, here:
+
+[![Store link](https://img.shields.io/badge/Microsoft%20Store-Download-orange.svg?style=flat-square)](https://www.microsoft.com/en-us/p/visual-asset-generator-beta/9mz6qrqtdkf2)
 
 ## Screenshots
-<img alt="uwpvag logo" src="./Screenshots/2019-11-19.png" width="300px" />
+
+<img alt="uwpvag logo" src="./Screenshots/2020-03-02.png" width="300px" />
 
 
 ## This project is to be free (as in free beer) and open source without ads.
