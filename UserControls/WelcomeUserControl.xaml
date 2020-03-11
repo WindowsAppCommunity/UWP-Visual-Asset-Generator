@@ -104,10 +104,13 @@
                                Margin="0,0,0,8"/>
                     
                     <TextBlock x:Uid="Update1" 
-                               Text="- First Open Beta."  
+                               Text="- Open Beta."  
                                TextWrapping="WrapWholeWords"/>
                     <TextBlock x:Uid="Update2" 
-                               Text="- Fixed an issue with transparant backgrounds."  
+                               Text="- Fixed size issue with five of the App Logo assets."  
+                               TextWrapping="WrapWholeWords"/>
+                    <TextBlock x:Uid="Update3" 
+                               Text="- Added short notes to each asset type describing what they are used for."  
                                TextWrapping="WrapWholeWords"/>
                 </StackPanel>
 
