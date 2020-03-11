@@ -23,8 +23,20 @@
             <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
 
-        <TextBlock Margin="8,12" Text="{x:Bind mainViewModel.AssetTypes.Current.Title, Mode=OneWay}" />
-
+        <StackPanel HorizontalAlignment="Center">
+        <TextBlock Margin="8,12,8,0" 
+                   Text="{x:Bind mainViewModel.AssetTypes.Current.Title, Mode=OneWay}" 
+                   HorizontalAlignment="Center"
+                   HorizontalTextAlignment="Center"/>
+        <TextBlock Margin="8,0,8,12" 
+                   Text="{x:Bind mainViewModel.AssetTypes.Current.Notes, Mode=OneWay}"
+                   TextWrapping="Wrap"
+                   Style="{ThemeResource CaptionTextBlockStyle}"
+                   FontStyle="Italic"
+                   HorizontalAlignment="Center"
+                   HorizontalTextAlignment="Center"/>
+        </StackPanel>
+        
         <GridView
             Grid.Row="1"
             animations:ReorderGridAnimation.Duration="300"

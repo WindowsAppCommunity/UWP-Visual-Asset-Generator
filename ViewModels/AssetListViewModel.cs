@@ -59,7 +59,7 @@ namespace UWP_Visual_Asset_Generator.ViewModels
 
         public void Load()
         {        
-            if (_parent.Title.Equals(AssetTypeViewModel.SmallTileName))
+            if (_parent.AssetType == AssetTypeViewModel.AssetTypes.Small_Tile)
             {
                 Items.Add(new AssetViewModel(new SmallTileScale100()));
                 Items.Add(new AssetViewModel(new SmallTileScale125()));
@@ -67,7 +67,7 @@ namespace UWP_Visual_Asset_Generator.ViewModels
                 Items.Add(new AssetViewModel(new SmallTileScale200()));
                 Items.Add(new AssetViewModel(new SmallTileScale400()));
             }
-            if (_parent.Title.Equals(AssetTypeViewModel.MediumTileName))
+            if (_parent.AssetType == AssetTypeViewModel.AssetTypes.Medium_Tile)
             {
                 Items.Add(new AssetViewModel(new MediumTileScale100()));
                 Items.Add(new AssetViewModel(new MediumTileScale125()));
@@ -75,7 +75,7 @@ namespace UWP_Visual_Asset_Generator.ViewModels
                 Items.Add(new AssetViewModel(new MediumTileScale200()));
                 Items.Add(new AssetViewModel(new MediumTileScale400()));
             }
-            if (_parent.Title.Equals(AssetTypeViewModel.WideTileName))
+            if (_parent.AssetType == AssetTypeViewModel.AssetTypes.Wide_Tile)
             {
                 Items.Add(new AssetViewModel(new WideTileScale100()));
                 Items.Add(new AssetViewModel(new WideTileScale125()));
@@ -83,7 +83,7 @@ namespace UWP_Visual_Asset_Generator.ViewModels
                 Items.Add(new AssetViewModel(new WideTileScale200()));
                 Items.Add(new AssetViewModel(new WideTileScale400()));
             }
-            if (_parent.Title.Equals(AssetTypeViewModel.LargeTileName))
+            if (_parent.AssetType == AssetTypeViewModel.AssetTypes.Large_Tile)
             {
                 Items.Add(new AssetViewModel(new LargeTileScale100()));
                 Items.Add(new AssetViewModel(new LargeTileScale125()));
@@ -91,7 +91,7 @@ namespace UWP_Visual_Asset_Generator.ViewModels
                 Items.Add(new AssetViewModel(new LargeTileScale200()));
                 Items.Add(new AssetViewModel(new LargeTileScale400()));
             }
-            if (_parent.Title.Equals(AssetTypeViewModel.AppIconName))
+            if (_parent.AssetType == AssetTypeViewModel.AssetTypes.App_Icon)
             {
                 Items.Add(new AssetViewModel(new AppIconAltformLightUnplated16()));
                 Items.Add(new AssetViewModel(new AppIconAltformLightUnplated24()));
@@ -112,7 +112,7 @@ namespace UWP_Visual_Asset_Generator.ViewModels
                 Items.Add(new AssetViewModel(new AppIconTargetSize32()));
                 Items.Add(new AssetViewModel(new AppIconTargetSize48()));
             }
-            if (_parent.Title.Equals(AssetTypeViewModel.SplashScreenName))
+            if (_parent.AssetType == AssetTypeViewModel.AssetTypes.Splash_Screen)
             {
                 Items.Add(new AssetViewModel(new SplashScreenScale100()));
                 Items.Add(new AssetViewModel(new SplashScreenScale125()));
@@ -120,11 +120,11 @@ namespace UWP_Visual_Asset_Generator.ViewModels
                 Items.Add(new AssetViewModel(new SplashScreenScale200()));
                 Items.Add(new AssetViewModel(new SplashScreenScale400()));
             }
-            if (_parent.Title.Equals(AssetTypeViewModel.BadgeLogoName))
+            if (_parent.AssetType == AssetTypeViewModel.AssetTypes.Badge_Logo)
             {
                 //Todo...
             }
-            if (_parent.Title.Equals(AssetTypeViewModel.PackageLogoTileName))
+            if (_parent.AssetType == AssetTypeViewModel.AssetTypes.Package_Logo)
             {
                 Items.Add(new AssetViewModel(new PackageLogoScale100()));
                 Items.Add(new AssetViewModel(new PackageLogoScale125()));

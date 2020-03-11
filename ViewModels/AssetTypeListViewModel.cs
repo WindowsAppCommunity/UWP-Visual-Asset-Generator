@@ -53,14 +53,14 @@ namespace UWP_Visual_Asset_Generator.ViewModels
 
         public void Load()
         {
-            Items.Add(new AssetTypeViewModel(AssetTypeViewModel.SmallTileName));
-            Items.Add(new AssetTypeViewModel(AssetTypeViewModel.MediumTileName));
-            Items.Add(new AssetTypeViewModel(AssetTypeViewModel.WideTileName));
-            Items.Add(new AssetTypeViewModel(AssetTypeViewModel.LargeTileName));
-            Items.Add(new AssetTypeViewModel(AssetTypeViewModel.AppIconName));
-            Items.Add(new AssetTypeViewModel(AssetTypeViewModel.SplashScreenName));
-            //Items.Add(new AssetTypeViewModel(AssetTypeViewModel.BadgeLogoName));
-            Items.Add(new AssetTypeViewModel(AssetTypeViewModel.PackageLogoTileName));
+            Items.Add(new AssetTypeViewModel(AssetTypeViewModel.AssetTypes.Small_Tile));
+            Items.Add(new AssetTypeViewModel(AssetTypeViewModel.AssetTypes.Medium_Tile));
+            Items.Add(new AssetTypeViewModel(AssetTypeViewModel.AssetTypes.Wide_Tile));
+            Items.Add(new AssetTypeViewModel(AssetTypeViewModel.AssetTypes.Large_Tile));
+            Items.Add(new AssetTypeViewModel(AssetTypeViewModel.AssetTypes.App_Icon));
+            Items.Add(new AssetTypeViewModel(AssetTypeViewModel.AssetTypes.Splash_Screen));
+            //Items.Add(new AssetTypeViewModel(AssetTypeViewModel.AssetTitles..BadgeLogoName));
+            Items.Add(new AssetTypeViewModel(AssetTypeViewModel.AssetTypes.Package_Logo));
             Current = Items[0];
         }
 

@@ -237,40 +237,40 @@ namespace UWP_Visual_Asset_Generator.Data
     public class AppIconScale100 : AssetTemplate
     {
         public override string FileName { get => "Square44x44Logo.scale-100.png"; }
-        public override int ImageHeight { get => 150; }
-        public override int ImageWidth { get => 150; }
+        public override int ImageHeight { get => 44; }
+        public override int ImageWidth { get => 44; }
         public override bool PaddingIsRecommended { get => false; }
     }
 
     public class AppIconScale125 : AssetTemplate
     {
         public override string FileName { get => "Square44x44Logo.scale-125.png"; }
-        public override int ImageHeight { get => 188; }
-        public override int ImageWidth { get => 188; }
+        public override int ImageHeight { get => 55; }
+        public override int ImageWidth { get => 55; }
         public override bool PaddingIsRecommended { get => false; }
     }
 
     public class AppIconScale150 : AssetTemplate
     {
         public override string FileName { get => "Square44x44Logo.scale-150.png"; }
-        public override int ImageHeight { get => 225; }
-        public override int ImageWidth { get => 225; }
+        public override int ImageHeight { get => 66; }
+        public override int ImageWidth { get => 66; }
         public override bool PaddingIsRecommended { get => false; }
     }
 
     public class AppIconScale200 : AssetTemplate
     {
         public override string FileName { get => "Square44x44Logo.scale-200.png"; }
-        public override int ImageHeight { get => 300; }
-        public override int ImageWidth { get => 300; }
+        public override int ImageHeight { get => 88; }
+        public override int ImageWidth { get => 88; }
         public override bool PaddingIsRecommended { get => false; }
     }
 
     public class AppIconScale400 : AssetTemplate
     {
         public override string FileName { get => "Square44x44Logo.scale-400.png"; }
-        public override int ImageHeight { get => 600; }
-        public override int ImageWidth { get => 600; }
+        public override int ImageHeight { get => 176; }
+        public override int ImageWidth { get => 176; }
         public override bool PaddingIsRecommended { get => false; }
     }
 
