@@ -35,6 +35,7 @@ namespace UWP_Visual_Asset_Generator.ViewModels
         private bool _previewWithAccentColour = false;
         private bool _showBackgroundColorSelector = false;
         private bool _useTransparentBackground = true;
+        private bool _isFirstRun = SystemInformation.IsFirstRun;
         private Color _backgroundColour = Color.FromArgb(0, 0, 0, 0);
 
         public const string mruOutputFolderMetadata = "OutputFolder";
@@ -134,6 +135,22 @@ namespace UWP_Visual_Asset_Generator.ViewModels
             get
             {
                 return (OutputFolder != null && OriginalLogoFile != null);
+            }
+        }
+
+        public bool IsFirstRun
+        {
+            get
+            {
+                return _isFirstRun;
+            }
+            set
+            {
+                if (_isFirstRun != value)
+                {
+                    _isFirstRun = value;
+                    NotifyPropertyChanged("IsFirstRun");
+                }
             }
         }
 
