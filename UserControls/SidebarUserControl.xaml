@@ -8,6 +8,7 @@
     xmlns:generic="using:System.Collections.Generic"
     xmlns:local="using:UWP_Visual_Asset_Generator.UserControls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:mucx="using:Microsoft.UI.Xaml.Controls"
     xmlns:tkcon="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:viewmodels="using:UWP_Visual_Asset_Generator.ViewModels"
     xmlns:wui="using:Windows.UI.Xaml.Controls"
@@ -35,8 +36,9 @@
                 x:Uid="VisualAssetGenerator"
                 Margin="0,12,0,0"
                 HorizontalAlignment="Center"
+                FontSize="18"
                 Text="Visual Asset Generator"
-                TextWrapping="Wrap" FontSize="18"/>
+                TextWrapping="Wrap" />
 
             <!--  Original (Main) Asset  -->
             <tkcon:DropShadowPanel
@@ -88,6 +90,16 @@
                         Stretch="Uniform"
                         Tapped="Image_Original_Tapped"
                         ToolTipService.ToolTip="Drop a PNG image here, or click to browse" />
+
+                    <mucx:TeachingTip
+                        Title="Getting started" IsOpen="{x:Bind mainViewModel.IsFirstRun, Mode=OneTime}"
+                        Subtitle="Drop a PNG image here, or click to browse"
+                        Target="{x:Bind image_Original}">
+                        <mucx:TeachingTip.IconSource>
+                            <mucx:SymbolIconSource Symbol="Refresh" />
+                        </mucx:TeachingTip.IconSource>
+
+                    </mucx:TeachingTip>
                 </Grid>
             </tkcon:DropShadowPanel>
         </StackPanel>
