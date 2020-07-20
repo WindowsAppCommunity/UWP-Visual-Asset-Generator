@@ -12,9 +12,7 @@
     xmlns:muimedia="using:Microsoft.UI.Xaml.Media"
     xmlns:tkcon="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:viewModels="using:UWP_Visual_Asset_Generator.ViewModels"
-    d:DesignHeight="300"
-    d:DesignWidth="400"
-    mc:Ignorable="d">
+    xmlns:muxc="using:Windows.UI.Xaml.Controls">
 
     <Grid Padding="12,0,0,0" Background="{ThemeResource SystemChromeMediumColor}">
         <Grid.RowDefinitions>
@@ -24,17 +22,25 @@
         </Grid.RowDefinitions>
 
         <StackPanel HorizontalAlignment="Center">
-        <TextBlock Margin="8,12,8,0" 
-                   Text="{x:Bind mainViewModel.AssetTypes.Current.Title, Mode=OneWay}" 
-                   HorizontalAlignment="Center"
-                   HorizontalTextAlignment="Center"/>
-        <TextBlock Margin="8,0,8,12" 
-                   Text="{x:Bind mainViewModel.AssetTypes.Current.Notes, Mode=OneWay}"
-                   TextWrapping="Wrap"
-                   Style="{ThemeResource CaptionTextBlockStyle}"
-                   FontStyle="Italic"
-                   HorizontalAlignment="Center"
-                   HorizontalTextAlignment="Center"/>
+            <TextBlock Margin="8,12,8,0" 
+                       Text="{x:Bind mainViewModel.AssetTypes.Current.Title, Mode=OneWay}" 
+                       HorizontalAlignment="Center"
+                       HorizontalTextAlignment="Center"/>
+            <TextBlock Margin="8,0,8,4" 
+                       Text="{x:Bind mainViewModel.AssetTypes.Current.Notes, Mode=OneWay}"
+                       TextWrapping="Wrap"
+                       Style="{ThemeResource CaptionTextBlockStyle}"
+                       FontStyle="Italic"
+                       HorizontalAlignment="Center"
+                       HorizontalTextAlignment="Center"/>
+            <muxc:Button Style="{ThemeResource ButtonRevealStyle}"
+                         Content="Select/Deselect All"
+                         ToolTipService.ToolTip="Toggles all assets in this category"
+                         HorizontalAlignment="Center"
+                         Padding="8"
+                         x:Name="toggleAllButton"
+                         Click="toggleAllButton_Click"
+                         Margin="0,0,0,12"/>
         </StackPanel>
         
         <GridView
@@ -99,6 +105,8 @@
                             PlaceholderSource="/Images/Logo.png"
                             PlaceholderStretch="Uniform"
                             Source="{x:Bind ReadOnlyLogoForDisplay, Mode=OneWay}"
+                            DecodePixelWidth="{x:Bind Logo.PixelWidth, Mode=OneWay}"
+                            DecodePixelHeight="{x:Bind Logo.PixelHeight, Mode=OneWay}"
                             Stretch="Uniform" >
                             <tkcon:ImageEx.Background>
                                 <SolidColorBrush Color="{x:Bind mainViewModel.PreviewWithAccentColourBrush, Mode=OneWay}"/>

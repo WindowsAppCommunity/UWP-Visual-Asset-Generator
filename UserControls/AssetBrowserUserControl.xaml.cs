@@ -31,6 +31,7 @@ namespace UWP_Visual_Asset_Generator.UserControls
         private void text_TopMargin_BeforeTextChanging(TextBox sender, TextBoxBeforeTextChangingEventArgs args)
         {
             int parsedValue;
+
             if (!int.TryParse(args.NewText, out parsedValue))
             {
                 args.Cancel = true;
@@ -38,6 +39,7 @@ namespace UWP_Visual_Asset_Generator.UserControls
             else
             {
                 var vm = sender.DataContext as AssetViewModel;
+
                 if (parsedValue != 0) //Value of 0 gets a pass, as it is the default.
                 {
                     if (vm != null)
@@ -55,6 +57,7 @@ namespace UWP_Visual_Asset_Generator.UserControls
         private void text_BottomMargin_BeforeTextChanging(TextBox sender, TextBoxBeforeTextChangingEventArgs args)
         {       
             int parsedValue;
+
             if (!int.TryParse(args.NewText, out parsedValue))
             {
                 args.Cancel= true;
@@ -62,6 +65,7 @@ namespace UWP_Visual_Asset_Generator.UserControls
             else
             {
                 var vm = sender.DataContext as AssetViewModel;
+
                 if (parsedValue != 0) //Value of 0 gets a pass, as it is the default.
                 {
                     if (vm != null)
@@ -74,6 +78,17 @@ namespace UWP_Visual_Asset_Generator.UserControls
                     }
                 }
             }
+        }
+
+        private void toggleAllButton_Click(object sender, RoutedEventArgs e)
+        {
+            var toggleOn = !mainViewModel.AssetTypes.Current.Assets.Items[0].SelectedForExport;
+            
+            foreach (var element in mainViewModel.AssetTypes.Current.Assets.Items)
+            {
+                element.SelectedForExport = toggleOn;
+            }
+            
         }
     }
 }

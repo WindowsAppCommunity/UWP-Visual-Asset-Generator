@@ -104,13 +104,19 @@
                                Margin="0,0,0,8"/>
                     
                     <TextBlock x:Uid="Update1" 
-                               Text="- Open Beta."  
+                               Text="- Graduated to Version 1.00.00."  
                                TextWrapping="WrapWholeWords"/>
                     <TextBlock x:Uid="Update2" 
-                               Text="- Fixed size issue with five of the App Logo assets."  
+                               Text="- Added more resampling modes."  
                                TextWrapping="WrapWholeWords"/>
                     <TextBlock x:Uid="Update3" 
-                               Text="- Added short notes to each asset type describing what they are used for."  
+                               Text="- Faster saving."  
+                               TextWrapping="WrapWholeWords"/>
+                    <TextBlock x:Uid="Update4" 
+                               Text="- Added toggle to select or deselect all assets in a category (User Request!)."  
+                               TextWrapping="WrapWholeWords"/>
+                    <TextBlock x:Uid="Update5" 
+                               Text="- Decode the display images to their visible size for better smoothing."  
                                TextWrapping="WrapWholeWords"/>
                 </StackPanel>
 

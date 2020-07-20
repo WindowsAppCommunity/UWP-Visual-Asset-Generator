@@ -83,6 +83,8 @@
                         PlaceholderSource="/Images/Logo.png"
                         PlaceholderStretch="Uniform"
                         Source="{x:Bind mainViewModel.OriginalLogoImageSource, Mode=OneWay}"
+                            DecodePixelWidth="240"
+                            DecodePixelHeight="240"
                         Stretch="Uniform"
                         Tapped="Image_Original_Tapped"
                         ToolTipService.ToolTip="Drop a PNG image here, or click to browse" />

@@ -31,9 +31,9 @@ namespace UWP_Visual_Asset_Generator.UserControls
             mainViewModel = App.mainViewModel;
         }
 
-        private void Image_Original_Tapped(object sender, TappedRoutedEventArgs e)
+        private async void Image_Original_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            mainViewModel.LoadOriginalImageFromFileAsync();
+            await mainViewModel.LoadOriginalImageFromFileAsync();
         }
 
         private async void Image_Original_Drop(object sender, DragEventArgs e)
@@ -71,11 +71,6 @@ namespace UWP_Visual_Asset_Generator.UserControls
             mainViewModel.SetOutputFolderAsync();
         }
 
-        private void Btn_Save_Click(object sender, RoutedEventArgs e)
-        {
-            mainViewModel.AssetTypes.SaveAllAsync();
-        }
-
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var s = sender as ComboBox;
@@ -88,11 +83,14 @@ namespace UWP_Visual_Asset_Generator.UserControls
 
         public async Task SetThemeAsync(int theme)
         {
-            switch (theme)
+            if (App.mainPage != null)
             {
-                case 0: App.mainPage.RequestedTheme = ElementTheme.Default; ; break;
-                case 1: App.mainPage.RequestedTheme = ElementTheme.Light; ; break;
-                case 2: App.mainPage.RequestedTheme = ElementTheme.Dark; ; break;
+                switch (theme)
+                {
+                    case 0: App.mainPage.RequestedTheme = ElementTheme.Default; ; break;
+                    case 1: App.mainPage.RequestedTheme = ElementTheme.Light; ; break;
+                    case 2: App.mainPage.RequestedTheme = ElementTheme.Dark; ; break;
+                }
             }
         }
 

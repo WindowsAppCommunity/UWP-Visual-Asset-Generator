@@ -52,7 +52,20 @@ namespace UWP_Visual_Asset_Generator.ViewModels
         private ObservableCollection<KeyValuePair<string, IResampler>> _resamplers = new ObservableCollection<KeyValuePair<string, IResampler>>()
         { new KeyValuePair<string, IResampler>("Average",KnownResamplers.Box),
           new KeyValuePair<string, IResampler>("Bicubic", KnownResamplers.Bicubic ),
-          new KeyValuePair<string, IResampler>("Nearest Neighbour", KnownResamplers.NearestNeighbor)
+          new KeyValuePair<string, IResampler>("Nearest Neighbour", KnownResamplers.NearestNeighbor),
+          new KeyValuePair<string, IResampler>("Box", KnownResamplers.Box),
+          new KeyValuePair<string, IResampler>("CatmullRom", KnownResamplers.CatmullRom ),
+          new KeyValuePair<string, IResampler>("Hermite", KnownResamplers.Hermite ),
+          new KeyValuePair<string, IResampler>("Lanczos2", KnownResamplers.Lanczos2 ),
+          new KeyValuePair<string, IResampler>("Lanczos3", KnownResamplers.Lanczos3),
+          new KeyValuePair<string, IResampler>("Lanczos5", KnownResamplers.Lanczos5 ),
+          new KeyValuePair<string, IResampler>("Lanczos8", KnownResamplers.Lanczos8 ),
+          new KeyValuePair<string, IResampler>("MitchellNetravali", KnownResamplers.MitchellNetravali ),
+          new KeyValuePair<string, IResampler>("Robidoux", KnownResamplers.Robidoux ),
+          new KeyValuePair<string, IResampler>("RobidouxSharp", KnownResamplers.RobidouxSharp ),
+          new KeyValuePair<string, IResampler>("Spline", KnownResamplers.Spline ),
+          new KeyValuePair<string, IResampler>("Triangle" , KnownResamplers.Triangle ),
+          new KeyValuePair<string, IResampler>("Welch", KnownResamplers.Welch )
         };
         private KeyValuePair<string, IResampler> _selectedResampler;
 

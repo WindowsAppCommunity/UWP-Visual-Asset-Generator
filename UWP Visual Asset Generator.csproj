@@ -257,34 +257,34 @@
       <Version>0.0.33</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.AppCenter">
-      <Version>3.0.0</Version>
+      <Version>3.3.0</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.AppCenter.Analytics">
-      <Version>3.0.0</Version>
+      <Version>3.3.0</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.AppCenter.Crashes">
-      <Version>3.0.0</Version>
+      <Version>3.3.0</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
-      <Version>6.2.9</Version>
+      <Version>6.2.10</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Services.Store.Engagement">
       <Version>10.1901.28001</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Toolkit.Uwp.UI.Controls">
-      <Version>6.0.0</Version>
+      <Version>6.1.0</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.UI.Xaml">
-      <Version>2.3.200213001</Version>
+      <Version>2.5.0-prerelease.200708003</Version>
     </PackageReference>
     <PackageReference Include="SixLabors.ImageSharp">
-      <Version>1.0.0-beta0007</Version>
+      <Version>1.0.0-rc0003</Version>
     </PackageReference>
     <PackageReference Include="SixLabors.ImageSharp.Drawing">
-      <Version>1.0.0-beta0007</Version>
+      <Version>1.0.0-beta0010</Version>
     </PackageReference>
     <PackageReference Include="WriteableBitmapEx">
-      <Version>1.6.5</Version>
+      <Version>1.6.7</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
@@ -335,6 +335,9 @@
   <ItemGroup>
     <SDKReference Include="Microsoft.Services.Store.Engagement, Version=10.0">
       <Name>Microsoft Engagement Framework</Name>
+    </SDKReference>
+    <SDKReference Include="Microsoft.VCLibs.Desktop.120, Version=14.0">
+      <Name>Visual C++ 2013 UWP Desktop Runtime for native apps</Name>
     </SDKReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">

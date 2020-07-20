@@ -27,9 +27,9 @@ namespace UWP_Visual_Asset_Generator.UserControls
             this.InitializeComponent();
         }
 
-        private async void okButton_Click(object sender, RoutedEventArgs e)
+        private void okButton_Click(object sender, RoutedEventArgs e)
         {
-            await mainViewModel.AssetTypes.ApplyLogo();
+            mainViewModel.AssetTypes.ApplyLogo();
             mainViewModel.ShowBackgroundColorSelector = false;
 
             Hide();

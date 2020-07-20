@@ -25,6 +25,7 @@ namespace UWP_Visual_Asset_Generator.ViewModels
         private bool _savedSuccessfully = false;
         private WriteableBitmap _logo;
         private BitmapImage _readOnlyLogoForDisplay;
+        Image<Rgba32> newLogo = null;
 
         private int _topPadding = 0;
         private int _bottomPadding = 0;
@@ -211,13 +212,13 @@ namespace UWP_Visual_Asset_Generator.ViewModels
                         backgroundPixel.A = mainViewModel.BackgroundColour.A;                    
                     }
 
-                    var newLogo = new Image<Rgba32>(config, ImageWidth, ImageHeight, backgroundPixel);
+                    newLogo = new Image<Rgba32>(config, ImageWidth, ImageHeight, backgroundPixel);
 
                     var options = new ResizeOptions()
                     {
                         Mode = ResizeMode.Max,
                         Position = AnchorPositionMode.Center,
-                        Size = new SixLabors.Primitives.Size(ImageWidth - TwentyPercentOf(ImageWidth), newLogoInsertHeight),
+                        Size = new SixLabors.ImageSharp.Size(ImageWidth - TwentyPercentOf(ImageWidth), newLogoInsertHeight),
                         Sampler = mainViewModel.SelectedResampler.Value
                     };                    
 
@@ -231,11 +232,11 @@ namespace UWP_Visual_Asset_Generator.ViewModels
                     var left = HalfOf(ImageWidth) - HalfOf(resizedOriginal.Width);                    
                     var top = HalfOf(ImageHeight) - HalfOf(resizedOriginal.Height);
 
-                    newLogo.Mutate(w => w.DrawImage(resizedOriginal, new SixLabors.Primitives.Point(left, top), 1));
+                    newLogo.Mutate(w => w.DrawImage(resizedOriginal, new SixLabors.ImageSharp.Point(left, top), 1));
                     InMemoryRandomAccessStream myStream = new InMemoryRandomAccessStream();
                     
-                    SixLabors.ImageSharp.Formats.Png.PngEncoder encoder = new SixLabors.ImageSharp.Formats.Png.PngEncoder();
-                    newLogo.SaveAsPng(myStream.AsStream(), encoder);
+                    //SixLabors.ImageSharp.Formats.Png.PngEncoder encoder = new SixLabors.ImageSharp.Formats.Png.PngEncoder();
+                    newLogo.SaveAsPng(myStream.AsStream(), new SixLabors.ImageSharp.Formats.Png.PngEncoder());
                     myStream.Seek(0);
                     Logo = await BitmapFactory.FromStream(myStream);
 
@@ -281,64 +282,54 @@ namespace UWP_Visual_Asset_Generator.ViewModels
             ApplyLogo();
         }
 
-        public void ZeroPadding()
+        public async Task ZeroPadding()
         {
             _topPadding = 0;
             _bottomPadding = 0;
             NotifyPropertyChanged("TopPadding");
             NotifyPropertyChanged("BottompPadding");
-            ApplyLogo();
+            await ApplyLogo();
         }
 
         public async Task<bool> SaveAssetToFileAsync()
         {
             var result = false;
 
-            if (SelectedForExport)
+            if (newLogo != null)
             {
-                Thinking = true;
-                ThinkingText = "Saving";
-                await Task.Delay(App.ThinkingTinyPauseInMs);
+                if (SelectedForExport)
+                {
+                    Thinking = true;
+                    ThinkingText = "Saving";
+                    await Task.Delay(App.ThinkingTinyPauseInMs);
 
-                try
-                {
-                    if (mainViewModel.OutputFolder != null)
+                    try
                     {
-                        var file = await mainViewModel.OutputFolder.CreateFileAsync(FileName, Windows.Storage.CreationCollisionOption.ReplaceExisting);
-                        await EncodeLogoToFile(file);
-                        result = true;
-                        SavedSuccessfully = true;
-                        ThinkingText = "Saved";
-                        await Task.Delay(App.ThinkingTinyPauseInMs);
+                        if (mainViewModel.OutputFolder != null)
+                        {
+                            var outFile = await mainViewModel.OutputFolder.CreateFileAsync(FileName, Windows.Storage.CreationCollisionOption.ReplaceExisting);
+
+                            using (IRandomAccessStream stream = await outFile.OpenAsync(FileAccessMode.ReadWrite))
+                            {
+                                newLogo.SaveAsPng(stream.AsStreamForWrite(), new SixLabors.ImageSharp.Formats.Png.PngEncoder());
+                            }
+
+                            result = true;
+                            SavedSuccessfully = true;
+                            ThinkingText = "Saved";
+                            await Task.Delay(App.ThinkingTinyPauseInMs);
+                        }
                     }
-                }
-                catch (Exception ex)
-                {
-                    //
+                    catch (Exception)
+                    {
+                        result = false;
+                    }
                 }
             }
 
             Thinking = false;
             ThinkingText = string.Empty;
             return result;
-        }
-
-        private async Task EncodeLogoToFile(StorageFile outFile)
-        {
-
-            using (IRandomAccessStream stream = await outFile.OpenAsync(FileAccessMode.ReadWrite))
-            {
-                BitmapEncoder encoder = await BitmapEncoder.CreateAsync(BitmapEncoder.PngEncoderId, stream);
-                Stream pixelStream = Logo.PixelBuffer.AsStream();
-                byte[] pixels = new byte[pixelStream.Length];
-                await pixelStream.ReadAsync(pixels, 0, pixels.Length);
-                encoder.SetPixelData(BitmapPixelFormat.Bgra8, BitmapAlphaMode.Premultiplied, (uint)Logo.PixelWidth, (uint)Logo.PixelHeight,
-                    96.0,
-                    96.0,
-                    pixels);
-                await encoder.FlushAsync();
-
-            }
         }
     }
 }

@@ -134,11 +134,11 @@ namespace UWP_Visual_Asset_Generator.ViewModels
             }
         }
 
-        public void ApplyLogo()
+        public async Task ApplyLogo()
         {
             foreach (var element in Items)
             {
-                element.ApplyLogo();
+                await element.ApplyLogo();
             }
         }
 
