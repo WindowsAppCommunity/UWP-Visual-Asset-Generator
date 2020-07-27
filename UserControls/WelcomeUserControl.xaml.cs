@@ -35,7 +35,6 @@ namespace UWP_Visual_Asset_Generator.UserControls
             try
             {
                 mainViewModel.Settings.ShowWelcomePage = false;
-                mainViewModel.Settings.ShowUpdatePage = false;
             }
             catch (Exception ex)
             {

@@ -1,5 +1,4 @@
 ﻿using Microsoft.AppCenter.Analytics;
-using Microsoft.Services.Store.Engagement;
 using Microsoft.Toolkit.Uwp.Helpers;
 using MVVM;
 using SixLabors.ImageSharp.Processing;
@@ -7,19 +6,13 @@ using SixLabors.ImageSharp.Processing.Processors.Transforms;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Diagnostics;
 using System.IO;
-using System.Linq;
-using System.Net.Http.Headers;
-using System.Text;
 using System.Threading.Tasks;
 using Windows.Storage;
 using Windows.Storage.FileProperties;
 using Windows.Storage.Pickers;
 using Windows.UI;
-using Windows.UI.Popups;
 using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 
@@ -72,7 +65,6 @@ namespace UWP_Visual_Asset_Generator.ViewModels
 
         public MainViewModel()
         {
-            RegisterCommunicationChannel();
             LogFirstUseMetrics();
             _selectedResampler = _resamplers[1];
 
@@ -497,15 +489,6 @@ namespace UWP_Visual_Asset_Generator.ViewModels
                 var t = App.Current.RequestedTheme.ToString();
 
                 Analytics.TrackEvent("OS Theme On First Run is: " + t);
-            }
-        }
-
-        private async Task RegisterCommunicationChannel()
-        {
-            if (!Settings.DisableNotifications)
-            {
-                StoreServicesEngagementManager engagementManager = StoreServicesEngagementManager.GetDefault();
-                engagementManager.RegisterNotificationChannelAsync();
             }
         }
         #endregion functions

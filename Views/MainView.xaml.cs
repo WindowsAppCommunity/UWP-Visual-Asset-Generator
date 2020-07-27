@@ -98,7 +98,6 @@ namespace UWP_Visual_Asset_Generator.Views
         private void Hmi_ShowWelcomeUSerControl_Tapped(object sender, TappedRoutedEventArgs e)
         {
             mainViewModel.Settings.ShowWelcomePage = true;
-            mainViewModel.Settings.ShowUpdatePage = true;
         }
 
         private void Hmi_ToggleAccentColour_Tapped(object sender, TappedRoutedEventArgs e)

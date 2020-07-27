@@ -64,8 +64,7 @@
 
                 </Grid>
 
-                <StackPanel Visibility="{Binding Settings.ShowWelcomePage, Mode=OneWay}" 
-                            Padding="8">
+                <StackPanel Padding="8">
 
                     <TextBlock Text="Key Features:" 
                                x:Uid="KeyFeatures" 
@@ -94,8 +93,7 @@
 
             </StackPanel>
 
-                <StackPanel Visibility="{Binding Settings.ShowUpdatePage, Mode=OneWay}" 
-                            Padding="8">
+                <StackPanel Padding="8">
 
                     <TextBlock x:Uid="AppUpdated" 
                                Text="App Updated" 

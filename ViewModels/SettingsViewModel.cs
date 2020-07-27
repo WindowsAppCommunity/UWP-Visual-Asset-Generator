@@ -1,5 +1,4 @@
-﻿using Microsoft.Services.Store.Engagement;
-using MVVM;
+﻿using MVVM;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +12,6 @@ namespace UWP_Visual_Asset_Generator.ViewModels
     public class SettingsViewModel : ValleyBaseViewModel
     {
         private bool _showWelcomePage = false;
-        private bool _showUpdatePage = false;
         private ApplicationDataContainer roamingSettings;
 
 
@@ -35,25 +33,10 @@ namespace UWP_Visual_Asset_Generator.ViewModels
             }
         }
 
-        public bool ShowUpdatePage
-        {
-            get
-            {
-                return _showUpdatePage;
-            }
-            set
-            {
-                _showUpdatePage = value;
-                NotifyPropertyChanged("ShowUpdatePage");
-            }
-        }
-
         public void LoadRoamingSettings()
         {
             roamingSettings = null;
             roamingSettings = ApplicationData.Current.RoamingSettings;
-
-
         }
 
         public async Task Load()
@@ -67,7 +50,6 @@ namespace UWP_Visual_Asset_Generator.ViewModels
                 NotifyPropertyChanged(string.Empty);
 
                 ShowWelcomePage = false;
-                ShowUpdatePage = false;
 
                 if (string.IsNullOrEmpty(LastUsedVersion))
                 {
@@ -83,14 +65,11 @@ namespace UWP_Visual_Asset_Generator.ViewModels
                     else
                     {
                         //Has been used before, but an update has occurred.
-                        ShowUpdatePage = true;
+                        ShowWelcomePage = true;
                     }
                 }
 
                 LastUsedVersion = AppVersion;
-
-                //Make sure the License Info loads.
-                //var l = LicenseInfo;
 
                 Thinking = false;
             }
@@ -123,49 +102,6 @@ namespace UWP_Visual_Asset_Generator.ViewModels
                 roamingSettings.Values["LastUsedVersion"] = value;
 
                 NotifyPropertyChanged("LastUsedVersion");
-            }
-        }
-
-        public bool DisableNotifications
-        {
-            get
-            {
-                if (roamingSettings == null)
-                {
-                    return false;
-                }
-                else
-                {
-                    bool result = false;
-
-                    try
-                    {
-                        result = (bool)roamingSettings.Values["DisableNotifications"];
-                    }
-                    catch (Exception ex)
-                    {
-                        roamingSettings.Values["DisableNotifications"] = result; 
-                    }
-
-                    return result;
-                }
-            }
-            set
-            {
-                roamingSettings.Values["DisableNotifications"] = value;
-                NotifyPropertyChanged("DisableNotifications");
-
-                StoreServicesEngagementManager engagementManager = StoreServicesEngagementManager.GetDefault();
-
-                if (value == true)
-                {
-                    engagementManager.UnregisterNotificationChannelAsync();
-                }
-                else
-                {
-                    engagementManager.RegisterNotificationChannelAsync();
-                }
-
             }
         }
 

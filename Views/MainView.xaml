@@ -133,12 +133,6 @@
                         </Windows10version1809:AppBarElementContainer>
                         <Windows10version1809:AppBarSeparator />
                         <AppBarButton
-                            x:Name="hmi_Feedback"
-                            x:Uid="btn_Feedback"
-                            Icon="Emoji2"
-                            Label="Feedback and Review"
-                            Tapped="btn_Feedback_Tapped" />
-                        <AppBarButton
                             x:Name="hmi_ShowWelcomeUSerControl"
                             x:Uid="WelcomeBtn"
                             Icon="Home"
@@ -171,7 +165,6 @@
 
         </Grid>
 
-
         <uc:WelcomeUserControl x:Name="WelcomeControl" x:Load="{x:Bind mainViewModel.Settings.ShowWelcomePage, Mode=OneWay}">
             <animations:Implicit.ShowAnimations>
                 <animations:OpacityAnimation
@@ -187,40 +180,6 @@
                     Duration="0:0:0.5" />
             </animations:Implicit.HideAnimations>
         </uc:WelcomeUserControl>
-
-      
-
-        <uc:WelcomeUserControl x:Name="UpdateControl" x:Load="{x:Bind mainViewModel.Settings.ShowUpdatePage, Mode=OneWay}">
-            <animations:Implicit.ShowAnimations>
-                <animations:OpacityAnimation
-                    From="0.0"
-                    To="1.0"
-                    Duration="0:0:0.5" />
-            </animations:Implicit.ShowAnimations>
-
-            <animations:Implicit.HideAnimations>
-                <animations:OpacityAnimation
-                    From="1.0"
-                    To="0.0"
-                    Duration="0:0:0.5" />
-            </animations:Implicit.HideAnimations>
-        </uc:WelcomeUserControl>
-
-        <uc:FeedbackUserControl x:Name="feedbackControl" x:Load="{x:Bind mainViewModel.ShowFeedbackControl, Mode=OneWay}">
-            <animations:Implicit.ShowAnimations>
-                <animations:OpacityAnimation
-                    From="0.0"
-                    To="1.0"
-                    Duration="0:0:0.5" />
-            </animations:Implicit.ShowAnimations>
-
-            <animations:Implicit.HideAnimations>
-                <animations:OpacityAnimation
-                    From="1.0"
-                    To="0.0"
-                    Duration="0:0:0.5" />
-            </animations:Implicit.HideAnimations>
-        </uc:FeedbackUserControl>
 
         <controls:Loading
             Margin="0"
