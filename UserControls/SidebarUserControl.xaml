@@ -124,8 +124,9 @@
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">
                     <Setter Property="HorizontalContentAlignment" Value="Stretch" />
-                    <Setter Property="Padding" Value="4" />
-                    <Setter Property="Margin" Value="4" />
+                    <Setter Property="Padding" Value="4,8" />
+                    <Setter Property="MinHeight" Value="0" />
+                    <Setter Property="Margin" Value="0" />
                 </Style>
             </ListView.ItemContainerStyle>
 
@@ -141,26 +142,88 @@
 
         <wui:Button
             x:Name="btnSetBackgroundColour"
-            Grid.Row="2"
+            Grid.Row="3"
             Margin="0,8"
             HorizontalAlignment="Stretch"
             Click="btnSetBackgroundColour_Click"
             Content="Set background colour"
             Style="{ThemeResource ButtonRevealStyle}" />
 
-        <Grid Grid.Row="3">
-            <ComboBox
-                HorizontalAlignment="Stretch"
-                Header="Resampling Mode"
-                ItemsSource="{x:Bind mainViewModel.Resamplers, Mode=OneTime}"
-                SelectedItem="{x:Bind mainViewModel.SelectedResampler, Mode=TwoWay}">
-                <ComboBox.ItemTemplate>
-                    <DataTemplate>
-                        <TextBlock Text="{Binding Key}" />
-                    </DataTemplate>
-                </ComboBox.ItemTemplate>
-            </ComboBox>
-        </Grid>
+        <tkcon:Expander Grid.Row="2"
+                        Padding="0"
+                        Margin="0,4"
+                        HorizontalAlignment="Stretch"
+                        HorizontalContentAlignment="Stretch" >
+
+            <tkcon:Expander.Header>
+                <Grid HorizontalAlignment="Stretch"
+                      VerticalAlignment="Stretch">
+                    <TextBlock Text="Advanced"/>
+                </Grid>
+            </tkcon:Expander.Header>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+
+                <ComboBox Grid.Row="0"       
+                          Margin="4"
+                          HorizontalAlignment="Stretch"
+                          Header="Resampling Mode"
+                          ItemsSource="{x:Bind mainViewModel.Resamplers, Mode=OneTime}"
+                          SelectedItem="{x:Bind mainViewModel.SelectedResampler, Mode=TwoWay}">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Key}" />
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+
+                <ComboBox Grid.Row="1"           
+                          Margin="4"
+                          HorizontalAlignment="Stretch"
+                          Header="Pixel Colour Blending Mode"
+                          ItemsSource="{x:Bind mainViewModel.BlendingModes, Mode=OneTime}"
+                          SelectedItem="{x:Bind mainViewModel.SelectedBlendingMode, Mode=TwoWay}">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Key}" />
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+
+                <ComboBox Grid.Row="2"        
+                          Margin="4"    
+                          HorizontalAlignment="Stretch"
+                          Header="Pixel Alpha Blending Mode"
+                          ItemsSource="{x:Bind mainViewModel.AlphaModes, Mode=OneTime}"
+                          SelectedItem="{x:Bind mainViewModel.SelectedAlphaMode, Mode=TwoWay}">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Key}" />
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+
+                <ComboBox Grid.Row="3"        
+                          Margin="4"    
+                          HorizontalAlignment="Stretch"
+                          Header="PNG Compression"
+                          ItemsSource="{x:Bind mainViewModel.PNGCompressionOptions, Mode=OneTime}"
+                          SelectedItem="{x:Bind mainViewModel.SelectedPNGCompression, Mode=TwoWay}">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Key}" />
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+
+            </Grid>
+        </tkcon:Expander>
 
         <!--  Theme Setting  -->
         <Grid Grid.Row="4">

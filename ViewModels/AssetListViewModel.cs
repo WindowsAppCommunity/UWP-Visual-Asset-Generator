@@ -99,6 +99,12 @@ namespace UWP_Visual_Asset_Generator.ViewModels
                 Items.Add(new AssetViewModel(new AppIconAltformLightUnplated32()));
                 Items.Add(new AssetViewModel(new AppIconAltformLightUnplated48()));
 
+                Items.Add(new AssetViewModel(new AppIconAltformUnplated16()));
+                Items.Add(new AssetViewModel(new AppIconAltformUnplated24()));
+                Items.Add(new AssetViewModel(new AppIconAltformUnplated256()));
+                Items.Add(new AssetViewModel(new AppIconAltformUnplated32()));
+                Items.Add(new AssetViewModel(new AppIconAltformUnplated48()));
+
                 Items.Add(new AssetViewModel(new AppIconScale100()));
                 Items.Add(new AssetViewModel(new AppIconScale125()));
                 Items.Add(new AssetViewModel(new AppIconScale150()));

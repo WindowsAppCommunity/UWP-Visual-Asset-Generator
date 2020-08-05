@@ -188,6 +188,7 @@ namespace UWP_Visual_Asset_Generator.ViewModels
             var result = false;
 
             SetupInitialLogo();
+
             if (mainViewModel != null &&
                 mainViewModel.originalWriteableBitmap != null &&
                 SelectedForExport)
@@ -232,11 +233,18 @@ namespace UWP_Visual_Asset_Generator.ViewModels
                     var left = HalfOf(ImageWidth) - HalfOf(resizedOriginal.Width);                    
                     var top = HalfOf(ImageHeight) - HalfOf(resizedOriginal.Height);
 
-                    newLogo.Mutate(w => w.DrawImage(resizedOriginal, new SixLabors.ImageSharp.Point(left, top), 1));
+                    newLogo.Mutate(w => w.DrawImage(
+                        resizedOriginal, 
+                        new SixLabors.ImageSharp.Point(left, top), 
+                        mainViewModel.SelectedBlendingMode.Value, 
+                        mainViewModel.SelectedAlphaMode.Value,
+                        1));
                     InMemoryRandomAccessStream myStream = new InMemoryRandomAccessStream();
                     
-                    //SixLabors.ImageSharp.Formats.Png.PngEncoder encoder = new SixLabors.ImageSharp.Formats.Png.PngEncoder();
-                    newLogo.SaveAsPng(myStream.AsStream(), new SixLabors.ImageSharp.Formats.Png.PngEncoder());
+                    SixLabors.ImageSharp.Formats.Png.PngEncoder encoder = new SixLabors.ImageSharp.Formats.Png.PngEncoder();
+                    encoder.CompressionLevel = App.mainViewModel.SelectedPNGCompression.Value;
+
+                    newLogo.SaveAsPng(myStream.AsStream(), encoder);
                     myStream.Seek(0);
                     Logo = await BitmapFactory.FromStream(myStream);
 

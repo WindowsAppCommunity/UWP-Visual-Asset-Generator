@@ -234,6 +234,47 @@ namespace UWP_Visual_Asset_Generator.Data
         public override bool PaddingIsRecommended { get => false; }
     }
 
+    public class AppIconAltformUnplated16 : AssetTemplate
+    {
+        public override string FileName { get => "Square44x44Logo.altform-unplated_targetsize-16.png"; }
+        public override int ImageHeight { get => 16; }
+        public override int ImageWidth { get => 16; }
+        public override bool PaddingIsRecommended { get => false; }
+    }
+
+    public class AppIconAltformUnplated24 : AssetTemplate
+    {
+        public override string FileName { get => "Square44x44Logo.altform-unplated_targetsize-24.png"; }
+        public override int ImageHeight { get => 24; }
+        public override int ImageWidth { get => 24; }
+        public override bool PaddingIsRecommended { get => false; }
+    }
+
+    public class AppIconAltformUnplated256 : AssetTemplate
+    {
+        public override string FileName { get => "Square44x44Logo.altform-unplated_targetsize-256.png"; }
+        public override int ImageHeight { get => 256; }
+        public override int ImageWidth { get => 256; }
+        public override bool PaddingIsRecommended { get => false; }
+    }
+
+    public class AppIconAltformUnplated32 : AssetTemplate
+    {
+        public override string FileName { get => "Square44x44Logo.altform-unplated_targetsize-32.png"; }
+        public override int ImageHeight { get => 32; }
+        public override int ImageWidth { get => 32; }
+        public override bool PaddingIsRecommended { get => false; }
+    }
+
+    public class AppIconAltformUnplated48 : AssetTemplate
+    {
+        public override string FileName { get => "Square44x44Logo.altform-unplated_targetsize-48.png"; }
+        public override int ImageHeight { get => 48; }
+        public override int ImageWidth { get => 48; }
+        public override bool PaddingIsRecommended { get => false; }
+    }
+
+
     public class AppIconScale100 : AssetTemplate
     {
         public override string FileName { get => "Square44x44Logo.scale-100.png"; }

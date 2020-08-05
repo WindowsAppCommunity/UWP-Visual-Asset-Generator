@@ -1,6 +1,8 @@
 ﻿using Microsoft.AppCenter.Analytics;
 using Microsoft.Toolkit.Uwp.Helpers;
 using MVVM;
+using SixLabors.ImageSharp.Formats.Png;
+using SixLabors.ImageSharp.PixelFormats;
 using SixLabors.ImageSharp.Processing;
 using SixLabors.ImageSharp.Processing.Processors.Transforms;
 using System;
@@ -44,29 +46,68 @@ namespace UWP_Visual_Asset_Generator.ViewModels
 
 
         private ObservableCollection<KeyValuePair<string, IResampler>> _resamplers = new ObservableCollection<KeyValuePair<string, IResampler>>()
-        { new KeyValuePair<string, IResampler>("Average",KnownResamplers.Box),
-          new KeyValuePair<string, IResampler>("Bicubic", KnownResamplers.Bicubic ),
-          new KeyValuePair<string, IResampler>("Nearest Neighbour", KnownResamplers.NearestNeighbor),
-          new KeyValuePair<string, IResampler>("Box", KnownResamplers.Box),
-          new KeyValuePair<string, IResampler>("CatmullRom", KnownResamplers.CatmullRom ),
-          new KeyValuePair<string, IResampler>("Hermite", KnownResamplers.Hermite ),
-          new KeyValuePair<string, IResampler>("Lanczos2", KnownResamplers.Lanczos2 ),
-          new KeyValuePair<string, IResampler>("Lanczos3", KnownResamplers.Lanczos3),
-          new KeyValuePair<string, IResampler>("Lanczos5", KnownResamplers.Lanczos5 ),
-          new KeyValuePair<string, IResampler>("Lanczos8", KnownResamplers.Lanczos8 ),
-          new KeyValuePair<string, IResampler>("MitchellNetravali", KnownResamplers.MitchellNetravali ),
-          new KeyValuePair<string, IResampler>("Robidoux", KnownResamplers.Robidoux ),
-          new KeyValuePair<string, IResampler>("RobidouxSharp", KnownResamplers.RobidouxSharp ),
-          new KeyValuePair<string, IResampler>("Spline", KnownResamplers.Spline ),
-          new KeyValuePair<string, IResampler>("Triangle" , KnownResamplers.Triangle ),
-          new KeyValuePair<string, IResampler>("Welch", KnownResamplers.Welch )
+        { 
+            new KeyValuePair<string, IResampler>("Average",KnownResamplers.Box),
+            new KeyValuePair<string, IResampler>("Bicubic", KnownResamplers.Bicubic ),
+            new KeyValuePair<string, IResampler>("Nearest Neighbour", KnownResamplers.NearestNeighbor),
+            new KeyValuePair<string, IResampler>("Box", KnownResamplers.Box),
+            new KeyValuePair<string, IResampler>("CatmullRom", KnownResamplers.CatmullRom ),
+            new KeyValuePair<string, IResampler>("Hermite", KnownResamplers.Hermite ),
+            new KeyValuePair<string, IResampler>("Lanczos2", KnownResamplers.Lanczos2 ),
+            new KeyValuePair<string, IResampler>("Lanczos3", KnownResamplers.Lanczos3),
+            new KeyValuePair<string, IResampler>("Lanczos5", KnownResamplers.Lanczos5 ),
+            new KeyValuePair<string, IResampler>("Lanczos8", KnownResamplers.Lanczos8 ),
+            new KeyValuePair<string, IResampler>("MitchellNetravali", KnownResamplers.MitchellNetravali ),
+            new KeyValuePair<string, IResampler>("Robidoux", KnownResamplers.Robidoux ),
+            new KeyValuePair<string, IResampler>("RobidouxSharp", KnownResamplers.RobidouxSharp ),
+            new KeyValuePair<string, IResampler>("Spline", KnownResamplers.Spline ),
+            new KeyValuePair<string, IResampler>("Triangle" , KnownResamplers.Triangle ),
+            new KeyValuePair<string, IResampler>("Welch", KnownResamplers.Welch )
         };
         private KeyValuePair<string, IResampler> _selectedResampler;
+
+        private ObservableCollection<KeyValuePair<string, PixelColorBlendingMode>> _blendingModes = new ObservableCollection<KeyValuePair<string, PixelColorBlendingMode>>()
+        { 
+            new KeyValuePair<string, PixelColorBlendingMode>("Add",PixelColorBlendingMode.Add),
+            new KeyValuePair<string, PixelColorBlendingMode>("Darken",PixelColorBlendingMode.Darken),
+            new KeyValuePair<string, PixelColorBlendingMode>("HardLight",PixelColorBlendingMode.HardLight),
+            new KeyValuePair<string, PixelColorBlendingMode>("Lighten",PixelColorBlendingMode.Lighten),
+            new KeyValuePair<string, PixelColorBlendingMode>("Multiply",PixelColorBlendingMode.Multiply),
+            new KeyValuePair<string, PixelColorBlendingMode>("Normal",PixelColorBlendingMode.Normal),
+            new KeyValuePair<string, PixelColorBlendingMode>("Overlay",PixelColorBlendingMode.Overlay),
+            new KeyValuePair<string, PixelColorBlendingMode>("Screen",PixelColorBlendingMode.Screen),
+            new KeyValuePair<string, PixelColorBlendingMode>("Subtract",PixelColorBlendingMode.Subtract)
+        };
+        private KeyValuePair<string, PixelColorBlendingMode> _selectedBlendingMode;
+
+
+        private ObservableCollection<KeyValuePair<string, PixelAlphaCompositionMode>> _alphaModes = new ObservableCollection<KeyValuePair<string, PixelAlphaCompositionMode>>()
+        { 
+            new KeyValuePair<string, PixelAlphaCompositionMode>("The Logo where they don't overlap otherwise dest in overlapping parts.",PixelAlphaCompositionMode.DestAtop),
+            new KeyValuePair<string, PixelAlphaCompositionMode>("The Background over the Logo.",PixelAlphaCompositionMode.DestOver),
+            new KeyValuePair<string, PixelAlphaCompositionMode>("Returns the Logo colors.",PixelAlphaCompositionMode.Src),
+            new KeyValuePair<string, PixelAlphaCompositionMode>("The Background where the Background and Logo overlap.",PixelAlphaCompositionMode.SrcOut),
+            new KeyValuePair<string, PixelAlphaCompositionMode>("Returns the Background over the Logo.",PixelAlphaCompositionMode.SrcOver),
+            new KeyValuePair<string, PixelAlphaCompositionMode>("Clear where they overlap.",PixelAlphaCompositionMode.Xor)
+        };
+        private KeyValuePair<string, PixelAlphaCompositionMode> _selectedAlphaMode;
+
+        private ObservableCollection<KeyValuePair<string, PngCompressionLevel>> _pngCompressionOptions = new ObservableCollection<KeyValuePair<string, PngCompressionLevel>>()
+        { 
+            new KeyValuePair<string, PngCompressionLevel>("Fastest (level 1)", PngCompressionLevel.BestSpeed),
+            new KeyValuePair<string, PngCompressionLevel>("Best (level 9)", PngCompressionLevel.BestCompression ),
+            new KeyValuePair<string, PngCompressionLevel>("Default (Level 6)", PngCompressionLevel.DefaultCompression),
+            new KeyValuePair<string, PngCompressionLevel>("No Compression (level 0)", PngCompressionLevel.NoCompression)
+        };
+        private KeyValuePair<string, PngCompressionLevel> _selectedPNGCompression;
 
         public MainViewModel()
         {
             LogFirstUseMetrics();
             _selectedResampler = _resamplers[1];
+            _selectedBlendingMode = _blendingModes[5];
+            _selectedAlphaMode = _alphaModes[3];
+            _selectedPNGCompression = _pngCompressionOptions[2];
 
             SetupOutputFolder();
         }
@@ -109,6 +150,30 @@ namespace UWP_Visual_Asset_Generator.ViewModels
         #region public properties
 
 
+        public ObservableCollection<KeyValuePair<string, PngCompressionLevel>> PNGCompressionOptions
+        {
+            get
+            {
+                return _pngCompressionOptions;
+            }
+        }
+
+        public KeyValuePair<string, PngCompressionLevel> SelectedPNGCompression
+        {
+            get
+            {
+                return _selectedPNGCompression;
+            }
+            set
+            {
+                if (_selectedPNGCompression.Key != value.Key)
+                {
+                    _selectedPNGCompression = value;
+                    NotifyPropertyChanged("SelectedPNGCompression");
+                }
+            }
+        }
+
         public ObservableCollection<KeyValuePair<string, IResampler>> Resamplers
         {
             get
@@ -129,6 +194,58 @@ namespace UWP_Visual_Asset_Generator.ViewModels
                 {
                     _selectedResampler = value;
                     NotifyPropertyChanged("SelectedResampler");
+
+                    AssetTypes.ApplyLogo();
+                }
+            }
+        }
+
+        public ObservableCollection<KeyValuePair<string, PixelColorBlendingMode>> BlendingModes
+        {
+            get
+            {
+                return _blendingModes;
+            }
+        }
+
+        public KeyValuePair<string, PixelColorBlendingMode> SelectedBlendingMode
+        {
+            get
+            {
+                return _selectedBlendingMode;
+            }
+            set
+            {
+                if (_selectedBlendingMode.Key != value.Key)
+                {
+                    _selectedBlendingMode = value;
+                    NotifyPropertyChanged("SelectedBlendingMode");
+
+                    AssetTypes.ApplyLogo();
+                }
+            }
+        }
+
+        public ObservableCollection<KeyValuePair<string, PixelAlphaCompositionMode>> AlphaModes
+        {
+            get
+            {
+                return _alphaModes;
+            }
+        }
+
+        public KeyValuePair<string, PixelAlphaCompositionMode> SelectedAlphaMode
+        {
+            get
+            {
+                return _selectedAlphaMode;
+            }
+            set
+            {
+                if (_selectedAlphaMode.Key != value.Key)
+                {
+                    _selectedAlphaMode = value;
+                    NotifyPropertyChanged("SelectedAlphaMode");
 
                     AssetTypes.ApplyLogo();
                 }

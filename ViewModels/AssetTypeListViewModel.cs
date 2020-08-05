@@ -95,17 +95,18 @@ namespace UWP_Visual_Asset_Generator.ViewModels
 
         public async Task SaveAllAsync()
         {
-            if (await ShowDialog("Save All Assets","This will overwrite any existing files in output folder","Yes","No"))
+            if (App.mainViewModel.OutputFolder != null)
             {
-                try
+                if (await ShowDialog("Save All Slected Assets", "This will overwrite any existing files in " + App.mainViewModel.OutputFolder.DisplayName,"Yes","No"))
                 {
-                    App.mainViewModel.Thinking = true;
-                    App.mainViewModel.ThinkingText = "Saving Assets";
-                    await Task.Delay(App.ThinkingMediumPauseInMs);
-
-                    //Copy as new files
-                    if (App.mainViewModel.OutputFolder != null)
+                    try
                     {
+                        App.mainViewModel.Thinking = true;
+                        App.mainViewModel.ThinkingText = "Saving Assets";
+                        await Task.Delay(App.ThinkingMediumPauseInMs);
+
+                        //Copy as new files
+                    
                         foreach (var element in Items)
                         {
                             await element.Assets.SaveAllAssetsToFileAsync();
@@ -113,32 +114,34 @@ namespace UWP_Visual_Asset_Generator.ViewModels
 
                         App.mainViewModel.Thinking = true;
                         App.mainViewModel.ThinkingText = "Complete";
-                        await Task.Delay(App.ThinkingMediumPauseInMs);
-                        
+                        await Task.Delay(App.ThinkingShortPauseInMs);
+
+                        await ShowDialog("Complete", "Don't forget to add all the assets to your solution.");
+
                         await Windows.System.Launcher.LaunchFolderAsync(App.mainViewModel.OutputFolder);
                     }
-                    else
+                    catch (Exception eex)
                     {
-                        await ShowDialog("No output folder selected", "To save to a new location, an 'Output Location' needs to be set.");
+                        await ShowDialog("Unknown error creating assets. Sorry about that.", "I'm sorry to say so but, sadly, it's true that bang-ups and hang-ups can happen to you.  - Dr Seuss");
 
                         App.mainViewModel.Thinking = true;
                         App.mainViewModel.ThinkingText = "Error";
                         await Task.Delay(App.ThinkingMediumPauseInMs);
                     }
+                    finally
+                    {
+                        App.mainViewModel.Thinking = false;
+                        App.mainViewModel.ThinkingText = string.Empty;
+                    }
                 }
-                catch (Exception eex)
-                {
-                    await ShowDialog("Unknown error creating assets. Sorry about that.", "I'm sorry to say so but, sadly, it's true that bang-ups and hang-ups can happen to you.  - Dr Seuss");
+            }
+            else
+            {
+                await ShowDialog("No output folder selected", "To save to a new location, an 'Output Location' needs to be set.");
 
-                    App.mainViewModel.Thinking = true;
-                    App.mainViewModel.ThinkingText = "Error";
-                    await Task.Delay(App.ThinkingMediumPauseInMs);
-                }
-                finally
-                {
-                    App.mainViewModel.Thinking = false;
-                    App.mainViewModel.ThinkingText = string.Empty;
-                }
+                App.mainViewModel.Thinking = true;
+                App.mainViewModel.ThinkingText = "Error";
+                await Task.Delay(App.ThinkingMediumPauseInMs);
             }
         }        
     }

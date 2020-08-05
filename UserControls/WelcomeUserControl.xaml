@@ -102,19 +102,16 @@
                                Margin="0,0,0,8"/>
                     
                     <TextBlock x:Uid="Update1" 
-                               Text="- Graduated to Version 1.00.00."  
+                               Text="- Added Pixel Blending control."  
                                TextWrapping="WrapWholeWords"/>
                     <TextBlock x:Uid="Update2" 
-                               Text="- Added more resampling modes."  
+                               Text="- Added Alpha control."  
                                TextWrapping="WrapWholeWords"/>
                     <TextBlock x:Uid="Update3" 
-                               Text="- Faster saving."  
+                               Text="- Added PNG Compression options."  
                                TextWrapping="WrapWholeWords"/>
                     <TextBlock x:Uid="Update4" 
-                               Text="- Added toggle to select or deselect all assets in a category (User Request!)."  
-                               TextWrapping="WrapWholeWords"/>
-                    <TextBlock x:Uid="Update5" 
-                               Text="- Decode the display images to their visible size for better smoothing."  
+                               Text="- Added remaining Unplated asset resources."  
                                TextWrapping="WrapWholeWords"/>
                 </StackPanel>
 
