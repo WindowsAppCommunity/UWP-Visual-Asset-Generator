@@ -97,7 +97,7 @@ namespace UWP_Visual_Asset_Generator.ViewModels
         {
             if (App.mainViewModel.OutputFolder != null)
             {
-                if (await ShowDialog("Save All Slected Assets", "This will overwrite any existing files in " + App.mainViewModel.OutputFolder.DisplayName,"Yes","No"))
+                if (await ShowDialog("Save All Selected Assets", "This will overwrite any existing files in " + App.mainViewModel.OutputFolder.DisplayName,"Yes","No"))
                 {
                     try
                     {
