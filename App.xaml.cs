@@ -45,7 +45,7 @@ namespace UWP_Visual_Asset_Generator
         private const string AppCenterAppKey = "63c401f8-a93c-4767-85de-53d2cfe74b2e";
 
         public static Page mainPage { get; set; }
-        
+
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
         /// executed, and as such is the logical equivalent of main() or WinMain().
@@ -84,7 +84,7 @@ namespace UWP_Visual_Asset_Generator
         /// <param name="e">Details about the launch request and process.</param>
         protected override void OnLaunched(LaunchActivatedEventArgs e)
         {
-            SystemInformation.TrackAppUse(e);
+            SystemInformation.Instance.TrackAppUse(e);
 
             rootFrame = Window.Current.Content as Frame;
 

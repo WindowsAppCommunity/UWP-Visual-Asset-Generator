@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:Windows10version1809="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract, 7)"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:extensions="using:Microsoft.Toolkit.Uwp.UI.Extensions"
+    xmlns:extensions="using:Microsoft.Toolkit.Uwp.UI"
     xmlns:generic="using:System.Collections.Generic"
     xmlns:local="using:UWP_Visual_Asset_Generator.UserControls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -77,22 +77,23 @@
                     <tkcon:ImageEx
                         x:Name="image_Original"
                         x:Uid="DropPNG"
-                        extensions:Mouse.Cursor="Hand"
+                        extensions:FrameworkElementExtensions.Cursor="Hand"
                         AllowDrop="True"
                         Canvas.ZIndex="60"
+                        DecodePixelHeight="240"
+                        DecodePixelWidth="240"
                         DragOver="Image_Original_DragOver"
                         Drop="Image_Original_Drop"
                         PlaceholderSource="/Images/Logo.png"
                         PlaceholderStretch="Uniform"
                         Source="{x:Bind mainViewModel.OriginalLogoImageSource, Mode=OneWay}"
-                            DecodePixelWidth="240"
-                            DecodePixelHeight="240"
                         Stretch="Uniform"
                         Tapped="Image_Original_Tapped"
                         ToolTipService.ToolTip="Drop a PNG image here, or click to browse" />
 
                     <mucx:TeachingTip
-                        Title="Getting started" IsOpen="{x:Bind mainViewModel.IsFirstRun, Mode=OneTime}"
+                        Title="Getting started"
+                        IsOpen="{x:Bind mainViewModel.IsFirstRun, Mode=OneTime}"
                         Subtitle="Drop a PNG image here, or click to browse"
                         Target="{x:Bind image_Original}">
                         <mucx:TeachingTip.IconSource>
@@ -149,33 +150,34 @@
             Content="Set background colour"
             Style="{ThemeResource ButtonRevealStyle}" />
 
-        <tkcon:Expander Grid.Row="2"
-                        Padding="0"
-                        Margin="0,4"
-                        HorizontalAlignment="Stretch"
-                        HorizontalContentAlignment="Stretch" >
+        <tkcon:Expander
+            Grid.Row="2"
+            Margin="0,4"
+            Padding="0"
+            HorizontalAlignment="Stretch"
+            HorizontalContentAlignment="Stretch">
 
             <tkcon:Expander.Header>
-                <Grid HorizontalAlignment="Stretch"
-                      VerticalAlignment="Stretch">
-                    <TextBlock Text="Advanced"/>
+                <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <TextBlock Text="Advanced" />
                 </Grid>
             </tkcon:Expander.Header>
 
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
                 </Grid.RowDefinitions>
 
-                <ComboBox Grid.Row="0"       
-                          Margin="4"
-                          HorizontalAlignment="Stretch"
-                          Header="Resampling Mode"
-                          ItemsSource="{x:Bind mainViewModel.Resamplers, Mode=OneTime}"
-                          SelectedItem="{x:Bind mainViewModel.SelectedResampler, Mode=TwoWay}">
+                <ComboBox
+                    Grid.Row="0"
+                    Margin="4"
+                    HorizontalAlignment="Stretch"
+                    Header="Resampling Mode"
+                    ItemsSource="{x:Bind mainViewModel.Resamplers, Mode=OneTime}"
+                    SelectedItem="{x:Bind mainViewModel.SelectedResampler, Mode=TwoWay}">
                     <ComboBox.ItemTemplate>
                         <DataTemplate>
                             <TextBlock Text="{Binding Key}" />
@@ -183,12 +185,13 @@
                     </ComboBox.ItemTemplate>
                 </ComboBox>
 
-                <ComboBox Grid.Row="1"           
-                          Margin="4"
-                          HorizontalAlignment="Stretch"
-                          Header="Pixel Colour Blending Mode"
-                          ItemsSource="{x:Bind mainViewModel.BlendingModes, Mode=OneTime}"
-                          SelectedItem="{x:Bind mainViewModel.SelectedBlendingMode, Mode=TwoWay}">
+                <ComboBox
+                    Grid.Row="1"
+                    Margin="4"
+                    HorizontalAlignment="Stretch"
+                    Header="Pixel Colour Blending Mode"
+                    ItemsSource="{x:Bind mainViewModel.BlendingModes, Mode=OneTime}"
+                    SelectedItem="{x:Bind mainViewModel.SelectedBlendingMode, Mode=TwoWay}">
                     <ComboBox.ItemTemplate>
                         <DataTemplate>
                             <TextBlock Text="{Binding Key}" />
@@ -196,12 +199,13 @@
                     </ComboBox.ItemTemplate>
                 </ComboBox>
 
-                <ComboBox Grid.Row="2"        
-                          Margin="4"    
-                          HorizontalAlignment="Stretch"
-                          Header="Pixel Alpha Blending Mode"
-                          ItemsSource="{x:Bind mainViewModel.AlphaModes, Mode=OneTime}"
-                          SelectedItem="{x:Bind mainViewModel.SelectedAlphaMode, Mode=TwoWay}">
+                <ComboBox
+                    Grid.Row="2"
+                    Margin="4"
+                    HorizontalAlignment="Stretch"
+                    Header="Pixel Alpha Blending Mode"
+                    ItemsSource="{x:Bind mainViewModel.AlphaModes, Mode=OneTime}"
+                    SelectedItem="{x:Bind mainViewModel.SelectedAlphaMode, Mode=TwoWay}">
                     <ComboBox.ItemTemplate>
                         <DataTemplate>
                             <TextBlock Text="{Binding Key}" />
@@ -209,12 +213,13 @@
                     </ComboBox.ItemTemplate>
                 </ComboBox>
 
-                <ComboBox Grid.Row="3"        
-                          Margin="4"    
-                          HorizontalAlignment="Stretch"
-                          Header="PNG Compression"
-                          ItemsSource="{x:Bind mainViewModel.PNGCompressionOptions, Mode=OneTime}"
-                          SelectedItem="{x:Bind mainViewModel.SelectedPNGCompression, Mode=TwoWay}">
+                <ComboBox
+                    Grid.Row="3"
+                    Margin="4"
+                    HorizontalAlignment="Stretch"
+                    Header="PNG Compression"
+                    ItemsSource="{x:Bind mainViewModel.PNGCompressionOptions, Mode=OneTime}"
+                    SelectedItem="{x:Bind mainViewModel.SelectedPNGCompression, Mode=TwoWay}">
                     <ComboBox.ItemTemplate>
                         <DataTemplate>
                             <TextBlock Text="{Binding Key}" />

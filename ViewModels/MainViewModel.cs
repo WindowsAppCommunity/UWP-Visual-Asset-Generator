@@ -23,14 +23,14 @@ namespace UWP_Visual_Asset_Generator.ViewModels
     public class MainViewModel : ValleyBaseViewModel
     {
         private SettingsViewModel _settings;
-        
+
         private bool _showFeedbackControl = false;
         private bool _showGettingStartedControl = false;
         private bool _showEditCurrentImage = false;
         private bool _previewWithAccentColour = false;
         private bool _showBackgroundColorSelector = false;
         private bool _useTransparentBackground = true;
-        private bool _isFirstRun = SystemInformation.IsFirstRun;
+        private bool _isFirstRun = SystemInformation.Instance.IsFirstRun;
         private Color _backgroundColour = Color.FromArgb(0, 0, 0, 0);
 
         public const string mruOutputFolderMetadata = "OutputFolder";
@@ -46,7 +46,7 @@ namespace UWP_Visual_Asset_Generator.ViewModels
 
 
         private ObservableCollection<KeyValuePair<string, IResampler>> _resamplers = new ObservableCollection<KeyValuePair<string, IResampler>>()
-        { 
+        {
             new KeyValuePair<string, IResampler>("Average",KnownResamplers.Box),
             new KeyValuePair<string, IResampler>("Bicubic", KnownResamplers.Bicubic ),
             new KeyValuePair<string, IResampler>("Nearest Neighbour", KnownResamplers.NearestNeighbor),
@@ -67,7 +67,7 @@ namespace UWP_Visual_Asset_Generator.ViewModels
         private KeyValuePair<string, IResampler> _selectedResampler;
 
         private ObservableCollection<KeyValuePair<string, PixelColorBlendingMode>> _blendingModes = new ObservableCollection<KeyValuePair<string, PixelColorBlendingMode>>()
-        { 
+        {
             new KeyValuePair<string, PixelColorBlendingMode>("Add",PixelColorBlendingMode.Add),
             new KeyValuePair<string, PixelColorBlendingMode>("Darken",PixelColorBlendingMode.Darken),
             new KeyValuePair<string, PixelColorBlendingMode>("HardLight",PixelColorBlendingMode.HardLight),
@@ -82,7 +82,7 @@ namespace UWP_Visual_Asset_Generator.ViewModels
 
 
         private ObservableCollection<KeyValuePair<string, PixelAlphaCompositionMode>> _alphaModes = new ObservableCollection<KeyValuePair<string, PixelAlphaCompositionMode>>()
-        { 
+        {
             new KeyValuePair<string, PixelAlphaCompositionMode>("The Logo where they don't overlap otherwise dest in overlapping parts.",PixelAlphaCompositionMode.DestAtop),
             new KeyValuePair<string, PixelAlphaCompositionMode>("The Background over the Logo.",PixelAlphaCompositionMode.DestOver),
             new KeyValuePair<string, PixelAlphaCompositionMode>("Returns the Logo colors.",PixelAlphaCompositionMode.Src),
@@ -93,7 +93,7 @@ namespace UWP_Visual_Asset_Generator.ViewModels
         private KeyValuePair<string, PixelAlphaCompositionMode> _selectedAlphaMode;
 
         private ObservableCollection<KeyValuePair<string, PngCompressionLevel>> _pngCompressionOptions = new ObservableCollection<KeyValuePair<string, PngCompressionLevel>>()
-        { 
+        {
             new KeyValuePair<string, PngCompressionLevel>("Fastest (level 1)", PngCompressionLevel.BestSpeed),
             new KeyValuePair<string, PngCompressionLevel>("Best (level 9)", PngCompressionLevel.BestCompression ),
             new KeyValuePair<string, PngCompressionLevel>("Default (Level 6)", PngCompressionLevel.DefaultCompression),
@@ -361,8 +361,8 @@ namespace UWP_Visual_Asset_Generator.ViewModels
                     NotifyPropertyChanged("PreviewWithAccentColourBrush");
                 }
             }
-        }    
-        
+        }
+
         public Color PreviewWithAccentColourBrush
         {
             get
@@ -406,7 +406,7 @@ namespace UWP_Visual_Asset_Generator.ViewModels
         {
             get
             {
-                return _outputFolder; 
+                return _outputFolder;
             }
             set
             {
@@ -426,7 +426,7 @@ namespace UWP_Visual_Asset_Generator.ViewModels
                 return _originalLogoFile;
             }
         }
-        
+
         public ImageSource OriginalLogoImageSource
         {
             get
@@ -601,7 +601,7 @@ namespace UWP_Visual_Asset_Generator.ViewModels
 
         private async Task LogFirstUseMetrics()
         {
-            if (SystemInformation.IsFirstRun)
+            if (SystemInformation.Instance.IsFirstRun)
             {
                 var t = App.Current.RequestedTheme.ToString();
 

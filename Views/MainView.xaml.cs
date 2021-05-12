@@ -49,7 +49,7 @@ namespace UWP_Visual_Asset_Generator.Views
 
             App.mainPage = this;
 
-            if (SystemInformation.LaunchCount == 3)
+            if (SystemInformation.Instance.LaunchCount == 3)
             {
                 var dialog = new AskForReviewUserControl();
                 await dialog.ShowAsync();

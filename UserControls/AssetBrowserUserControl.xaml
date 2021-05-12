@@ -10,9 +10,9 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:mucx="using:Microsoft.UI.Xaml.Controls"
     xmlns:muimedia="using:Microsoft.UI.Xaml.Media"
+    xmlns:muxc="using:Windows.UI.Xaml.Controls"
     xmlns:tkcon="using:Microsoft.Toolkit.Uwp.UI.Controls"
-    xmlns:viewModels="using:UWP_Visual_Asset_Generator.ViewModels"
-    xmlns:muxc="using:Windows.UI.Xaml.Controls">
+    xmlns:viewModels="using:UWP_Visual_Asset_Generator.ViewModels">
 
     <Grid Padding="12,0,0,0" Background="{ThemeResource SystemChromeMediumColor}">
         <Grid.RowDefinitions>
@@ -22,32 +22,35 @@
         </Grid.RowDefinitions>
 
         <StackPanel HorizontalAlignment="Center">
-            <TextBlock Margin="8,12,8,0" 
-                       Text="{x:Bind mainViewModel.AssetTypes.Current.Title, Mode=OneWay}" 
-                       HorizontalAlignment="Center"
-                       HorizontalTextAlignment="Center"/>
-            <TextBlock Margin="8,0,8,4" 
-                       Text="{x:Bind mainViewModel.AssetTypes.Current.Notes, Mode=OneWay}"
-                       TextWrapping="Wrap"
-                       Style="{ThemeResource CaptionTextBlockStyle}"
-                       FontStyle="Italic"
-                       HorizontalAlignment="Center"
-                       HorizontalTextAlignment="Center"/>
+            <TextBlock
+                Margin="8,12,8,0"
+                HorizontalAlignment="Center"
+                HorizontalTextAlignment="Center"
+                Text="{x:Bind mainViewModel.AssetTypes.Current.Title, Mode=OneWay}" />
+            <TextBlock
+                Margin="8,0,8,4"
+                HorizontalAlignment="Center"
+                FontStyle="Italic"
+                HorizontalTextAlignment="Center"
+                Style="{ThemeResource CaptionTextBlockStyle}"
+                Text="{x:Bind mainViewModel.AssetTypes.Current.Notes, Mode=OneWay}"
+                TextWrapping="Wrap" />
         </StackPanel>
-        
-        <muxc:Button Style="{ThemeResource ButtonRevealStyle}"
-                         Content="Toggle All"
-                         ToolTipService.ToolTip="Toggles all assets in this category"
-                         Padding="8"
-                         x:Name="toggleAllButton"
-                         Click="toggleAllButton_Click"
-                         HorizontalAlignment="Left"
-                         VerticalAlignment="Center"
-                         Margin="0"/>
+
+        <muxc:Button
+            x:Name="toggleAllButton"
+            Margin="0"
+            Padding="8"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Click="toggleAllButton_Click"
+            Content="Toggle All"
+            Style="{ThemeResource ButtonRevealStyle}"
+            ToolTipService.ToolTip="Toggles all assets in this category" />
 
         <GridView
             Grid.Row="1"
-            animations:ReorderGridAnimation.Duration="300"
+            animations:ItemsReorderAnimation.Duration="0:0:0.350"
             ItemsSource="{x:Bind mainViewModel.AssetTypes.Current.Assets.Items, Mode=OneWay}"
             SelectedItem="{x:Bind mainViewModel.AssetTypes.Current.Assets.Current, Mode=TwoWay}"
             SelectionMode="Extended">
@@ -63,15 +66,14 @@
                         Height="470"
                         Margin="0"
                         Padding="0"
-                        
                         BorderBrush="Gray"
                         CornerRadius="4">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="auto" MinHeight="50" />
                             <RowDefinition Height="*" />
                             <RowDefinition Height="auto" />
-                        </Grid.RowDefinitions>                        
-                        
+                        </Grid.RowDefinitions>
+
                         <StackPanel>
                             <TextBlock
                                 Margin="4"
@@ -104,14 +106,14 @@
                             VerticalAlignment="Center"
                             BorderBrush="Silver"
                             BorderThickness="1"
+                            DecodePixelHeight="{x:Bind Logo.PixelHeight, Mode=OneWay}"
+                            DecodePixelWidth="{x:Bind Logo.PixelWidth, Mode=OneWay}"
                             PlaceholderSource="/Images/Logo.png"
                             PlaceholderStretch="Uniform"
                             Source="{x:Bind ReadOnlyLogoForDisplay, Mode=OneWay}"
-                            DecodePixelWidth="{x:Bind Logo.PixelWidth, Mode=OneWay}"
-                            DecodePixelHeight="{x:Bind Logo.PixelHeight, Mode=OneWay}"
-                            Stretch="Uniform" >
+                            Stretch="Uniform">
                             <tkcon:ImageEx.Background>
-                                <SolidColorBrush Color="{x:Bind mainViewModel.PreviewWithAccentColourBrush, Mode=OneWay}"/>
+                                <SolidColorBrush Color="{x:Bind mainViewModel.PreviewWithAccentColourBrush, Mode=OneWay}" />
                             </tkcon:ImageEx.Background>
                         </tkcon:ImageEx>
 
