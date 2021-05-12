@@ -127,7 +127,6 @@
                             <TextBlock
                                 x:Uid="AppInfo"
                                 Margin="12,6"
-                                Style="{ThemeResource FluentBaseTextStyle}"
                                 Text="App info" />
                         </Windows10version1809:AppBarElementContainer>
                         <Windows10version1809:AppBarSeparator />

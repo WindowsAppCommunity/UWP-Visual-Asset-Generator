@@ -2,19 +2,18 @@
     x:Class="UWP_Visual_Asset_Generator.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:UWP_Visual_Asset_Generator"
-    xmlns:flui="using:FluiFramework.UWP.Core">
+    xmlns:flui="using:FluiFramework.UWP.Core"
+    xmlns:local="using:UWP_Visual_Asset_Generator">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                 <!--Frameworks--> 
+                <!--  Frameworks  -->
                 <XamlControlsResources xmlns="using:Microsoft.UI.Xaml.Controls" />
-                <flui:FluiFrameworkThemeResources />
-                
-                 <!--Local Stylesheets-->
+
+                <!--  Local Stylesheets  -->
                 <ResourceDictionary Source="/Styles/Button.xaml" />
             </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>      
+        </ResourceDictionary>
     </Application.Resources>
 
 </Application>

@@ -69,7 +69,6 @@
                             Text="&#xE109;" />
                         <TextBlock
                             x:Uid="AddImage"
-                            Style="{ThemeResource FluentTitleTextStyle}"
                             Text="Add image" />
                     </StackPanel>
 
