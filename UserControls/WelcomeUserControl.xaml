@@ -2,160 +2,181 @@
     x:Class="UWP_Visual_Asset_Generator.UserControls.WelcomeUserControl"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:UWP_Visual_Asset_Generator.UserControls"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:UWP_Visual_Asset_Generator.UserControls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:wui="using:Windows.UI.Xaml.Controls"
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource SystemControlAcrylicElementBrush}">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" x:Name="ColumnOne"/>
-            <ColumnDefinition Width="2*" MaxWidth="600" x:Name="ColumnTwo"/>
-            <ColumnDefinition Width="*" x:Name="ColumnThree"/>
+            <ColumnDefinition x:Name="ColumnOne" Width="*" />
+            <ColumnDefinition
+                x:Name="ColumnTwo"
+                Width="2*"
+                MaxWidth="600" />
+            <ColumnDefinition x:Name="ColumnThree" Width="*" />
         </Grid.ColumnDefinitions>
 
-        <ScrollViewer Grid.Column="1"
-                      VerticalAlignment="Center"
-                      HorizontalScrollBarVisibility="Disabled"
-                      HorizontalScrollMode="Disabled"
-                      HorizontalContentAlignment="Stretch"
-                      VerticalScrollBarVisibility="Auto"
-                      VerticalScrollMode="Auto">
-            
-            <StackPanel x:Name="contentgoeshere" 
-                        CornerRadius="4"
-                        Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" 
-                        BorderThickness="1"
-                        BorderBrush="Silver">
+        <ScrollViewer
+            Grid.Column="1"
+            VerticalAlignment="Center"
+            HorizontalContentAlignment="Stretch"
+            HorizontalScrollBarVisibility="Disabled"
+            HorizontalScrollMode="Disabled"
+            VerticalScrollBarVisibility="Auto"
+            VerticalScrollMode="Auto">
+
+            <StackPanel
+                x:Name="contentgoeshere"
+                Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+                BorderBrush="Silver"
+                BorderThickness="1"
+                CornerRadius="4">
 
                 <Grid Padding="8">
 
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="auto"/>
-                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="auto" />
+                        <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
-                    
-                    <controls:DropShadowPanel BlurRadius="8"
-                       Margin="0,0,12,0" Grid.Column="0"
-                                          ShadowOpacity="0.7"
-                                          OffsetX="2"
-                                          OffsetY="2"
-                                          Color="Gray">
-                        <Image Source="/Images/Logo.png"
-                               Width="200"/>
+
+                    <controls:DropShadowPanel
+                        Grid.Column="0"
+                        Margin="0,0,12,0"
+                        BlurRadius="8"
+                        OffsetX="2"
+                        OffsetY="2"
+                        ShadowOpacity="0.7"
+                        Color="Gray">
+                        <Image Width="200" Source="/Images/Logo.png" />
                     </controls:DropShadowPanel>
 
-                    <StackPanel Grid.Column="1" 
-                                VerticalAlignment="Center">
-                        <TextBlock Text="Welcome to" 
-                                   x:Uid="Welcome" 
-                                   TextWrapping="WrapWholeWords" 
-                                   FontWeight="Bold" 
-                                   Margin="0,0,0,4" />
+                    <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                        <TextBlock
+                            x:Uid="Welcome"
+                            Margin="0,0,0,4"
+                            FontWeight="Bold"
+                            Text="Welcome to"
+                            TextWrapping="WrapWholeWords" />
 
-                        <TextBlock Text="{x:Bind mainViewModel.Settings.AppName, Mode=OneWay}" 
-                                   Style="{ThemeResource SubheaderTextBlockStyle}"
-                                   VerticalAlignment="Center" 
-                                   TextWrapping="WrapWholeWords" 
-                                   HorizontalTextAlignment="Left" />
+                        <TextBlock
+                            VerticalAlignment="Center"
+                            HorizontalTextAlignment="Left"
+                            Style="{ThemeResource SubheaderTextBlockStyle}"
+                            Text="{x:Bind mainViewModel.Settings.AppName, Mode=OneWay}"
+                            TextWrapping="WrapWholeWords" />
                     </StackPanel>
 
                 </Grid>
 
                 <StackPanel Padding="8">
 
-                    <TextBlock Text="Key Features:" 
-                               x:Uid="KeyFeatures" 
-                               TextWrapping="WrapWholeWords" 
-                               FontWeight="Bold" 
-                               Margin="0,0,0,8"  />
+                    <TextBlock
+                        x:Uid="KeyFeatures"
+                        Margin="0,0,0,8"
+                        FontWeight="Bold"
+                        Text="Key Features:"
+                        TextWrapping="WrapWholeWords" />
 
-                    <TextBlock x:Uid="KeyFeature1" 
-                               Text="- Use a single image to generate all the Visual Assets you need for a UWP/Microsoft Store app." 
-                               TextWrapping="WrapWholeWords" />
-                <TextBlock x:Uid="KeyFeature2" 
-                               Text="- Utilise different image resampling methods for improved results." 
-                               TextWrapping="WrapWholeWords" />
-                <TextBlock x:Uid="KeyFeature3" 
-                               Text="- Real time previews." 
-                               TextWrapping="WrapWholeWords" />
-                <TextBlock x:Uid="KeyFeature4" 
-                               Text="- Set backgrpund colour or clear for assets." 
-                               TextWrapping="WrapWholeWords" />
-                <TextBlock x:Uid="KeyFeature5" 
-                               Text="- Free and Open Source, no ads or IAP." 
-                               TextWrapping="WrapWholeWords" />
-                <TextBlock x:Uid="KeyFeature6" 
-                               Text="- Part of the UWP Community and #Launch2020 participant." 
-                               TextWrapping="WrapWholeWords" />
+                    <TextBlock
+                        x:Uid="KeyFeature1"
+                        Text="- Use a single image to generate all the Visual Assets you need for a UWP/Microsoft Store app."
+                        TextWrapping="WrapWholeWords" />
+                    <TextBlock
+                        x:Uid="KeyFeature2"
+                        Text="- Utilize different image resampling methods for improved results."
+                        TextWrapping="WrapWholeWords" />
+                    <TextBlock
+                        x:Uid="KeyFeature3"
+                        Text="- Real time previews."
+                        TextWrapping="WrapWholeWords" />
+                    <TextBlock
+                        x:Uid="KeyFeature4"
+                        Text="- Set background color or clear for assets."
+                        TextWrapping="WrapWholeWords" />
+                    <TextBlock
+                        x:Uid="KeyFeature5"
+                        Text="- Free and Open Source, no ads or IAP."
+                        TextWrapping="WrapWholeWords" />
+                    <TextBlock
+                        x:Uid="KeyFeature6"
+                        Text="- Part of the UWP Community and #Launch2020 participant."
+                        TextWrapping="WrapWholeWords" />
 
-            </StackPanel>
+                </StackPanel>
 
                 <StackPanel Padding="8">
 
-                    <TextBlock x:Uid="AppUpdated" 
-                               Text="App Updated" 
-                               FontWeight="Bold" />
-                    <TextBlock Text="{Binding Settings.AppVersion, Mode=OneWay}" 
-                               Margin="0,0,0,8"/>
-                    
-                    <TextBlock x:Uid="Update1" 
-                               Text="- Added Pixel Blending control."  
-                               TextWrapping="WrapWholeWords"/>
-                    <TextBlock x:Uid="Update2" 
-                               Text="- Added Alpha control."  
-                               TextWrapping="WrapWholeWords"/>
-                    <TextBlock x:Uid="Update3" 
-                               Text="- Added PNG Compression options."  
-                               TextWrapping="WrapWholeWords"/>
-                    <TextBlock x:Uid="Update4" 
-                               Text="- Added remaining Unplated asset resources."  
-                               TextWrapping="WrapWholeWords"/>
+                    <TextBlock
+                        x:Uid="AppUpdated"
+                        FontWeight="Bold"
+                        Text="App Updated" />
+                    <TextBlock Margin="0,0,0,8" Text="{Binding Settings.AppVersion, Mode=OneWay}" />
+
+                    <TextBlock
+                        x:Uid="Update1"
+                        Text="- Added Pixel Blending control."
+                        TextWrapping="WrapWholeWords" />
+                    <TextBlock
+                        x:Uid="Update2"
+                        Text="- Added Alpha control."
+                        TextWrapping="WrapWholeWords" />
+                    <TextBlock
+                        x:Uid="Update3"
+                        Text="- Added PNG Compression options."
+                        TextWrapping="WrapWholeWords" />
+                    <TextBlock
+                        x:Uid="Update4"
+                        Text="- Added remaining Unplated asset resources."
+                        TextWrapping="WrapWholeWords" />
                 </StackPanel>
 
-                <StackPanel x:Uid="Developers" 
-                            Padding="8">
+                <StackPanel x:Uid="Developers" Padding="8">
 
-                    <Image Source="/Images/UWPCommunityGif.gif"
-                           Width="60"
-                           Stretch="Uniform"/>
-                    
-                    <TextBlock Text="Proudly part of Launch 2020"
-                               Margin="0,8,0,0"
-                               HorizontalAlignment="Center"
-                               FontWeight="Bold"/>
+                    <Image
+                        Width="60"
+                        Source="/Images/UWPCommunityGif.gif"
+                        Stretch="Uniform" />
 
-                    <wui:HyperlinkButton Content="Click here to find more awesome new apps for Windows!" 
-                                         NavigateUri="https://uwpcommunity.com/"
-                                         HorizontalAlignment="Center"
-                                         Margin="8,0,0,0"/>
+                    <TextBlock
+                        Margin="0,8,0,0"
+                        HorizontalAlignment="Center"
+                        FontWeight="Bold"
+                        Text="Proudly part of Launch 2020" />
 
-                    <TextBlock Text="Developed by Rob (Valley Software), Yair (Quick Pad) and Ikarago (Notepad, FLUI Framework)"
-                               Margin="0,8,0,0"
-                               Style="{ThemeResource CaptionTextBlockStyle}"
-                               FontStyle="Italic"
-                               HorizontalAlignment="Center"/>
+                    <wui:HyperlinkButton
+                        Margin="8,0,0,0"
+                        HorizontalAlignment="Center"
+                        Content="Click here to find more awesome new apps for Windows!"
+                        NavigateUri="https://uwpcommunity.com/" />
+
+                    <TextBlock
+                        Margin="0,8,0,0"
+                        HorizontalAlignment="Center"
+                        FontStyle="Italic"
+                        Style="{ThemeResource CaptionTextBlockStyle}"
+                        Text="Developed by Rob (Valley Software), Yair (Quick Pad) and Ikarago (Notepad, FLUI Framework)" />
                 </StackPanel>
-                    
-                <wui:HyperlinkButton Content="Privacy Policy" 
-                                     NavigateUri="http://www.valleysoftware.com.au/terms-and-conditions-privacy-policy/"
-                                     HorizontalAlignment="Center"
-                                     Margin="8"/>
 
-                <wui:Button x:Name="btn_Continue" 
-                            HorizontalAlignment="Stretch" 
-                            BorderThickness="1" 
-                            Margin="4,8,4,4" 
-                            Style="{ThemeResource ButtonRevealStyle}"
-                            Click="Btn_Continue_Click"
-                            Content="Continue"
-                            Padding="18"
-                            HorizontalContentAlignment="Center"
-                            FontSize="16"
-                            FontWeight="Bold">
-                </wui:Button>
+                <wui:HyperlinkButton
+                    Margin="8"
+                    HorizontalAlignment="Center"
+                    Content="Privacy Policy"
+                    NavigateUri="http://www.valleysoftware.com.au/terms-and-conditions-privacy-policy/" />
+
+                <wui:Button
+                    x:Name="btn_Continue"
+                    Margin="4,8,4,4"
+                    Padding="18"
+                    HorizontalAlignment="Stretch"
+                    HorizontalContentAlignment="Center"
+                    BorderThickness="1"
+                    Click="Btn_Continue_Click"
+                    Content="Continue"
+                    FontSize="16"
+                    FontWeight="Bold" />
             </StackPanel>
         </ScrollViewer>
     </Grid>

@@ -67,9 +67,7 @@
                             FontSize="72"
                             FontWeight="SemiBold"
                             Text="&#xE109;" />
-                        <TextBlock
-                            x:Uid="AddImage"
-                            Text="Add image" />
+                        <TextBlock x:Uid="AddImage" Text="Add image" />
                     </StackPanel>
 
                     <!--  Main asset  -->
@@ -146,8 +144,7 @@
             Margin="0,8"
             HorizontalAlignment="Stretch"
             Click="btnSetBackgroundColour_Click"
-            Content="Set background colour"
-            Style="{ThemeResource ButtonRevealStyle}" />
+            Content="Set background color" />
 
         <tkcon:Expander
             Grid.Row="2"

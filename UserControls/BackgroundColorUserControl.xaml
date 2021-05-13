@@ -10,23 +10,23 @@
     mc:Ignorable="d">
 
     <Grid>
-        <StackPanel
-            x:Name="contentgoeshere">
+        <StackPanel x:Name="contentgoeshere">
             <TextBlock
                 Margin="8"
                 HorizontalAlignment="Center"
                 Text="Select Icon Background Colour" />
-            <muxc:ToggleSwitch Margin="0,8" 
-                               Header="Use Transparent Background"
-                               OnContent="Yes - Transparent"
-                               OffContent="No - Select a colour below"
-                               IsOn="{x:Bind mainViewModel.UseTransparentBackground, Mode=TwoWay}"/>
+            <muxc:ToggleSwitch
+                Margin="0,8"
+                Header="Use Transparent Background"
+                IsOn="{x:Bind mainViewModel.UseTransparentBackground, Mode=TwoWay}"
+                OffContent="No - Select a colour below"
+                OnContent="Yes - Transparent" />
             <ColorPicker
                 IsAlphaSliderVisible="True"
                 IsAlphaTextInputVisible="True"
                 IsColorChannelTextInputVisible="False"
-                Color="{x:Bind mainViewModel.BackgroundColour, Mode=TwoWay}" 
-                IsEnabled="{x:Bind mainViewModel.UseColouredBackground, Mode=OneWay}"/>
+                IsEnabled="{x:Bind mainViewModel.UseColouredBackground, Mode=OneWay}"
+                Color="{x:Bind mainViewModel.BackgroundColour, Mode=TwoWay}" />
 
             <tk:ImageEx
                 x:Uid="preview"

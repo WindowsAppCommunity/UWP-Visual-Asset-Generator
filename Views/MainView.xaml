@@ -60,11 +60,11 @@
             <!--  End of Titlebar  -->
 
             <!--  Sidebar  -->
-            <uc:SidebarUserControl Grid.Row="1" Grid.Column="0" />
+            <uc:SidebarUserControl Grid.RowSpan="2" Grid.Column="0" />
 
             <!--  Assetsbrowser  -->
             <controls:DropShadowPanel
-                Grid.Row="1"
+                Grid.RowSpan="2"
                 Grid.Column="1"
                 HorizontalAlignment="Stretch"
                 HorizontalContentAlignment="Stretch"
@@ -96,10 +96,7 @@
                 OffsetY="4"
                 ShadowOpacity="0.3"
                 Color="Black">
-                <CommandBar
-                    Windows10version1809:CornerRadius="2"
-                    DefaultLabelPosition="Right"
-                    Style="{ThemeResource CommandBarRevealStyle}">
+                <CommandBar DefaultLabelPosition="Right">
                     <CommandBar.PrimaryCommands>
                         <!--  Primary Command  -->
                         <AppBarButton
