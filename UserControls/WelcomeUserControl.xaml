@@ -117,19 +117,15 @@
 
                     <TextBlock
                         x:Uid="Update1"
-                        Text="- Added Pixel Blending control."
+                        Text="- Startup speed improved (@Yair)."
                         TextWrapping="WrapWholeWords" />
                     <TextBlock
                         x:Uid="Update2"
-                        Text="- Added Alpha control."
+                        Text="- Splash screen colour removed (@Yair)."
                         TextWrapping="WrapWholeWords" />
                     <TextBlock
                         x:Uid="Update3"
-                        Text="- Added PNG Compression options."
-                        TextWrapping="WrapWholeWords" />
-                    <TextBlock
-                        x:Uid="Update4"
-                        Text="- Added remaining Unplated asset resources."
+                        Text="- Underlying styles improved and standardised (@Yair)."
                         TextWrapping="WrapWholeWords" />
                 </StackPanel>
 

@@ -14,8 +14,8 @@
     <AppIconSource>C:\Users\rlmar\source\repos\UWPCommunity\UWP-Visual-Asset-Generator\Images\Logo Original.png</AppIconSource>
     <SplashScreenSource>C:\Users\rlmar\source\repos\UWPCommunity\UWP-Visual-Asset-Generator\Images\Logo Original.png</SplashScreenSource>
     <PackageLogoSource>C:\Users\rlmar\source\repos\UWPCommunity\UWP-Visual-Asset-Generator\Images\Logo Original.png</PackageLogoSource>
-    <UapAppxPackageBuildMode>StoreOnly</UapAppxPackageBuildMode>
-    <AppxBuildConfigurationSelection>x86|x64|arm64</AppxBuildConfigurationSelection>
+    <UapAppxPackageBuildMode>StoreAndSideload</UapAppxPackageBuildMode>
+    <AppxBuildConfigurationSelection>x86|x64|arm|arm64</AppxBuildConfigurationSelection>
     <PackageOptionalProjectsInIdeBuilds>False</PackageOptionalProjectsInIdeBuilds>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
