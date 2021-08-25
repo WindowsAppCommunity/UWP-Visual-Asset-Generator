@@ -53,20 +53,13 @@
             ItemsSource="{x:Bind mainViewModel.AssetTypes.Current.Assets.Items, Mode=OneWay}"
             SelectedItem="{x:Bind mainViewModel.AssetTypes.Current.Assets.Current, Mode=TwoWay}"
             SelectionMode="Extended">
-            <GridView.ItemContainerStyle>
-                <Style TargetType="FrameworkElement">
-                    <Setter Property="Margin" Value="0,0,8,8" />
-                </Style>
-            </GridView.ItemContainerStyle>
             <GridView.ItemTemplate>
                 <DataTemplate x:DataType="viewModels:AssetViewModel">
                     <Grid
                         Width="350"
                         Height="470"
                         Margin="0"
-                        Padding="0"
-                        BorderBrush="Gray"
-                        CornerRadius="4">
+                        Padding="0">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="auto" MinHeight="50" />
                             <RowDefinition Height="*" />

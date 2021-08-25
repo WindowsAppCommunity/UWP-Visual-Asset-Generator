@@ -77,6 +77,7 @@
                         extensions:FrameworkElementExtensions.Cursor="Hand"
                         AllowDrop="True"
                         Canvas.ZIndex="60"
+                        CornerRadius="8"
                         DecodePixelHeight="240"
                         DecodePixelWidth="240"
                         DragOver="Image_Original_DragOver"
@@ -119,15 +120,6 @@
                 </TransitionCollection>
             </ListView.ItemContainerTransitions>
 
-            <ListView.ItemContainerStyle>
-                <Style TargetType="ListViewItem">
-                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
-                    <Setter Property="Padding" Value="4,8" />
-                    <Setter Property="MinHeight" Value="0" />
-                    <Setter Property="Margin" Value="0" />
-                </Style>
-            </ListView.ItemContainerStyle>
-
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="viewmodels:AssetTypeViewModel">
                     <Grid BorderBrush="Gray">
@@ -146,18 +138,19 @@
             Click="btnSetBackgroundColour_Click"
             Content="Set background color" />
 
-        <tkcon:Expander
+        <mucx:Expander
             Grid.Row="2"
             Margin="0,4"
             Padding="0"
             HorizontalAlignment="Stretch"
-            HorizontalContentAlignment="Stretch">
+            HorizontalContentAlignment="Stretch"
+            ExpandDirection="Up">
 
-            <tkcon:Expander.Header>
+            <mucx:Expander.Header>
                 <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                     <TextBlock Text="Advanced" />
                 </Grid>
-            </tkcon:Expander.Header>
+            </mucx:Expander.Header>
 
             <Grid>
                 <Grid.RowDefinitions>
@@ -224,7 +217,7 @@
                 </ComboBox>
 
             </Grid>
-        </tkcon:Expander>
+        </mucx:Expander>
 
         <!--  Theme Setting  -->
         <Grid Grid.Row="4">
@@ -262,7 +255,7 @@
                 Grid.Row="1"
                 Grid.ColumnSpan="2"
                 Height="34"
-                Windows10version1809:CornerRadius="2,0,0,2"
+                Windows10version1809:CornerRadius="4,0,0,4"
                 BorderThickness="1,1,1,1"
                 IsEnabled="False"
                 PlaceholderText="Output Folder"
