@@ -63,20 +63,11 @@
             <uc:SidebarUserControl Grid.RowSpan="2" Grid.Column="0" />
 
             <!--  Assetsbrowser  -->
-            <controls:DropShadowPanel
-                Grid.RowSpan="2"
+            <uc:AssetBrowserUserControl
+                Grid.Row="1"
                 Grid.Column="1"
                 HorizontalAlignment="Stretch"
-                HorizontalContentAlignment="Stretch"
-                BlurRadius="10"
-                Canvas.ZIndex="100"
-                OffsetX="-1"
-                OffsetY="-1"
-                ShadowOpacity="0.2"
-                Color="Black">
-                <uc:AssetBrowserUserControl />
-
-            </controls:DropShadowPanel>
+                HorizontalContentAlignment="Stretch" />
 
             <!--  Assets editor  -->
             <uc:AssetEditUserControl
